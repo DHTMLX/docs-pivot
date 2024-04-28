@@ -8,7 +8,7 @@ description: You can learn about the config config in the documentation of the D
 
 ### Description
 
-@short: Optional. TODO ...
+@short: Optional. Defines the structure of the Pivot table and how data is aggregated
 
 ### Usage
 
@@ -78,4 +78,46 @@ values: [
 
 ### Example
 
-TODO!!!
+~~~jsx {5-40}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+
+  config: {
+    rows: [
+    "studio",
+    "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+    filters: {
+      genre: {
+        // filter for the "genre" field
+        condition: {
+          filter: "D",
+          type: "contains",
+        },
+        includes: [
+          // precise values to be displayed from those that match the filer condition above
+          "Drama",
+        ],
+      },
+      title: {
+        // filter for another field ("title")
+        condition: {
+          filter: "A",
+          type: "contains",
+        },
+      },
+    },
+  },
+});
+~~~

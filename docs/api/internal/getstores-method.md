@@ -22,7 +22,7 @@ The method returns an object with the **DataStore** parameters:
 
 ~~~jsx {}
 {
-  ...
+  data: DataStore // ( object of parameters )
 }
 ~~~
 
@@ -34,5 +34,6 @@ const table = new pivot.Pivot("#root", {
     ...
 });
 
-// TODO
+const stores = table.api.getStores();
+console.log("DataStore:", stores);
 ~~~

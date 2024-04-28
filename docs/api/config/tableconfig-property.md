@@ -8,7 +8,7 @@ description: You can learn about the tableConfig config in the documentation of 
 
 ### Description
 
-@short: Optional. TODO ...
+@short: Optional. A reactive object with the Pivot table configuration settings
 
 You can use this reactive property to change the table settings on the fly.
 
@@ -42,4 +42,86 @@ The object has the following parameters:
 
 ### Example
 
-TODO!!!
+TBD!!!
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+    tableShape: {
+        tree: true,
+        templates: {
+            rank: (v) => v,
+            members: (v) => v,
+        }
+    },
+    fields,
+    data,
+    config: {
+        "rows": [
+            "studio",
+            "genre"
+        ],
+        "columns": [
+        ],
+        "values": [
+            {
+                "id": "title",
+                "method": "count"
+            },
+            {
+                "id": "score",
+                "method": "max"
+            },
+            {
+                "id": "episodes",
+                "method": "count"
+            },
+            {
+                "id": "rank",
+                "method": "min"
+            },
+            {
+                "id": "members",
+                "method": "max"
+            },
+        ]
+    }
+});
+
+    widget.api.intercept("render-table", (ev) => {
+            ev.config.data.forEach((row) => (row.open = false));
+    })
+    
+let mode = "tree";
+
+let tableConfig;
+
+let tableShape = {};
+
+// Function to open all rows
+function openAll() {
+    tableConfig.data.forEach((row) => (row.open = true))    
+    tableConfig.data = [...tableConfig.data];
+}
+
+// Function to close all rows
+function closeAll() {
+    tableConfig.data.forEach((row) => (row.open = false));
+    // make a copy to create a new object for update
+    tableConfig.data = [...tableConfig.data];
+}
+
+// Reactive statement to update table shape based on mode
+tableShape.tree = mode == "tree";
+
+// Rendering buttons
+const openAllButton = document.createElement('button');
+openAllButton.addEventListener('click', openAll);
+openAllButton.textContent = 'Open all';
+
+const closeAllButton = document.createElement('button');
+closeAllButton.addEventListener('click', closeAll);
+closeAllButton.textContent = 'Close all';
+
+document.body.appendChild(openAllButton);
+document.body.appendChild(closeAllButton);
+~~~

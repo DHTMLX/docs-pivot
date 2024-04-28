@@ -8,7 +8,7 @@ description: You can learn about the fields config in the documentation of the D
 
 ### Description
 
-@short: Optional. TODO ... 
+@short: Optional. An array of objects with fields for the Pivot  
 
 ### Usage
 
@@ -28,8 +28,59 @@ Each object in the `fields` array should have the following properties:
 - `id` - (required) the ID of a field
 - `label` - (optional) the field label to be displayed in GUI
 - `type` - (required) data type in a field ( "number", "date", or "string")
-- `sort` - (optional) defines the default sorting order for the field. Accepts either "asc", "desc", or a custom sorting function
+- `sort` - (optional) defines the default sorting order for the field. Accepts "asc", "desc", or a custom sorting function
 
 ### Example
 
-TODO!!!
+~~~jsx {2-34}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields: [
+    {
+      id: "rank",
+      label: "Rank",
+      type: "number",
+    },
+    {
+      id: "title",
+      label: "Title",
+      type: "text",
+    },
+    {
+      id: "genre",
+      label: "Genre",
+      type: "text",
+    },
+    {
+      id: "studio",
+      label: "Studio",
+      type: "text",
+    },
+    {
+      id: "type",
+      label: "Type",
+      type: "text",
+    },
+    {
+      id: "score",
+      label: "Score",
+      type: "number",
+    },
+   //other fields
+  ],
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+~~~

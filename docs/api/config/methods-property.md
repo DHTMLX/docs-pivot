@@ -8,7 +8,7 @@ description: You can learn about the methods config in the documentation of the 
 
 ### Description
 
-@short: Optional. TODO ... 
+@short: Optional. Defines custom mathematical methods for data aggregation 
 
 ### Usage
 
@@ -38,4 +38,25 @@ There is no limit to the number of sub-properties that can be defined in the met
 
 ## Example
 
-TODO!!!
+The example below shows how to calculate the average value of an array. The function takes an array of numbers (vals) as an input, calculates the sum of these numbers using the **reduce** method, and then divides the sum by the length of the array to obtain the average value.
+
+~~~jsx
+const methods = {
+  average: (vals) => {
+      const sum = vals.reduce((acc, v) => acc + v, 0);
+      return sum / vals.length;
+    },
+};
+
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["continent", "name"],
+    columns: ["year"],
+    values: ["average(oil)", { id: "oil", method: "average" }, { id: "gdp", method: "average" }],
+  },
+
+  methods: { ...pivot.defaultMethods, ...methods },
+});
+~~~

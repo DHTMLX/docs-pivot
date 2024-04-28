@@ -8,7 +8,9 @@ description: You can learn about the getStores method in the documentation of th
 
 ### Description
 
-@short: Gets ...
+@short: Gets access to the underlying Grid widget instance in the Pivot
+
+The method provides access to the [Grid API](https://docs.svar.dev/svelte/grid/api/overview/api_overview).
 
 ### Usage
 
@@ -21,18 +23,35 @@ api.getTable(): object;
 The method returns an object with the following parameters:
 
 ~~~jsx {}
-{
-  ...
-}
+api.getTable(): Table;
 ~~~
 
 ### Example
 
+TBD
+
+In the example below we get access to the DataGrid widget API and trigger the Grid [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action with the button click using the [`api.exe()`](/api/methods/exec) method.
+
 ~~~jsx {}
 // create Pivot
-const table = new pivot.Pivot("#root", {
+const widget = new pivot.Pivot("#root", {
     ...
 });
 
-// TODO
+let table = widget.api.getTable();
+
+function toCSV() {
+  table.exeс("export", {
+    options: {
+      format: "csv",
+      cols: ";",
+    },
+  });
+}
+
+const exportButton = document.createElement("button");
+exportButton.addEventListener("click", toCSV);
+exportButton.textContent = "Close all";
+
+document.body.appendChild(exportButton);
 ~~~

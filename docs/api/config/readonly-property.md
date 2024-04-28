@@ -8,7 +8,7 @@ description: You can learn about the readonly config in the documentation of the
 
 ### Description
 
-@short: Optional. TODO ... 
+@short: Optional. Enables/disables the read-only mode 
 
 In the read-only mode it's not possible to configure the Pivot structure via the UI.
 
@@ -27,4 +27,26 @@ The property can be set to **true** or **false**:
 
 ## Example
 
-TODO!!!
+~~~jsx {19}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+
+  readonly: true;
+
+});
+~~~

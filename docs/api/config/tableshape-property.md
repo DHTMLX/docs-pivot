@@ -8,7 +8,7 @@ description: You can learn about the tableShape config in the documentation of t
 
 ### Description
 
-@short: Optional. TODO ...
+@short: Optional. Configures the look of the Pivot table 
 
 ### Usage
 
@@ -54,4 +54,42 @@ tableShape?: {
 
 ## Example
 
-TODO!!!
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+  tableShape: {
+    tree: true,
+    templates: {
+      rank: (v) => v,
+      members: (v) => v,
+    },
+  },
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+      {
+        id: "episodes",
+        method: "count",
+      },
+      {
+        id: "rank",
+        method: "min",
+      },
+      {
+        id: "members",
+        method: "max",
+      },
+    ],
+  },
+});
+~~~

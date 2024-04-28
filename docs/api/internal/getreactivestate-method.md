@@ -22,8 +22,21 @@ The method returns an object with the following parameters:
 
 ~~~jsx {}
 {
-  ...
-}
+   config: {}, // current config (rows, columns, values, filters)
+   data: [], // current source data
+   fields: [], // current fields array
+   result: [], // currently calculated data
+   operations: {}, // currently available data operations by fields types
+   predicates: {}, // currently available predicates by fields
+   activeFilter: {}, // current active filter object (if any filter is open) 
+   headerShape: {}, // table header settings
+   tableShape: {}, //table settings
+   methods: {}, // methods for data aggregation
+   showConfig: boolean, // the state of the configuration panel visibility
+   readonly: boolean, // the state of the read-only mode
+   columnShape: {}, // pivot columns configuration
+   limits: {} // the maximum limit for the number of rows and columns in the dataset
+}  
 ~~~  
 
 ### Example
@@ -34,5 +47,13 @@ const table = new pivot.Pivot("#root", {
     ...
 });
 
-// TODO
+// output the current config state to the console
+
+let config;
+let state = table.api.getReactiveState();
+
+if (config) {
+  console.log("There were some changes in Pivot config. Its current state:");
+  console.log(config);
+}
 ~~~

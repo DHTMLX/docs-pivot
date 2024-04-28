@@ -8,7 +8,7 @@ description: You can learn about the showConfig config in the documentation of t
 
 ### Description
 
-@short: Optional. TODO ... 
+@short: Optional. Enables the visibility of the configuration panel 
 
 ### Usage
 
@@ -25,4 +25,26 @@ The property can be set to **true** or **false**:
 
 ## Example
 
-TODO!!!
+~~~jsx {19}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+
+  showConfig: true
+
+});
+~~~

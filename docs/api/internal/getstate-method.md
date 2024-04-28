@@ -21,9 +21,23 @@ api.getState(): object;
 The method returns an object with the following parameters:
 
 ~~~jsx {}
-{    
-  ...
-}
+  {
+   config: {}, // current config (rows, columns, values, filters)
+   data: [], // source data
+   fields: [],    // fields array
+   result: [],   // calculated data
+   operations: {}, // available data operations by fields types
+   predicates: {}, // available predicates by fields
+   activeFilter: {}, // active filter object (if any filter is open) 
+   headerShape: {}, // table header settings
+   tableShape: {}, //table settings
+   methods: {}, // methods for data aggregation
+   showConfig: boolean, // the state of the configuration panel visibility
+   readonly: boolean, // the state of the read-only mode
+   columnShape: {}, // pivot columns configuration
+   limits: {} // the maximum limit for the number of rows and columns in the dataset
+  }  
+~~~
 
 ### Example
 
@@ -33,5 +47,6 @@ const table = new pivot.Pivot("#root", {
     ...
 });
 
-// TODO
+const { config } = table.api.getState();
+console.log(config); //output the config state to console
 ~~~

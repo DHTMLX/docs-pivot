@@ -27,10 +27,13 @@ api.on(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](api/overview/main_overview.md/#pivot-events)
+The full list of the Pivot internal events can be found [**here**](api/overview/main_overview.md/#pivot-events).
+Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
 :::
 
 ### Example
+
+The example below shows how to output the label of a filed for which filter was activated: 
 
 ~~~jsx {}
 // create Pivot
@@ -38,7 +41,12 @@ const table = new pivot.Pivot("#root", {
     ...
 });
 
-table.api.on(...) => {
-    console.log("...");
+table.api.on("open-filter", (ev) => {
+  const fieldObj = ev.field;
+  const field = fieldObj.base || fieldObj.field;
+
+  if (field) {
+    console.log("The field for which filter was activated:", ev.field.label);
+  }
 });
 ~~~

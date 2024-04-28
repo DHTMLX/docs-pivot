@@ -8,7 +8,7 @@ description: You can learn about the columnShape config in the documentation of 
 
 ### Description
 
-@short: Optional. TODO ...
+@short: Optional. Configures the look and behavior of the Pivot columns
 
 ### Usage
 
@@ -39,6 +39,36 @@ columnShape?: {
 
 ## Example
 
-~~~jsx {}
-// TODO
+~~~jsx {18-30}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+  columnShape: {
+    autoWidth: {
+      // calculate column width for these fields
+      columns: {
+        studio: true,
+        genre: true,
+        title: true,
+        score: true,
+      },
+      // analyze all fields
+      firstOnly: false,
+    },
+  },
+});
 ~~~

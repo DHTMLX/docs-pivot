@@ -30,4 +30,26 @@ The default values for both rows and columns are undefined, which means there's 
 
 ## Example
 
-TODO!!!
+~~~jsx {19}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+
+  limits:{ rows: 25, columns: 4 },
+  
+});
+~~~
