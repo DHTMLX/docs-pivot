@@ -54,7 +54,7 @@ tableShape?: {
 
 ## Example
 
-~~~jsx
+~~~jsx {2-8}
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
     tree: true,

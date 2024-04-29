@@ -87,9 +87,9 @@ const widget = new pivot.Pivot("#pivot", {
     }
 });
 
-    widget.api.intercept("render-table", (ev) => {
-            ev.config.data.forEach((row) => (row.open = false));
-    })
+widget.api.intercept("render-table", (ev) => {
+    ev.config.data.forEach((row) => (row.open = false));
+})
     
 let mode = "tree";
 
@@ -113,7 +113,6 @@ function closeAll() {
 // Reactive statement to update table shape based on mode
 tableShape.tree = mode == "tree";
 
-// Rendering buttons
 const openAllButton = document.createElement('button');
 openAllButton.addEventListener('click', openAll);
 openAllButton.textContent = 'Open all';

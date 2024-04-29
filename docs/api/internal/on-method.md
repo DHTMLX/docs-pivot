@@ -35,7 +35,7 @@ Use the `api.on()` method if you want to listen to the actions without modifying
 
 The example below shows how to output the label of a filed for which filter was activated: 
 
-~~~jsx {}
+~~~jsx {6-13}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     ...

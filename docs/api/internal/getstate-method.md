@@ -41,7 +41,7 @@ The method returns an object with the following parameters:
 
 ### Example
 
-~~~jsx {}
+~~~jsx {6-7}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     ...

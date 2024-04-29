@@ -40,7 +40,7 @@ There is no limit to the number of sub-properties that can be defined in the met
 
 The example below shows how to calculate the average value of an array. The function takes an array of numbers (vals) as an input, calculates the sum of these numbers using the **reduce** method, and then divides the sum by the length of the array to obtain the average value.
 
-~~~jsx
+~~~jsx {1-6,17}
 const methods = {
   average: (vals) => {
       const sum = vals.reduce((acc, v) => acc + v, 0);

@@ -80,7 +80,7 @@ const data = [
 
 ### Example
 
-~~~jsx {}
+~~~jsx {3-29}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
   data: [

@@ -46,7 +46,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     ],
   },
 
-  readonly: true;
+  readonly: true
 
 });
 ~~~

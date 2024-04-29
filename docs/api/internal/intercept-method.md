@@ -33,7 +33,7 @@ Use the `api.on()` method if you want to listen to the actions without modifying
 
 ### Example
 
-~~~jsx {}
+~~~jsx {6-9}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     ...
