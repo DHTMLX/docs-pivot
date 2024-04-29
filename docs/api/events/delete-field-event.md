@@ -8,7 +8,7 @@ description: You can learn about the delete-field event in the documentation of 
 
 ### Description
 
-@short: TODO!!!
+@short: Fires when removing a field
 
 ### Usage
 
@@ -28,5 +28,36 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!
+TODO!!!In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/methods/exec) method. The last field is removed from the **values** area. The [`api.getState()`](/api/methods/getState) method here is used to get the current state of the Pivot [`config`](/api/properties/config). The action will be triggered with the button click.
 
+TBD!!!
+
+~~~jsx {}
+// create Pivot
+const table = new pivot.Pivot("#root", {
+    ...
+});
+//calling methods of API: remove a specific value from values in config
+function removeLastField() {
+  if (api) {
+    const state = table.api.getState();
+    const config = state.config;
+
+    const x = config.values.length;
+
+    if (x) {
+      const lastValue = config.values[x - 1];
+
+      table.api.exec("delete-field", {
+        area: "values",
+        id: lastValue.id, // auto-generated ID of an item added to config.values
+      });
+    }
+  }
+}
+const button = document.createElement("button");
+button.addEventListener("click", removeLastField);
+button.textContent = "Remove";
+
+document.body.appendChild(button);
+~~~

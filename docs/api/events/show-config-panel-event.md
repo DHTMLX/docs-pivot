@@ -8,7 +8,7 @@ description: You can learn about the show-config-panel event in the documentatio
 
 ### Description
 
-@short: TODO!!!
+@short: Fires when the visibility of the configuration panel changes
 
 ### Usage
 
@@ -26,4 +26,27 @@ The callback of the action takes an object with the following parameter:
 
 ### Example
 
-TODO!!!
+~~~jsx {19-22}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+//hide the configuration panel
+widget.api.exec("show-config-panel", {
+  mode: false,
+});
+~~~

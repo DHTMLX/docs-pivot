@@ -41,7 +41,7 @@ TBD!!!
 const table = new pivot.Pivot("#root", {
     ...
 });
-
+//calling methods of API: remove a specific value from values in config
 function removeLastField() {
   if (api) {
     const state = table.api.getState();

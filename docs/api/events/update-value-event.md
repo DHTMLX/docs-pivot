@@ -8,7 +8,7 @@ description: You can learn about the update-field event in the documentation of 
 
 ### Description
 
-@short: TODO!!!
+@short: Fires when updating a field
 
 ### Usage
 
@@ -35,4 +35,27 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!
+~~~jsx {19-22}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+//output the id of a field that is updated to console
+widget.api.on("update-field", (ev) => {
+  console.log("The id of the field that is updated:", ev.id);
+});
+~~~

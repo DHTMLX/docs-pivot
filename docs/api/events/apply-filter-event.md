@@ -8,7 +8,7 @@ description: You can learn about the apply-filter event in the documentation of 
 
 ### Description
 
-@short: TODO!!!
+@short: Fires when a filter is applied
 
 ### Usage
 
@@ -34,4 +34,31 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!
+~~~jsx {20-23}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+//output to console the label of the field to which filter was applied
+widget.api.on("apply-filter", (ev) => {
+  console.log("The field to which filter was applied:", ev.rule.field);
+});
+~~~
+
+---
+
+**Related articles**: [api.on()](/api/internal/on-method)

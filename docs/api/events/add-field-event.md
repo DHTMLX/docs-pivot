@@ -8,7 +8,7 @@ description: You can learn about the add-field event in the documentation of the
 
 ### Description
 
-@short: TODO!!! 
+@short: Fires when a new field is added
 
 ### Usage
 
@@ -37,4 +37,34 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!
+In the example below we use the [`api.intercept()`](/api/internal/intercept-method) method to add a new method to the value field with the **number** data type: 
+
+~~~jsx {20-27}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+//adding values with a predefined method
+widget.api.intercept("add-field", (ev) => {
+  const { fields } = widget.api.getState();
+  const type = fields.find((f) => f.id == ev.field).type;
+
+  if (ev.area == "values" && type == "number") {
+    ev.method = "min";
+  }
+});
+~~~

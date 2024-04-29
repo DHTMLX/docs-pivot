@@ -35,4 +35,27 @@ The function may return either a boolean value or void. When it returns **false*
 
 ### Example
 
-TODO!!!
+~~~jsx {20-22}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+
+widget.api.on("open-filter", (ev) => {
+    console.log("The field id for which filter is activated:", ev.field.field);
+});
+~~~

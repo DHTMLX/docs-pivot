@@ -8,7 +8,7 @@ description: You can learn about the move-field event in the documentation of th
 
 ### Description
 
-@short: TODO!!!
+@short: Fires when reordering fields
 
 ### Usage
 
@@ -32,4 +32,27 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!
+~~~jsx {}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+//output the id of the reordered field to console 
+widget.api.on("move-field", (ev) => {
+  console.log("The id of the reordered field:", ev.id);
+});
+~~~

@@ -8,7 +8,7 @@ description: You can learn about the render-table event in the documentation of 
 
 ### Description
 
-@short: TODO!!!
+@short: Fires after the widget configuration has been processed and just before the table is rendered
 
 It allows you to alter the final table configuration on the fly or prevent the rendering of the table altogether.
 
@@ -49,4 +49,33 @@ If the event handler returns **false**, it will block the operation in question.
 
 ### Example
 
-TODO!!!
+~~~jsx {20-28}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+
+widget.api.intercept("render-table", (ev) => {
+  console.log(ev.config); //output the config object
+  console.log(ev.config.columns); //output the columns array
+
+  ev.config.footer = true;
+  ev.config.columns[0].footer = ["Custom footer"];
+
+  // returning "false" here will prevent the table from rendering
+});
+~~~
