@@ -43,14 +43,14 @@ const table = new pivot.Pivot("#root", {
 });
 //calling methods of API: remove a specific value from values in config
 function removeLastField() {
-  if (api) {
+  if (table.api) {
     const state = table.api.getState();
     const config = state.config;
 
-    const x = config.values.length;
+    const count = config.values.length;
 
-    if (x) {
-      const lastValue = config.values[x - 1];
+    if (count) {
+      const lastValue = config.values[count - 1];
 
       table.api.exec("delete-field", {
         area: "values",
