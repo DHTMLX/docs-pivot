@@ -38,7 +38,7 @@ const widget = new pivot.Pivot("#root", {
     ...
 });
 
-let table = widget.api.getTable();
+let table = widget.getTable();
 
 function toCSV() {
   table.exeс("export", {
@@ -51,7 +51,7 @@ function toCSV() {
 
 const exportButton = document.createElement("button");
 exportButton.addEventListener("click", toCSV);
-exportButton.textContent = "Close all";
+exportButton.textContent = "Export";
 
 document.body.appendChild(exportButton);
 ~~~

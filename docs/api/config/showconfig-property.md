@@ -44,7 +44,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     ],
   },
 
-  showConfig: true
+  showConfig: false
 
 });
 ~~~

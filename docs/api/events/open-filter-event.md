@@ -8,7 +8,7 @@ description: You can learn about the open-filter event in the documentation of t
 
 ### Description
 
-@short: TODO!!! 
+@short: Fires when a filter is activated for a field
 
 ### Usage
 
@@ -34,6 +34,40 @@ The callback function type takes a single argument which is the `field` object w
 The function may return either a boolean value or void. When it returns **false**, the event operation in question will be halted.
 
 ### Example
+
+The example below shows how to make the configuration panel close upon closing the filter box:
+
+~~~jsx {20-27}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+
+ widget.api.intercept("open-filter", (ev) => {
+
+    if(!ev.field) {
+      widget.api.exec("show-config-panel", {
+        mode: false,
+      });
+    }    
+});
+~~~
+
+In the next example we output to console the id of the field for which filter is activated:
 
 ~~~jsx {20-22}
 const widget = new pivot.Pivot("#pivot", {

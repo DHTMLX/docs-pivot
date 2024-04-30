@@ -8,7 +8,7 @@ description: You can learn about the predicates config in the documentation of t
 
 ### Description
 
-@short: Optional. TODO ... 
+@short: Optional. Defines how data should be modified before it's applied 
 
 ### Usage
 

@@ -40,7 +40,7 @@ tableShape?: {
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. For example, it allows setting the currency sign to a cell or other units of measurement. See the example below. 
 - `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/configuration/mark_cells).
-- `sizes` - (optional) defines the following size parameters of the Table: 
+- `sizes` - (optional) defines the following size parameters of the table: 
   - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30

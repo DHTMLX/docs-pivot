@@ -28,9 +28,7 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-TODO!!!In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/methods/exec) method. The last field is removed from the **values** area. The [`api.getState()`](/api/methods/getState) method here is used to get the current state of the Pivot [`config`](/api/properties/config). The action will be triggered with the button click.
-
-TBD!!!
+In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/internal/exec-method) method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The action will be triggered with the button click.
 
 ~~~jsx {}
 // create Pivot
@@ -39,14 +37,14 @@ const table = new pivot.Pivot("#root", {
 });
 //calling methods of API: remove a specific value from values in config
 function removeLastField() {
-  if (api) {
+  if (table.api) {
     const state = table.api.getState();
     const config = state.config;
 
-    const x = config.values.length;
+    const count = config.values.length;
 
-    if (x) {
-      const lastValue = config.values[x - 1];
+    if (count) {
+      const lastValue = config.values[count - 1];
 
       table.api.exec("delete-field", {
         area: "values",

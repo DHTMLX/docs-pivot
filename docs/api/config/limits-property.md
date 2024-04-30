@@ -8,7 +8,7 @@ description: You can learn about the limits config in the documentation of the D
 
 ### Description
 
-@short: Optional. TODO ...
+@short: Optional. Defines the maximum limit for the number of rows and columns in the final dataset
 
 ### Usage
 
