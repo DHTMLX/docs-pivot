@@ -169,7 +169,6 @@ module.exports = {
                 "guides/stylization",
                 "guides/localization",
                 "guides/working-with-data",
-                "guides/working-with-server",
                 "guides/typescript-support"
             ]
         }
