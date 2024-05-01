@@ -10,7 +10,7 @@ description: You can explore how to work with Data in the documentation of the D
 
 The following types of information can be loaded into Pivot:
 
-- [`fields`](/api/config/fields) - an array of objects where each object specifies the data type for each field
+- [`fields`](/api/config/fields-property) - an array of objects where each object specifies the data type for each field
 
 Example:
 
@@ -24,7 +24,7 @@ const fields = [
 ];
 ~~~
 
-- [`data`](/api/config/data) - an array of objects, where each object represents a data row.
+- [`data`](/api/config/data-property) - an array of objects, where each object represents a data row.
 
 Example:
 
@@ -84,7 +84,7 @@ const data = [
 ];
 ~~~
 
-Before loading data you can also define the Pivot structure via the [`config`](/api/config/config) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table.
+Before loading data you can also define the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table.
 
 Example:
 
@@ -150,7 +150,7 @@ const data = [
 ];
 ~~~
 
-Second, include the path to the source data file:
+Second, add the path to the source data file:
 
 ~~~html title="index.html"
 <script type="text/javascript" src="./dist/pivot.js"></script>  
@@ -379,7 +379,7 @@ function toCSV() {
 
 ## Sorting data
 
-The **sort** parameter of the [`fields`](/api/properties/fields) property makes sorting data in the ascending and descending order possible. It accepts either the "asc" or "desc" value, or a custom sorting function.
+The **sort** parameter of the [`fields`](/api/properties/fields-property) property makes sorting data in the ascending and descending order possible. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
 In the example below we add clickable field labels and the sorting functionality on the icon click:
 
