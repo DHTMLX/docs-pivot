@@ -333,47 +333,44 @@ To export the table data to the xlsx or csv format, it's necessary to get access
 
 To do this, apply the [`getTable`](/api/methods/getTable) method.
 
-In the example below we get access to the DataGrid widget API and trigger the [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action on the button click using the [`api.exe()`](/api/internal/exec-method) method.
+In the example below we get access to the DataGrid widget API and trigger the [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx
 const pivotWidget = new pivot.Pivot("#pivot", {
-	fields,
-	data: dataset,
-	config: {
-		rows: [
-			"studio",
-			"genre"
-		],
-		columns: [],
-		values: [
-			{
-				id: "title",
-				method: "count"
-			},
-			{
-				id: "score",
-				method: "max"
-			},
-		]
-	}
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 function toXLSX() {
-	pivotWidget.api.getTable().exec("export", {
-		options: {
-			format: "xlsx",
-			footer: false,
-		},
-	});
+  pivotWidget.api.getTable().exec("export", {
+    options: {
+      format: "xlsx",
+      footer: false,
+    },
+  });
 }
 
 function toCSV() {
-	pivotWidget.api.getTable().exec("export", {
-		options: {
-			format: "csv",
-			cols: ";",
-		},
-	});
+  pivotWidget.api.getTable().exec("export", {
+    options: {
+      format: "csv",
+      cols: ";",
+    },
+  });
 }
 ~~~
 
