@@ -465,7 +465,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-## Working with maths methods
+## Applying maths methods
 
 ### Default methods
 
@@ -518,7 +518,7 @@ Example:
    ],
 ~~~
 
-### Redefining a default method
+### Redefining the default method
 
 By default, the **count** operation is assigned to each newly added field. To set another operation to each new field, you should use the [`api.intercept()`](/api/config/intercept-property) method.
 
