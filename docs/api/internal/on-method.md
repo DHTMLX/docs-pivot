@@ -35,10 +35,25 @@ Use the `api.on()` method if you want to listen to the actions without modifying
 
 The example below shows how to output the label of a filed for which filter was activated: 
 
-~~~jsx {6-13}
+~~~jsx
 // create Pivot
 const table = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 table.api.on("open-filter", (ev) => {

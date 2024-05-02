@@ -175,7 +175,7 @@ To get server data, you can send the request for data using the native **fetch**
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {fields:[], data: []});
 
-const server = "https://snippet.dhtmlx.com/codebase/data/pivot/";
+const server = "https://some-backend-url";
 
 let data = [];
 let fields = [];
@@ -313,7 +313,7 @@ function fromCSV() {
     { id: "when", type: "date" },
   ];
 
-  const dataURL = "https://snippet.dhtmlx.com/codebase/data/pivot/01/dataset.csv";
+  const dataURL = "https://some-backend-url";
   fetch(dataURL)
     .then((response) => response.text())
     .then((text) => convert(text, headers))
@@ -355,15 +355,6 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 });
 
-function toXLSX() {
-  pivotWidget.api.getTable().exec("export", {
-    options: {
-      format: "xlsx",
-      footer: false,
-    },
-  });
-}
-
 function toCSV() {
   pivotWidget.api.getTable().exec("export", {
     options: {
@@ -372,6 +363,12 @@ function toCSV() {
     },
   });
 }
+
+const exportButton = document.createElement("button");
+exportButton.addEventListener("click", toCSV);
+exportButton.textContent = "Export";
+
+document.body.appendChild(exportButton);
 ~~~
 
 ## Sorting data
@@ -576,7 +573,8 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   config: {
     rows: ["continent", "name"],
     columns: ["year"],
-    values: ["average(oil)", { id: "oil", method: "average" }, { id: "gdp", method: "average" }],
+    values: ["average(oil)", { id: "oil", method: "average" },
+    { id: "gdp", method: "average" }],
   },
 
   methods: { ...pivot.defaultMethods, ...methods },

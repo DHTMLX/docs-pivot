@@ -41,10 +41,25 @@ The method returns an object with the following parameters:
 
 ### Example
 
-~~~jsx {6-7}
+~~~jsx
 // create Pivot
 const table = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 const { config } = table.api.getState();

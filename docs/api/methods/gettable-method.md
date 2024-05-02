@@ -28,14 +28,27 @@ api.getTable(): Table;
 
 ### Example
 
-TBD
-
 In the example below we get access to the DataGrid widget API and trigger the Grid [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action with the button click using the [`api.exe()`](/api/methods/exec) method.
 
 ~~~jsx {}
 // create Pivot
 const widget = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 let table = widget.getTable();

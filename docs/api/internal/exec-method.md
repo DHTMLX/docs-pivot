@@ -14,8 +14,8 @@ description: You can learn about the exec method in the documentation of the DHT
 
 ~~~jsx {}
 api.exec(
-	event: string,
-	config: object
+   event: string,
+   config: object
 ): void;
 ~~~
 
@@ -39,7 +39,22 @@ TBD!!!
 ~~~jsx {}
 // create Pivot
 const table = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 //calling methods of API: remove a specific value from values in config
 function removeLastField() {

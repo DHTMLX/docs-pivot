@@ -52,8 +52,10 @@ module.exports = {
                     },
                     items: [
                         // A
-                        "api/methods/some-method",
-                        // ...
+                        "api/methods/gettable-method",
+                        "api/methods/setconfig-method",
+                        "api/methods/setlocale-method",
+                        "api/methods/showconfigpanel-method",
                     ]
                 },
                 // JS Pivot internal methods
@@ -141,6 +143,7 @@ module.exports = {
                         "api/config/fields-property",
                         "api/config/headershape-property",
                         "api/config/limits-property",
+                        "api/config/locale-property",
                         "api/config/methods-property",
                         "api/config/predicates-property",
                         "api/config/readonly-property",

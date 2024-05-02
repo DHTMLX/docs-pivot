@@ -33,10 +33,25 @@ Use the `api.on()` method if you want to listen to the actions without modifying
 
 ### Example
 
-~~~jsx {6-9}
+~~~jsx
 // create Pivot
-const table = new pivot.Pivot("#root", {
-    ...
+consttable = new pivot.Pivot("#root", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 //make all rows closed at the initialization

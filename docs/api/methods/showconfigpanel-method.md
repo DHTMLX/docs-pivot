@@ -1,0 +1,51 @@
+---
+sidebar_label: showConfigPanel()
+title: showConfigPanel()
+description: You can learn about the showConfigPanel() method in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
+---
+
+# showConfigPanel()
+
+### Description
+
+@short: Shows or hides the configuration panel
+
+### Usage
+
+~~~jsx {}
+showConfigPanel(config: object): void;
+~~~
+
+### Parameters
+
+The `config` object has the following parameter: 
+
+- `mode` (boolean) - (required) if the value is set to **true** (default), the configuration panel is shown, and set to **false** when the configuration panel is hidden
+
+### Example
+
+~~~jsx
+// create Pivot
+const widget = new pivot.Pivot("#root", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+});
+
+widget.showConfigPanel ({
+    mode: false
+})
+~~~

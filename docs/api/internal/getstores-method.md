@@ -28,10 +28,25 @@ The method returns an object with the **DataStore** parameters:
 
 ### Example
 
-~~~jsx {6-7}
+~~~jsx {21-22}
 // create Pivot
 const table = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 
 const stores = table.api.getStores();
