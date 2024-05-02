@@ -15,12 +15,12 @@ The method provides access to the [Grid API](https://docs.svar.dev/svelte/grid/a
 ### Usage
 
 ~~~jsx {}
-getTable(): object;
+api.getTable(): Table;
 ~~~
 
 ### Returns
 
-The method returns an object with the following parameters:
+The method returns the Table object:
 
 ~~~jsx {}
 getTable(): Table;
