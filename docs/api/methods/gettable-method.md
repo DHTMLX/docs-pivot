@@ -15,7 +15,7 @@ The method provides access to the [Grid API](https://docs.svar.dev/svelte/grid/a
 ### Usage
 
 ~~~jsx {}
-api.getTable(): object;
+getTable(): object;
 ~~~
 
 ### Returns
@@ -23,7 +23,7 @@ api.getTable(): object;
 The method returns an object with the following parameters:
 
 ~~~jsx {}
-api.getTable(): Table;
+getTable(): Table;
 ~~~
 
 ### Example
