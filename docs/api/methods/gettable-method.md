@@ -1,10 +1,10 @@
 ---
-sidebar_label: api.getTable()
+sidebar_label: getTable()
 title: getTable Method
 description: You can learn about the getTable method in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-# api.getTable()
+# getTable()
 
 ### Description
 
