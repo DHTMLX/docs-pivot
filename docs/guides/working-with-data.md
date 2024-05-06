@@ -434,6 +434,10 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+## Filtering data
+
+The instructions about adding filters see here: [Working with filters](/guides/configuration/#working-with-filters)
+
 ## Limiting loaded data
 
 To limit the number of rows and columns in the final dataset, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data (and when the specified number of row/columns is reached, the data rendering is stopped). The default values for both rows and columns are undefined, which means there's no limit.
@@ -583,8 +587,6 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 ## Processing data with predicates
 
-TBD!!!
-
 Predicates or data modifiers allow you to process data in the required way before this data is used as rows or columns. 
 For example, you can pre-process the date format before applying and displaying data.
 
@@ -593,7 +595,6 @@ To add a predicate, you should use the [`predicates`](/api/config/predicates-pro
 - for each predicate object in the array:
   - specify the predicate id
   - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column  
-  image ((Date) Year Month-Year) !!
   - add the `handler` function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value. 
   - if you want the data to be displayed in the way other than the `handler` function returns, add the template that defines how data should be displayed (optional)  
  You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
@@ -613,9 +614,13 @@ const predicates = {
 };
 ~~~
 
+:::note
+If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableShape) property is taken and depends on the current locale.
+:::
+
 Example:
 
-TBD!!!
+
 
 
 ## Example

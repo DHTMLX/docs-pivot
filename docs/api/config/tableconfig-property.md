@@ -48,10 +48,6 @@ TBD!!!
 const widget = new pivot.Pivot("#pivot", {
     tableShape: {
         tree: true,
-        templates: {
-            rank: (v) => v,
-            members: (v) => v,
-        }
     },
     fields,
     data,

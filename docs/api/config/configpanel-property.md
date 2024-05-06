@@ -1,10 +1,10 @@
 ---
-sidebar_label: showConfig
-title: showConfig Config
-description: You can learn about the showConfig config in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
+sidebar_label: configPanel
+title: configPanel Config
+description: You can learn about the configPanel config in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-# showConfig
+# configPanel
 
 ### Description
 
@@ -13,7 +13,7 @@ description: You can learn about the showConfig config in the documentation of t
 ### Usage
 
 ~~~jsx
- showConfig?: boolean;
+ configPanel?: boolean;
 ~~~
 
 ### Parameters
@@ -44,7 +44,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     ],
   },
 
-  showConfig: false
+  configPanel: false
 
 });
 ~~~

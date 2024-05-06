@@ -176,10 +176,6 @@ To specify the parent row, put its name first in the `rows` array of the [`confi
 const widget = new pivot.Pivot("#pivot", {
     tableShape: {
         tree: true,
-        templates: {
-            rank: (v) => v,
-            members: (v) => v,
-        }
     },
     fields,
     data,
@@ -228,10 +224,6 @@ The example below shows how to expand/collapse all data rows with the button cli
 const widget = new pivot.Pivot("#pivot", {
     tableShape: {
         tree: true,
-        templates: {
-            rank: (v) => v,
-            members: (v) => v,
-        }
     },
     fields,
     data,
@@ -379,7 +371,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Enabling columns and footer with total values
+### Adding footers and rightmost columns with total values
 
 To enable generating the rightmost column with total or sum only values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true** or **"sumOnly"**.
 
@@ -578,11 +570,11 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 ### Default settings
 
-The configuration panel is displayed by default. The widget provides the default functionality that allows toggling the visibility of the configuration panel with the button click. It's made possible via the [`showConfig`](/api/config/showconfig-property) property and [`show-config-panel`](/api/event/show-config-panel-event) event.
+The configuration panel is displayed by default. The widget provides the default functionality that allows toggling the visibility of the configuration panel with the button click. It's made possible via the [`configPanel`](/api/config/configpanel-property) property and [`show-config-panel`](/api/event/show-config-panel-event) event.
 
 ### Hiding configuration panel
 
-To hide the configuration panel, you should use the [`showConfig`](/api/config/showconfig-property) property and set its value to **false**. 
+To hide the configuration panel, you should use the [`configPanel`](/api/config/configpanel-property) property and set its value to **false**. 
 
 ~~~jsx {19}
 const pivotWidget = new pivot.Pivot("#pivot", {

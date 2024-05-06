@@ -139,6 +139,7 @@ module.exports = {
                         // JS Pivot
                         "api/config/columnshape-property",
                         "api/config/config-property",
+                        "api/config/configpanel-property",
                         "api/config/data-property",
                         "api/config/fields-property",
                         "api/config/headershape-property",
@@ -147,8 +148,7 @@ module.exports = {
                         "api/config/methods-property",
                         "api/config/predicates-property",
                         "api/config/readonly-property",
-                        "api/config/showconfig-property",
-                        "api/config/tableconfig-property",
+                         "api/config/tableconfig-property",
                         "api/config/tableshape-property"
                     ]
                 }
