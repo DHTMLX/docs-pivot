@@ -13,41 +13,41 @@ description: You can learn about the predicates config in the documentation of t
 ### Usage
 
 ~~~jsx
-predicates: {
-  [type:  "number" | "date" | "string"]:
-  [
-    {
-      id: string,
-      label: string,
-      handler?: (value: any) => any,
-      template?: (value: any, params: any) => any
-    }
-  ]
-} 
+predicates?: {
+  id: string,
+  label: string,
+  type: "number" | "string",
+  fieldFilter?: (field: any) => boolean,
+  handler?: (value: any) => any,
+  template?: (value: any, params: any) => any
+}
 ~~~
 
 ### Parameters
 
-- `type` - (required) data type ("number" | "date" | "string") that should be the same for an array of objects with the next parameters for each object:
+The object has the following parameters:
+
   - `id`- (required) a predicate's id which is specified as the `method` value of the `rows` or `columns` property
-	- `label` - (required) a predicate's label displayed in GUI in the drop-down among data modifiers options for a row/column  
+	- `label` - (required) a predicate's label displayed in GUI in the drop-down among data modifiers options for a row/column 
+  - `type` - (required) data type ("number" or "string")
+  - `fieldFilter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
 	- `handler` - (optional) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary the `params` object is defined with the following parameters:
-  - `locale` - (optional) the locale to localize text values
-  - `state` - (optional) the Pivot state object (see [`getState()`](TODO))
+	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary the `params` object is defined with the following parameters: `locale` - (optional) the locale to localize text values and `state` - (optional) the Pivot state object (see [`getState()`](/api/internal/getstate-method))
+ 
 
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 
 ~~~jsx
 const predicates = {
-   date: [
-      { id: "$empty", label: "(date)" },
-      { id: "year", label: "year" },
-      { id: "month", label: "month" },
-      { id: "day", label: "day" },
-      { id: "hour", label: "hour" },
-      { id: "minute", label: "minute" },
-   ]
+$empty: {
+		label: (v: any, type: any) => `(${type})`,
+		type: ["number", "date", "text"],
+	},
+	year: { label: "year", type: "date" },
+	month: { label: "month", type: "date" },
+	day: { label: "day", type: "date" },
+	hour: { label: "hour", type: "date" },
+	minute: { label: "minute", type: "date" },
 };
 ~~~
 
@@ -57,4 +57,57 @@ If no custom predicate is set, for the **date** type the default *$empty* templa
 
 ## Example
 
-TODO!!!
+~~~jsx
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+  dataset.forEach((item) => {
+    dateFields.forEach((f) => {
+      const v = item[f.id];
+      if (typeof v == "string") item[f.id] = new Date(v);
+    });
+  });
+}
+
+// custom predicates
+const predicates = {
+  monthYear: {
+    id: "monthYear",
+    label: "month-year",
+    type: "date",
+    handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1).getTime(),
+    template: (value, params) => {
+      const locale = params.locale;
+      const date = new Date(value);
+      const months = locale.getRaw().calendar.monthFull;
+      return months[date.getMonth()] + " " + date.getFullYear();
+    },
+  },
+  balanceSign: {
+    id: "balanceSign",
+    label: "balanceSign",
+    type: "number",
+    fieldFilter: (field) => field === "profit",
+    handler: (v) => (v < 0 ? -1 : 1),
+    template: (v) => (v < 0 ? "Negative balance" : "Positive balance"),
+  },
+};
+
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  tableShape: { dateFormat: "%d %M %Y %H:%i" },
+  predicates: { ...pivot.defaultPredicates, ...predicates },
+  config: {
+    rows: ["state"],
+    columns: [
+      { id: "date", method: "year" },
+      { id: "date", method: "monthYear" },
+      { id: "profit", method: "balanceSign" },
+    ],
+    values: [{ id: "sales", method: "sum" }],
+  },
+});
+~~~
+
+
