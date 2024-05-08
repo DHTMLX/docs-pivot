@@ -601,24 +601,72 @@ To add a predicate, you should use the [`predicates`](/api/config/predicates-pro
 
 The following default predicates are applied:
 
-~~~js
+The following default predicates are applied:
+
+~~~jsx
 const predicates = {
-   date: [
-      { id: "$empty", label: "(date)" },
-      { id: "year", label: "year" },
-      { id: "month", label: "month" },
-      { id: "day", label: "day" },
-      { id: "hour", label: "hour" },
-      { id: "minute", label: "minute" },
-   ],
+$empty: {
+		label: (v: any, type: any) => `(${type})`,
+		type: ["number", "date", "text"],
+	},
+	year: { label: "year", type: "date" },
+	month: { label: "month", type: "date" },
+	day: { label: "day", type: "date" },
+	hour: { label: "hour", type: "date" },
+	minute: { label: "minute", type: "date" },
 };
 ~~~
 
 :::note
-If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableShape) property is taken and depends on the current locale.
+If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableshape-property) property is taken and depends on the current locale.
 :::
 
-Example:
+## Example
+
+~~~jsx
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+  dataset.forEach((item) => {
+    dateFields.forEach((f) => {
+      const v = item[f.id];
+      if (typeof v == "string") item[f.id] = new Date(v);
+    });
+  });
+}
+
+// custom predicate
+const predicates = {
+  monthYear: {
+    id: "monthYear",
+    label: "month-year",
+    type: "date",
+    handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1).getTime(),
+    template: (value, params) => {
+      const locale = params.locale;
+      const date = new Date(value);
+      const months = locale.getRaw().calendar.monthFull;
+      return months[date.getMonth()] + " " + date.getFullYear();
+    },
+  },
+};
+
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  tableShape: { dateFormat: "%d %M %Y %H:%i" },
+  predicates: { ...pivot.defaultPredicates, ...predicates },
+  config: {
+    rows: ["state"],
+    columns: [
+      { id: "date", method: "year" },
+      { id: "date", method: "monthYear" },
+      { id: "profit", method: "balanceSign" },
+    ],
+    values: [{ id: "sales", method: "sum" }],
+  },
+});
+~~~
 
 
 

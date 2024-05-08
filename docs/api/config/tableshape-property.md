@@ -38,7 +38,7 @@ tableShape?: {
 
 ### Parameters
 
-- `templates` -  (optional) allows setting templates to a cell; it's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning fixed decimal point for numeric values, etc. See the example below. 
+- `templates` -  (optional) allows setting templates to a cell; it's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
 - `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/configuration/mark_cells).
 - `sizes` - (optional) defines the following size parameters of the table: 
   - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
@@ -54,10 +54,10 @@ tableShape?: {
 
 ## Example
 
-In the example below we apply the template to the *score* values to display only 2 decimal points for these values and we add the "€" sign to the *price* values. 
+In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
 
 ~~~jsx {1,6}
-const templates = { price: (v) => (v ? "€" + v : v), score: (v) => (v ? "$" + parseFloat(v).toFixed(2) : v) };
+const templates = { price: (v) => (v ? "€" + v : v), score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
 
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
