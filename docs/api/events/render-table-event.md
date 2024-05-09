@@ -49,6 +49,8 @@ If the event handler returns **false**, it will block the operation in question.
 
 ### Example
 
+The next example shows how to output the `tableConfig` object to console and add a footer.
+
 ~~~jsx {20-28}
 const widget = new pivot.Pivot("#pivot", {
   fields,
@@ -78,4 +80,85 @@ widget.api.intercept("render-table", (ev) => {
 
   // returning "false" here will prevent the table from rendering
 });
+~~~
+
+The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/properties/tableshape-property) property.
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+  tableShape: {
+    tree: true,
+  },
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+      {
+        id: "episodes",
+        method: "count",
+      },
+      {
+        id: "rank",
+        method: "min",
+      },
+      {
+        id: "members",
+        method: "max",
+      },
+    ],
+  },
+});
+
+let mode = "tree";
+const options = [
+  { value: "tree", label: "Tree mode" },
+  { value: "plain", label: "Plain table" },
+];
+
+let tableShape = {};
+tableShape.tree = mode == "tree";
+
+widget.api.intercept("render-table", (ev) => {
+  // close all top-level branches on pivot configuration change
+  if (ev.eventSource == "store") ev.config.data.forEach((r) => (r.open = false));
+  // returning "false" here will prevent the table from rendering
+  // return false;
+});
+
+function openAll() {
+  setOpenState(true);
+}
+function closeAll() {
+  setOpenState(false);
+}
+function setOpenState(state) {
+  const config = widget.api.getState().tableConfig;
+  config.data.forEach((r) => (r.open = state));
+  // make a copy to create a new object for update
+  config.data = [...config.data];
+  // call 'render-table' event with updated 'config'
+  // if needed, use another property as a flag for the custom handler ('myEvent' in this demo)
+  widget.api.exec("render-table", { config });
+}
+
+const openAllButton = document.createElement("button");
+openAllButton.addEventListener("click", openAll);
+openAllButton.textContent = "Open all";
+
+const closeAllButton = document.createElement("button");
+closeAllButton.addEventListener("click", closeAll);
+closeAllButton.textContent = "Close all";
+
+document.body.appendChild(openAllButton);
+document.body.appendChild(closeAllButton);
 ~~~

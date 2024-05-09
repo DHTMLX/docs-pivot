@@ -99,7 +99,7 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 <div id="root" class="wx-styled-scroll"></div> 
 ~~~
 
-## Cells style
+## Cell style
 
 The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to create a css class to be applied to the marked cell, and then add the css class name as the parameter of the `marks` object and set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
 

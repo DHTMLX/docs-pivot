@@ -214,84 +214,84 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Expanding/collapsing all rows
 
-TBD!!!
-
-To expand/collapse all rows, the tree mode should be enabled via the `tableShape` property and you should use the [`tableConfig`](/api/config/tableconfig-property) reactive property that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the table property).
+To expand/collapse all rows, the tree mode should be enabled via the `tableShape` property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the tableConfig object).
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
-    tableShape: {
-        tree: true,
-    },
-    fields,
-    data,
-    config: {
-        "rows": [
-            "studio",
-            "genre"
-        ],
-        "columns": [
-        ],
-        "values": [
-            {
-                "id": "title",
-                "method": "count"
-            },
-            {
-                "id": "score",
-                "method": "max"
-            },
-            {
-                "id": "episodes",
-                "method": "count"
-            },
-            {
-                "id": "rank",
-                "method": "min"
-            },
-            {
-                "id": "members",
-                "method": "max"
-            },
-        ]
-    }
+  tableShape: {
+    tree: true,
+  },
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+      {
+        id: "episodes",
+        method: "count",
+      },
+      {
+        id: "rank",
+        method: "min",
+      },
+      {
+        id: "members",
+        method: "max",
+      },
+    ],
+  },
 });
 
-widget.api.intercept("render-table", (ev) => {
-    ev.config.data.forEach((row) => (row.open = false));
-})
-    
 let mode = "tree";
-
-let tableConfig;
+const options = [
+  { value: "tree", label: "Tree mode" },
+  { value: "plain", label: "Plain table" },
+];
 
 let tableShape = {};
-
-// Function to open all rows
-function openAll() {
-    tableConfig.data.forEach((row) => (row.open = true))    
-    tableConfig.data = [...tableConfig.data];
-}
-
-// Function to close all rows
-function closeAll() {
-    tableConfig.data.forEach((row) => (row.open = false));
-    // make a copy to create a new object for update
-    tableConfig.data = [...tableConfig.data];
-}
-
-// Reactive statement to update table shape based on mode
 tableShape.tree = mode == "tree";
 
-const openAllButton = document.createElement('button');
-openAllButton.addEventListener('click', openAll);
-openAllButton.textContent = 'Open all';
+widget.api.intercept("render-table", (ev) => {
+  // close all top-level branches on pivot configuration change
+  if (ev.eventSource == "store") ev.config.data.forEach((r) => (r.open = false));
+  // returning "false" here will prevent the table from rendering
+  // return false;
+});
 
-const closeAllButton = document.createElement('button');
-closeAllButton.addEventListener('click', closeAll);
-closeAllButton.textContent = 'Close all';
+function openAll() {
+  setOpenState(true);
+}
+function closeAll() {
+  setOpenState(false);
+}
+function setOpenState(state) {
+  const config = widget.api.getState().tableConfig;
+  config.data.forEach((r) => (r.open = state));
+  // make a copy to create a new object for update
+  config.data = [...config.data];
+  // call 'render-table' event with updated 'config'
+  // if needed, use another property as a flag for the custom handler ('myEvent' in this demo)
+  widget.api.exec("render-table", { config });
+}
+
+const openAllButton = document.createElement("button");
+openAllButton.addEventListener("click", openAll);
+openAllButton.textContent = "Open all";
+
+const closeAllButton = document.createElement("button");
+closeAllButton.addEventListener("click", closeAll);
+closeAllButton.textContent = "Close all";
 
 document.body.appendChild(openAllButton);
 document.body.appendChild(closeAllButton);
