@@ -42,6 +42,8 @@ or just include the theme on the page from the skins folder:
 
 ## Custom style
 
+You can change the appearance of Pivot by applying the corresponding CSS variables.
+
 The example below shows how to apply a custom style to Pivot:
 
 ~~~html
@@ -59,7 +61,7 @@ The example below shows how to apply a custom style to Pivot:
 </style>
 ~~~
 
-The example below demonstrates how to change Material theme that is applied to the Pivot table:
+The example below demonstrates how to customize Material theme that is applied to the Pivot table:
 
 ~~~html
 <!-- custom styles -->
@@ -95,6 +97,61 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 ~~~html {} title="index.html"
 <!--container for Pivot-->
 <div id="root" class="wx-styled-scroll"></div> 
+~~~
+
+## Cells style
+
+The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to create a css class to be applied to the marked cell, and then add the css class name as the parameter of the `marks` object and set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
+
+In the example below, cells with min and max values are marked, and custom function is used to mark cells with values that are non-integer and greater than 2. 
+
+~~~jsx {18-26}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+  tableShape: {
+    marks: {
+      // built-in marks (min/max highlight)
+      min_cell: "min",
+      max_cell: "max",
+      // custom mark
+     g_avg: v => (v % 1 !== 0) && v > 2
+    },
+  },
+});
+~~~
+
+~~~html title="index.html"
+<style>
+  .min_cell {
+    background: #4caf50 !important;
+    color: #fff;
+  }
+
+  #pivot .max_cell {
+    background: #ff5722 !important;
+    color: #fff;
+  }
+
+  .g_avg {
+    background: #57a5c9 !important;
+    color: #fff;
+  }
+</style>
 ~~~
 
 ## Adaptivity

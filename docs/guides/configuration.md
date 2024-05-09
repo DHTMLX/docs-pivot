@@ -335,42 +335,6 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Marking cells
-
-The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to create a css class to be applied to the marked cell, and then add the css class name as the parameter of the `marks` object and set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
-
-In the example below, cells with min and max values are marked:
-
-~~~jsx {18-26}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
-  tableShape: {
-    marks: {
-      // built-in marks (min/max highlight)
-      min_cell: "min",
-      max_cell: "max",
-      // custom mark
-      g_avg: (v) => v % 1 !== 0 && v > 8.5,
-    },
-  },
-});
-~~~
-
 ### Adding footers and rightmost columns with total values
 
 To enable generating the rightmost column with total or sum only values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true** or **"sumOnly"**.
@@ -412,7 +376,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Working with dates
+### Setting date format
 
 To set the date format, apply the **dateFormat** parameter of the [`tableShape`](/api/config/tableshape-property) property. The default format is "%d %M %Y %H:%i". 
 
