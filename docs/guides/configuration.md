@@ -9,9 +9,9 @@ description: You can learn about the configuration in the documentation of the D
 You can configure the *Pivot* appearance and functionality via the corresponding API, namely, you can configure the Pivot table elements and the configuration panel. The available parameters will allow you to:
 
 - define the structure of the Pivot table and how data is aggregated via the [`config`](/api/config/config-property) property
+- change default table configuration on the fly via the [`render-table`](/api/events/render-table-event)
 - configure the look of the Pivot table via the [`tableShape`](/api/config/tableshape-property) property
 - configure the look and behavior of the Pivot columns via the [`columnShape`](/api/config/columnshape-property) property
-- tableConfig - tbd!!!
 - configure the look and behavior of headers in the Pivot table via the [`headerShape`](/api/config/headershape-property) property
 - control the visibility of the configuration panel via the [`showConfig`](/api/config/showconfig-property) property
 - apply the desired locale via the [setLocale()](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)

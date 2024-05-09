@@ -148,7 +148,6 @@ module.exports = {
                         "api/config/methods-property",
                         "api/config/predicates-property",
                         "api/config/readonly-property",
-                         "api/config/tableconfig-property",
                         "api/config/tableshape-property"
                     ]
                 }
