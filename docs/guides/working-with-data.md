@@ -521,7 +521,7 @@ Example:
 
 ### Redefining the default method
 
-By default, the **count** operation is assigned to each newly added field. To set another operation to each new field, you should use the [`api.intercept()`](/api/config/intercept-property) method.
+By default, the **count** operation is assigned to each newly added field. To set another operation to each new field, you should use the [`api.intercept()`](/api/methods/intercept-method) method.
 
 In the example below, we check whether a new field is added, and set the **max** method in case a numeric field is added.
 

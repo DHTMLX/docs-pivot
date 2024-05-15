@@ -37,7 +37,7 @@ The callback of the action takes an object with the following parameters:
 ~~~jsx {20-23}
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],

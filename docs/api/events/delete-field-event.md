@@ -31,9 +31,23 @@ The callback of the action takes an object with the following parameters:
 In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/internal/exec-method) method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The action will be triggered with the button click.
 
 ~~~jsx {}
-// create Pivot
 const table = new pivot.Pivot("#root", {
-    ...
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 //calling methods of API: remove a specific value from values in config
 function removeLastField() {

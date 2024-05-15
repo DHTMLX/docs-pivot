@@ -84,6 +84,8 @@ widget.api.intercept("render-table", (ev) => {
 
 The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/properties/tableshape-property) property.
 
+to be changed (eventSource)!!!!!
+
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {

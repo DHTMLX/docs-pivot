@@ -39,13 +39,13 @@ tableShape?: {
 ### Parameters
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
-- `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/configuration/mark_cells).
+- `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/configuration#marking-cells).
 - `sizes` - (optional) defines the following size parameters of the table: 
   - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30
   - `colWidth` - (optional) the column width in pixels; the default value is 150
-- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/tree_mode)
+- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#switching-to-the-tree-mode)
 - `totalColumn` - (optional) enables generating the total column. The default value is **false**; it also enables calculating the "sum" values, if set to "sumOnly"
 - `footer` - (optional) enables generating the footer with total values (if set to **true**) or sum values if set to "sumOnly"; the default value is **false**
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**

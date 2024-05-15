@@ -48,7 +48,7 @@ The callback of the action takes an object with the [`config`](/api/properties/c
   - `name` - (optional) the filter key which is the ID of a field with the filtering rule or exact filtering criteria:
       - `condition` - (optional) the filtering rule object with the parameters below:
          - `filter` - (optional) the value to filter by
-         - `type` - (optional) filtering criteria which depend on the field value type (see the **type** parameter for the [`fields`](TODO) property).  
+         - `type` - (optional) filtering criteria which depend on the field value type (see the **type** parameter for the [`fields`](/api/config/fields-property) property).  
          Filtering criteria (condition types):
            - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith
            - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains
@@ -86,6 +86,6 @@ const widget = new pivot.Pivot("#pivot", {
 });
 //output the config object to console
 widget.api.intercept("update-config", (config) => {
-  console.log("Config was changed", config);
+  console.log("Config has changed", config);
 });
 ~~~

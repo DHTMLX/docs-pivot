@@ -72,7 +72,7 @@ In the next example we output to console the id of the field for which filter is
 ~~~jsx {20-22}
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],

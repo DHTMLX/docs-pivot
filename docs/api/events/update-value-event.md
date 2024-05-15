@@ -56,6 +56,6 @@ const widget = new pivot.Pivot("#pivot", {
 });
 //output the id of a field that is updated to console
 widget.api.on("update-field", (ev) => {
-  console.log("The id of the field that is updated:", ev.id);
+  console.log("The id of the field that was updated:", ev.id);
 });
 ~~~
