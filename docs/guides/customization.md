@@ -24,7 +24,7 @@ const widget = new pivot.Pivot("#pivot", {
     templates,
   },
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],
@@ -57,7 +57,7 @@ In the example below for the **values** fields the header will display the metho
 ~~~jsx {19-22}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],

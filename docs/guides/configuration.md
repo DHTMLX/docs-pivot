@@ -39,7 +39,7 @@ You can change the size of the table rows and columns, header and footer using t
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   tableShape: {
     sizes: {
       rowHeight: 44,
@@ -82,7 +82,7 @@ Example:
 ~~~jsx {18-30}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],
@@ -120,7 +120,7 @@ It's possible to collapse/expand columns that are under one header. To make colu
 ~~~jsx {4-6}
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   headerShape: {
     columnCollapsing: true,
   },
@@ -148,7 +148,7 @@ The widget allows freezing columns on the left side, which makes the left-most c
 ~~~jsx {18}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio"],
     columns: ["genre"],
@@ -304,7 +304,7 @@ To change text orientation from default horizontal to vertical, use the [`header
 ~~~jsx {4-6}
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   headerShape: {
     verticalText: true,
   },
@@ -350,7 +350,7 @@ const widget = new pivot.Pivot("#pivot", {
     totalColumn: true,
   },
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio"],
     columns: ["type"],
@@ -400,7 +400,7 @@ if (dateFields.length) {
 
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   tableShape: { dateFormat: "%d %M %Y %H:%i" },
   config: {
     rows: ["state"],
@@ -489,7 +489,7 @@ To set a filter, add the **filters** array with the field ID and filter type to 
 ~~~jsx {5-40}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
 
   config: {
     rows: [
@@ -543,7 +543,7 @@ To hide the configuration panel, you should use the [`configPanel`](/api/config/
 ~~~jsx {19}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],
@@ -569,7 +569,7 @@ You can also make the panel hide by default by triggering the [`show-config-pane
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],
@@ -601,7 +601,7 @@ Example:
 ~~~jsx {20-22}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],

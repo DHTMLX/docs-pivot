@@ -101,14 +101,17 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 
 ## Cell style
 
-The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to create a css class to be applied to the marked cell, and then add the css class name as the parameter of the `marks` object and set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
+The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
+- create a CSS class to be applied to the marked cell
+- add the CSS class name as the parameter of the `marks` object
+- set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
 
 In the example below, cells with min and max values are marked, and custom function is used to mark cells with values that are non-integer and greater than 2. 
 
 ~~~jsx {18-26}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
-  data: dataset,
+  data,
   config: {
     rows: ["studio", "genre"],
     columns: [],
@@ -129,7 +132,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
       min_cell: "min",
       max_cell: "max",
       // custom mark
-     g_avg: v => (v % 1 !== 0) && v > 2
+      g_avg: v => (v % 1 !== 0) && v > 2
     },
   },
 });

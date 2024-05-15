@@ -24,9 +24,9 @@ limits?: {
 
 - `rows` - (optional) sets the maximum number of rows in the final dataset
 - `columns` - (optional) sets the maximum number of columns in the final dataset
-- `raws` - (optional) the maximum number of source data rows before data is grouped 
+- `raws` - (optional) the maximum number of source data rows before data is grouped (raw data records used for aggregating) 
 
-The default values for both rows and columns are undefined, which means there's no limit.
+The default values for both rows and columns are `undefined`, which means there's no limit.
 
 ## Example
 

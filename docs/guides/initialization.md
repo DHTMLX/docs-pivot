@@ -47,6 +47,39 @@ Initialize Pivot with the **pivot.Pivot** constructor. It takes two parameters:
 // create Pivot
 new pivot.Pivot("#root", {
     // configuration properties
+ config: {
+    rows: ["continent", "name"],
+    columns: ["year"],
+    values: [{ field: "oil", method: "sum" }],
+  },
+  fields: [
+    { id: "name", label: "Name", type: "text" },
+    { id: "year", label: "Year", type: "number" },
+    { id: "continent", label: "Continent", type: "text" },
+    { id: "oil", label: "Oil", type: "number" },
+  ],
+  data: [
+    {
+      name: "Argentina",
+      year: 2015,
+      continent: "South America",
+      form: "Republic",
+      gdp: 181.357,
+      oil: 1.545,
+      balance: 4.699,
+      when: new Date("4/21/2015"),
+    },
+    {
+      name: "Argentina",
+      year: 2017,
+      continent: "South America",
+      form: "Republic",
+      gdp: 212.507,
+      oil: 1.732,
+      balance: 7.167,
+      when: new Date("1/15/2017"),
+    },
+  ],
 });
 ~~~
 
