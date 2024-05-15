@@ -8,7 +8,7 @@ description: You can explore how to start working with DHTMLX Pivot in the docum
 
 This clear and comprehensive tutorial will guide your through the steps you need to take in order to get a full-functional Pivot on a page.
 
-TODO!!!
+image to be added!!!
 
 ## Step 1. Including source files
 
@@ -82,11 +82,31 @@ Now you are ready to add Pivot to the page. First, let's create the DIV containe
 
 Next you can specify configuration properties you want the Pivot component to have when initialized.
 
-To start working with Pivot, first you need to provide the initial data.
+To start working with Pivot, first you need to provide the initial data. The example below creates a Pivot with:
+
+- rows for the *studio* and *genre*
+- the *title* column 
+- the value aggregation for *score* with the *max* method
+
+The **fields** array is necessary to define the fields IDs, labels for display, and data types.
+
+The **data** array holds the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table. This example provides data for Argentina for the years 2015 and 2017.
 
 ~~~jsx {}
 const table = new pivot.Pivot("#root", {
-    ...
+//configuration properties
+fields,
+data,
+config: {
+    rows: ["studio", "genre"],
+    columns: ["title"],
+    values: [
+      {
+        field: "score",
+        method: "max",
+      },
+    ],
+  },
 });
 ~~~
 
