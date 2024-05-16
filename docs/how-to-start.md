@@ -90,7 +90,7 @@ To start working with Pivot, first you need to provide the initial data. The exa
 
 The **fields** array is necessary to define the fields IDs, labels for display, and data types.
 
-The **data** array holds the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table. This example provides data for Argentina for the years 2015 and 2017.
+The **data** array should hold the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table. 
 
 ~~~jsx {}
 const table = new pivot.Pivot("#root", {
