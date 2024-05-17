@@ -14,25 +14,26 @@ description: You can learn about the methods config in the documentation of the 
 
 ~~~jsx 
  methods?: {
-    [key: string]:
+    [method: string]:
     {
-      type?:string,
+      type?: 'number' | 'date' | 'text' | [],
       label?:string,
-      handler:(vals: any[]) => any }
-    | { (vals: any[]) => any }
-};
+      handler: (values: number[]|string[]|Date[]) => any,
+      branchMode?: "raw"|"result",
+      branchMath?: string,
+    },
+ };
 ~~~
 
 ### Parameters
 
-Each method object has the following parameters: 
+Each method is represented by a key-value pair, where the key is the name of a method and the value is an object that describes the method's behavior. Each object has the following parameters:
 
-- `key` - (required) the name of a method
-- `values` - (required) a function that calculates an aggregated value from an array of numbers; the function takes an array of values as an input and returns a single value as an output.  
-Instead of `values` there can be an object with the following parameters:
-- `type` - (optional) data type ("number" | "date" | "string")
+- `handler` - (required) a function that calculates an aggregated value from an array of numbers; the function takes an array of values as an input and returns a single value as an output.  
+- `type` - (optional) data type this method is suitable for; it can be "number", "date" or "text" or an array of these values
 - `label` - (optional) the method label to be shown in GUI
-- `handler` - (required) a function that calculates an aggregated value from an array of numbers; the function takes an array of values as an input and returns a single value as an output. 
+- `branchMode` - (optional)
+- `branchMath` - (optional) 
 
 There is no limit to the number of sub-properties that can be defined in the methods object. By default, the `methods` property is an empty object ({}), which means there are no default custom methods.
 

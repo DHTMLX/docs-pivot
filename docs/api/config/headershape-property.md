@@ -14,16 +14,16 @@ description: You can learn about the headerShape config in the documentation of 
 
 ~~~jsx  
 headerShape?: {
-  columnCollapsing?: boolean,
-  verticalText?: boolean,
-  template?: (label: string, id: string, subLabel?: string) => string
+  collapsible?: boolean,
+  vertical?: boolean,
+  template?: (label: string, fieldId: string, subLabel?: string) => string
 };
 ~~~
 
 ### Parameters
 
-- `columnCollapsing` - (optional) if set to **true**, enables columns collapsing in all headers; it's set to **false** by default
-- `verticalText` - (optional) if set to **true**, changes the text orientation in all headers from horizontal to vertical; the default value is **false**
+- `collapsible` - (optional) if set to **true**, enables columns collapsing in all headers; it's set to **false** by default
+- `vertical` - (optional) if set to **true**, changes the text orientation in all headers from horizontal to vertical; the default value is **false**
 - `template` - (optional) defines the format of text in headers; by default, for the fields applied as rows the value of the `label` parameter is displayed and for the fields applied as values the label and method are shown (e.g., *Oil(count)*); the function takes the field id, label and the method or predicate id (if any) and returns the processed value (the default template is as follows: *template: (label, id, subLabel) => label + (id ? ` (${subLabel})` : ""),*).
 
 ## Example
@@ -48,8 +48,8 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 
   headerShape: {
-    verticalText: true,
-    template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
+    vertical: true,
+    template: (label, fieldId, subLabel) => fieldId + (subLabel ? ` (${subLabel})` : ""),
   },
 });
 ~~~

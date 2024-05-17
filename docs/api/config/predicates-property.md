@@ -8,33 +8,34 @@ description: You can learn about the predicates config in the documentation of t
 
 ### Description
 
-@short: Optional. Defines how data should be modified before it's applied 
+@short: Optional. Provides custom pre-processing functions for the data dimensions (rows, columns)
+
+It defines how data should be modified before it's applied.
 
 ### Usage
 
 ~~~jsx
 predicates?: {
-  id: string,
-  label: string,
-  type: "number" | "string",
-  fieldFilter?: (field: any) => boolean,
-  handler?: (value: any) => any,
-  template?: (value: any, params: any) => any
-}
+[key: string]: {
+  handler: (value: any) => any,
+  type?: 'number' | 'date' | 'text' | [],
+  label?: string | (type: 'number' | 'date' | 'text') => string,
+  template: (value: any, locale: any) => string,
+  filter: (value:string) => boolean
+  },
+};
 ~~~
 
 ### Parameters
 
-The object has the following parameters:
+The property is an object where key is the name of a custom function and value is an object with actual function definitions. The predicates object can have multiple key-function pairs, and all of them will be available for use in the Pivot configuration. Each object has the following parameters:
 
-  - `id`- (required) a predicate's id which is specified as the `method` value of the `rows` or `columns` property
-	- `label` - (required) a predicate's label displayed in GUI in the drop-down among data modifiers options for a row/column 
-  - `type` - (required) data type ("number" or "string")
-  - `fieldFilter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
+  - `label` - (required) a predicate's label displayed in GUI in the drop-down among data modifiers options for a row/column 
+  - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date" or "text" or an array of these values
+  - `filter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
 	- `handler` - (optional) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary the `params` object is defined with the following parameters: `locale` - (optional) the locale to localize text values and `state` - (optional) the Pivot state object (see [`getState()`](/api/internal/getstate-method))
+	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary `locale` - the locale to localize text values 
  
-
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 
 ~~~jsx
@@ -72,7 +73,6 @@ if (dateFields.length) {
 // custom predicates
 const predicates = {
   monthYear: {
-    id: "monthYear",
     label: "month-year",
     type: "date",
     handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1).getTime(),
@@ -84,7 +84,6 @@ const predicates = {
     },
   },
   balanceSign: {
-    id: "balanceSign",
     label: "balanceSign",
     type: "number",
     fieldFilter: (field) => field === "profit",

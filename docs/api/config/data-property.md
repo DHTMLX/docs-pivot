@@ -8,7 +8,7 @@ description: You can learn about the data config in the documentation of the DHT
 
 ### Description
 
-@short: Optional. An array of objects with data for the Pivot table
+@short: Optional. An array of objects with data for the Pivot table 
 
 ### Usage
 
@@ -18,7 +18,8 @@ data?: [];
 
 ### Parameters
 
-Each object of the `data` property represents a row. The default value is an empty array.
+Each object of the `data` array represents a row. The default value is an empty array.
+There are no direct sub-properties of the `data` property. Each object in the array, however, can have any number of properties which will represent the dimensions and values for the Pivot table.
 
 Example of the `data` array: 
 

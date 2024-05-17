@@ -8,7 +8,9 @@ description: You can learn about the fields config in the documentation of the D
 
 ### Description
 
-@short: Optional. An array of objects with fields for the Pivot  
+@short: Optional. An array of objects with fields for the Pivot table
+
+The `fields` property in the configuration object controls how the widget interprets the types of the data fields it receives and allows defining the sorting order for a field. 
 
 ### Usage
 
@@ -22,6 +24,8 @@ fields?: [{
 ~~~
 
 ### Parameters
+
+By default, if the property is not set, the widget automatically analyzes the incoming data and populates the `fields` object accordingly. 
 
 Each object in the `fields` array should have the following properties: 
 
