@@ -27,37 +27,64 @@ description: You can learn about the methods config in the documentation of the 
 
 ### Parameters
 
-Each method is represented by a key-value pair, where the key is the name of a method and the value is an object that describes the method's behavior. Each object has the following parameters:
+Each method is represented by a key-value pair, where the `method` is the name of a method and the value is an object that describes the method's behavior. Each object has the following parameters:
 
 - `handler` - (required) a function that calculates an aggregated value from an array of numbers; the function takes an array of values as an input and returns a single value as an output.  
 - `type` - (optional) data type this method is suitable for; it can be "number", "date" or "text" or an array of these values
 - `label` - (optional) the method label to be shown in GUI
-- `branchMode` - (optional)
-- `branchMath` - (optional) 
+- `branchMode` - (optional) defines the mode for the calculation of total values for the tree table; the branchMode can be set to `raw` for calculation based on all raw data; `result` (default) is set for calculation based on already processed data in the tree mode
+- `branchMath` - (optional) the name of a method to calculate total values in the tree mode; the "sum" is set by default
+
+By default, the `methods` property is an empty object ({}), which means that no custom methods are defined. There are 5 predefined methods: "sum", "min", "max", "count", "average".
 
 There is no limit to the number of sub-properties that can be defined in the methods object. By default, the `methods` property is an empty object ({}), which means there are no default custom methods.
 
 ## Example
 
-The example below shows how to calculate the average value of an array. The function takes an array of numbers (vals) as an input, calculates the sum of these numbers using the **reduce** method, and then divides the sum by the length of the array to obtain the average value.
+The example below shows how to calculate the the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
 
-~~~jsx {1-6,17}
+~~~jsx {}
+function countDistinct(values, converter) {
+  const valueMap = {};
+  return values.reduce((acc, d) => {
+    if (converter) d = converter(d);
+    if (!valueMap[d]) {
+      acc++;
+      valueMap[d] = true;
+    }
+    return acc;
+  }, 0);
+}
+
 const methods = {
-  average: (vals) => {
-      const sum = vals.reduce((acc, v) => acc + v, 0);
-      return sum / vals.length;
-    },
+  distinct_count: {
+    handler: (values) => countDistinct(values),
+    type: ["number", "text"],
+    label: "distinct count",
+  },
 };
 
-const pivotWidget = new pivot.Pivot("#pivot", {
+const widget = new pivot.Pivot("#pivot", {
   fields,
-  data,
-  config: {
-    rows: ["continent", "name"],
-    columns: ["year"],
-    values: ["average(oil)", { id: "oil", method: "average" }, { id: "gdp", method: "average" }],
-  },
-
+  data: dataset,
   methods: { ...pivot.defaultMethods, ...methods },
+  config: {
+    rows: ["state"],
+    columns: ["product_line", "product_type"],
+    values: [
+      {
+        field: "sales",
+        method: "sum",
+      },
+      {
+        field: "sales",
+        method: "count",
+      },
+      {
+        field: "sales",
+        method: "distinct_count",
+      },
+    ],
+  },
 });
 ~~~
