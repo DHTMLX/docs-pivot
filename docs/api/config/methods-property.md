@@ -35,9 +35,7 @@ Each method is represented by a key-value pair, where the `method` is the name o
 - `branchMode` - (optional) defines the mode for the calculation of total values for the tree table; the branchMode can be set to `raw` for calculation based on all raw data; `result` (default) is set for calculation based on already processed data in the tree mode
 - `branchMath` - (optional) the name of a method to calculate total values in the tree mode; the "sum" is set by default
 
-By default, the `methods` property is an empty object ({}), which means that no custom methods are defined. There are 5 predefined methods: "sum", "min", "max", "count", "average".
-
-There is no limit to the number of sub-properties that can be defined in the methods object. By default, the `methods` property is an empty object ({}), which means there are no default custom methods.
+By default, the `methods` property is an empty object ({}), which means that no custom methods are defined. There are 5 predefined methods: "sum", "min", "max", "count", "average". There is no limit to the number of sub-properties that can be defined in the methods object. 
 
 ## Example
 
