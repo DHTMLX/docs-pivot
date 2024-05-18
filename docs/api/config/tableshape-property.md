@@ -36,7 +36,7 @@ tableShape?: {
   tree?:boolean,
   cleanRows?: boolean,
   split?: {
-    left?: number;
+    left?: number
   },
 };
 ~~~
@@ -65,8 +65,9 @@ By default, `tableShape` is undefined, implying that no total row, no total colu
 
 In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
 
-~~~jsx {1,6}
-const templates = { price: (v) => (v ? "€" + v : v), score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
+~~~jsx {1-2,7}
+const templates = { price: (v) => (v ? "€" + v : v),
+score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
 
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
