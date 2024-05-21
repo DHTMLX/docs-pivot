@@ -26,6 +26,4 @@ api.setNext(next: any): void;
 // TODO!!!
 ~~~
 
-:::info
-You need to include **RestDataProvider** into the **Event Bus** order to perform operations with data (**adding**, **deleting** etc) and send the corresponding requests to the server.
-:::
+

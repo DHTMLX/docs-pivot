@@ -39,7 +39,7 @@ By default, the `methods` property is an empty object ({}), which means that no 
 
 ## Example
 
-The example below shows how to calculate the the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
+The example below shows how to calculate the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
 
 ~~~jsx {}
 function countDistinct(values, converter) {

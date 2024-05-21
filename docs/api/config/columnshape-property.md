@@ -31,7 +31,7 @@ columnShape?: {
 
 ### Parameters
 
-- `sort` - (optional) if **true**, the sorting in a column is enabled; **false** is set by default. 
+- `sort` - (optional) if **true** (default), the sorting is enabled in UI by clicking the column header; if **false**, the sorting is disabled
 - `width` - (optional) defines the width of a column; it's an object where each key is a field id and the value is the width of the column in pixels
 - `autoWidth` - (optional) an object that defines how column width should be calculated automatically. The default configuration uses 20 rows, and the width is calculated based on the header and data, with each field analyzed only once. The object parameters are the following: 
    - `columns` - (optional) an object where each key is a field id and the boolean value defines whether column width should be calculated automatically

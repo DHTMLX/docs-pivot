@@ -40,21 +40,16 @@ The following default predicates are applied in case no predicate is specified v
 
 ~~~jsx
 const predicates = {
-$empty: {
-		label: (v: any, type: any) => `(${type})`,
-		type: ["number", "date", "text"],
-	},
-	year: { label: "year", type: "date" },
-	month: { label: "month", type: "date" },
-	day: { label: "day", type: "date" },
-	hour: { label: "hour", type: "date" },
-	minute: { label: "minute", type: "date" },
+	date: [
+		{ id: "$empty", label: "(date)" },
+		{ id: "year", label: "year" },
+		{ id: "month", label: "month" },
+		{ id: "day", label: "day" },
+		{ id: "hour", label: "hour" },
+		{ id: "minute", label: "minute" },
+	],
 };
 ~~~
-
-:::note
-If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableshape-property) property is taken and depends on the current locale.
-:::
 
 ## Example
 

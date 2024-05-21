@@ -8,7 +8,7 @@ description: You can learn about the setConfig() method in the documentation of 
 
 ### Description
 
-@short: Sets new configuration parameters of Pivot
+@short: Updates the current configuration of the Pivot widget
 
 ### Usage
 

@@ -72,8 +72,8 @@ The widget allows setting the minimum width value for all columns as well as ena
 All parameters of `autoWidth` are optional and detailed description of each parameter you can see here: [columnShape property](/api/config/columnshape-property).
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
-- use the `header` and `data` parameters to adjust the width to the header or cell content
-- use `rows` to specify how many data rows will be used to detect size of a column; by default 20 rows are used
+- use the `auto` parameter to adjust the width to the header or cell content
+- use `maxRows` to specify how many data rows will be used to detect size of a column; by default 20 rows are used
 
 If `firstOnly` is set (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
@@ -115,7 +115,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 ### Making columns collapsible
 
-It's possible to collapse/expand columns that are under one header. To make columns collapsible, use the value of the `columnCollapsible` parameter of the [`headerShape`](/api/config/headershape-property) property by setting it to **true**.
+It's possible to collapse/expand columns that are under one header. To make columns collapsible, use the value of the `collapsible` parameter of the [`headerShape`](/api/config/headershape-property) property by setting it to **true**.
 
 ~~~jsx {4-6}
 const widget = new pivot.Pivot("#pivot", {
@@ -143,7 +143,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Freezing columns
 
-The widget allows freezing columns on the left side, which makes the left-most columns visible while scrolling. To freeze columns, apply the **splitLeft** attribute of the [`headerShape`](/api/config/headershape-property) property by setting its value to a specified number of columns.
+The widget allows freezing columns on the left side, which makes the left-most columns visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to a specified number of columns.
 
 ~~~jsx {18}
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -163,7 +163,10 @@ const pivotWidget = new pivot.Pivot("#pivot", {
       },
     ],
   },
-  columnShape: { splitLeft: 1 },
+  tableShape: { split: {
+    left: 2
+    },
+  },
 });
 ~~~
 
@@ -299,14 +302,14 @@ document.body.appendChild(closeAllButton);
 
 ### Changing text orientation in headers
 
-To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-propeprty) property and set its `verticalText` parameter to **true**. 
+To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-propeprty) property and set its `vertical` parameter to **true**. 
 
 ~~~jsx {4-6}
 const widget = new pivot.Pivot("#pivot", {
   fields,
   data,
   headerShape: {
-    verticalText: true,
+    vertical: true,
   },
   tableShape: {
     sizes: {
@@ -335,18 +338,18 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Adding footers and rightmost columns with total values
+### Adding columns and rows with total values
 
-To enable generating the rightmost column with total or sum only values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true** or **"sumOnly"**.
+To enable generating the rightmost column with total values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true**.
 
-To enable generating the footer with total or sum only values, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `footer` parameter to **true** or **"sumOnly"**.
+To enable generating the bottom row with total, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
 
 Example:
 
 ~~~jsx {2-5}
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
-    footer: true,
+    totalRow: true,
     totalColumn: true,
   },
   fields,
@@ -378,50 +381,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Setting date format
 
-To set the date format, apply the **dateFormat** parameter of the [`tableShape`](/api/config/tableshape-property) property. The default format is "%d %M %Y %H:%i". 
-
-Example:
-
-~~~jsx
-function setFormat(value) {
-  widget.setConfig({ tableShape: { dateFormat: value } });
-}
-
-// date string to Date
-const dateFields = fields.filter((f) => f.type == "date");
-if (dateFields.length) {
-  dataset.forEach((item) => {
-    dateFields.forEach((f) => {
-      const v = item[f.id];
-      if (typeof v == "string") item[f.id] = new Date(v);
-    });
-  });
-}
-
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  tableShape: { dateFormat: "%d %M %Y %H:%i" },
-  config: {
-    rows: ["state"],
-    columns: ["product_line", "product_type"],
-    values: [
-      {
-        id: "date",
-        method: "min",
-      },
-      {
-        id: "profit",
-        method: "sum",
-      },
-      {
-        id: "sales",
-        method: "sum",
-      },
-    ],
-  },
-});
-~~~
+tbd
 
 Pivot uses the following characters for setting the date format:
 
@@ -534,37 +494,11 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 ### Default settings
 
-The configuration panel is displayed by default. The widget provides the default functionality that allows toggling the visibility of the configuration panel with the button click. It's made possible via the [`configPanel`](/api/config/configpanel-property) property and [`show-config-panel`](/api/event/show-config-panel-event) event.
+The configuration panel is displayed by default. The widget provides the default functionality that allows toggling the visibility of the configuration panel with the button click. It's made possible via the [`show-config-panel`](/api/event/show-config-panel-event) event.
 
 ### Hiding configuration panel
 
-To hide the configuration panel, you should use the [`configPanel`](/api/config/configpanel-property) property and set its value to **false**. 
-
-~~~jsx {19}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
-
-  showConfig: false
-
-});
-~~~
-
-You can also make the panel hide by default by triggering the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/methods/exec-method) method.
+To hide the panel hide, you can trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {

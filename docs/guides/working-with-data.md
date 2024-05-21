@@ -373,7 +373,9 @@ document.body.appendChild(exportButton);
 
 ## Sorting data
 
-The **sort** parameter of the [`fields`](/api/properties/fields-property) property makes sorting data in the ascending and descending order possible. It accepts either the "asc" or "desc" value, or a custom sorting function.
+The widget API allows configuring default sorting settings and enabling the sorting in UI by clicking the column header.
+
+To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
 In the example below we add clickable field labels and the sorting functionality on the icon click:
 
@@ -431,6 +433,41 @@ const widget = new pivot.Pivot("#pivot", {
             },
         ]
     }
+});
+~~~
+
+To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-properties) property.
+
+~~~jsx {19}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        id: "title",
+        method: "count",
+      },
+      {
+        id: "score",
+        method: "max",
+      },
+    ],
+  },
+  columnShape: {
+    sort: false, 
+    autoWidth: {
+      // calculate column width for these fields
+      columns: {
+        studio: true,
+        genre: true,
+        title: true,
+        score: true,
+      },
+    },
+  },
 });
 ~~~
 
@@ -559,29 +596,51 @@ widget.api.intercept("add-field", (ev) => {
 
 To add a custom method, use the [`methods`](/api/config/methods-property) property by setting the `key` parameter value to the method name and the `value` parameter should be a function that defines how a method should process data. The function should take an array of numerical values as an input and return a single numerical value. 
 
-The example below shows how to calculate the average value of an array. The function takes an array of numbers (vals) as an input, calculates the sum of these numbers using the **reduce** method, and then divides the sum by the length of the array to obtain the average value.
+The example below shows how to calculate the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
 
-Example:
+~~~jsx {}
+function countDistinct(values, converter) {
+  const valueMap = {};
+  return values.reduce((acc, d) => {
+    if (converter) d = converter(d);
+    if (!valueMap[d]) {
+      acc++;
+      valueMap[d] = true;
+    }
+    return acc;
+  }, 0);
+}
 
-~~~jsx {1-6,17}
 const methods = {
-  average: (vals) => {
-      const sum = vals.reduce((acc, v) => acc + v, 0);
-      return sum / vals.length;
-    },
+  distinct_count: {
+    handler: (values) => countDistinct(values),
+    type: ["number", "text"],
+    label: "distinct count",
+  },
 };
 
-const pivotWidget = new pivot.Pivot("#pivot", {
+const widget = new pivot.Pivot("#pivot", {
   fields,
-  data,
-  config: {
-    rows: ["continent", "name"],
-    columns: ["year"],
-    values: ["average(oil)", { id: "oil", method: "average" },
-    { id: "gdp", method: "average" }],
-  },
-
+  data: dataset,
   methods: { ...pivot.defaultMethods, ...methods },
+  config: {
+    rows: ["state"],
+    columns: ["product_line", "product_type"],
+    values: [
+      {
+        field: "sales",
+        method: "sum",
+      },
+      {
+        field: "sales",
+        method: "count",
+      },
+      {
+        field: "sales",
+        method: "distinct_count",
+      },
+    ],
+  },
 });
 ~~~
 
@@ -617,7 +676,9 @@ $empty: {
 };
 ~~~
 
-:::note
+
+TBD!!!
+:::note 
 If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableshape-property) property is taken and depends on the current locale.
 :::
 
