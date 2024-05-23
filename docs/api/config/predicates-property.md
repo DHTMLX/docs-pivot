@@ -40,14 +40,15 @@ The following default predicates are applied in case no predicate is specified v
 
 ~~~jsx
 const predicates = {
-	date: [
-		{ id: "$empty", label: "(date)" },
-		{ id: "year", label: "year" },
-		{ id: "month", label: "month" },
-		{ id: "day", label: "day" },
-		{ id: "hour", label: "hour" },
-		{ id: "minute", label: "minute" },
-	],
+	$empty: {
+		label: (v: any, type: any) => `raw ${type}`,
+		type: ["number", "date", "text"],
+	},
+	year: { label: "year", type: "date" },
+	month: { label: "month", type: "date" },
+	day: { label: "day", type: "date" },
+	hour: { label: "hour", type: "date" },
+	minute: { label: "minute", type: "date" },
 };
 ~~~
 
@@ -90,7 +91,6 @@ const predicates = {
 const widget = new pivot.Pivot("#pivot", {
   fields,
   data: dataset,
-  tableShape: { dateFormat: "%d %M %Y %H:%i" },
   predicates: { ...pivot.defaultPredicates, ...predicates },
   config: {
     rows: ["state"],

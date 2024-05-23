@@ -37,6 +37,21 @@ Each method is represented by a key-value pair, where the `method` is the name o
 
 By default, the `methods` property is an empty object ({}), which means that no custom methods are defined. There are 5 predefined methods: "sum", "min", "max", "count", "average". There is no limit to the number of sub-properties that can be defined in the methods object. 
 
+Predefined methods:
+
+~~~jsx
+const methods = {
+	sum: { label: "sum" },
+	min: { type: ["number", "date"], label: "min" },
+	max: { type: ["number", "date"], label: "max" },
+	count: {
+		type: ["number", "date", "text"],
+		label: "count",
+		branchMath: "sum",
+	},
+};
+~~~
+
 ## Example
 
 The example below shows how to calculate the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.

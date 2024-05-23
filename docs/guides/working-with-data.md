@@ -514,6 +514,21 @@ The widget provides the following default methods for data aggregation:
 - Max (for numeric and date values) - finds and displays the maximum value of the selected data property  
 - Count (for numeric, text, and date values) - looks for all occurrences of the selected data property and displays their number; this is the default operation assigned to each newly added field
 
+Predefined methods:
+
+~~~jsx
+const methods = {
+	sum: { label: "sum" },
+	min: { type: ["number", "date"], label: "min" },
+	max: { type: ["number", "date"], label: "max" },
+	count: {
+		type: ["number", "date", "text"],
+		label: "count",
+		branchMath: "sum",
+	},
+};
+~~~
+
 You can apply default methods using the `values` parameter of the [`config`](/api/config/config-property) property. See [Options for defining values](#options-for-defining-values) below.
 
 Example: 
@@ -715,7 +730,6 @@ const predicates = {
 const widget = new pivot.Pivot("#pivot", {
   fields,
   data: dataset,
-  tableShape: { dateFormat: "%d %M %Y %H:%i" },
   predicates: { ...pivot.defaultPredicates, ...predicates },
   config: {
     rows: ["state"],
@@ -728,8 +742,6 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
-
-
 
 
 ## Example
