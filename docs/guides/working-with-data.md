@@ -675,8 +675,6 @@ To add a predicate, you should use the [`predicates`](/api/config/predicates-pro
 
 The following default predicates are applied:
 
-The following default predicates are applied:
-
 ~~~jsx
 const predicates = {
 $empty: {
@@ -696,8 +694,6 @@ TBD!!!
 :::note 
 If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableshape-property) property is taken and depends on the current locale.
 :::
-
-## Example
 
 ~~~jsx
 // date string to Date
