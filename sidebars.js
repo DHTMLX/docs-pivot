@@ -81,6 +81,7 @@ module.exports = {
                                 id: "api/overview/internal-eventbus-overview"
                             },
                             items: [
+                                "api/internal/detach-method",
                                 "api/internal/exec-method",
                                 "api/internal/intercept-method",
                                 "api/internal/on-method",
