@@ -49,6 +49,7 @@ const methods = {
 		label: "count",
 		branchMath: "sum",
 	},
+	average: { type: "number", label: "average", branchMode: "raw" },
 };
 ~~~
 

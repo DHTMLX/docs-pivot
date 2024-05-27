@@ -25,30 +25,31 @@ The action is useful for saving a user's aggregation configuration so that it ca
 
 ### Parameters
 
-The callback of the action takes an object with the [`config`](/api/properties/config) parameters:
+The callback of the action takes an object with the processed [`config`](/api/properties/config) parameters: 
 
-- `rows` - defines rows of the Pivot table. The default value is an empty array. It can be a string which represents a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
-  - `id` - a field ID
-  - `method` - defines a method for data extraction (for time-based data fields)
-- `columns` - defines columns for the Pivot table. It's an empty array by default. It can be a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
-  - `id` - a field ID
+- `rows` - rows of the Pivot table. An object with the field ID and a method for data extraction; the object parameters are the following:
+  - `id` - the ID of a field
+  - `method` - a method for data extraction (for time-based data fields)
+- `columns` - defines columns for the Pivot table. It's an object with the field ID and a method for data extraction; the object parameters are the following:
+  - `id` - the ID of a field
   - `method` - defines a method for data extraction (for time-based data fields)
   By default, methods are available for the time-based fields (the **when** field) with the next values: year, month, day, hour, minute.
-- `values` - defines the data aggregation for the cells of the Pivot table. It's an empty array by default. Each element can be a string representing a data field ID and aggregation method or an object containing the field ID and the method for data aggregation. The object parameters are the following:
+- `values` - defines the data aggregation for the cells of the Pivot table. It's an object containing the field ID and the method for data aggregation. The object parameters are the following:
   - `id` - the ID of a field
   - `method` - defines a method for data extraction; possible types:
-      - for numeric values: min, max, sum, count
+      - for numeric values: min, max, sum, count, avg
       - for text values: count
       - for date value: min, max, count  
 	  Sum - sums all the values of the selected data property and displays the sum  
 		Min - finds and displays the minimum value of the selected data property  
 		Max - finds and displays the maximum value of the selected data property  
 		Count - looks for all occurrences of the selected data property and displays their number; set by default for each newly added field
+    Avg - calculates average value
 - `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and data aggregation method; the object parameters are the following:
   - `name` - (optional) the filter key which is the ID of a field with the filtering rule or exact filtering criteria:
       - `condition` - (optional) the filtering rule object with the parameters below:
          - `filter` - (optional) the value to filter by
-         - `type` - (optional) filtering criteria which depend on the field value type (see the **type** parameter for the [`fields`](/api/config/fields-property) property).  
+         - `type` - (optional) filtering criteria which depend on the field value type (see the **type** parameter for the [`fields`](/api/properties/fields) property).  
          Filtering criteria (condition types):
            - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith
            - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains
