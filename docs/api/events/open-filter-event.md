@@ -14,20 +14,17 @@ description: You can learn about the open-filter event in the documentation of t
 
 ~~~jsx {}
 "open-filter": ({
-    field: {}
+  id: string | null,
+  area?: "values" | "rows" | "columns"
 }) => boolean | void;
 ~~~
 
 ### Parameters
 
-The callback function type takes a single argument which is the `field` object with the next parameters:
+The callback of the action takes the next parameters:
 
 - `area` - the area where a field is applied (rows, columns, values)
-- `field` (only for fields without predicates) - the id of a field 
-- `base` (only for fields with predicates) - the id of a field
-- `label` - the label of a field
-- `method` - the method applied to a field
-- `type` - field data type
+- `id` - the id of a field; if there's a single id argument with null value, the filter will be closed.
 
 ### Returns
 

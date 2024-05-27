@@ -16,11 +16,11 @@ It allows you to alter the final table configuration on the fly or prevent the r
 
 ~~~jsx {}
 "render-table": ({
-   tableConfig: {
+   config: {
     columns?: [],
-    data?: [],
+    data: [],
     footer?: boolean,
-    sizes?: {},
+    sizes: {},
     split?: {
       left?: number,
     },
@@ -32,9 +32,17 @@ It allows you to alter the final table configuration on the fly or prevent the r
 
 ### Parameters
 
-The callback of the action takes the `tableConfig` object with the following parameters:
+The callback of the action takes the `config` object with the following parameters:
 
-- `columns` -  (optional) columns array
+- `columns` - (optional) columns array with the next parameters for each object:
+  - `id` (number) - (optional) the id of a column
+  - `header`- (optional) an object with header settings:
+      - `text` (string) - (optional) a header label
+      - `rowspan` (number) - (optional) the number of rows a header should span
+      - `colspan` (number) - (optional) the number of columns a header should span
+  - `footer` - (optional) a header label or an object with footer settings which are the same as the header settings
+  - `field` - (optional) it's a string which is the id of a field
+  - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
 - `data` - (optional) an array of objects with data for the table; each object represents a row
 - `footer` - (optional) if it's set to **true**, the table footer is displayed at the bottom of the table; it's set to **false** and invisible by default
 - `sizes` - (optional) an object with table sizes settings, namely, colWidth, footerHeight, headerHeight, rowHeight
@@ -43,7 +51,7 @@ The callback of the action takes the `tableConfig` object with the following par
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 
 ### Returns
-
+ 
 The callback may return boolean or void.  
 If the event handler returns **false**, it will block the operation in question. In this case, it will prevent the rendering of the table.
 

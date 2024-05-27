@@ -29,7 +29,7 @@ The `config` parameters are used to define which fields will be applied as rows 
   - `field` - (required) the ID of a field
   - `method` - (optional) defines a method for data processing in the field; methods for the time-based data fields are available by default: year, month, day, hour, minute which group data by year/month/day/hour; here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
 - `columns` - (optional) defines columns for the Pivot table. It's an empty array by default. It can be a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
-  - `field` - (required) a field ID
+  - `field` - (required) the ID of a field
   - `method` - (optional) defines a method for data processing (for time-based data fields).
   By default, methods are available for the time-based fields (the **when** field) with the next values: year, month, day, hour, minute. Here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
 - `values` - (optional) defines the data aggregation for the cells of the Pivot table. It's an empty array by default. Each element can be a string representing a data field ID and aggregation method or an object containing the field ID and the method for data aggregation. The object parameters are the following:

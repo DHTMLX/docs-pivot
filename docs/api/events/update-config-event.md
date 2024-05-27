@@ -40,7 +40,7 @@ The callback of the action takes an object with the [`config`](/api/properties/c
       - for numeric values: min, max, sum, count
       - for text values: count
       - for date value: min, max, count  
-	    Sum - sums all the values of the selected data property and displays the sum  
+	  Sum - sums all the values of the selected data property and displays the sum  
 		Min - finds and displays the minimum value of the selected data property  
 		Max - finds and displays the maximum value of the selected data property  
 		Count - looks for all occurrences of the selected data property and displays their number; set by default for each newly added field
