@@ -193,94 +193,50 @@ Promise.all([
 
 You can import data to Pivot from CSV, data is converted to JSON and you can continue working with this data in the Pivot table.
 
-To convert data, you should apply the ready-made `convert()` function which takes the following parameters:
+To convert data, you should use an external parsing library for JS to convert data from CSV to JSON and you can apply the ready-made `convert()` function which takes the following parameters:
 
-- `stringCSV` (required) - CSV string 
-- `headersMap` (optional) - an array of headers with one of the following:
-   - for the "string" and "number" data types: strings which are columns IDs for CSV/fields for JSON
-   - for the "date", "string" and "number" types - an object with the following parameters:
-      - id (string) - (required) a column id or field name
-      - type - (optional) data type which can be "date" | "string" | "number"
-   The "string" and "number" types are detected automatically, which means that it's not necessary to specify the type for them and it's enough to apply only strings (columns ids/fields names) in the array of headers
-   If the headers array is set and it's not empty, it means that there are no headers in CSV data and the first row in CSV data is the data row. In case the headers array is empty and does not exist, the first row in CSV data will be applied as headers. 
-- `extSettings` (optional) - an object with additional settings supported by CSV parser: 
-    - `cellDelimiter` (string | array, default: `","`) - seta a delimiter for columns in a row. Use "auto" if delimiter is unknown in advance, in this case, delimiter will be auto-detected (by best attempt). Use an array to give a list of potential delimiters e.g. [",","|","$"]. 
-   - `rowDelimiter` (string, not set by default) - sets a delimiter for rows (i.e., the end of line character). If omitted, parser will attempt to retrieve it from the first chunks of CSV data.
-   - `trim` (boolean, default: `true`) - trims end spaces in a cell (for example, " content " will be trimmed to "content")
-   - `escapeChar` - escape character used in quoted column. The default value is double quote (") according to RFC4108. It can be changed to back slash (`\`) or other chars.
-   - `complexData` (boolean, default: `true`) - allows interpreting dots (.) and square brackets in header fields as a nested object or an array of identifiers at all (treat them like regular characters for JSON field identifiers). 
+- `data` - a string with CSV data
+- `headers` - an array with the names of fields for CSV data
+- `meta` - an object where keys are the names of fields and values are the data types
 
 Example:
 
+In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) and enable importing data on a button click:
+
 ~~~jsx
 const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
+  fields, 
   data: dataset,
   config: {
-    rows: ["studio", "genre"],
-    columns: [],
+    rows: [
+      "studio",
+      "genre"
+    ],
+    columns: [], 
     values: [
       {
-        id: "title",
-        method: "count",
+        field: "title",
+        method: "count"
       },
       {
-        id: "score",
-        method: "max",
+        field: "score",
+        method: "max"
       },
-    ],
-  },
+    ]
+  }
 });
 
-const dateParser = (value) => new Date(value);
+function convert(data, headers, meta) {
+  const header = headers.join(",") + "\n";
+  const processedData = header + data;
 
-// match custom names of available settings with csv() parameters
-const names = {
-  cellDelimiter: "delimiter",
-  rowDelimiter: "eol",
-  trim: "trim",
-  escapeChar: "escape",
-  complexData: "flatKeys", // inverted value!
-};
-
-function convert(stringCSV, headersArr, userSettings) {
-  const headers = [];
-  const colParser = {};
-  const extraSettings = {};
-  // custom headers are set => expect no header row in CSV data
-  const noheader = headersArr && headersArr.length ? true : false;
-
-  // add custom headers
-  if (noheader) {
-    for (let h of headersArr) {
-      if (typeof h === "string") {
-        headers.push(h);
-      } else if (h.id) {
-        headers.push(h.id);
-        if (h.type) colParser[h.id] = h.type === "date" ? dateParser : h.type;
-      }
+  return Papa.parse(processedData, { 
+    header: true,
+    dynamicTyping: true,
+    transform: (v, f) => {
+      return meta && meta[f] === "date" ? new Date(v) : v;
     }
-  }
-
-  // add allowed user settings
-  if (userSettings && typeof userSettings === "object") {
-    for (let key in userSettings) {
-      const name = names[key];
-      if (name) {
-        const invertValue = !!(name === "complexData");
-        extraSettings[name] = invertValue ? !userSettings[key] : userSettings[key];
-      }
-    }
-  }
-
-  return csv({
-    ...extraSettings,
-    output: "json",
-    checkType: true,
-    colParser,
-    headers,
-    noheader,
-  }).fromString(stringCSV || "");
+  })
 }
 
 function fromCSV() {
@@ -294,14 +250,18 @@ function fromCSV() {
     { id: "year", label: "Year", type: "number" },
     { id: "when", label: "When", type: "date" },
   ];
+  
   const config = {
     rows: ["continent", "name"],
     columns: ["year"],
-    values: ["count(oil)", { id: "oil", method: "sum" }, { id: "gdp", method: "sum" }],
+    values: [
+      "count(oil)",
+      { field: "oil", method: "sum" },
+      { field: "gdp", method: "sum" },
+    ],
   };
 
   const headers = [
-    // parser will automatically detect "string" and "number" values
     "name",
     "year",
     "continent",
@@ -309,22 +269,30 @@ function fromCSV() {
     "gdp",
     "oil",
     "balance",
-    // type "date" should be defined explicitly
-    { id: "when", type: "date" },
+    "when"
   ];
+  
+  // date fields must be explicitly marked for proper conversion
+  const meta = { when: "date" };
 
   const dataURL = "https://some-backend-url";
   fetch(dataURL)
-    .then((response) => response.text())
-    .then((text) => convert(text, headers))
-    .then((data) => {
-      pivotWidget.setConfig({
-        data,
-        fields,
-        config,
-      });
+    .then(response => response.text())
+    .then(text => convert(text, headers, meta))
+    .then(data => {
+    pivotWidget.setConfig({
+      data: data.data,
+      fields,
+      config
     });
+  });
 }
+
+const importButton = document.createElement("button");
+importButton.addEventListener("click", fromCSV);
+importButton.textContent = "Import";
+
+document.body.appendChild(importButton);
 ~~~
 
 ## Exporting data
@@ -513,6 +481,7 @@ The widget provides the following default methods for data aggregation:
 - Min (for numeric and date values)- finds and displays the minimum value of the selected data property  
 - Max (for numeric and date values) - finds and displays the maximum value of the selected data property  
 - Count (for numeric, text, and date values) - looks for all occurrences of the selected data property and displays their number; this is the default operation assigned to each newly added field
+- Average (for numeric values only) - calculates the average value of an array
 
 Predefined methods:
 

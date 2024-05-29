@@ -411,13 +411,9 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 
 ### Working with filters
 
-The widget allows you to set various filters for fields depending on the type of data. It's possible to specify filters both via the Pivot interface after initialization or through the corresponding API using the [`config`](/api/properties/config).
+The widget allows you to set various filters for fields depending on the type of data. It's possible to specify filters both via the Pivot interface after initialization or through the corresponding API using the [`config`](/api/config/config-property) property.
 
-In GUI, filters appear as drop-down lists for each field:
-
-img to be changed
-
-![Rows](/assets/rows.png)
+In GUI, filters appear as drop-down lists for each field.
 
 #### Types of filters
 
@@ -444,7 +440,7 @@ Filters set by default are the following:
 
 #### Adding a filter
 
-To set a filter, add the **filters** array with the field ID and filter type to the [`config`](/api/config/config-property).
+To set a filter, add the **filters** array with the field ID and filter type to the [`config`](/api/config/config-property) property.
 
 ~~~jsx {5-40}
 const pivotWidget = new pivot.Pivot("#pivot", {
