@@ -9,11 +9,11 @@ description: You can learn about the configuration in the documentation of the D
 You can configure the *Pivot* appearance and functionality via the corresponding API, namely, you can configure the Pivot table elements and the configuration panel. The available parameters will allow you to:
 
 - define the structure of the Pivot table and how data is aggregated via the [`config`](/api/config/config-property) property
-- change default table configuration on the fly via the [`render-table`](/api/events/render-table-event)
+- change the table configuration on the fly via the [`render-table`](/api/events/render-table-event) event
 - configure the look of the Pivot table via the [`tableShape`](/api/config/tableshape-property) property
 - configure the look and behavior of the Pivot columns via the [`columnShape`](/api/config/columnshape-property) property
 - configure the look and behavior of headers in the Pivot table via the [`headerShape`](/api/config/headershape-property) property
-- control the visibility of the configuration panel via the [`showConfig`](/api/config/showconfig-property) property
+- control the visibility of the configuration panel via the [`show-config-panel`](/api/methods/showconfigpanel-method) method
 - apply the desired locale via the [setLocale()](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)
 - load data and fields via the corresponding [`data`](/api/config/data-property) and [`fields`](/api/config/fields-property) properties
 - define how data should be modified before it's applied via the [`predicates`](/api/config/predicates-property) property
@@ -53,11 +53,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -72,10 +72,10 @@ The widget allows setting the minimum width value for all columns as well as ena
 All parameters of `autoWidth` are optional and detailed description of each parameter you can see here: [columnShape property](/api/config/columnshape-property).
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
-- use the `auto` parameter to adjust the width to the header or cell content
+- use the `auto` parameter to adjust the width to the header or cell content (or both)
 - use `maxRows` to specify how many data rows will be used to detect size of a column; by default 20 rows are used
 
-If `firstOnly` is set (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
+If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
 Example:
 
@@ -129,11 +129,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -143,7 +143,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Freezing columns
 
-The widget allows freezing columns on the left side, which makes the left-most columns visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to a specified number of columns.
+The widget allows freezing columns on the left side, which makes the left-most columns visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true**.
 
 ~~~jsx {18}
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -154,17 +154,17 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     columns: ["genre"],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
   },
   tableShape: { split: {
-    left: 2
+    boolean: true
     },
   },
 });
@@ -177,41 +177,40 @@ To specify the parent row, put its name first in the `rows` array of the [`confi
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
-    tableShape: {
-        tree: true,
+  tableShape: {
+    tree: true,
+    templates: {
+      rank: (v) => v,
+      members: (v) => v,
     },
-    fields,
-    data,
-    config: {
-        "rows": [
-            "studio",
-            "genre"
-        ],
-        "columns": [
-        ],
-        "values": [
-            {
-                "id": "title",
-                "method": "count"
-            },
-            {
-                "id": "score",
-                "method": "max"
-            },
-            {
-                "id": "episodes",
-                "method": "count"
-            },
-            {
-                "id": "rank",
-                "method": "min"
-            },
-            {
-                "id": "members",
-                "method": "max"
-            },
-        ]
-    }
+  },
+  fields,
+  data: dataset,
+  config: {
+    rows: ["studio", "genre"],
+    values: [
+      {
+        field: "title",
+        method: "count",
+      },
+      {
+        field: "score",
+        method: "max",
+      },
+      {
+        field: "episodes",
+        method: "count",
+      },
+      {
+        field: "rank",
+        method: "min",
+      },
+      {
+        field: "members",
+        method: "max",
+      },
+    ],
+  },
 });
 ~~~
 
@@ -233,23 +232,23 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
       {
-        id: "episodes",
+        field: "episodes",
         method: "count",
       },
       {
-        id: "rank",
+        field: "rank",
         method: "min",
       },
       {
-        id: "members",
+        field: "members",
         method: "max",
       },
     ],
@@ -326,11 +325,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: ["type"],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -359,19 +358,19 @@ const widget = new pivot.Pivot("#pivot", {
     columns: ["type"],
     values: [
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
       {
-        id: "episodes",
+        field: "episodes",
         method: "count",
       },
       {
-        id: "rank",
+        field: "rank",
         method: "min",
       },
       {
-        id: "members",
+        field: "members",
         method: "sum",
       },
     ],
@@ -454,11 +453,11 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -494,7 +493,7 @@ The configuration panel is displayed by default. The widget provides the default
 
 ### Hiding configuration panel
 
-To hide the panel hide, you can trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
+To hide the panel hide, you can trigger the [`show-config-panel`](/api/methods/show-config-panel-method) method with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {
@@ -505,11 +504,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -523,7 +522,7 @@ widget.api.exec("show-config-panel", {
 
 ### Disabling the default toggling functionality
 
-You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
+You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/methods/show-config-panel-method) method and returning *false*).
 
 
 Example:
@@ -537,11 +536,11 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],

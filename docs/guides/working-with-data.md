@@ -634,14 +634,15 @@ const widget = new pivot.Pivot("#pivot", {
 Predicates or data modifiers allow you to process data in the required way before this data is used as rows or columns. 
 For example, you can pre-process the date format before applying and displaying data.
 
-To add a predicate, you should use the [`predicates`](/api/config/predicates-property) property:
-- specify the data type for each array of the same data type
-- for each predicate object in the array:
-  - specify the predicate id
+To add a predicate, you should specify the parameters of the [`predicates`](/api/config/predicates-property) property:
+- Add keys that are predicate IDs
+- Add values that are objects with predicate configuration:
   - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column  
-  - add the `handler` function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value. 
-  - if you want the data to be displayed in the way other than the `handler` function returns, add the template that defines how data should be displayed (optional)  
- You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
+  - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value.
+  - if you want the data to be displayed in the way other than the `handler` function returns, add the template that defines how data should be displayed (optional)
+  - add the `filter` function if necessary
+
+You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
 
 The following default predicates are applied:
 
@@ -666,17 +667,6 @@ If no custom predicate is set, for the **date** type the default *$empty* templa
 :::
 
 ~~~jsx
-// date string to Date
-const dateFields = fields.filter((f) => f.type == "date");
-if (dateFields.length) {
-  dataset.forEach((item) => {
-    dateFields.forEach((f) => {
-      const v = item[f.id];
-      if (typeof v == "string") item[f.id] = new Date(v);
-    });
-  });
-}
-
 // custom predicate
 const predicates = {
   monthYear: {
