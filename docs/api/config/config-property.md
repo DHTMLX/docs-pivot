@@ -86,7 +86,7 @@ values: [
     - `includes` - (optional) an array of values to be displayed from those that are already filtered; available for text and dates values
 
 :::note
-When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the `api.getState()` method, the full object will look like this:
+When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the [`api.getState()`](/api/internal/getstate-method) method, the full object will look like this:
 
 ~~~jsx
 interface IParsedField{

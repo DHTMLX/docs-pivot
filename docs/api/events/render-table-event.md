@@ -57,7 +57,7 @@ If the event handler returns **false**, it will block the operation in question.
 
 ### Example
 
-The next example shows how to output the `tableConfig` object to console and add a footer.
+The next example shows how to output the `config` object to console and add a footer.
 
 ~~~jsx {20-28}
 const widget = new pivot.Pivot("#pivot", {
@@ -172,3 +172,5 @@ closeAllButton.textContent = "Close all";
 document.body.appendChild(openAllButton);
 document.body.appendChild(closeAllButton);
 ~~~
+
+See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration/###freezing-columns).

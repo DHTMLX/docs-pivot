@@ -143,9 +143,13 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Freezing columns
 
-The widget allows freezing columns on the left side, which makes the left-most columns visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true**.
+The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true**.
 
-~~~jsx {18}
+:::note
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default.
+:::
+
+~~~jsx {18-21}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
   data,
@@ -169,6 +173,46 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
+
+You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. 
+
+:::note
+For the custom split, the number of columns that are split depends on the number of the rows and values fields that are defined in the [`config`](/api/config/config-property) property.
+It's not recommended to split columns with colspans.
+:::
+
+In the example below we split all rows fields (two rows are defined in the config) and the first two columns (the first two values fields).
+
+~~~jsx
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["continent", "name"],
+    columns: ["year"],
+    values: [
+      {
+        field: "oil",
+        method: "sum",
+      },
+      {
+        field: "oil",
+        method: "count",
+      },
+    ],
+  },
+});
+pivotWidget.api.on("render-table", (tableConfig) => {
+  const config = api.getState().config;
+
+  tableConfig.split = {
+    left: config.rows.length + config.values.length * 2,
+  };
+});
+~~~
+
+
+
 
 ### Switching to the tree mode
 

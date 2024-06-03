@@ -93,8 +93,8 @@ const config = {
    rows: ["continent"],
    columns: ["year"],
    values: [
-      { id: "oil", method: "max" },
-      { id: "balance", method: "max" },
+      { field: "oil", method: "max" },
+      { field: "balance", method: "max" },
    ],
 };
 ~~~
@@ -114,7 +114,10 @@ function getData() {
     config: {
       rows: ["continent", "name"],
       columns: ["year"],
-      values: ["count(oil)", { id: "oil", method: "sum" }, { id: "gdp", method: "sum" }],
+      values: [
+        "count(oil)",
+        { field: "oil", method: "sum" },
+        { field: "gdp", method: "sum" }],
       filters: {
         name: {
           condition: {

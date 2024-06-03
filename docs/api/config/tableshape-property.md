@@ -36,7 +36,7 @@ tableShape?: {
   tree?:boolean,
   cleanRows?: boolean,
   split?: {
-    left?: number
+    left?: boolean
   },
 };
 ~~~
@@ -57,7 +57,7 @@ tableShape?: {
 - `totalColumn` - (optional) enables generating the total column. The default value is **false**; 
 - `totalRow` - (optional) enables generating the footer with total values (if set to **true**) the default value is **false**
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
-- `split` - (optional) defines the number of fixed columns from the left. Contains an object with the `left` property that has the value of the number of columns to be frozen
+- `split` - (optional) if set to **true**, fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
 
 By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and left columns are not fixed during scroll.
 
@@ -81,15 +81,15 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
       {
-        id: "price",
+        field: "price",
         method: "count",
       },
     ],
