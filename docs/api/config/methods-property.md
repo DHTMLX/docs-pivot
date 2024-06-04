@@ -20,7 +20,7 @@ description: You can learn about the methods config in the documentation of the 
       label?:string,
       handler?: (values: number[]|string[]|Date[]) => any,
       branchMode?: "raw"|"result",
-      branchMath?: string,
+      branchMath?: string
     },
  };
 ~~~
@@ -35,23 +35,42 @@ Each method is represented by a key-value pair, where the `method` is the name o
 - `branchMode` - (optional) defines the mode for the calculation of total values for the tree table; the branchMode can be set to `raw` for calculation based on all raw data; `result` (default) is set for calculation based on already processed data in the tree mode
 - `branchMath` - (optional) the name of a method to calculate total values in the tree mode; the same as the method name by default (for "max" method branchMath is also "max")
 
-By default, the `methods` property is an empty object {}, which means that no custom methods are defined. There are 5 predefined methods: "sum", "min", "max", "count", "average". TBD ADD MORE!!! There is no limit to the number of sub-properties that can be defined in the methods object. 
+By default, the `methods` property is an empty object {}, which means that no custom methods are defined. There is no limit to the number of sub-properties that can be defined in the methods object. 
 
 Predefined methods:
 
 ~~~jsx
-const defaultMethods = {
-	sum: { label: "sum" },
-	min: { type: ["number", "date"], label: "min" },
-	max: { type: ["number", "date"], label: "max" },
-	count: {
-		type: ["number", "date", "text"],
-		label: "count",
-		branchMath: "sum",
-	},
-	average: { type: "number", label: "average", branchMode: "raw" },
+defaultMethods = {
+  sum: { type: "number", label: "sum" },
+  min: { type: ["number", "date"], label: "min" },
+  max: { type: ["number", "date"], label: "max" },
+  count: {
+    type: ["number", "date", "text"],
+    label: "count",
+    branchMath: "sum",
+  },
+  counta: {
+    type: ["number", "date", "text"],
+    label: "counta",
+    branchMath: "sum",
+  },
+  countunique: {
+    type: ["number", "text"],
+    label: "countunique",
+    branchMath: "sum",
+  },
+  average: { type: "number", label: "average", branchMode: "raw" },
+  median: { type: "number", label: "median", branchMode: "raw" },
+  product: { type: "number", label: "product" },
+  stdev: { type: "number", label: "stdev", branchMode: "raw" },
+  stdevp: { type: "number", label: "stdevp", branchMode: "raw" },
+  var: { type: "number", label: "var", branchMode: "raw" },
+  varp: { type: "number", label: "varp", branchMode: "raw" },
 };
 ~~~
+
+The definition of each method you can see here: [Applying methods](/guides/working-with-data#default-methods)
+
 
 ## Example
 

@@ -480,25 +480,48 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 The widget provides the following default methods for data aggregation:
 
-- Sum (for numeric values only) - sums all the values of the selected data property and displays the sum
-- Min (for numeric and date values)- finds and displays the minimum value of the selected data property  
-- Max (for numeric and date values) - finds and displays the maximum value of the selected data property  
-- Count (for numeric, text, and date values) - looks for all occurrences of the selected data property and displays their number; this is the default operation assigned to each newly added field
-- Average (for numeric values only) - calculates the average value of an array
+- sum (for numeric values only) - sums all the values of the selected data property and displays the sum
+- min (for numeric and date values)- finds and displays the minimum value of the selected data property  
+- max (for numeric and date values) - finds and displays the maximum value of the selected data property  
+- count (for numeric, text, and date values) - looks for all occurrences of the selected data property and displays their number; this is the default operation assigned to each newly added field
+- average (for numeric values only) - calculates the average value of an array
+- counta (for numeric, text, and date values) - counts the number of cells in a range that are not empty
+- median (for numeric values only) - calculates the median of an expression (middle value in a sorted data set), which separates the higher half in a distribution from the lower half
+- product (for numeric values only) - calculates the product of all numbers in a given range
+- stdev (for numeric values only) - calculates the standard deviation of a sample, which measures the amount of variation or dispersion of a set of values; quantifies the amount of variation or dispersion of a set of values
+- stdevp (for numeric values only) - similar to stdev, but this calculates the standard deviation of a population
+- var (for numeric values only) - calculates the variance of a sample, which measures how much each number in the set differs from the mean (average) and then squares that value
+- varp (for numeric values only) - similar to var, but this calculates the variance of a population
 
 Predefined methods:
 
 ~~~jsx
-const methods = {
-	sum: { label: "sum" },
-	min: { type: ["number", "date"], label: "min" },
-	max: { type: ["number", "date"], label: "max" },
-	count: {
-		type: ["number", "date", "text"],
-		label: "count",
-		branchMath: "sum",
-	},
-	average: { type: "number", label: "average", branchMode: "raw" },
+defaultMethods = {
+  sum: { type: "number", label: "sum" },
+  min: { type: ["number", "date"], label: "min" },
+  max: { type: ["number", "date"], label: "max" },
+  count: {
+    type: ["number", "date", "text"],
+    label: "count",
+    branchMath: "sum",
+  },
+  counta: {
+    type: ["number", "date", "text"],
+    label: "counta",
+    branchMath: "sum",
+  },
+  countunique: {
+    type: ["number", "text"],
+    label: "countunique",
+    branchMath: "sum",
+  },
+  average: { type: "number", label: "average", branchMode: "raw" },
+  median: { type: "number", label: "median", branchMode: "raw" },
+  product: { type: "number", label: "product" },
+  stdev: { type: "number", label: "stdev", branchMode: "raw" },
+  stdevp: { type: "number", label: "stdevp", branchMode: "raw" },
+  var: { type: "number", label: "var", branchMode: "raw" },
+  varp: { type: "number", label: "varp", branchMode: "raw" },
 };
 ~~~
 
@@ -516,7 +539,7 @@ const widget = new pivot.Pivot("#pivot", {
     values: [
       {
         //field id
-        id: "title",
+        field: "title",
         //method
         method: "count",
       },
@@ -533,14 +556,14 @@ const widget = new pivot.Pivot("#pivot", {
 
 You can define `values`in either of the two equally valid ways: 
 - option one is a string representing a data field ID: `operation(fieldID)`
-- option two is an object containing the field ID and the method for data aggregation: `{ id: string, method?: string }`
+- option two is an object containing the field ID and the method for data aggregation: `{ field: string, method?: string }`
 
 Example:
 
 ~~~jsx
    values: [
       "sum(sales)", // option one
-      { id: "sales", method: "sum" }, // option two
+      { field: "sales", method: "sum" }, // option two
    ],
 ~~~
 
@@ -559,11 +582,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -693,11 +716,11 @@ const widget = new pivot.Pivot("#pivot", {
   config: {
     rows: ["state"],
     columns: [
-      { id: "date", method: "year" },
-      { id: "date", method: "monthYear" },
-      { id: "profit", method: "balanceSign" },
+      { field: "date", method: "year" },
+      { field: "date", method: "monthYear" },
+      { field: "profit", method: "balanceSign" },
     ],
-    values: [{ id: "sales", method: "sum" }],
+    values: [{ field: "sales", method: "sum" }],
   },
 });
 ~~~

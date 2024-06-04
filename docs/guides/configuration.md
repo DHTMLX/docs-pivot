@@ -211,9 +211,6 @@ pivotWidget.api.on("render-table", (tableConfig) => {
 });
 ~~~
 
-
-
-
 ### Switching to the tree mode
 
 The widget allows presenting data in a hierarchical format with expandable rows. To switch to the tree mode, apply the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true** (default is **false**).
@@ -385,7 +382,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 To enable generating the rightmost column with total values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true**.
 
-To enable generating the bottom row with total, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
+To enable generating the footer with total, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
 
 Example:
 
