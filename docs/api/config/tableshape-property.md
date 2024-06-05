@@ -20,8 +20,8 @@ tableShape?: {
       operation: string
     ) => any;
   },
-  totalRow?: boolean | "sumOnly",
-	totalColumn?: boolean | "sumOnly",
+  totalRow?: boolean,
+	totalColumn?: boolean,
   marks?: {
     [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
      | "max" 

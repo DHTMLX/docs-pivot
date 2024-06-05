@@ -22,7 +22,7 @@ headerShape?: {
 
 ### Parameters
 
-- `collapsible` - (optional) if set to **true**, dimension groups in the pivot table are collapsible; it's set to **false** by default
+- `collapsible` - (optional) if set to **true**, dimension groups in the table are collapsible; it's set to **false** by default
 - `vertical` - (optional) if set to **true**, changes the text orientation in all headers from horizontal to vertical; the default value is **false**
 - `template` - (optional) defines the format of text in headers; by default, for the fields applied as rows the value of the `label` parameter is displayed and for the fields applied as values the label and method are shown (e.g., *Oil(count)*); the function takes the field id, label and the method or predicate id (if any) and returns the processed value (the default template is as follows: 
 ~~~js

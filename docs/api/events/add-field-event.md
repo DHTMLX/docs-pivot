@@ -8,7 +8,7 @@ description: You can learn about the add-field event in the documentation of the
 
 ### Description
 
-@short: Fires when a new field is added
+@short: Fires when a new field is added to the rows, columns or values area
 
 ### Usage
 
@@ -30,9 +30,9 @@ The callback of the action takes an object with the following parameters:
 - `field` - (required) a new auto-generated field id
 - `method` - (optional) defines a method for data aggregation (if not specified, a default method is set); a method can be one of the following:
   - it's required for the **values** area, it's one of the data operation types:
-      - for numbers: min, max, sum, count
-      - for text values: count
-      - for date value: min, max, count
+      - for numbers: min, max, sum, count, counta, countunique, average, median, product, var, vapr, stdev, stdevp
+      - for text values: count, countunique, counta
+      - for date value: min, max, count, counta
   - it's optional for the **rows** and **columns** areas, it's a default data predicate with one of the next values: year, month, day, hour, minute. If it's a custom predicate, the id is specified for the **predicate** property.
 
 ### Example

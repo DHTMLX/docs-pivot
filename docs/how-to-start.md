@@ -8,7 +8,7 @@ description: You can explore how to start working with DHTMLX Pivot in the docum
 
 This clear and comprehensive tutorial will guide your through the steps you need to take in order to get a full-functional Pivot on a page.
 
-image to be added!!!
+![pivot-main](/assets/pivot-main.png)
 
 ## Step 1. Including source files
 
@@ -112,4 +112,7 @@ config: {
 
 ## What's next
 
-That's all. Just three simple steps and you have a handy tool for visualizing and managing the workflow. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot.
+That's all. Just three simple steps and you have a handy tool for visualizing and managing the workflow. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
+
+- [Guides](/category/guides) pages provide instructions about installation, loading data, styling, and other helpful tips to go smoothly with the Pivot configuration
+- [API reference](/api/overview/main-overview) gives description of the Pivot functionality
