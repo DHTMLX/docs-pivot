@@ -480,18 +480,18 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 The widget provides the following default methods for data aggregation:
 
-- sum (for numeric values only) - sums all the values of the selected data property and displays the sum
-- min (for numeric and date values)- finds and displays the minimum value of the selected data property  
-- max (for numeric and date values) - finds and displays the maximum value of the selected data property  
-- count (for numeric, text, and date values) - looks for all occurrences of the selected data property and displays their number; this is the default operation assigned to each newly added field
-- average (for numeric values only) - calculates the average value of an array
-- counta (for numeric, text, and date values) - counts the number of cells in a range that are not empty
-- median (for numeric values only) - calculates the median of an expression (middle value in a sorted data set), which separates the higher half in a distribution from the lower half
-- product (for numeric values only) - calculates the product of all numbers in a given range
-- stdev (for numeric values only) - calculates the standard deviation of a sample, which measures the amount of variation or dispersion of a set of values; quantifies the amount of variation or dispersion of a set of values
-- stdevp (for numeric values only) - similar to stdev, but this calculates the standard deviation of a population
-- var (for numeric values only) - calculates the variance of a sample, which measures how much each number in the set differs from the mean (average) and then squares that value
-- varp (for numeric values only) - similar to var, but this calculates the variance of a population
+- sum (for numeric values only) - sums all the values of the selected data; empty cells, logical values like TRUE, or text are ignored
+- min (for numeric and date values)- finds and displays the minimum value of the selected data; empty cells, logical values, or text in the array or reference are ignored. If the arguments contain no numbers, MIN returns 0 (zero)
+- max (for numeric and date values) - finds the largest value in a set of values; the function ignores empty cells, the logical values TRUE and FALSE, and text values. If the arguments contain no numbers, MAX returns 0 (zero)
+- count (for numeric, text, and date values) - looks for all occurrences of the selected data and displays their number; generally used to count a range of cells containing numbers or dates excluding blanks; this is the default operation assigned to each newly added field
+- average (for numeric values only) - calculates the average (arithmetic mean) of a group of numbers; logical values, empty cells and cells that contain text in the array or reference are ignored; cells with the value zero are included
+- counta (for numeric, text, and date values) - returns the number of values in a dataset; counts numbers, dates, text or a range containing a mixture of these items, but does not count blank cells
+- median (for numeric values only) - calculates the median of the given numbers
+- product (for numeric values only) - calculates the product of all numbers in the given range
+- stdev (for numeric values only) - calculates the standard deviation of the values, treating it as a sample of a bigger set of values
+- stdevp (for numeric values only) - calculates the standard deviation of the values, treating it as the entire set of values
+- var (for numeric values only) - calculates the variance of the values, treating it as a sample of a bigger set of values
+- varp (for numeric values only) - calculates the variance of the values, treating it as the entire set of values
 
 Predefined methods:
 
