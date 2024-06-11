@@ -7,11 +7,110 @@ description: You can have an overview of DHTMLX JavaScript Pivot library in the 
 
 # DHTMLX Pivot overview
 
-TODO!!!
+JavaScript Pivot library is a ready-made component for creating Pivot tables from large datasets. The widget API can be easily adjusted to the needs of your web application. It provides the end user with functionality for comparing and analyzing complex data within one table, filtering, subtotaling and aggregating data.
 
 ## Pivot structure­
 
-TODO!!!
+The Pivot UI consists of the two main components: the Configuration panel and the table.
+
+![Main](assets/pivot.png)
+
+## Configuration panel
+
+The Configuration panel allows working with the next Pivot areas:
+
+- Values: you can add the values fields, each value is kept in the Pivot table cell and displays the summarized information (such as sum, min, max values)
+- Columns: you can configure columns of the table (define which fields will be applied as columns)
+- Rows: you can configure which fields should be applied as rows of the table
+
+To hide the Configuration panel, click the **Hide Settings** button:
+
+![config_panel](assets/config_panel.png)
+
+### Values area
+
+In the **Values** area you can perform the following operations:
+
+- add and remove fields to/from the values area
+- change the order and priority of values in the table
+- filter data 
+- set operations that will be applied to all data in the value column of the table
+
+To add a new value, click the "+" button and select the required name from the drop-down list. A new value will appear in the table cells.
+
+To remove a value, click the delete button ("x").
+
+![add_remove](assets/add_remove.png)
+
+To change the order of values in the table, drag an item to the desired position. The closer the value is to the left in the toolbar values list, the higher its priority and position in the table columns. The values with the highest priority are in the leftmost position in the column they belong to. The **Count** field in the image below has the highest priority:
+
+![priority](assets/priority.png)
+
+To set operations that will be applied to all data in the value column of the table, click the value operations in the drop-down list, and select the required option from the list.
+
+![operations](assets/operations.png)
+
+### Columns area
+
+In the **Columns** area, you can perform the following operations:
+
+- add and remove columns (i.e., add/remove fields applied as columns) 
+- change the order and priority of columns in the table
+- filter data 
+
+To add a new column, click the "+" button and select the required name from the drop-down list. A new column name will appear in the table header.
+
+![columns](assets/columns.png)
+
+To remove a column, click the delete button ("x").
+
+To change the order of columns in the table, drag an item to the desired position. The closer the column is to the left in the toolbar columns list, the higher its priority and position in the table header. The columns with the highest priority are in the leftmost position and include other columns with lower priority. For example, the **Year** column in the image below has the highest priority.
+
+![columns-priority](assets/columns-priority.png)
+
+### Rows area
+
+In the Configuration panel for the **Rows** area, you can perform the following operations:
+
+- add and remove rows (i.e., add/remove fields applied as rows) 
+- change the order and priority of rows in the table
+- filter data 
+
+To add a new row, click the "+" button and select the required name from the drop-down list. A new row name will appear as a label of the first table columns.
+
+![rows](assets/rows.png)
+
+To remove a row, click the delete button ("x").
+
+To change the order of rows in the table, drag an item to the desired position. The higher the row is in the list, the higher its priority and position in the table header. The rows with the highest priority are in the topmost position and include other rows with lower priority. The **Continent** field in the image below has the highest priority.
+
+![rows-priority](assets/rows-priority.png)
+
+
+#### Filters
+
+Filters appear as drop-down lists for each field:
+
+![filters](assets/filters.png)
+
+The Pivot provides the next condition types for filtering:
+
+- for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith  
+- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal, notEqual, contains, notContains  
+- for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
+
+To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**.
+
+The fields to which filtering is applied are marked with a special filter sign:
+
+![filter_applied](assets/filter_applied.png)
+
+
+## Table
+
+The sorting in columns is enabled by default:
+
+![table](assets/table.png)
 
 ## What's next
 

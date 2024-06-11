@@ -8,7 +8,7 @@ description: You can explore how to start working with DHTMLX Pivot in the docum
 
 This clear and comprehensive tutorial will guide your through the steps you need to take in order to get a full-functional Pivot on a page.
 
-![pivot-main](/assets/pivot-main.png)
+![pivot-main](/assets/pivot_main.png)
 
 ## Step 1. Including source files
 
