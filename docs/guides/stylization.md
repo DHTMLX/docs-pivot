@@ -85,6 +85,11 @@ The example below demonstrates how to customize Material theme that is applied t
 </style>
 ~~~
 
+In this snippet you can see how to apply a custom style to Pivot
+
+<iframe src="https://snippet.dhtmlx.com/" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> TODO!!!
+
+
 ## Scroll style
 
 You can also apply a custom style to the scroll bar of Pivot. For this, you can use the `.wx-styled-scroll` CSS class. Before using it, check compatibility with the modern browsers [here](https://caniuse.com/css-scrollbar).

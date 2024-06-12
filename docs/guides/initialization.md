@@ -62,7 +62,7 @@ config: {
 });
 ~~~
 
-### Configuration properties
+## Configuration properties
 
 :::note
 The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties_overview.md).
