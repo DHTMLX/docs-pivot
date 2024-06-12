@@ -108,6 +108,8 @@ The fields to which filtering is applied are marked with a special filter sign:
 
 ## Table
 
+Data is displayed as configured via the Configuration panel.
+
 The sorting in columns is enabled by default:
 
 ![table](assets/table.png)
@@ -115,3 +117,5 @@ The sorting in columns is enabled by default:
 ## What's next
 
 Now you can get down to using Pivot in your application. Follow the directions of the [How to start](./how-to-start) tutorial for guidance.
+
+
