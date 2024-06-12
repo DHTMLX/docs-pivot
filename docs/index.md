@@ -101,6 +101,8 @@ The Pivot provides the next condition types for filtering:
 
 To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**.
 
+![apply_filter](assets/apply_filter.png)
+
 The fields to which filtering is applied are marked with a special filter sign:
 
 ![filter_applied](assets/filter_applied.png)
