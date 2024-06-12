@@ -728,6 +728,6 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Example
 
-In this snippet you can see how to use Pivot API for working with data:
+In this snippet you can see how to apply maths operations:
 
-<iframe src="https://snippet.dhtmlx.com/" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> TODO!!!
+<iframe src="https://snippet.dhtmlx.com/lv90d8q2" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 

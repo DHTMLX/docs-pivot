@@ -75,3 +75,4 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
+

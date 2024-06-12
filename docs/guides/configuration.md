@@ -220,10 +220,6 @@ To specify the parent row, put its name first in the `rows` array of the [`confi
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
     tree: true,
-    templates: {
-      rank: (v) => v,
-      members: (v) => v,
-    },
   },
   fields,
   data: dataset,
@@ -257,7 +253,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Expanding/collapsing all rows
 
-To expand/collapse all rows, the tree mode should be enabled via the `tableShape` property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the tableConfig object).
+To expand/collapse all rows, the tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the `tableConfig` object).
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
@@ -463,13 +459,7 @@ The Pivot widget provides the next condition types for filtering:
 - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
-The widget also allows you to apply the **include** filtering rule to the data already filtered by one of the conditions. 
-
-Fields with the additional filter are marked with a special sign in GUI: 
-
-img to be changed
-
-![filtering](/assets/filtering.png)
+The widget also allows you to apply the **include** filtering rule to the data already filtered by one of the conditions. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/docs/index))
 
 #### Default filters
 

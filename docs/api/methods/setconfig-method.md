@@ -54,15 +54,15 @@ widget.setConfig({
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
       {
-        id: "type",
+        field: "type",
         method: "count",
       },
     ],
