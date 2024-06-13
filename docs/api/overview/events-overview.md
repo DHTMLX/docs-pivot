@@ -10,7 +10,6 @@ description: You can have an Events overview of JavaScript Pivot in the document
 | ------------------------------------------------- | ----------------------------------------------- |
 | [](../events/add-field-event.md)                  | @getshort(../events/add-field-event.md)         |
 | [](../events/apply-filter-event.md)               | @getshort(../events/apply-filter-event.md)      |
-| [](../events/close-filter-event.md)               | @getshort(../events/close-filter-event.md)      |
 | [](../events/delete-field-event.md)               | @getshort(../events/delete-field-event.md)      |
 | [](../events/open-filter-event.md)                | @getshort(../events/open-filter-event.md)       |
 | [](../events/render-table-event.md)               | @getshort(../events/render-table-event.md)      |

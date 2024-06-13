@@ -10,21 +10,18 @@ description: You can learn about the getTable method in the documentation of the
 
 @short: Gets access to the underlying Grid widget instance in the Pivot
 
-The method provides access to the [Grid API](https://docs.svar.dev/svelte/grid/api/overview/api_overview).
+This method is used when there's a need to access the underlying Grid widget instance in the Pivot. It provides direct access to all table functionality ([Grid API](https://docs.svar.dev/svelte/grid/api/overview/api_overview)), allowing for operations such as data serialization and exporting in various formats.
 
 ### Usage
 
 ~~~jsx {}
-api.getTable(): Table;
+getTable(wait:boolean): Table | Promise<Table>;
 ~~~
 
-### Returns
 
-The method returns the Table object:
+### Parameters
 
-~~~jsx {}
-getTable(): Table;
-~~~
+`wait` - defines to wait until Grid API is available in Pivot (necessary when Grid API is used during with Pivot initialization). If `wait` is set to **true**, the method returns a promise with Grid API.
 
 ### Example
 

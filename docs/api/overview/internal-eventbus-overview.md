@@ -8,6 +8,7 @@ description: You can have an Internal Event Bus methods overview of JavaScript P
 
 | Name                                           | Description                                       |
 | ---------------------------------------------- | ------------------------------------------------- |
+| [](../internal/detach-method.md)               | @getshort(../internal/detach-methos.md)           |
 | [](../internal/exec-method.md)                 | @getshort(../internal/exec-method.md)             |
 | [](../internal/intercept-method.md)            | @getshort(../internal/intercept-method.md)        |
 | [](../internal/on-method.md)                   | @getshort(../internal/on-method.md)               |

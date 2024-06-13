@@ -10,10 +10,12 @@ description: You can learn about the setConfig() method in the documentation of 
 
 @short: Updates the current configuration of the Pivot widget
 
+The method is used to update the current configuration of the Pivot widget. It's useful when there's a need to update the underlying data set of the widget. The method preserves all the previously set options that are not explicitly provided in the `setConfig` call.
+
 ### Usage
 
 ~~~jsx {}
-setConfig(config: object): void;
+setConfig(config: { [key:any]: any }): void;
 ~~~
 
 ### Parameters

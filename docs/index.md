@@ -110,7 +110,7 @@ The fields to which filtering is applied are marked with a special filter sign:
 
 ## Table
 
-Data is displayed as configured via the Configuration panel.
+Data in the table is displayed as configured in the Configuration panel.
 
 The sorting in columns is enabled by default:
 

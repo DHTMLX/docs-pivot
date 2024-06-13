@@ -22,8 +22,11 @@ new pivot.Pivot("#root", {
 ## Pivot methods
 
 | Name                                        | Description                                |
-| :------------------------------------------ | :----------------------------------------- |
-| [](../methods/some-method.md)               | @getshort(../methods/some-method.md)       |
+| ------------------------------------------- | ------------------------------------------ |
+| [](../methods/gettable-method.md)           | @getshort(../methods/gettable-method.md)        |
+| [](../methods/setconfig-method.md)          | @getshort(../methods/setconfig-method.md)       |
+| [](../methods/setlocale-method.md)          | @getshort(../methods/setlocale-method.md)       |
+| [](../methods/showconfigpanel-method.md)    | @getshort(../methods/showconfigpanel-method.md) |
 
 ## Pivot internal API
 
@@ -31,6 +34,7 @@ new pivot.Pivot("#root", {
 
 | Name                                  | Description                                  |
 | :------------------------------------ | :------------------------------------------- |
+| [](../internal/detach-method.md)      | @getshort(../internal/detach-methos.md)      |  
 | [](../internal/exec-method.md)        | @getshort(../internal/exec-method.md)        |
 | [](../internal/intercept-method.md)   | @getshort(../internal/intercept-method.md)   |
 | [](../internal/on-method.md)          | @getshort(../internal/on-method.md)          |
@@ -50,7 +54,6 @@ new pivot.Pivot("#root", {
 | :------------------------------------------------ | :---------------------------------------------- |
 | [](../events/add-field-event.md)                  | @getshort(../events/add-field-event.md)         |
 | [](../events/apply-filter-event.md)               | @getshort(../events/apply-filter-event.md)      |
-| [](../events/close-filter-event.md)               | @getshort(../events/close-filter-event.md)      |
 | [](../events/delete-field-event.md)               | @getshort(../events/delete-field-event.md)      |
 | [](../events/open-filter-event.md)                | @getshort(../events/open-filter-event.md)       |
 | [](../events/render-table-event.md)               | @getshort(../events/render-table-event.md)      |
@@ -69,9 +72,8 @@ new pivot.Pivot("#root", {
 | [](../config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
 | [](../config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |
 | [](../config/limits-property.md)                   | @getshort(../config/limits-property.md)          |
+| [](../config/locale-property.md)                   | @getshort(../config/locale-property.md)          |
 | [](../config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
 | [](../config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
 | [](../config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |
-| [](../config/showconfig-property.md)               | @getshort(../config/showconfig-property.md)      |
-| [](../config/tableconfig-property.md)              | @getshort(../config/tableconfig-property.md)     |
 | [](../config/tableshape-property.md)               | @getshort(../config/tableshape-property.md)      |

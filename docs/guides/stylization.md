@@ -26,6 +26,10 @@ TODO!!!
 Next versions of Pivot can bring some changes for the variables and their names. Please, do not forget to check the names after updating to the newer versions and modify them in your code to avoid problems with display of the component.
 :::
 
+## Built-in theme
+
+The widget provides one built-in theme which is the **Material theme**. TBD!!!
+
 You can apply the theme via adding the corresponding *css* classes to the widget containers:
 
 - **Material theme**
@@ -40,28 +44,9 @@ or just include the theme on the page from the skins folder:
 <link type="stylesheet" href="path/to/pivot/skins/material.css"/>
 ~~~
 
-## Custom style
+## Customize built-in theme
 
-You can change the appearance of Pivot by applying the corresponding CSS variables.
-
-The example below shows how to apply a custom style to Pivot:
-
-~~~html
-<div id="pivot" class="demo"></div>
-<style>
-  .demo {
-    --wx-background: #444;
-    --wx-color-font: rgba(255, 255, 255, 0.9);
-    --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
-    --wx-icon-color: rgba(255, 255, 255, 0.7);
-    --wx-pivot-primary-hover: #194e9e;
-    --wx-pivot-border-color: 1px solid #818080;
-    --wx-table-header-background: #2ca0e3;
-  }
-</style>
-~~~
-
-The example below demonstrates how to customize Material theme that is applied to the Pivot table:
+The example below demonstrates how to customize the **Material** theme that is applied to the Pivot table:
 
 ~~~html
 <!-- custom styles -->
@@ -81,6 +66,27 @@ The example below demonstrates how to customize Material theme that is applied t
     --wx-border-medium: 1px solid #818080;
     --wx-input-background: #9e9e9e;
     --wx-color-font-disabled: #878585;
+  }
+</style>
+~~~
+
+## Custom style
+
+You can change the appearance of Pivot by applying the corresponding CSS variables.
+
+The example below shows how to apply a custom style to Pivot:
+
+~~~html
+<div id="pivot" class="demo"></div>
+<style>
+  .demo {
+    --wx-background: #444;
+    --wx-color-font: rgba(255, 255, 255, 0.9);
+    --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
+    --wx-icon-color: rgba(255, 255, 255, 0.7);
+    --wx-pivot-primary-hover: #194e9e;
+    --wx-pivot-border-color: 1px solid #818080;
+    --wx-table-header-background: #2ca0e3;
   }
 </style>
 ~~~

@@ -19,6 +19,4 @@ To configure the **Pivot**, refer to the [Configuration](../../../guides/configu
 | [](../config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
 | [](../config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
 | [](../config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |
-| [](../config/showconfig-property.md)               | @getshort(../config/showconfig-property.md)      |
-| [](../config/tableconfig-property.md)              | @getshort(../config/tableconfig-property.md)     |
 | [](../config/tableshape-property.md)               | @getshort(../config/tableshape-property.md)      |
