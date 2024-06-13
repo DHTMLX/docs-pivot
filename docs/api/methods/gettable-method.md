@@ -15,7 +15,7 @@ This method is used when there's a need to access the underlying Grid widget ins
 ### Usage
 
 ~~~jsx {}
-getTable(wait:boolean): Table | Promise<Table>;
+getTable(wait:boolean): Table | Promise;
 ~~~
 
 
