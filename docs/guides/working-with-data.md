@@ -10,21 +10,7 @@ description: You can explore how to work with Data in the documentation of the D
 
 The following types of information can be loaded into Pivot:
 
-- [`fields`](/api/config/fields-property) - an array of objects where each object specifies the data type for each field
-
-Example:
-
-~~~js
-const fields = [
-   { id: "year", label: "Year", type: "number" },
-   { id: "continent", label: "Continent", type: "text" },
-   { id: "form", label: "Form", type: "text" },
-   { id: "oil", label: "Oil", type: "number" },
-   { id: "balance", label: "Balance", type: "number" },
-];
-~~~
-
-- [`data`](/api/config/data-property) - an array of objects, where each object represents a data row.
+- [`data`](/api/config/data-property) - an array of objects, where each object represents the data row.
 
 Example:
 
@@ -84,7 +70,7 @@ const data = [
 ];
 ~~~
 
-Before loading data you can also define the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table.
+Before loading data you can define the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table.
 
 Example:
 
@@ -97,6 +83,20 @@ const config = {
       { field: "balance", method: "max" },
    ],
 };
+~~~
+
+Also you can use the [`fields`](/api/config/fields-property) property to define which fields will be applied as rows or columns. 
+
+Example:
+
+~~~js
+const fields = [
+   { id: "year", label: "Year", type: "number" },
+   { id: "continent", label: "Continent", type: "text" },
+   { id: "form", label: "Form", type: "text" },
+   { id: "oil", label: "Oil", type: "number" },
+   { id: "balance", label: "Balance", type: "number" },
+];
 ~~~
 
 ## Loading data 
@@ -119,14 +119,12 @@ function getData() {
         { field: "oil", method: "sum" },
         { field: "gdp", method: "sum" }],
       filters: {
-        name: {
-          condition: {
-            filter: "A",
-            type: "contains",
-          },
-        },
+      genre: {
+        contains: "D",
+        includes: ["Drama"],
       },
     },
+  },
     fields,
   };
 }
@@ -165,46 +163,35 @@ Second, add the path to the source data file:
 Create Pivot and load data: 
 
 ~~~jsx {}
-const { config } = getData();
-const widget = new pivot.Pivot("#root", {
-  data: getData().data,
-  config,
-  fields: getData().fields,
-});
+const { data, config, fields } = getData();
+const widget = new pivot.Pivot("#root", { data, config, fields });
 ~~~
 
 To get server data, you can send the request for data using the native **fetch** method (or any other way):
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {fields:[], data: []});
-
 const server = "https://some-backend-url";
 
-let data = [];
-let fields = [];
-
 Promise.all([
-    fetch(server + "/data").then((res) => res.json()),
-    fetch(server + "/fields").then((res) => res.json())
-  ]).then(([f, d]) => {
-    fields = f;
-    data = d;
-   });
+   fetch(server + "/data").then((res) => res.json()),
+   fetch(server + "/fields").then((res) => res.json())
+ ]).then(([data, fields]) => {
+   widget.setConfig({data, fields});
+ });
 ~~~
 
-## Importing data
+## Converting data from CSV to JSON
 
-You can import data to Pivot from CSV, data is converted to JSON and you can continue working with this data in the Pivot table.
+You can load CSV data and convert it to JSON and then continue working with this data in the Pivot table.
 
-To convert data, you should use an external parsing library for JS to convert data from CSV to JSON and you can apply the ready-made `convert()` function which takes the following parameters:
+To convert data, you should use an external parsing library for JS to convert data from CSV to JSON.
+
+In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library and enable loading and converting data on a button click. In this example we use the `convert()` function which takes the following parameters:
 
 - `data` - a string with CSV data
 - `headers` - an array with the names of fields for CSV data
 - `meta` - an object where keys are the names of fields and values are the data types
-
-Example:
-
-In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) and enable importing data on a button click:
 
 ~~~jsx
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -300,7 +287,7 @@ document.body.appendChild(importButton);
 
 ## Exporting data
 
-To export the table data to the xlsx or csv format, it's necessary to get access to the underlying Table instance inside Pivot and apply the [Grid public API](https://docs.svar.dev/svelte/grid/api/overview/api_overview) to export data.
+To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the [DataGrid public API](https://docs.svar.dev/svelte/grid/api/overview/api_overview) to export data.
 
 To do this, apply the [`getTable`](/api/methods/getTable) method.
 
@@ -344,7 +331,7 @@ document.body.appendChild(exportButton);
 
 ## Sorting data
 
-The widget API allows configuring default sorting settings and enabling the sorting in UI by clicking the column header.
+The widget API allows configuring sorting settings and the sorting is applied to all areas (values, columns and rows) during aggregation. The sorting in UI by clicking the column header.
 
 To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
@@ -383,31 +370,30 @@ function switchSort(id){
     setFields(bar, fields);
 }
 
+
 const widget = new pivot.Pivot("#pivot", {
     fields,
     data: dataset,
     config: {
-        "rows": [
+        rows: [
             "studio",
             "genre"
         ],
-        "columns": [
-        ],
-        "values": [
+        values: [
             {
-                "id": "title",
-                "method": "count"
+                field: "title",
+                method: "count"
             },
             {
-                "id": "score",
-                "method": "max"
+                field: "score",
+                method: "max"
             },
         ]
     }
 });
 ~~~
 
-To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-properties) property.
+To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-properties) property. In the example below we disable sorting.
 
 ~~~jsx {19}
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -418,26 +404,17 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
   },
   columnShape: {
     sort: false, 
-    autoWidth: {
-      // calculate column width for these fields
-      columns: {
-        studio: true,
-        genre: true,
-        title: true,
-        score: true,
-      },
-    },
   },
 });
 ~~~
@@ -484,6 +461,7 @@ The widget provides the following default methods for data aggregation:
 - min (for numeric and date values)- finds and displays the minimum value of the selected data; empty cells, logical values, or text in the array or reference are ignored. If the arguments contain no numbers, MIN returns 0 (zero)
 - max (for numeric and date values) - finds the largest value in a set of values; the function ignores empty cells, the logical values TRUE and FALSE, and text values. If the arguments contain no numbers, MAX returns 0 (zero)
 - count (for numeric, text, and date values) - looks for all occurrences of the selected data and displays their number; generally used to count a range of cells containing numbers or dates excluding blanks; this is the default operation assigned to each newly added field
+- countunique (for numeric and text values) - сounts the number of unique values in a list of specified values and ranges
 - average (for numeric values only) - calculates the average (arithmetic mean) of a group of numbers; logical values, empty cells and cells that contain text in the array or reference are ignored; cells with the value zero are included
 - counta (for numeric, text, and date values) - returns the number of values in a dataset; counts numbers, dates, text or a range containing a mixture of these items, but does not count blank cells
 - median (for numeric values only) - calculates the median of the given numbers
@@ -556,7 +534,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 You can define `values`in either of the two equally valid ways: 
 - option one is a string representing a data field ID: `operation(fieldID)`
-- option two is an object containing the field ID and the method for data aggregation: `{ field: string, method?: string }`
+- option two is an object containing the field ID and the method for data aggregation (both are required): `{ field: string, method: string }`
 
 Example:
 
@@ -569,7 +547,7 @@ Example:
 
 ### Redefining the default method
 
-By default, the **count** operation is assigned to each newly added field. To set another operation to each new field, you should use the [`api.intercept()`](/api/methods/intercept-method) method.
+By default, the first available method for the data type is selected. You can redefine a method using the [`api.intercept()`](/api/methods/intercept-method) method.
 
 In the example below, we check whether a new field is added, and set the **max** method in case a numeric field is added.
 
@@ -730,4 +708,4 @@ const widget = new pivot.Pivot("#pivot", {
 
 In this snippet you can see how to apply maths operations:
 
-<iframe src="https://snippet.dhtmlx.com/lv90d8q2" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
