@@ -65,11 +65,13 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+To set the width of specific column(s), apply the `width` parameter of the [columnShape property](/api/config/columnshape-property).
+
 ### Autosizing columns to content
 
 The widget allows setting the minimum width value for all columns as well as enable sizing for the header, data only or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
 
-All parameters of `autoWidth` are optional and detailed description of each parameter you can see here: [columnShape property](/api/config/columnshape-property).
+All parameters of `autoWidth` are optional and for detailed description of each parameter refer to [columnShape property](/api/config/columnshape-property).
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
 - use the `auto` parameter to adjust the width to the header or cell content (or both)
@@ -143,10 +145,10 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Freezing columns
 
-The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true**.
+The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
 
 :::note
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default.
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
 :::
 
 ~~~jsx {18-21}
@@ -253,7 +255,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Expanding/collapsing all rows
 
-To expand/collapse all rows, the tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the `tableConfig` object).
+To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the `config` object).
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
@@ -263,22 +265,14 @@ const widget = new pivot.Pivot("#pivot", {
     tree: true,
   },
   fields,
-  data,
+  data: dataset,
   config: {
-    rows: ["studio", "genre"],
+    rows: ["type", "studio"],
     columns: [],
     values: [
       {
-        field: "title",
-        method: "count",
-      },
-      {
         field: "score",
         method: "max",
-      },
-      {
-        field: "episodes",
-        method: "count",
       },
       {
         field: "rank",
@@ -286,42 +280,32 @@ const widget = new pivot.Pivot("#pivot", {
       },
       {
         field: "members",
-        method: "max",
+        method: "sum",
+      },
+      {
+        field: "episodes",
+        method: "count",
       },
     ],
   },
 });
 
-let mode = "tree";
-const options = [
-  { value: "tree", label: "Tree mode" },
-  { value: "plain", label: "Plain table" },
-];
+const api = widget.api;
+const table = api.getTable();
+//  setting all table branches closed on the table config update
+api.intercept("render-table", (ev) => {
+  ev.config.data.forEach((r) => (r.open = false));
 
-let tableShape = {};
-tableShape.tree = mode == "tree";
-
-widget.api.intercept("render-table", (ev) => {
-  // close all top-level branches on pivot configuration change
-  if (ev.eventSource == "store") ev.config.data.forEach((r) => (r.open = false));
   // returning "false" here will prevent the table from rendering
   // return false;
 });
 
 function openAll() {
-  setOpenState(true);
+  table.exec("open-row", { id: 0, nested: true });
 }
+
 function closeAll() {
-  setOpenState(false);
-}
-function setOpenState(state) {
-  const config = widget.api.getState().tableConfig;
-  config.data.forEach((r) => (r.open = state));
-  // make a copy to create a new object for update
-  config.data = [...config.data];
-  // call 'render-table' event with updated 'config'
-  // if needed, use another property as a flag for the custom handler ('myEvent' in this demo)
-  widget.api.exec("render-table", { config });
+  table.exec("close-row", { id: 0, nested: true });
 }
 
 const openAllButton = document.createElement("button");
@@ -456,32 +440,21 @@ In GUI, filters appear as drop-down lists for each field.
 The Pivot widget provides the next condition types for filtering:
 
 - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith  
-- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains  
+- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
-The widget also allows you to apply the **include** filtering rule to the data already filtered by one of the conditions. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/docs/index))
-
-#### Default filters
-
-Filters set by default are the following:
-- for numeric values: greater
-- for text values: contains (the **name** field **contains=A**)
-- for date values: between
+The filter provides the **includes** filtering rule to define the set of values to be displayed. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/docs/index))
 
 #### Adding a filter
 
-To set a filter, add the **filters** array with the field ID and filter type to the [`config`](/api/config/config-property) property.
+To set a filter, add the **filters** object with the field ID and filter type to the [`config`](/api/config/config-property) property.
 
-~~~jsx {5-40}
-const pivotWidget = new pivot.Pivot("#pivot", {
+~~~jsx {}
+const widget = new pivot.Pivot("#pivot", {
   fields,
-  data,
-
+  data: dataset,
   config: {
-    rows: [
-    "studio",
-    "genre"],
-    columns: [],
+    rows: ["studio", "genre"],
     values: [
       {
         field: "title",
@@ -494,22 +467,13 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     ],
     filters: {
       genre: {
-        // filter for the "genre" field
-        condition: {
-          filter: "D",
-          type: "contains",
-        },
-        includes: [
-          // precise values to be displayed from those that match the filer condition above
-          "Drama",
-        ],
+        contains: "D",
+        includes: ["Drama"],
       },
+
       title: {
         // filter for another field ("title")
-        condition: {
-          filter: "A",
-          type: "contains",
-        },
+        contains: "A",
       },
     },
   },
@@ -524,7 +488,7 @@ The configuration panel is displayed by default. The widget provides the default
 
 ### Hiding configuration panel
 
-To hide the panel hide, you can trigger the [`show-config-panel`](/api/methods/show-config-panel-method) method with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
+To hide the panel, you can trigger the [`show-config-panel`](/api/methods/show-config-panel-method) method with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {
@@ -554,7 +518,6 @@ widget.api.exec("show-config-panel", {
 ### Disabling the default toggling functionality
 
 You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/methods/show-config-panel-method) method and returning *false*).
-
 
 Example:
 
