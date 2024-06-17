@@ -40,15 +40,13 @@ The following default predicates are applied in case no predicate is specified v
 
 ~~~jsx
 const defaultPredicates = {
-	$empty: {
-		label: (v: any, type: any) => `raw ${type}`,
-		type: ["number", "date", "text"],
-	},
-	year: { label: "year", type: "date" },
-	month: { label: "month", type: "date" },
-	day: { label: "day", type: "date" },
-	hour: { label: "hour", type: "date" },
-	minute: { label: "minute", type: "date" },
+	year: { label: "Year", type: "date" },
+	quarter: { label: "Quarter", type: "date" },
+	month: { label: "Month", type: "date" },
+	week: { label: "Week", type: "date" },
+	day: { label: "Day", type: "date" },
+	hour: { label: "Hour", type: "date" },
+	minute: { label: "Minute", type: "date" },
 };
 ~~~
 

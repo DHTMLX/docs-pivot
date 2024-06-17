@@ -636,39 +636,29 @@ const widget = new pivot.Pivot("#pivot", {
 ## Processing data with predicates
 
 Predicates or data modifiers allow you to process data in the required way before this data is used as rows or columns. 
-For example, you can pre-process the date format before applying and displaying data.
+For example, you can pre-process the date format before applying and displaying data. The following predicates are applied by default:
 
-To add a predicate, you should specify the parameters of the [`predicates`](/api/config/predicates-property) property:
+~~~jsx
+const defaultPredicates = {
+	year: { label: "Year", type: "date" },
+	quarter: { label: "Quarter", type: "date" },
+	month: { label: "Month", type: "date" },
+	week: { label: "Week", type: "date" },
+	day: { label: "Day", type: "date" },
+	hour: { label: "Hour", type: "date" },
+	minute: { label: "Minute", type: "date" },
+};
+~~~
+
+To add a custom predicate, you should specify the parameters of the [`predicates`](/api/config/predicates-property) property:
 - Add keys that are predicate IDs
 - Add values that are objects with predicate configuration:
   - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column  
   - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value.
   - if you want the data to be displayed in the way other than the `handler` function returns, add the template that defines how data should be displayed (optional)
-  - add the `filter` function if necessary
+  - if necessary, add the `filter` function to specify how data should be filtered for the field 
 
 You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
-
-The following default predicates are applied:
-
-~~~jsx
-const predicates = {
-$empty: {
-		label: (v: any, type: any) => `(${type})`,
-		type: ["number", "date", "text"],
-	},
-	year: { label: "year", type: "date" },
-	month: { label: "month", type: "date" },
-	day: { label: "day", type: "date" },
-	hour: { label: "hour", type: "date" },
-	minute: { label: "minute", type: "date" },
-};
-~~~
-
-
-TBD!!!
-:::note 
-If no custom predicate is set, for the **date** type the default *$empty* template is applied where the value of the `dateToString` parameter of the [`tableShape`](/api/properties/tableshape-property) property is taken and depends on the current locale.
-:::
 
 ~~~jsx
 // custom predicate
