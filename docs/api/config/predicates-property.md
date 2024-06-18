@@ -34,7 +34,7 @@ The property is an object where a key is the name of a custom function and value
   - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date" or "text" or an array of these values
   - `filter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
 	- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary `locale` - the locale to localize text values 
+	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary, you can localize text values using `locale`.
  
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 

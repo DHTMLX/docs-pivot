@@ -6,242 +6,39 @@ description: You can explore how to work with Data in the documentation of the D
 
 # Working with data
 
-## Preparing data for loading
+This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading and exporting data](/guides/loading-exporting-data).
 
-The following types of information can be loaded into Pivot:
+## Defining fields
 
-- [`data`](/api/config/data-property) - an array of objects, where each object represents the data row.
-
-Example:
-
-~~~jsx
-const data = [
-   {
-      name: "Argentina",
-      year: 2015,
-      continent: "South America",
-      form: "Republic",
-      gdp: 181.357,
-      oil: 1.545,
-      balance: 4.699,
-      when: new Date("4/21/2015"),
-   },
-   {
-      name: "Argentina",
-      year: 2017,
-      continent: "South America",
-      form: "Republic",
-      gdp: 212.507,
-      oil: 1.732,
-      balance: 7.167,
-      when: new Date("1/15/2017"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 260.071,
-      oil: 2.845,
-      balance: 6.728,
-      when: new Date("6/16/2014"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 324.405,
-      oil: 4.333,
-      balance: 5.99,
-      when: new Date("2/20/2014"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 305.763,
-      oil: 2.626,
-      balance: 7.544,
-      when: new Date("8/17/2014"),
-   },
-   //other data
-];
-~~~
-
-Before loading data you can define the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table.
+Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table.  
 
 Example:
 
-~~~js
-const config = {
-   rows: ["continent"],
-   columns: ["year"],
-   values: [
-      { field: "oil", method: "max" },
-      { field: "balance", method: "max" },
-   ],
-};
-~~~
-
-Also you can use the [`fields`](/api/config/fields-property) property to define which fields will be applied as rows or columns. 
-
-Example:
-
-~~~js
-const fields = [
+~~~jsx {}
+const widget = new pivot.Pivot("#pivot", {
+  fields: [
    { id: "year", label: "Year", type: "number" },
    { id: "continent", label: "Continent", type: "text" },
    { id: "form", label: "Form", type: "text" },
    { id: "oil", label: "Oil", type: "number" },
    { id: "balance", label: "Balance", type: "number" },
-];
+  ],
+  data,
+  config: {...},
+});
 ~~~
 
-## Loading data 
+## Defining Pivot structure 
 
-You can load data into Pivot from an external file or the server-side script after the component has been initialized.
-
-To load local data from a separate file, first prepare the source file with data.
+Create the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details. 
 
 Example:
 
-~~~jsx
-function getData() {
-  return {
-    data,
-    config: {
-      rows: ["continent", "name"],
-      columns: ["year"],
-      values: [
-        "count(oil)",
-        { field: "oil", method: "sum" },
-        { field: "gdp", method: "sum" }],
-      filters: {
-      genre: {
-        contains: "D",
-        includes: ["Drama"],
-      },
-    },
-  },
-    fields,
-  };
-}
-const fields = [
-      { id: "year", label: "Year", type: "number" },
-      { id: "continent", label: "Continent", type: "text" },
-      { id: "form", label: "Form", type: "text" },
-      { id: "oil", label: "Oil", type: "number" },
-      { id: "balance", label: "Balance", type: "number" },
-];
-
-const data = [
-  {
-    name: "Argentina",
-    year: 2015,
-    continent: "South America",
-    form: "Republic",
-    gdp: 181.357,
-    oil: 1.545,
-    balance: 4.699,
-    when: new Date("4/21/2015"),
-  },
-  //other data
-];
-~~~
-
-Second, add the path to the source data file:
-
-~~~html title="index.html"
-<script type="text/javascript" src="./dist/pivot.js"></script>  
-<link rel="stylesheet" href="./dist/pivot.css">
-
-<script src="./common/data.js"></script>
-~~~
-
-Create Pivot and load data: 
-
-~~~jsx {}
-const { data, config, fields } = getData();
-const widget = new pivot.Pivot("#root", { data, config, fields });
-~~~
-
-To get server data, you can send the request for data using the native **fetch** method (or any other way):
-
-~~~jsx
-const widget = new pivot.Pivot("#pivot", {fields:[], data: []});
-const server = "https://some-backend-url";
-
-Promise.all([
-   fetch(server + "/data").then((res) => res.json()),
-   fetch(server + "/fields").then((res) => res.json())
- ]).then(([data, fields]) => {
-   widget.setConfig({data, fields});
- });
-~~~
-
-## Converting data from CSV to JSON
-
-You can load CSV data and convert it to JSON and then continue working with this data in the Pivot table.
-
-To convert data, you should use an external parsing library for JS to convert data from CSV to JSON.
-
-In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library and enable loading and converting data on a button click. In this example we use the `convert()` function which takes the following parameters:
-
-- `data` - a string with CSV data
-- `headers` - an array with the names of fields for CSV data
-- `meta` - an object where keys are the names of fields and values are the data types
-
-~~~jsx
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields, 
-  data: dataset,
+~~~jsx {4-15}
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
   config: {
-    rows: [
-      "studio",
-      "genre"
-    ],
-    columns: [], 
-    values: [
-      {
-        field: "title",
-        method: "count"
-      },
-      {
-        field: "score",
-        method: "max"
-      },
-    ]
-  }
-});
-
-function convert(data, headers, meta) {
-  const header = headers.join(",") + "\n";
-  const processedData = header + data;
-
-  return Papa.parse(processedData, { 
-    header: true,
-    dynamicTyping: true,
-    transform: (v, f) => {
-      return meta && meta[f] === "date" ? new Date(v) : v;
-    }
-  })
-}
-
-function fromCSV() {
-  const fields = [
-    { id: "name", label: "Name", type: "text" },
-    { id: "continent", label: "Continent", type: "text" },
-    { id: "form", label: "Form", type: "text" },
-    { id: "gdp", label: "GDP", type: "number" },
-    { id: "oil", label: "Oil", type: "number" },
-    { id: "balance", label: "Balance", type: "number" },
-    { id: "year", label: "Year", type: "number" },
-    { id: "when", label: "When", type: "date" },
-  ];
-  
-  const config = {
     rows: ["continent", "name"],
     columns: ["year"],
     values: [
@@ -249,84 +46,14 @@ function fromCSV() {
       { field: "oil", method: "sum" },
       { field: "gdp", method: "sum" },
     ],
-  };
-
-  const headers = [
-    "name",
-    "year",
-    "continent",
-    "form",
-    "gdp",
-    "oil",
-    "balance",
-    "when"
-  ];
-  
-  // date fields must be explicitly marked for proper conversion
-  const meta = { when: "date" };
-
-  const dataURL = "https://some-backend-url";
-  fetch(dataURL)
-    .then(response => response.text())
-    .then(text => convert(text, headers, meta))
-    .then(data => {
-    pivotWidget.setConfig({
-      data: data.data,
-      fields,
-      config
-    });
-  });
-}
-
-const importButton = document.createElement("button");
-importButton.addEventListener("click", fromCSV);
-importButton.textContent = "Import";
-
-document.body.appendChild(importButton);
-~~~
-
-## Exporting data
-
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the [DataGrid public API](https://docs.svar.dev/svelte/grid/api/overview/api_overview) to export data.
-
-To do this, apply the [`getTable`](/api/methods/getTable) method.
-
-In the example below we get access to the DataGrid widget API and trigger the [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
-
-~~~jsx
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
   },
-});
-
-function toCSV() {
-  pivotWidget.api.getTable().exec("export", {
-    options: {
-      format: "csv",
-      cols: ";",
+		fields,
+    filters: {
+      name: {
+        contains: "B",
+      },
     },
-  });
-}
-
-const exportButton = document.createElement("button");
-exportButton.addEventListener("click", toCSV);
-exportButton.textContent = "Export";
-
-document.body.appendChild(exportButton);
+});
 ~~~
 
 ## Sorting data
@@ -585,10 +312,10 @@ widget.api.intercept("add-field", (ev) => {
 
 To add a custom method, use the [`methods`](/api/config/methods-property) property by setting the `key` parameter value to the method name and the `value` parameter should be a function that defines how a method should process data. The function should take an array of numerical values as an input and return a single numerical value. 
 
-The example below shows how to calculate the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
+The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that get the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
 
 ~~~jsx {}
-function countDistinct(values, converter) {
+function countUnique(values, converter) {
   const valueMap = {};
   return values.reduce((acc, d) => {
     if (converter) d = converter(d);
@@ -601,35 +328,75 @@ function countDistinct(values, converter) {
 }
 
 const methods = {
-  distinct_count: {
-    handler: (values) => countDistinct(values),
-    type: ["number", "text"],
-    label: "distinct count",
+  countunique_date: {
+    handler: values => countUnique(values, v => new Date(v).getTime()),
+    type: "date",
+    label: "CountUnique",
+  },
+  average_date: {
+    type: "date",
+    label: "Average",
+    branchMode: "raw",
+    handler: values => {
+      if (!values.length) return null;
+      const sum = values.reduce((acc, d) => acc + d.getTime(), 0);
+      const avgTime = sum / values.length;
+      return new Date(avgTime);
+    },
   },
 };
 
+// show integers for "count" and "unique count" results
+const templates = {};
+fields.forEach(f => {
+  if (f.type == "number")
+    templates[f.id] = (v, method) =>
+    v && method.indexOf("count") < 0 ? parseFloat(v).toFixed(3) : v;
+});
+
+// date string to Date 
+const dateFields = fields.filter(f => f.type == "date");
+if (dateFields.length) {
+    dataset.forEach(item => {
+        dateFields.forEach(f => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
+    });
+}
+
 const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  methods: { ...pivot.defaultMethods, ...methods },
-  config: {
-    rows: ["state"],
-    columns: ["product_line", "product_type"],
-    values: [
-      {
-        field: "sales",
-        method: "sum",
-      },
-      {
-        field: "sales",
-        method: "count",
-      },
-      {
-        field: "sales",
-        method: "distinct_count",
-      },
-    ],
-  },
+    fields, 
+    data: dataset,
+    tableShape: { templates },
+    methods: { ...pivot.defaultMethods, ...methods },
+    config:{
+		rows: [
+            "state"
+        ],
+        columns: [
+            "product_line",
+            "product_type"
+        ],
+        values: [
+            {
+                field: "sales",
+                method: "sum"
+            },
+            {
+                field: "sales",
+                method: "count"
+            },
+            {
+                field: "date",
+                method: "countunique_date"
+            },
+            {
+                field: "date",
+                method: "average_date"
+            },   
+        ]
+	}
 });
 ~~~
 

@@ -6,7 +6,7 @@ description: You can learn about the customization in the documentation of the D
 
 # Customization
 
-Besides configuring Pivot, you can apply the customization options that can help improve its appearance and readability by applying templates and custom styles.
+Besides configuring Pivot, you can apply the customization options that can help improve Pivot appearance and readability by applying templates and custom styles.
 
 ## Applying templates to cells
 
@@ -14,13 +14,14 @@ To set a template to cells, use the `templates` parameter of the [`tableShape`](
 
 In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
 
-~~~jsx {1-2,7}
-const templates = { price: (v) => (v ? "€" + v : v), 
-score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
+~~~jsx {1-4,8}
+const templates = { 
+price: (v) => (v ? "€" + v : v),
+score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
+};
 
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
-    tree: true,
     templates,
   },
   fields,
@@ -48,7 +49,8 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Applying templates to headers
 
-To define the format of text in headers, apply `template` parameter of the [`headerShape`](/api/config/headershape-property). The parameter is the function that takes the field id, label and the method or predicate id (if any) and returns the processed value (the default template is as follows: *template: (label, id, subLabel) => label + (id ? ` (${subLabel})` : ""),*). By default, for the fields applied as rows the value of the `label` parameter is displayed and for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
+To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that takes the field id, label and sublabel (the name of a method if any is applied) and returns the processed value (the default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*). By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
+If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicate`](/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
 Example:
 
@@ -74,7 +76,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 
   headerShape: {
-    verticalText: true,
+    vertical: true,
     template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
   },
 });

@@ -27,7 +27,7 @@ The `config` parameters are used to define which fields will be applied as rows 
 
 - `rows` - (optional) defines the rows of the Pivot table. The default value is an empty array. It can be a string which represents a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - (required) the ID of a field
-  - `method` - (optional) defines a method for data processing in the field; methods for the time-based data fields are available by default: year, month, day, hour, minute which group data by year/month/day/hour; here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
+  - `method` - (optional) defines a method for data aggregation in the field; methods for the time-based data fields are available by default: year, month, day, hour, minute which group data by year/month/day/hour; here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
 - `columns` - (optional) defines columns for the Pivot table. It's an empty array by default. It can be a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - (required) the ID of a field
   - `method` - (optional) defines a method for data processing (for time-based data fields).
@@ -113,7 +113,8 @@ Parameters:
 
 - `id` - a unique id of the processed field
 - `field` - field name
-- `method` - operation name used for aggregation. Method is optional in case of rows and columns, and if provided, acts as a predicate and defines the way field data is pre-processed before aggregation. For values, method is a mandatory parameter.- `area` - area to which the field is added
+- `method` - operation name used for aggregation. A method is optional in case of rows and columns, and if provided, acts as a predicate and defines the way field data is pre-processed before aggregation. For values, method is a mandatory parameter.
+- `area` - area to which the field is added
 - `base` - used in columns and rows for fields with a predicate. Defines original field name , while field name is formed according to the "field_by_predicate" pattern
 - `label` - text label
 - `type` - data type

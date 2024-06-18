@@ -10,7 +10,7 @@ You can localize all labels in the interface of JavaScript Pivot. For this purpo
 
 ## Default locale
 
-The **English** locale is used by default:
+The **English** locale is applied by default:
 
 ~~~jsx
 const en = {
