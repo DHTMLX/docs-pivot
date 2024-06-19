@@ -62,7 +62,7 @@ The widget API allows configuring sorting settings and the sorting is applied to
 
 To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
-In the example below we add clickable field labels and the sorting functionality enabled with the icon click:
+In the example below we add clickable field labels and the sorting functionality that is enabled with the icon click:
 
 ~~~jsx
 const bar = document.getElementById("bar");
@@ -120,7 +120,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-properties) property. In the example below we disable sorting.
+To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
 
 ~~~jsx {19}
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -160,7 +160,7 @@ The Pivot widget provides the next condition types for filtering:
 - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
-The filter provides the **includes** filtering rule to define the set of values to be displayed. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/docs/index))
+The filter provides the **includes** filtering rule to define the set of values to be displayed. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/#filters))
 
 #### Adding a filter
 
@@ -199,7 +199,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Limiting loaded data
 
-To limit the number of rows and columns in the final dataset, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data (and when the specified number of row/columns is reached, the data rendering is stopped). The default values for both rows and columns are undefined, which means there's no limit.
+To limit the number of rows and columns in the final dataset, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data (when the specified number of row/columns is reached, the data rendering is stopped). The default values for both rows and columns are undefined, which means there's no limit.
 
 Example:
 
