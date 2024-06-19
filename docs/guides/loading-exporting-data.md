@@ -68,7 +68,9 @@ const data = [
 ];
 ~~~
 
-See also how to define fields and Pivot structure: link to be added
+:::note
+See also how to define fields and Pivot structure: [Working with data](guides/working-with-data)
+:::
 
 ## Loading data 
 
@@ -300,4 +302,36 @@ exportButton.textContent = "Export";
 document.body.appendChild(exportButton);
 ~~~
 
+## Setting date format
 
+The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` property in the **Locale** tag. 
+
+Pivot uses the following characters for setting the date format:
+
+| Character | Definition                                        |Example                  |
+| :-------- | :------------------------------------------------ |:------------------------|
+| %d        | day as a number with leading zero                 | from 01 to 31           |
+| %j        | day as a number                                   | from 1 to 31            |
+| %D        | short name of the day (abbreviation)              | Su Mo Tu Sat            |
+| %l        | full name of the day                              | Sunday Monday Tuesday   |
+| %m        | month as a number with leading zero               | from 01 to 12           |
+| %n        | month as a number                                 | from 1 to 12            |
+| %M        | short name of the month                           | Jan Feb Mar             |
+| %F        | full name of the month                            | January February March  |
+| %y        | year as a number, 2 digits                        | 24                      |
+| %Y        | year as a number, 4 digits                        | 2024                    |
+| %h        | hours 12-format with leading zero                 | from 01 to 12           |
+| %g        | hours 12-format                                   | from 1 to 12            |
+| %H        | hours 24-format with leading zero                 | from 00 to 23           |
+| %G        | hours 24-format                                   | from 0 to 23            |
+| %i        | minutes with leading zero                         | from 01 to 59           |
+| %s        | seconds with leading zero                         | from 01 to 59           |
+| %a        | am or pm                                          | am (for time from midnight until noon) and pm (for time from noon until midnight)|
+| %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
+| %u        | milliseconds                                      | 128                     |
+
+To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+
+Example:
+
+to be added
