@@ -30,7 +30,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Defining Pivot structure 
 
-Create the Pivot structure via the [`config`](/api/config/config-property) object that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details. 
+Create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details. 
 
 Example:
 
@@ -58,11 +58,11 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Sorting data
 
-The widget API allows configuring sorting settings and the sorting is applied to all areas (values, columns and rows) during aggregation. The sorting in UI by clicking the column header.
+The widget API allows configuring sorting settings and the sorting is applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
 
 To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
-In the example below we add clickable field labels and the sorting functionality on the icon click:
+In the example below we add clickable field labels and the sorting functionality enabled with the icon click:
 
 ~~~jsx
 const bar = document.getElementById("bar");
