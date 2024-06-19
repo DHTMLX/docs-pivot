@@ -312,7 +312,7 @@ widget.api.intercept("add-field", (ev) => {
 
 To add a custom method, use the [`methods`](/api/config/methods-property) property by setting the `key` parameter value to the method name and the `value` parameter should be a function that defines how a method should process data. The function should take an array of numerical values as an input and return a single numerical value. 
 
-The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that get the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
+The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that gets the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
 
 ~~~jsx {}
 function countUnique(values, converter) {
@@ -460,6 +460,46 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+## Adding columns and rows with total values
+
+To enable generating the rightmost column with total values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true**.
+
+To enable generating the footer with totals, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
+
+Example:
+
+~~~jsx {2-5}
+const widget = new pivot.Pivot("#pivot", {
+  tableShape: {
+    totalRow: true,
+    totalColumn: true,
+  },
+  fields,
+  data,
+  config: {
+    rows: ["studio"],
+    columns: ["type"],
+    values: [
+      {
+        field: "score",
+        method: "max",
+      },
+      {
+        field: "episodes",
+        method: "count",
+      },
+      {
+        field: "rank",
+        method: "min",
+      },
+      {
+        field: "members",
+        method: "sum",
+      },
+    ],
+  },
+});
+~~~
 
 ## Example
 

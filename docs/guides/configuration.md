@@ -358,51 +358,9 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Adding columns and rows with total values
-
-To enable generating the rightmost column with total values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true**.
-
-To enable generating the footer with total, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
-
-Example:
-
-~~~jsx {2-5}
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    totalRow: true,
-    totalColumn: true,
-  },
-  fields,
-  data,
-  config: {
-    rows: ["studio"],
-    columns: ["type"],
-    values: [
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "episodes",
-        method: "count",
-      },
-      {
-        field: "rank",
-        method: "min",
-      },
-      {
-        field: "members",
-        method: "sum",
-      },
-    ],
-  },
-});
-~~~
-
 ### Setting date format
 
-tbd
-
+tbd!
 Pivot uses the following characters for setting the date format:
 
 | Character | Definition                                        |Example                  |
@@ -428,6 +386,10 @@ Pivot uses the following characters for setting the date format:
 | %u        | milliseconds                                      | 128                     |
 
 To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+
+You can set the date format using the Pivot locale. 
+
+
 
 ### Working with filters
 
