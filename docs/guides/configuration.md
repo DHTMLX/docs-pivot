@@ -29,7 +29,6 @@ You can configure and/or customize the following elements of the Pivot table:
 - columns and rows
 - headers and footers
 - cells
-- filters
 - the table sizes
 
 ### Resizing the Pivot table
@@ -388,59 +387,6 @@ Pivot uses the following characters for setting the date format:
 To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
 
 You can set the date format using the Pivot locale. 
-
-
-
-### Working with filters
-
-The widget allows you to set various filters for fields depending on the type of data. It's possible to specify filters both via the Pivot interface after initialization or through the corresponding API using the [`config`](/api/config/config-property) property.
-
-In GUI, filters appear as drop-down lists for each field.
-
-#### Types of filters
-
-The Pivot widget provides the next condition types for filtering:
-
-- for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith  
-- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
-- for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
-
-The filter provides the **includes** filtering rule to define the set of values to be displayed. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/docs/index))
-
-#### Adding a filter
-
-To set a filter, add the **filters** object with the field ID and filter type to the [`config`](/api/config/config-property) property.
-
-~~~jsx {}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-    filters: {
-      genre: {
-        contains: "D",
-        includes: ["Drama"],
-      },
-
-      title: {
-        // filter for another field ("title")
-        contains: "A",
-      },
-    },
-  },
-});
-~~~
 
 ## Configuration panel
 
