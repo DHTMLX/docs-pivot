@@ -22,7 +22,7 @@ You can configure the *Pivot* appearance and functionality via the corresponding
 
 All instructions about working with data see here: [Working with data](guides/working-with-data)
 
-## Table
+## Datatable 
 
 You can configure and/or customize the following elements of the Pivot table:
 
@@ -31,7 +31,7 @@ You can configure and/or customize the following elements of the Pivot table:
 - cells
 - the table sizes
 
-### Resizing the Pivot table
+### Resizing the table
 
 You can change the size of the table rows and columns, header and footer using the [`tableShape`](/api/config/tableshape-property) property.
 
@@ -212,7 +212,37 @@ pivotWidget.api.on("render-table", (tableConfig) => {
 });
 ~~~
 
-### Switching to the tree mode
+### Sorting in columns
+
+The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
+
+~~~jsx {19}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        field: "title",
+        method: "count",
+      },
+      {
+        field: "score",
+        method: "max",
+      },
+    ],
+  },
+  columnShape: {
+    sort: false, 
+  },
+});
+~~~
+
+For more information about sorting data, refer to [Sorting data](/guides/working-with-data#sorting-data).
+
+### Enabling the tree mode
 
 The widget allows presenting data in a hierarchical format with expandable rows. To switch to the tree mode, apply the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true** (default is **false**).
 To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property. 
@@ -357,36 +387,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Setting date format
 
-tbd!
-Pivot uses the following characters for setting the date format:
-
-| Character | Definition                                        |Example                  |
-| :-------- | :------------------------------------------------ |:------------------------|
-| %d        | day as a number with leading zero                 | from 01 to 31           |
-| %j        | day as a number                                   | from 1 to 31            |
-| %D        | short name of the day (abbreviation)              | Su Mo Tu Sat            |
-| %l        | full name of the day                              | Sunday Monday Tuesday   |
-| %m        | month as a number with leading zero               | from 01 to 12           |
-| %n        | month as a number                                 | from 1 to 12            |
-| %M        | short name of the month                           | Jan Feb Mar             |
-| %F        | full name of the month                            | January February March  |
-| %y        | year as a number, 2 digits                        | 24                      |
-| %Y        | year as a number, 4 digits                        | 2024                    |
-| %h        | hours 12-format with leading zero                 | from 01 to 12           |
-| %g        | hours 12-format                                   | from 1 to 12            |
-| %H        | hours 24-format with leading zero                 | from 00 to 23           |
-| %G        | hours 24-format                                   | from 0 to 23            |
-| %i        | minutes with leading zero                         | from 01 to 59           |
-| %s        | seconds with leading zero                         | from 01 to 59           |
-| %a        | am or pm                                          | am (for time from midnight until noon) and pm (for time from noon until midnight)|
-| %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
-| %u        | milliseconds                                      | 128                     |
-
-To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
-
-You can set the date format using the Pivot locale. 
 
 ## Configuration panel
 

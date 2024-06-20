@@ -15,7 +15,7 @@ description: You can learn about the tableShape config in the documentation of t
 ~~~jsx
 tableShape?: {
     templates?: {
-    [fieldName: string]: (
+    [field: string]: (
       value: any,
       operation: string
     ) => any;

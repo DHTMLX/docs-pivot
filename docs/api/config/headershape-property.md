@@ -16,7 +16,7 @@ description: You can learn about the headerShape config in the documentation of 
 headerShape?: {
   collapsible?: boolean,
   vertical?: boolean,
-  template?: (label: string, fieldId: string, subLabel?: string) => string
+  template?: (label: string, field: string, subLabel?: string) => string
 };
 ~~~
 
@@ -54,7 +54,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
   headerShape: {
     vertical: true,
-    template: (label, fieldId, subLabel) => fieldId + (subLabel ? ` (${subLabel})` : ""),
+    template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : ""),
   },
 });
 ~~~

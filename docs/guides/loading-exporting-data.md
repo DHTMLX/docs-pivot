@@ -306,6 +306,10 @@ document.body.appendChild(exportButton);
 
 The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` property in the **Locale** tag. 
 
+Example:
+
+to be added
+
 Pivot uses the following characters for setting the date format:
 
 | Character | Definition                                        |Example                  |
@@ -332,6 +336,4 @@ Pivot uses the following characters for setting the date format:
 
 To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
 
-Example:
 
-to be added

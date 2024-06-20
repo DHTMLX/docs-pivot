@@ -58,7 +58,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Sorting data
 
-The widget API allows configuring sorting settings and the sorting is applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
+The widget API allows configuring the sorting settings that are applied applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
 
 To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
@@ -120,7 +120,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-To make the sorting possible in UI by clicking the column header, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
+The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
 
 ~~~jsx {19}
 const pivotWidget = new pivot.Pivot("#pivot", {

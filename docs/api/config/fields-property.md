@@ -18,7 +18,7 @@ The `fields` property in the configuration object controls how the widget interp
 fields?: [{
    id: string,
    label?: string,
-   type: string,
+   type: "number" | "date" | "text",
    sort?: "asc" | "desc" | ((a: any, b: any) => number),   
 }];
 ~~~

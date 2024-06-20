@@ -17,8 +17,8 @@ description: You can learn about the methods config in the documentation of the 
     [method: string]:
     {
       type?: 'number' | 'date' | 'text' | [],
-      label?:string,
-      handler?: (values: number[]|string[]|Date[]) => any,
+      label?: string,
+      handler?: (values: number[]) => number,
       branchMode?: "raw"|"result",
       branchMath?: string
     },
