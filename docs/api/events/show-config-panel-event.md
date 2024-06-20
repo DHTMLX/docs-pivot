@@ -8,7 +8,7 @@ description: You can learn about the show-config-panel event in the documentatio
 
 ### Description
 
-@short: Fires when the visibility of the configuration panel changes
+@short: Fires when the visibility of the Configuration panel changes
 
 ### Usage
 
@@ -22,7 +22,7 @@ description: You can learn about the show-config-panel event in the documentatio
 
 The callback of the action takes an object with the following parameter:
 
-- `mode` - (required) if the value is set to **true** (default), the configuration panel is shown, and set to **false** when the configuration panel is hidden
+- `mode` - (required) if the value is set to **true** (default), the Configuration panel is shown, and set to **false** when the configuration panel is hidden
 
 ### Example
 
@@ -50,3 +50,7 @@ widget.api.exec("show-config-panel", {
   mode: false,
 });
 ~~~
+
+**Related articles**: 
+- [`showConfigPanel()` method](/api/methods/showconfigpanel-method)
+- [`configPanel` property](/api/config/configpanel-property)

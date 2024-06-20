@@ -393,11 +393,38 @@ const widget = new pivot.Pivot("#pivot", {
 
 ### Default settings
 
-The configuration panel is displayed by default. The widget provides the default functionality that allows toggling the visibility of the configuration panel with the button click. It's made possible via the [`show-config-panel`](/api/event/show-config-panel-event) event.
+The configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](api/config/configPanel) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
 
 ### Hiding configuration panel
 
-To hide the panel, you can trigger the [`show-config-panel`](/api/methods/show-config-panel-method) method with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
+To hide the panel, set the value of the [`configPanel`](api/config/configPanel) property to **false**.
+
+~~~jsx 
+// The configuration panel is hidden on init
+const widget = new pivot.Pivot("#pivot", {
+  fields,
+  data: dataset,
+  
+  configPanel: false,
+
+  config: {
+    rows: ["hobbies"],
+    columns: ["relationship_status"],
+    values: [
+      {
+        field: "age",
+        method: "min",
+      },
+      {
+        field: "age",
+        method: "max",
+      },
+    ],
+  },
+});
+~~~
+
+You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {
@@ -426,7 +453,7 @@ widget.api.exec("show-config-panel", {
 
 ### Disabling the default toggling functionality
 
-You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/methods/show-config-panel-method) method and returning *false*).
+You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
 Example:
 
@@ -454,6 +481,8 @@ pivotWidget.api.intercept("show-config-panel", () => {
   return false;
 });
 ~~~
+
+You can also control the visibility of the Configuration panel using the [`showConfigPanel()`](api/methods/showconfigpanel-method) method.
 
 ## Example
 

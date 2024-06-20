@@ -8,7 +8,7 @@ description: You can learn about the showConfigPanel() method in the documentati
 
 ### Description
 
-@short: Shows or hides the configuration panel
+@short: Shows or hides the Configuration panel
 
 This TypeScript method can be useful when there's a need to control the visibility of the configuration panel without user interaction. For instance, you might want to hide or display the panel based on some other interaction or state in your application.
 
@@ -21,7 +21,7 @@ showConfigPanel({mode: boolean}): void;
 
 ### Parameters
 
-- `mode` (boolean) - (required) if the value is set to **true** (default), the configuration panel is shown, and set to **false** when the configuration panel is hidden
+- `mode` (boolean) - (required) if the value is set to **true** (default), the configuration panel is shown, and set to **false** when the Configuration panel is hidden
 
 ### Example
 
@@ -50,3 +50,7 @@ widget.showConfigPanel ({
     mode: false
 })
 ~~~
+
+**Related articles**: 
+- [`show-config-panel` event](/api/events/show-config-panel-event)
+- [`configPanel` property](/api/config/configpanel-property)
