@@ -48,11 +48,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -68,3 +68,5 @@ widget.api.intercept("add-field", (ev) => {
   }
 });
 ~~~
+
+**Related articles**: [api.intercept()](/api/internal/intercept-method)

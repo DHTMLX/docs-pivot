@@ -28,8 +28,8 @@ The callback of the action takes an object with the following parameters:
      - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith
      - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains
      - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
-  - `value` - (optional) the value to filter by
-  - `includes` - (optional) an array of values to be displayed from those that are already filtered; available for text and date values
+  - `value` - (required) the value to filter by
+  - `includes` - (required) an array of values to be displayed from those that are already filtered; available for text and date values
 
 ### Example
 
@@ -42,11 +42,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -57,7 +57,5 @@ widget.api.on("apply-filter", (ev) => {
   console.log("The field to which filter was applied:", ev.rule.field);
 });
 ~~~
-
----
 
 **Related articles**: [api.on()](/api/internal/on-method)

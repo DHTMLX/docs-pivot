@@ -39,11 +39,11 @@ const table = new pivot.Pivot("#root", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],

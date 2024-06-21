@@ -44,11 +44,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -59,3 +59,5 @@ widget.api.on("update-field", (ev) => {
   console.log("The id of the field that was updated:", ev.id);
 });
 ~~~
+
+**Related articles**: [api.on()](/api/internal/on-method)

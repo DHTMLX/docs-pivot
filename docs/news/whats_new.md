@@ -25,11 +25,11 @@ Released on Month Day, 2024
   - configuring the width
   - setting autowidth with the ability to set maxRows to be processed for the autoWidth calculation
   - the firstOnly feature when each field of the same data is analyzed only once to calculate the column width (by default)
-- **Configuring the look of headers**:  
+- **Configuring the look and behavior of headers**:  
   - applying a template to the text in headers
   - changing text orientation
   - making dimension groups in the table collapsible
-- **Configuring the look of the Pivot table**:
+- **Configuring the look of the table**:
   - applying templates to a cell
   - marking cells
   - configuring the sizes: rowHeight, headerHeight, footerHeight, colWidth
@@ -39,7 +39,7 @@ Released on Month Day, 2024
   - fixing columns from the left making them static while scrolling
 - **Working with data**:
   - loading data
-  - importing data from CSV to JSON
+  - converting data from CSV to JSON
   - exporting data to the xlsx or csv format
   - sorting data
   - adding and applying filters
@@ -47,4 +47,4 @@ Released on Month Day, 2024
   - applying and customizing maths methods
   - processing data with predicates
 - **Localization** and setting date format
-- **Styling** (cell style, scroll style, ability to customize the Material theme)
+- **Styling** (cell style, header template, scroll style, ability to customize the Material theme)

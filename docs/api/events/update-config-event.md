@@ -78,3 +78,5 @@ widget.api.intercept("update-config", (config) => {
   console.log("Config has changed", config);
 });
 ~~~
+
+**Related articles**: [api.intercept()](/api/internal/intercept-method)

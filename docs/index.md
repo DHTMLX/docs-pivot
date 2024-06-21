@@ -87,9 +87,9 @@ To change the order of rows in the table, drag an item to the desired position. 
 ![rows-priority](assets/rows-priority.png)
 
 
-#### Filters
+### Filters
 
-Filters appear as drop-down lists for each field:
+Filters appear as drop-down lists for each field in all areas:
 
 ![filters](assets/filters.png)
 

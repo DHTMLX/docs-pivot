@@ -41,11 +41,11 @@ const widget = new pivot.Pivot("#pivot", {
     columns: [],
     values: [
       {
-        id: "title",
+        field: "title",
         method: "count",
       },
       {
-        id: "score",
+        field: "score",
         method: "max",
       },
     ],
@@ -56,3 +56,5 @@ widget.api.on("move-field", (ev) => {
   console.log("The id of the reordered field:", ev.id);
 });
 ~~~
+
+**Related articles**: [api.on()](/api/internal/on-method)
