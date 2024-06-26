@@ -8,7 +8,7 @@ description: You can explore how to load and export data in the documentation of
 
 The following types of information can be loaded into Pivot:
 
-- [`data`](/api/config/data-property) - an array of objects, where each object represents the data row.
+- [`data`](/api/config/data-property) - an array of objects, where each object represents the data row
 
 Example:
 

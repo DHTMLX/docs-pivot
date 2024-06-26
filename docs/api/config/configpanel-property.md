@@ -8,7 +8,7 @@ description: You can learn about the configPanel config in the documentation of 
 
 ### Description
 
-@short: Optional. Enables/disables the visibility of the Configuration panel in UI
+@short: Optional. Controls the visibility of the Configuration panel in UI
 
 In UI the panel is hidden/shown by clicking the **Hide Settings** button. 
 

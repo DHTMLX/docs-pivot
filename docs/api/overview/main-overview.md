@@ -68,6 +68,7 @@ new pivot.Pivot("#root", {
 | :------------------------------------------------- | :----------------------------------------------- |
 | [](../config/columnshape-property.md)              | @getshort(../config/columnshape-property.md)     |
 | [](../config/config-property.md)                   | @getshort(../config/config-property.md)          |
+| [](../config/configpanel-property.md)              | @getshort(../config/configpanel-property.md)     |
 | [](../config/data-property.md)                     | @getshort(../config/data-property.md)            |
 | [](../config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
 | [](../config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |

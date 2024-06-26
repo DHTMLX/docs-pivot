@@ -22,8 +22,6 @@ You can configure the *Pivot* appearance and functionality via the corresponding
 
 All instructions about working with data see here: [Working with data](guides/working-with-data)
 
-## Datatable 
-
 You can configure and/or customize the following elements of the Pivot table:
 
 - columns and rows
@@ -31,9 +29,22 @@ You can configure and/or customize the following elements of the Pivot table:
 - cells
 - the table sizes
 
-### Resizing the table
+## Resizing the table
 
 You can change the size of the table rows and columns, header and footer using the [`tableShape`](/api/config/tableshape-property) property.
+
+The next sizes are applied by default:
+
+~~~jsx
+const sizes = {
+	rowHeight: 34,
+	headerHeight: 30,
+	footerHeight: 30,
+	colWidth: 150,
+};
+~~~
+
+Example:
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
@@ -66,7 +77,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 To set the width of specific column(s), apply the `width` parameter of the [columnShape property](/api/config/columnshape-property).
 
-### Autosizing columns to content
+## Autosizing columns to content
 
 The widget allows setting the minimum width value for all columns as well as enable sizing for the header, data only or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
 
@@ -114,7 +125,81 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Making columns collapsible
+## Applying templates to cells
+
+To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/properties/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
+
+In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
+
+~~~jsx {1-4,8}
+const templates = { 
+price: (v) => (v ? "€" + v : v),
+score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
+};
+
+const widget = new pivot.Pivot("#pivot", {
+  tableShape: {
+    templates,
+  },
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        field: "title",
+        method: "count",
+      },
+      {
+        field: "score",
+        method: "max",
+      },
+      {
+        field: "price",
+        method: "count",
+      },
+    ],
+  },
+});
+~~~
+
+## Applying templates to headers
+
+To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that takes the field id, label and sublabel (the name of a method if any is applied) and returns the processed value (the default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*). By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
+If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicate`](/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
+
+Example:
+
+In the example below for the **values** fields the header will display the method name (subLabel) and the label:
+
+~~~jsx {19-22}
+const pivotWidget = new pivot.Pivot("#pivot", {
+  fields,
+  data,
+  config: {
+    rows: ["studio", "genre"],
+    columns: [],
+    values: [
+      {
+        field: "title",
+        method: "count",
+      },
+      {
+        field: "score",
+        method: "max",
+      },
+    ],
+  },
+
+  headerShape: {
+    vertical: true,
+    template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
+  },
+});
+~~~
+
+## Making columns collapsible
 
 It's possible to collapse/expand columns that are under one header. To make columns collapsible, use the value of the `collapsible` parameter of the [`headerShape`](/api/config/headershape-property) property by setting it to **true**.
 
@@ -142,7 +227,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Freezing columns
+## Freezing columns
 
 The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
 
@@ -212,7 +297,7 @@ pivotWidget.api.on("render-table", (tableConfig) => {
 });
 ~~~
 
-### Sorting in columns
+## Sorting in columns
 
 The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
 
@@ -242,7 +327,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 For more information about sorting data, refer to [Sorting data](/guides/working-with-data#sorting-data).
 
-### Enabling the tree mode
+## Enabling the tree mode
 
 The widget allows presenting data in a hierarchical format with expandable rows. To switch to the tree mode, apply the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true** (default is **false**).
 To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property. 
@@ -282,7 +367,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-### Expanding/collapsing all rows
+## Expanding/collapsing all rows
 
 To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the `config` object).
 
@@ -349,7 +434,7 @@ document.body.appendChild(openAllButton);
 document.body.appendChild(closeAllButton);
 ~~~
 
-### Changing text orientation in headers
+## Changing text orientation in headers
 
 To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-propeprty) property and set its `vertical` parameter to **true**. 
 
@@ -387,15 +472,11 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+## Controlling visibility of Configuration panel
 
+The Configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](api/config/configPanel) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
 
-## Configuration panel
-
-### Default settings
-
-The configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](api/config/configPanel) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
-
-### Hiding configuration panel
+### Hiding Configuration panel
 
 To hide the panel, set the value of the [`configPanel`](api/config/configPanel) property to **false**.
 

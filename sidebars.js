@@ -168,7 +168,6 @@ module.exports = {
             items: [
                 "guides/initialization",
                 "guides/configuration",
-                "guides/customization",
                 "guides/loading-exporting-data",
                 "guides/localization",
                 "guides/stylization",

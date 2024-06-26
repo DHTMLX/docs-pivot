@@ -10,7 +10,7 @@ This page describes how to aggregate data in Pivot. For the instructions about l
 
 ## Defining fields
 
-Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table.  
+Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table. To add a new field, you should add a new object to the `fields` array.  
 
 Example:
 
@@ -60,7 +60,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 The widget API allows configuring the sorting settings that are applied applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
 
-To set default sorting values, apply the **sort** parameter of the [`fields`](/api/properties/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
+To set default sorting values, apply the **sort** parameter of the [`fields`](/api/config/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
 In the example below we add clickable field labels and the sorting functionality that is enabled with the icon click:
 

@@ -6,6 +6,8 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
+TBD
+
 You can localize all labels in the interface of JavaScript Pivot. For this purpose you need to create a new locale or modify a built-in one and apply it to Pivot.
 
 ## Default locale
