@@ -112,9 +112,9 @@ interface IParsedConfig {
 Parameters:
 
 - `id` - a unique id of the processed field
-- `field` - field name
-- `method` - operation name used for aggregation. A method is optional in case of rows and columns, and if provided, acts as a predicate and defines the way field data is pre-processed before aggregation. For values, method is a mandatory parameter.
-- `area` - area to which the field is added
+- `field` - a field name
+- `method` - the operation name used for aggregation. A method is optional in case of rows and columns, and if provided, acts as a predicate and defines the way field data is pre-processed before aggregation. For values, method is a mandatory parameter.
+- `area` - the area to which the field is added
 - `base` - used in columns and rows for fields with a predicate. Defines original field name , while field name is formed according to the "field_by_predicate" pattern
 - `label` - text label
 - `type` - data type

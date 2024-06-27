@@ -7,19 +7,19 @@ description: You can have an overview of DHTMLX JavaScript Pivot library in the 
 
 # DHTMLX Pivot overview
 
-JavaScript Pivot library is a ready-made component for creating Pivot tables from large datasets. The widget API can be easily adjusted to the needs of your web application. It provides the end user with functionality for comparing and analyzing complex data within one table, filtering, subtotaling and aggregating data.
+JavaScript Pivot library is a ready-made component for creating Pivot tables from large datasets. The widget API can be easily adjusted to the needs of your web application. It provides the end user with functionality for comparing and analyzing complex data within one table.
 
 ## Pivot structure­
 
-The Pivot UI consists of the two main components: the Configuration panel and the table.
+The Pivot UI consists of the two main components: the Configuration panel and the table with data.
 
 ![Main](assets/pivot.png)
 
 ## Configuration panel
 
-The Configuration panel allows working with the next Pivot areas:
+The Configuration panel allows adding columns and rows to the table as well as values' fields that define data aggregation methods. You can add each item via the next areas in the panel: 
 
-- Values: you can add the values fields, each value is kept in the Pivot table cell and displays the summarized information (such as sum, min, max values)
+- Values: you can add values that define how data is aggregated (such as sum, min, max values)
 - Columns: you can configure columns of the table (define which fields will be applied as columns)
 - Rows: you can configure which fields should be applied as rows of the table
 
@@ -29,7 +29,7 @@ To hide the Configuration panel, click the **Hide Settings** button:
 
 ### Values area
 
-In the **Values** area you can perform the following operations:
+In the **Values** area you can define which aggregation methods (such as min, max, count) will be applied to the cells of the Pivot table. You can perform the next operations:
 
 - add and remove fields to/from the values area
 - change the order and priority of values in the table

@@ -18,7 +18,7 @@ Released on Month Day, 2024
   - defining rows, columns, and values by applying the **config** property
   - adding, deleting, reordering fields
   - updating the current config
-  - the rendering feature that allows altering the final table configuration on the fly or prevent the rendering of the table altogether.
+  - the rendering feature that allows altering the final table configuration on the fly or prevent the rendering of the table altogether
 - **Showing and hiding the configuration panel**
 - **Configuring the look and behavior of columns**:
   - the sorting feature
@@ -30,7 +30,7 @@ Released on Month Day, 2024
   - changing text orientation
   - making dimension groups in the table collapsible
 - **Configuring the look of the table**:
-  - applying templates to a cell
+  - applying templates to cells, headers
   - marking cells
   - configuring the sizes: rowHeight, headerHeight, footerHeight, colWidth
   - the table tree mode

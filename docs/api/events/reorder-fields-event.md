@@ -27,8 +27,8 @@ The callback of the action takes an object with the following parameters:
 
 - `area` - (required) the name of the area where reordering takes place, which can be "rows", "columns" or "values" area
 - `id` - (required) a field id that is moved
-- `before` - (optional) a field id before which the moved field is placed
-- `after` - (optional) a field id after which the moved field is placed
+- `before` - (optional) the id of a field before which the moved field is placed
+- `after` - (optional) the id of a field after which the moved field is placed
 
 ### Example
 

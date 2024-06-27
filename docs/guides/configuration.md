@@ -534,7 +534,7 @@ widget.api.exec("show-config-panel", {
 
 ### Disabling the default toggling functionality
 
-You can block toggling the visibility of the configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
+You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
 Example:
 
@@ -564,6 +564,15 @@ pivotWidget.api.intercept("show-config-panel", () => {
 ~~~
 
 You can also control the visibility of the Configuration panel using the [`showConfigPanel()`](api/methods/showconfigpanel-method) method.
+
+### Actions with fields in the panel
+
+In the Configuration panel it's possible to perform the next operations with fields:
+
+- [add-field](/api/events/add-field-event)
+- [delete-field](/api/events/delete-field-event)
+- [update-field](/api/events/update-field-event)
+- [move-field](/api/events/reorder-fields-event)
 
 ## Example
 

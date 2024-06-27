@@ -304,6 +304,8 @@ document.body.appendChild(exportButton);
 
 ## Setting date format
 
+tbd
+
 The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` property in the **Locale** tag. 
 
 Example:

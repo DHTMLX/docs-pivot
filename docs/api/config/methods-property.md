@@ -74,10 +74,10 @@ The definition of each method you can see here: [Applying methods](/guides/worki
 
 ## Example
 
-The example below shows how to calculate the exact count of unique values. The function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **distinct_count** sub-property has a handler with a function that calculates the distinct count value from an array of numbers.
+The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that gets the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
 
 ~~~jsx {}
-function countDistinct(values, converter) {
+function countUnique(values, converter) {
   const valueMap = {};
   return values.reduce((acc, d) => {
     if (converter) d = converter(d);
@@ -90,34 +90,74 @@ function countDistinct(values, converter) {
 }
 
 const methods = {
-  distinct_count: {
-    handler: (values) => countDistinct(values),
-    type: ["number", "text"],
-    label: "distinct count",
+  countunique_date: {
+    handler: values => countUnique(values, v => new Date(v).getTime()),
+    type: "date",
+    label: "CountUnique",
+  },
+  average_date: {
+    type: "date",
+    label: "Average",
+    branchMode: "raw",
+    handler: values => {
+      if (!values.length) return null;
+      const sum = values.reduce((acc, d) => acc + d.getTime(), 0);
+      const avgTime = sum / values.length;
+      return new Date(avgTime);
+    },
   },
 };
 
+// show integers for "count" and "unique count" results
+const templates = {};
+fields.forEach(f => {
+  if (f.type == "number")
+    templates[f.id] = (v, method) =>
+    v && method.indexOf("count") < 0 ? parseFloat(v).toFixed(3) : v;
+});
+
+// date string to Date 
+const dateFields = fields.filter(f => f.type == "date");
+if (dateFields.length) {
+    dataset.forEach(item => {
+        dateFields.forEach(f => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
+    });
+}
+
 const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  methods: { ...pivot.defaultMethods, ...methods },
-  config: {
-    rows: ["state"],
-    columns: ["product_line", "product_type"],
-    values: [
-      {
-        field: "sales",
-        method: "sum",
-      },
-      {
-        field: "sales",
-        method: "count",
-      },
-      {
-        field: "sales",
-        method: "distinct_count",
-      },
-    ],
-  },
+    fields, 
+    data: dataset,
+    tableShape: { templates },
+    methods: { ...pivot.defaultMethods, ...methods },
+    config:{
+		rows: [
+            "state"
+        ],
+        columns: [
+            "product_line",
+            "product_type"
+        ],
+        values: [
+            {
+                field: "sales",
+                method: "sum"
+            },
+            {
+                field: "sales",
+                method: "count"
+            },
+            {
+                field: "date",
+                method: "countunique_date"
+            },
+            {
+                field: "date",
+                method: "average_date"
+            },   
+        ]
+	}
 });
 ~~~
