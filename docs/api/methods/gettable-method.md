@@ -8,9 +8,9 @@ description: You can learn about the getTable method in the documentation of the
 
 ### Description
 
-@short: Gets access to the underlying DataGrid widget instance in the Pivot
+@short: Gets access to the underlying DataGrid widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying DataGrid widget instance in the Pivot. It provides direct access to all DataGrid functionality ([DataGrid API](https://docs.svar.dev/svelte/grid/api/overview/api_overview)), allowing for operations such as data serialization and exporting in various formats.
+This method is used when there's a need to access the underlying DataGrid widget instance in Pivot. It provides direct access to all DataGrid functionality (link to dhtml DataGrid-????), allowing for operations such as data serialization and exporting in various formats.
 
 ### Usage
 
@@ -21,11 +21,11 @@ getTable(wait:boolean): Table | Promise;
 
 ### Parameters
 
-`wait` - defines to wait until DataGrid API is available in Pivot (necessary when DataGrid API is used during with Pivot initialization). If the value is set to **true**, the method returns a promise with DataGrid API.
+`wait` - defines if to wait until DataGrid API is available in Pivot (necessary when DataGrid API is used during Pivot initialization). If the value is set to **true**, the method returns a promise with DataGrid API.
 
 ### Example
 
-In the example below we get access to the DataGrid widget API and trigger the [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action with the button click using the [`api.exe()`](/api/methods/exec) method.
+In the example below we get access to the DataGrid widget API and trigger the DataGrid `export`event with the button click using the [`api.exe()`](/api/internal/exec-method) method.
 
 ~~~jsx {}
 // create Pivot

@@ -14,7 +14,7 @@ Released on Month Day, 2024
 
 ### Initial functionality
 
-- **Configuring table structure**:  
+- **Configuring the table structure**:  
   - defining rows, columns, and values by applying the **config** property
   - adding, deleting, reordering fields
   - updating the current config

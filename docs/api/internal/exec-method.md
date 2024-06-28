@@ -32,7 +32,7 @@ The full list of Pivot actions can be found [**here**](/api/overview/events_over
 
 ## Example
 
-In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/methods/exec) method. The last field is removed from the **values** area. The [`api.getState()`](/api/methods/getState) method here is used to get the current state of the Pivot [`config`](/api/properties/config). The action will be triggered with the button click.
+In the example below, the [`delete-field`](/api/events/delete-field-event) event is triggered via the [`api.exec()`](/api/methods/exec) method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The event will be triggered with the button click.
 
 TBD!!!
 

@@ -92,6 +92,8 @@ The **fields** array is necessary to define the fields IDs, labels for display, 
 
 The **data** array should hold the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table. 
 
+The **config** object defines the structure of the Pivot table, namely, which fields will be applied as rows and columns of the table and which data aggregation methods should be applied to the fields.
+
 ~~~jsx {}
 const table = new pivot.Pivot("#root", {
 //configuration properties
@@ -112,7 +114,7 @@ config: {
 
 ## What's next
 
-That's all. Just three simple steps and you have a handy tool for visualizing and managing the workflow. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
+That's all. Just three simple steps and you have a handy tool for analyzing data. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
 
 - [Guides](/category/guides) pages provide instructions about installation, loading data, styling, and other helpful tips to go smoothly with the Pivot configuration
 - [API reference](/api/overview/main-overview) gives description of the Pivot functionality

@@ -8,7 +8,7 @@ description: You can learn about the detach method in the documentation of the D
 
 ## Description
 
-Allows removing/detaching action handlers
+@short: Allows removing/detaching action handlers
 
 ## Usage
 
@@ -22,7 +22,7 @@ api.detach(tag: number | string ): void;
 
 ### Example
 
-In the example below we add an object with the **tag** property to the [`api.on()`](/api/internal/on-method) handler, and then we use the `api.detach()` method to stop logging the `open-filter` action.
+In the example below we add an object with the **tag** property to the [`api.on()`](/api/internal/on-method) handler, and then we use the `api.detach()` method to stop logging the [`open-filter`](/api/events/open-filter-event) action.
 
 ~~~jsx {}
 //create Pivot

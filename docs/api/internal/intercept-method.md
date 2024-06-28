@@ -27,15 +27,17 @@ api.intercept(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](api/overview/main_overview.md/#pivot-events).
-Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
+The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md/#pivot-events).
+Use the [`api.on()`](/api/internal/on-method) method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
 :::
 
 ### Example
 
+The example shows how to make all collapsible rows close at the initialization. 
+
 ~~~jsx
 // create Pivot
-consttable = new pivot.Pivot("#root", {
+const table = new pivot.Pivot("#root", {
   fields,
   data: dataset,
   config: {
@@ -54,8 +56,10 @@ consttable = new pivot.Pivot("#root", {
   },
 });
 
-//make all rows closed at the initialization
+//make all rows close at the initialization
 table.api.intercept("render-table", (ev) => {
     ev.config.data.forEach((row) => (row.open = false));
 })
 ~~~
+
+**Related articles**: [`render-table`](/api/events/render-table-event)

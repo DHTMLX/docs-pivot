@@ -28,12 +28,12 @@ api.on(
 
 :::info
 The full list of the Pivot internal events can be found [**here**](api/overview/main_overview.md/#pivot-events).
-Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
+Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](/api/internal/on-method) method.
 :::
 
 ### Example
 
-The example below shows how to output the label of a filed for which filter was activated: 
+The example below shows how to output the label of a field for which the filter was activated: 
 
 ~~~jsx
 // create Pivot

@@ -34,7 +34,7 @@ In the **Values** area you can define which aggregation methods (such as min, ma
 - add and remove fields to/from the values area
 - change the order and priority of values in the table
 - filter data 
-- set operations that will be applied to all data in the value column of the table
+- set operations that will be applied to the fields of the table
 
 To add a new value, click the "+" button and select the required name from the drop-down list. A new value will appear in the table cells.
 
@@ -42,11 +42,11 @@ To remove a value, click the delete button ("x").
 
 ![add_remove](assets/add_remove.png)
 
-To change the order of values in the table, drag an item to the desired position. The closer the value is to the left in the toolbar values list, the higher its priority and position in the table columns. The values with the highest priority are in the leftmost position in the column they belong to. The **Count** field in the image below has the highest priority:
+To change the order of values in the table, drag an item to the desired position. The closer the value is to the left in the toolbar values list, the higher its priority and position in the table columns. The values with the highest priority are in the leftmost position in the column they belong to. The field with the **Count** value in the image below has the highest priority:
 
 ![priority](assets/priority.png)
 
-To set operations that will be applied to all data in the value column of the table, click the value operations in the drop-down list, and select the required option from the list.
+To set operations that will be applied to all data of the column of the table, click the value operations for the required field in the drop-down list, and select the required option from the list.
 
 ![operations](assets/operations.png)
 
@@ -76,7 +76,7 @@ In the Configuration panel for the **Rows** area, you can perform the following 
 - change the order and priority of rows in the table
 - filter data 
 
-To add a new row, click the "+" button and select the required name from the drop-down list. A new row name will appear as a label of the first table columns.
+To add a new row, click the "+" button and select the required name from the drop-down list. A new row name will appear as a label of the first table column.
 
 ![rows](assets/rows.png)
 
@@ -96,7 +96,7 @@ Filters appear as drop-down lists for each field in all areas:
 The Pivot provides the next condition types for filtering:
 
 - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith  
-- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal, notEqual, contains, notContains  
+- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
 To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**.
