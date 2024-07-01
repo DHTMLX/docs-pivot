@@ -65,11 +65,11 @@ config: {
 ## Configuration properties
 
 :::info
-The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties_overview.md).
+The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties-overview.md).
 :::
 
 ## Example
 
 In this snippet you can see how to initialize **Pivot** with the initial data:
 
-<iframe src="https://snippet.dhtmlx.com/" frameborder="0" class="snippet_iframe" width="100%" height="500"></iframe> TODO!!!
+<iframe src="https://snippet.dhtmlx.com/y2buoahe?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
