@@ -22,7 +22,7 @@ description: You can learn about the show-config-panel event in the documentatio
 
 The callback of the action takes an object with the following parameter:
 
-- `mode` - (required) if the value is set to **true** (default), the Configuration panel is shown, and set to **false** when the configuration panel is hidden
+- `mode` - (required) if the value is set to **true** (default), the Configuration panel is shown, and it's set to **false** when the Configuration panel is hidden
 
 ### Example
 

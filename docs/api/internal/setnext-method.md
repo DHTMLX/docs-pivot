@@ -22,8 +22,24 @@ api.setNext(next: any): void;
 
 ### Example
 
-~~~jsx {}
-// TODO!!!
+The example below shows how to use the `api.setNext()` method to integrate some custom class into the Event Bus order:
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", { fields: [], data: [] });
+const server = "https://some-backend-url";
+
+// Assume you have a custom server service class named someServerService
+const someServerService = new ServerDataService(server);
+
+Promise.all([
+    fetch(server + "/data").then((res) => res.json()),
+    fetch(server + "/fields").then((res) => res.json())
+]).then(([data, fields]) => {
+    widget.setConfig({ data, fields });
+    
+    // Integrate the serverDataService into the Event Bus order of widget
+    widget.api.setNext(someServerService);
+});
 ~~~
 
-
+**Related articles**: [`setConfig`](/api/methods/setconfig-method)

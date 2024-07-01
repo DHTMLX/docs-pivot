@@ -68,7 +68,7 @@ const data = [
 ];
 ~~~
 
-:::note
+:::info
 See also how to define fields and Pivot structure: [Working with data](guides/working-with-data)
 :::
 

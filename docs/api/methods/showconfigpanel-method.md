@@ -21,7 +21,7 @@ showConfigPanel({mode: boolean}): void;
 
 ### Parameters
 
-- `mode` (boolean) - (required) if the value is set to **true** (default), the Configuration panel is shown, and set to **false** when the Configuration panel is hidden
+- `mode` (boolean) - (required) if the value is set to **true** (default), the Configuration panel is shown, and it's set to **false** when the Configuration panel is hidden
 
 ### Example
 

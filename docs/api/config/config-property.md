@@ -34,15 +34,7 @@ The `config` parameters are used to define which fields will be applied as rows 
   By default, methods are available for the time-based fields (the **when** field) with the next values: year, month, day, hour, minute. Here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
 - `values` - (optional) defines the data aggregation for the cells of the Pivot table. It's an empty array by default. Each element can be a string representing a data field ID and aggregation method or an object containing the field ID and the method for data aggregation. The object parameters are the following:
   - `field` - (required) the ID of a field
-  - `method` - (required) defines a method for data extraction; possible types:
-      - for numeric values: min, max, sum, count
-      - for text values: count
-      - for date value: min, max, count  
-	  Sum - sums all the values of the selected data property and displays the sum  
-		Min - finds and displays the minimum value of the selected data property  
-		Max - finds and displays the maximum value of the selected data property  
-		Count - looks for all occurrences of the selected data property and displays their number; set by default for each newly added field
-    Average - calculates the average value of an array
+  - `method` - (required) defines a method for data extraction; for methods types and their description refer to [Applying methods](/guides/working-with-data#default-methods)
 
 <details>
 
@@ -85,7 +77,7 @@ values: [
     - `notEndsWith` - accepts string values and numbers
     - `includes` - (optional) an array of values to be displayed from those that are already filtered; available for text and dates values
 
-:::note
+:::info
 When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the [`api.getState()`](/api/internal/getstate-method) method, the full object will look like this:
 
 ~~~jsx

@@ -28,7 +28,7 @@ api.on(
 
 :::info
 The full list of the Pivot internal events can be found [**here**](api/overview/main_overview.md/#pivot-events).
-Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](/api/internal/on-method) method.
+Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](/api/internal/intercept-method) method.
 :::
 
 ### Example

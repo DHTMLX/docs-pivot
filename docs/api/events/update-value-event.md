@@ -26,10 +26,7 @@ The callback of the action takes an object with the following parameters:
 
 - `id` - (required) the id of a field that is updated
 - `method` - (required) the method can be one of the following:
-  - for the **values** area, it's one of the data operation types:
-      - for numbers: min, max, sum, count
-      - for text values: count
-      - for date value: min, max, count
+  - for the **values** area, it's one of the data operation types: [Default methods](/guides/working-with-data#default-methods)
   - for the **rows** and **columns** areas and the **when** field, it's a default data predicate with one of the next values: year, month, day, hour, minute. If it's a custom predicate, the id is specified for the **predicate** property. 
 - `area` - (required) the name of the area where a field is updated, which can be "rows", "columns" or "values" area
 
@@ -60,4 +57,6 @@ widget.api.on("update-field", (ev) => {
 });
 ~~~
 
-**Related articles**: [api.on()](/api/internal/on-method)
+**Related articles**:
+- [api.on()](/api/internal/on-method)
+- [methods](/api/config/method-property)

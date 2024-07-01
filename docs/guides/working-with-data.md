@@ -84,7 +84,6 @@ function setFields(){
     bar.innerHTML = html;
 }
 
-
 function switchSort(id){
     fields.forEach(f => {
         if(f.id == id){

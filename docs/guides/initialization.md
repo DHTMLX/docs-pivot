@@ -41,7 +41,7 @@ Add a container for Pivot and give it an ID, for example *"root"*:
 Initialize Pivot with the **pivot.Pivot** constructor. It takes two parameters:
 
 - an HTML container (the ID of the HTML container)
-- an object with configuration properties. [See the full list here](#configuration-properties)
+- an object with configuration properties
 
 ~~~jsx title="index.html"
 // create Pivot
@@ -64,7 +64,7 @@ config: {
 
 ## Configuration properties
 
-:::note
+:::info
 The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties_overview.md).
 :::
 

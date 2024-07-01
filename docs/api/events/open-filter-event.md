@@ -32,7 +32,7 @@ The function may return either a boolean value or void. When it returns **false*
 
 ### Example
 
-The example below shows how to make the Configuration panel close upon closing the filter box:
+The example below shows how to make the Configuration panel hide upon closing the filter box:
 
 ~~~jsx {20-27}
 const widget = new pivot.Pivot("#pivot", {

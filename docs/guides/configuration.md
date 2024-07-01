@@ -14,7 +14,7 @@ You can configure the *Pivot* appearance and functionality via the corresponding
 - configure the look and behavior of the Pivot columns via the [`columnShape`](/api/config/columnshape-property) property
 - configure the look and behavior of headers in the Pivot table via the [`headerShape`](/api/config/headershape-property) property
 - control the visibility of the configuration panel via the [`show-config-panel`](/api/methods/showconfigpanel-method) method
-- apply the desired locale via the [setLocale()](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)
+- apply the desired locale via the [`setLocale()`](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)
 - load data and fields via the corresponding [`data`](/api/config/data-property) and [`fields`](/api/config/fields-property) properties
 - define how data should be modified before it's applied via the [`predicates`](/api/config/predicates-property) property
 - define custom mathematical methods for data aggregation via the [`methods`](/api/config/methods-property) property
@@ -231,7 +231,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
 
-:::note
+:::info
 The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
 :::
 
@@ -262,7 +262,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. 
 
-:::note
+:::info
 For the custom split, the number of columns that are split depends on the number of the rows and values fields that are defined in the [`config`](/api/config/config-property) property.
 It's not recommended to split columns with colspans.
 :::
@@ -369,7 +369,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Expanding/collapsing all rows
 
-To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the `config` object).
+To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the [`config`](/api/config/config-property) object).
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
