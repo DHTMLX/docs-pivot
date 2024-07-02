@@ -34,7 +34,7 @@ Create the Pivot structure using the [`config`](/api/config/config-property) pro
 
 Example:
 
-~~~jsx {4-15}
+~~~jsx {4-18}
 const widget = new pivot.Pivot("#pivot", {
   fields,
   data,
@@ -58,7 +58,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Sorting data
 
-The widget API allows configuring the sorting settings that are applied applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
+The widget API allows configuring the sorting settings that are applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
 
 To set default sorting values, apply the **sort** parameter of the [`fields`](/api/config/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
 
@@ -549,6 +549,6 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Example
 
-In this snippet you can see how to apply maths operations:
+In this snippet you can see how to apply custom maths operations:
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 

@@ -1,7 +1,5 @@
 <h1 align="center"><a href="https://docs.dhtmlx.com/pivot/">DHTMLX Pivot Documentation</a></h1>
 
-TODO!!! 
-
 ## Explore documentation locally
 
 To run the Pivot documentation locally, take the following steps:
