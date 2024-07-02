@@ -6,21 +6,21 @@ description: You can learn about the configuration in the documentation of the D
 
 # Configuration
 
-You can configure the *Pivot* appearance and functionality via the corresponding API, namely, you can configure the Pivot table elements and the configuration panel. The available parameters will allow you to:
+You can configure Pivot appearance and functionality via the corresponding API, namely, you can configure the Pivot table elements and the configuration panel. The available parameters will allow you to:
 
 - define the structure of the Pivot table and how data is aggregated via the [`config`](/api/config/config-property) property
 - change the table configuration on the fly via the [`render-table`](/api/events/render-table-event) event
 - configure the look of the Pivot table via the [`tableShape`](/api/config/tableshape-property) property
 - configure the look and behavior of the Pivot columns via the [`columnShape`](/api/config/columnshape-property) property
 - configure the look and behavior of headers in the Pivot table via the [`headerShape`](/api/config/headershape-property) property
-- control the visibility of the configuration panel via the [`show-config-panel`](/api/methods/showconfigpanel-method) method
+- control the visibility of the configuration panel via the [`configPanel`](/api/config/configpanel-property) property
 - apply the desired locale via the [`setLocale()`](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)
 - load data and fields via the corresponding [`data`](/api/config/data-property) and [`fields`](/api/config/fields-property) properties
 - define how data should be modified before it's applied via the [`predicates`](/api/config/predicates-property) property
 - define custom mathematical methods for data aggregation via the [`methods`](/api/config/methods-property) property
 - control the maximum limit for the number of rows and columns in the final dataset via the [`limits`](/api/config/limits-property) property
 
-All instructions about working with data see here: [Working with data](guides/working-with-data)
+All instructions about working with data see here: [Working with data](/guides/working-with-data)
 
 You can configure and/or customize the following elements of the Pivot table:
 
@@ -46,7 +46,7 @@ const sizes = {
 
 Example:
 
-~~~jsx
+~~~jsx {4-11}
 const widget = new pivot.Pivot("#pivot", {
   fields,
   data,
@@ -75,17 +75,19 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+:::info
 To set the width of specific column(s), apply the `width` parameter of the [columnShape property](/api/config/columnshape-property).
+:::
 
 ## Autosizing columns to content
 
-The widget allows setting the minimum width value for all columns as well as enable sizing for the header, data only or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
+The widget allows setting the minimum width value for all columns as well as enable sizing for the table data only, the table header or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
 
 All parameters of `autoWidth` are optional and for detailed description of each parameter refer to [columnShape property](/api/config/columnshape-property).
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
 - use the `auto` parameter to adjust the width to the header or cell content (or both)
-- use `maxRows` to specify how many data rows will be used to detect size of a column; by default 20 rows are used
+- use `maxRows` to specify how many data rows will be applied to detect size of a column; by default 20 rows are used
 
 If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
@@ -166,7 +168,11 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Applying templates to headers
 
-To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that takes the field id, label and sublabel (the name of a method if any is applied) and returns the processed value (the default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*). By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
+To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that:
+- takes the field id, label and sublabel (the name of a method if any is applied)
+- returns the processed value 
+
+A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicate`](/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
 Example:
@@ -208,7 +214,7 @@ const widget = new pivot.Pivot("#pivot", {
   fields,
   data,
   headerShape: {
-    columnCollapsing: true,
+    collapsible: true,
   },
   config: {
     rows: ["studio", "genre"],
@@ -254,7 +260,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
     ],
   },
   tableShape: { split: {
-    boolean: true
+    left: true //freezes all fields from rows on the left side 
     },
   },
 });
@@ -269,7 +275,7 @@ It's not recommended to split columns with colspans.
 
 In the example below we split all rows fields (two rows are defined in the config) and the first two columns (the first two values fields).
 
-~~~jsx
+~~~jsx {19-24}
 const pivotWidget = new pivot.Pivot("#pivot", {
   fields,
   data,
@@ -332,7 +338,7 @@ For more information about sorting data, refer to [Sorting data](/guides/working
 The widget allows presenting data in a hierarchical format with expandable rows. To switch to the tree mode, apply the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true** (default is **false**).
 To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property. 
 
-~~~jsx
+~~~jsx {3}
 const widget = new pivot.Pivot("#pivot", {
   tableShape: {
     tree: true,
@@ -445,16 +451,6 @@ const widget = new pivot.Pivot("#pivot", {
   headerShape: {
     vertical: true,
   },
-  tableShape: {
-    sizes: {
-      colWidth: 70,
-    },
-  },
-  columnShape: {
-    width: {
-      studio: 200,
-    },
-  },
   config: {
     rows: ["studio"],
     columns: ["type"],
@@ -474,11 +470,11 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Controlling visibility of Configuration panel
 
-The Configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](api/config/configPanel) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
+The Configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](/api/config/configpanel-property) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
 
 ### Hiding Configuration panel
 
-To hide the panel, set the value of the [`configPanel`](api/config/configPanel) property to **false**.
+To hide the panel, set the value of the [`configPanel`](/api/config/configpanel-property) property to **false**.
 
 ~~~jsx 
 // The configuration panel is hidden on init
@@ -576,6 +572,6 @@ In the Configuration panel it's possible to perform the next operations with fie
 
 ## Example
 
-In this snippet you can see how to configure the key elements of Pivot:
+In this snippet you can see how to apply templates to the Pivot cells:
 
-<iframe src="https://snippet.dhtmlx.com/" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> TODO!!!
+<iframe src="https://snippet.dhtmlx.com/n9ylp6b2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 

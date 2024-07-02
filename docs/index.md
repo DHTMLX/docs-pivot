@@ -118,6 +118,6 @@ The sorting in columns is enabled by default:
 
 ## What's next
 
-Now you can get down to using Pivot in your application. Follow the directions of the [How to start](./how-to-start) tutorial for guidance.
+Now you can get down to incorporating Pivot into your application. Follow the directions of the [How to start](./how-to-start) tutorial for guidance.
 
 
