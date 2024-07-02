@@ -69,7 +69,7 @@ const data = [
 ~~~
 
 :::info
-See also how to define fields and Pivot structure: [Working with data](guides/working-with-data)
+See also how to define fields and Pivot structure: [Working with data](/guides/working-with-data)
 :::
 
 ## Loading data 
@@ -260,11 +260,11 @@ document.body.appendChild(importButton);
 
 ## Exporting data
 
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the [DataGrid public API](https://docs.svar.dev/svelte/grid/api/overview/api_overview) to export data.
+To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the DataGrid public API to export data. LINK TO BE ADDED!
 
-To do this, apply the [`getTable`](/api/methods/getTable) method.
+To do this, apply the [`getTable`](/api/methods/gettable-method) method.
 
-In the example below we get access to the DataGrid widget API and trigger the [`export`](https://docs.svar.dev/svelte/grid/api/actions/export) action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
+In the example below we get access to the DataGrid widget API and trigger the `export`action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -338,4 +338,9 @@ Pivot uses the following characters for setting the date format:
 
 To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
 
+## Example
+
+In this snippet you can see how to load JSON and CSV data:
+
+<iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 

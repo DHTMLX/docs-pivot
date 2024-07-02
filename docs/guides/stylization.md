@@ -1,12 +1,10 @@
 ---
-sidebar_label: Stylization
-title: Stylization
-description: You can learn about the stylization in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
+sidebar_label: Styling
+title: Styling
+description: You can learn about the styling in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-# Stylization
-
-TODO!!!
+# Styling
 
 ## Default style
 
@@ -28,9 +26,9 @@ Next versions of Pivot can bring some changes for the variables and their names.
 
 ## Built-in theme
 
-The widget provides one built-in theme which is the **Material theme**. TBD!!!
+The widget provides one built-in theme which is the **Material** theme. 
 
-You can apply the theme via adding the corresponding *css* classes to the widget containers:
+You can apply the theme via adding the corresponding *CSS* classes to the widget container:
 
 - **Material theme**
 ~~~html {}
@@ -162,5 +160,4 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 In this snippet you can see how to apply a custom style to Pivot
 
-<iframe src="https://snippet.dhtmlx.com/" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> TODO!!!
-
+<iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
