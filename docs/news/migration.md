@@ -14,7 +14,7 @@ This list of changes will help you migrate from the previous version Pivot 1.5.6
 
 #### Properties
 
-New properties do not fully duplicate the previous ones but provide more extended functionality
+New properties do not fully duplicate the previous ones but provide more extended functionality. 
 
 - [fieldList](https://docs.dhtmlx.com/pivot/api__pivot_fieldlist_config.html) -> [fields](/api/config/fields-property)
 - [fields](https://docs.dhtmlx.com/pivot/api__pivot_fields_config.html) ->  [config](/api/config/config-property)
