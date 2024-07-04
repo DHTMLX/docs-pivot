@@ -8,7 +8,7 @@ module.exports = {
             type: "doc",
             id: "how-to-start"
         },
-            /*{
+        {
                 type: "category",
                 label: "What's new and migration",
                 collapsible: true,
@@ -24,11 +24,7 @@ module.exports = {
                     'news/whats_new',
                     'news/migration'
                 ]
-            },*/
-        {
-            type: 'doc',
-            id: 'news/whats_new'
-        },
+            },
         {
             type: "category",
             label: "API",

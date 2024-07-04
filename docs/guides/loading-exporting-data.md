@@ -6,6 +6,8 @@ description: You can explore how to load and export data in the documentation of
 
 ## Preparing data for loading
 
+Pivot supports JSON data format. You can also load CSV data that will be converted to JSON. 
+
 The following types of information can be loaded into Pivot:
 
 - [`data`](/api/config/data-property) - an array of objects, where each object represents the data row
@@ -74,7 +76,7 @@ See also how to define fields and Pivot structure: [Working with data](/guides/w
 
 ## Loading data 
 
-You can load data into Pivot from an external file or the server-side script after the component has been initialized.
+You can load JSON data into Pivot from an external file or the server-side script after the component has been initialized.
 
 To load local data from a separate file, first prepare the source file with data.
 

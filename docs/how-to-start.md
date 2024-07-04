@@ -10,7 +10,25 @@ This clear and comprehensive tutorial will guide your through the steps you need
 
 ![pivot-main](/assets/pivot_main.png)
 
-## Step 1. Including source files
+## Step 1. Downloading packages
+
+[Download packages](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and unpack it into a folder of your project.
+
+To install the necessary packages from npm, use the following commands.
+
+For licensed packages:
+
+~~~js
+npm install @dhx/pivot
+~~~
+
+For trial packages:
+
+~~~js
+npm install @dhx/trial-pivot
+~~~
+
+## Step 2. Including source files
 
 Start from creating an HTML file and call it *index.html*. Then proceed to include Pivot source files into the created file.
 
@@ -55,7 +73,7 @@ To get Pivot under the proprietary license, refer to **[Support Center](https://
 If you want to integrate JavaScript Pivot into React, Angular or Vue projects, refer to the corresponding [**Examples on CodeSandbox**](https://codesandbox.io/u/DHTMLX) for more information.
 :::
 
-## Step 2. Creating Pivot
+## Step 3. Creating Pivot
 
 Now you are ready to add Pivot to the page. First, let's create the DIV container for Pivot. 
 
@@ -78,7 +96,7 @@ Now you are ready to add Pivot to the page. First, let's create the DIV containe
 </html>
 ~~~
 
-## Step 3. Configuring Pivot
+## Step 4. Configuring Pivot
 
 Next you can specify configuration properties you want the Pivot component to have when initialized.
 
