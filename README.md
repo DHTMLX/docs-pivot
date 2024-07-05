@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://docs.dhtmlx.com/pivot/">DHTMLX Pivot Documentation</a></h1>
+<h1 align="center"><a href="https://docs-next.dhtmlx.com/pivot/">DHTMLX Pivot Documentation</a></h1>
 
 ## Explore documentation locally
 
