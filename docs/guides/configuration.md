@@ -375,7 +375,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Expanding/collapsing all rows
 
-To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expanded or collapsed (via the `row.open` parameter of the [`config`](/api/config/config-property) object).
+To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expand or collapse (via the `row.open` parameter of the [`config`](/api/config/config-property) object).
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 

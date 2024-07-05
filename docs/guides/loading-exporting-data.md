@@ -262,7 +262,7 @@ document.body.appendChild(importButton);
 
 ## Exporting data
 
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the DataGrid public API to export data. LINK TO BE ADDED!
+To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying DataGrid instance inside Pivot and apply the DataGrid public API to export data. 
 
 To do this, apply the [`getTable`](/api/methods/gettable-method) method.
 
