@@ -33,12 +33,14 @@ New properties do not fully duplicate the previous ones but provide more extende
 - [Methods from version 1.5.6](https://docs.dhtmlx.com/pivot/api__refs__pivot_methods.html) are deprecated, all new methods you can find here: [Methods](/api/overview/main-overview#pivot-methods)
 - [Pivot 1.5.6 events](https://docs.dhtmlx.com/pivot/api__refs__pivot_events.html) (`change`, `fieldClick`, `applyButtonClick`) are no longer available in Pivot 2.0 but you can find more extended functionality in a new version (refer to [Pivot events](/api/overview/events-overview))
 
-### Configuration and other important features
+### Important features 
 
 - Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/guides__export.html) -> [new export option](/guides/loading-exporting-data#exporting-data)
 - Sorting: [sorting fields](https://docs.dhtmlx.com/pivot/guides__configuration.html#configuringfields) -> [sorting data](/guides/working-with-data#sorting-data)
 - Tree mode: [gridMode](https://docs.dhtmlx.com/pivot/guides__configuration.html#gridmode) -> [enabling tree mode](/guides/configuration#enabling-the-tree-mode)
 - Operations with data: [data operations](https://docs.dhtmlx.com/pivot/guides__working_with_pivot.html#definingdataoperations) -> [applying maths methods](/guides/working-with-data#applying-maths-methods)
+- Date format: [configuring date fields](https://docs.dhtmlx.com/pivot/guides__configuration.html#configuringdatefields) ->
+[setting date format](/guides/loading-exporting-data#setting-date-format)
 - Customization: 
   - [cells formatting](https://docs.dhtmlx.com/pivot/guides__customization.html#conditionalformattingofcells) -> [cells style](/guides/stylization#cell-style)
   - [templates for headers](https://docs.dhtmlx.com/pivot/guides__customization.html#settingtemplatesforheaders) ->
