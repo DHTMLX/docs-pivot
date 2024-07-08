@@ -25,14 +25,14 @@ Released on Month Day, 2024
   - making dimension groups in the table collapsible
 - The shape and sizes of the table can be configured via the [`tableShape`](/api/config/tableshape-property) property that makes possible:
   - configuring the sizes: rowHeight, headerHeight, footerHeight, colWidth
-  - generating the total column besides footer
+  - generating the total column besides the footer 
   - hiding the duplicate values in the table view
   - fixing columns from the left making them static while scrolling
   - making all rows expand or collapse
 - More features are added to aggregate data:
   - [loading data from CSV](/guides/loading-exporting-data#loading-csv-data)
   - [limiting loaded data](/guides/working-with-data#limiting-loaded-data)
-  - [applying maths methods](/guides/working-with-data#applying-maths-methods)
+  - more [operations with data](/guides/working-with-data#applying-maths-methods) are available 
   - [processing data with predicates](/guides/working-with-data#processing-data-with-predicates) - applying custom pre-processing functions for data
   - [setting date format via locale](/guides/loading-exporting-data#setting-date-format)
 - New methods are added: [`getTable()`](/api/methods/gettable-method), [`setConfig()`](/api/methods/setconfig-method), [`setLocale()`](/api/methods/setlocale-method), [`showConfigPanel()`](/api/methods/showconfigpanel-method)  

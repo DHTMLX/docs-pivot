@@ -14,19 +14,27 @@ This clear and comprehensive tutorial will guide your through the steps you need
 
 [Download packages](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and unpack it into a folder of your project.
 
-To install the necessary packages from npm, use the following commands.
+You can install the necessary packages using `npm` or `yarn`commands:
 
 For licensed packages:
 
 ~~~js
+//npm
 npm install @dhx/pivot
+//yarn
+yarn add @dhx/pivot
 ~~~
 
 For trial packages:
 
 ~~~js
+//npm
 npm install @dhx/trial-pivot
+//yarn
+yarn add @dhx/trial-pivot
 ~~~
+
+To get Pivot under the proprietary license, refer to [**Support Center**](https://dhtmlx.com/docs/technical-support.shtml)!
 
 ## Step 2. Including source files
 
@@ -52,22 +60,6 @@ There are two necessary files:
     </body>
 </html>
 ~~~
-
-:::info
-You can also import Pivot into your project using `yarn` or `npm` commands. To get the trial version of Pivot, run the following commands:
-
-~~~jsx {2-3,6-7}
-// npm
-npm config set @dhx:registry https://npm.dhtmlx.com
-npm i @dhx/trial-pivot
-
-// yarn
-yarn config set @dhx:registry https://npm.dhtmlx.com
-yarn add @dhx/trial-pivot
-~~~
-
-To get Pivot under the proprietary license, refer to **[Support Center](https://dhtmlx.com/docs/technical-support.shtml)**!
-:::
 
 :::tip
 If you want to integrate JavaScript Pivot into React, Angular or Vue projects, refer to the corresponding [**Examples on CodeSandbox**](https://codesandbox.io/u/DHTMLX) for more information.

@@ -306,13 +306,50 @@ document.body.appendChild(exportButton);
 
 ## Setting date format
 
-tbd
-
-The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` property in the **Locale** tag. 
+The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the `locale`. A default format is "%d.%m.%Y".
 
 Example:
 
-to be added
+~~~jsx
+function setFormat(value) {
+  widget.setConfig({ locale: { formats: { dateFormat: value } } });
+}
+
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+  dataset.forEach((item) => {
+    dateFields.forEach((f) => {
+      const v = item[f.id];
+      if (typeof v == "string") item[f.id] = new Date(v);
+    });
+  });
+}
+
+const widget = new pivot.Pivot("#pivot", {
+  locale: { formats: { dateFormat: "%d %M %Y %H:%i" } },
+  fields,
+  data: dataset,
+  config: {
+    rows: ["state"],
+    columns: ["product_line", "product_type"],
+    values: [
+      {
+        field: "date",
+        method: "min",
+      },
+      {
+        field: "profit",
+        method: "sum",
+      },
+      {
+        field: "sales",
+        method: "sum",
+      },
+    ],
+  },
+});
+~~~
 
 Pivot uses the following characters for setting the date format:
 
