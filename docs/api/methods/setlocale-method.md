@@ -49,3 +49,7 @@ widget.setLocale(de);
 // apply the default locale to Pivot
 widget.setLocale(); // or setLocale(null);
 ~~~
+
+**Related articles**:
+- [Localization](/guides/localization)
+- [`locale`](/api/config/locale-property)

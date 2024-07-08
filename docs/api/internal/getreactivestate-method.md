@@ -32,7 +32,7 @@ The method returns an object with the following parameters:
    headerShape: {}, // table header settings
    tableShape: {}, //table settings
    methods: {}, // methods for data aggregation
-   showConfig: boolean, // the state of the configuration panel visibility
+   configPanel: boolean, // the state of the configuration panel visibility
    readonly: boolean, // the state of the read-only mode
    columnShape: {}, // pivot columns configuration
    limits: {} // the maximum limit for the number of rows and columns in the dataset

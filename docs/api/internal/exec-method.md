@@ -27,7 +27,7 @@ api.exec(
 ## Actions
 
 :::info
-The full list of Pivot actions can be found [**here**](/api/overview/events-overview)
+The full list of Pivot events can be found [**here**](/api/overview/events-overview)
 :::
 
 ## Example

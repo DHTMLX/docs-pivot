@@ -10,7 +10,7 @@ description: You can learn about the showConfigPanel() method in the documentati
 
 @short: Shows or hides the Configuration panel
 
-This TypeScript method can be useful when there's a need to control the visibility of the Configuration panel without user interaction. For instance, you might want to hide or display the panel based on some other interaction or state in your application.
+This method can be useful when there's a need to control the visibility of the Configuration panel without user interaction. For instance, you might want to hide or display the panel based on some other interaction or state in your application.
 
 
 ### Usage
