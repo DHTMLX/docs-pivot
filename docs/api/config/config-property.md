@@ -55,7 +55,7 @@ values: [
 
 </details>
 
-- `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and data aggregation method. The default value is an empty object. The object parameters are the following:
+- `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and a filtering rule. The default value is an empty object. The object parameters are the following:
   - `field` - (optional) the filter key which is the ID of a field or an array of IDs with the filtering criteria:
     - `equal` - (optional) accepts numbers, string and Date values
     - `notEqual` - (optional) accepts numbers, string and Date values

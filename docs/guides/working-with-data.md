@@ -320,7 +320,7 @@ Example:
 
 ### Redefining the default method
 
-By default, the first available method for the data type is selected. You can redefine a method using the [`api.intercept()`](/api/methods/intercept-method) method.
+By default, the first available method for the data type is selected. You can redefine a method using the [`api.intercept()`](/api/internal/intercept-method) method.
 
 In the example below, we check whether a new field is added, and set the **max** method in case a numeric field is added.
 
