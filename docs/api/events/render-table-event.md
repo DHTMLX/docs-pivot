@@ -22,11 +22,11 @@ It allows you to alter the final table configuration on the fly or prevent the r
     footer?: boolean,
     sizes: {},
     split?: {
-      left?: number,
+      left?: boolean,
     },
     tree?: boolean,
     cellStyle?: (row: any, col: any) => string
-}
+  }
 }) => boolean | void;
 ~~~
 
@@ -46,7 +46,7 @@ The callback of the action takes the `config` object with the following paramete
 - `data` - (optional) an array of objects with data for the table; each object represents a row
 - `footer` - (optional) if it's set to **true**, the table footer is displayed at the bottom of the table; it's set to **false** and invisible by default
 - `sizes` - (optional) an object with table sizes settings, namely, colWidth, footerHeight, headerHeight, rowHeight
-- `split` - (optional) an object with the number of columns that are fixed on the left-size during the scrolling process
+- `split` - (optional) if **true**, fixes the left-size table area during the scrolling process
 - `tree` - (optional) the boolean value with the tree mode setting (**true** if the tree mode is enabled)
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 
@@ -90,9 +90,7 @@ widget.api.intercept("render-table", (ev) => {
 });
 ~~~
 
-The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/properties/tableshape-property) property.
-
-to be changed (eventSource)!!!!!
+The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property.
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
@@ -100,77 +98,48 @@ const widget = new pivot.Pivot("#pivot", {
     tree: true,
   },
   fields,
-  data,
+  data: dataset,
   config: {
-    rows: ["studio", "genre"],
+    rows: ["type", "studio"],
     columns: [],
     values: [
       {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
+        field: "score",
         method: "max",
       },
       {
-        id: "episodes",
-        method: "count",
-      },
-      {
-        id: "rank",
+        field: "rank",
         method: "min",
       },
       {
-        id: "members",
-        method: "max",
+        field: "members",
+        method: "sum",
+      },
+      {
+        field: "episodes",
+        method: "count",
       },
     ],
   },
 });
 
-let mode = "tree";
-const options = [
-  { value: "tree", label: "Tree mode" },
-  { value: "plain", label: "Plain table" },
-];
+const api = widget.api;
+const table = api.getTable();
+//  setting all table branches closed on the table config update
+api.intercept("render-table", (ev) => {
+  ev.config.data.forEach((r) => (r.open = false));
 
-let tableShape = {};
-tableShape.tree = mode == "tree";
-
-widget.api.intercept("render-table", (ev) => {
-  // close all top-level branches on pivot configuration change
-  if (ev.eventSource == "store") ev.config.data.forEach((r) => (r.open = false));
   // returning "false" here will prevent the table from rendering
   // return false;
 });
 
 function openAll() {
-  setOpenState(true);
+  table.exec("open-row", { id: 0, nested: true });
 }
+
 function closeAll() {
-  setOpenState(false);
+  table.exec("close-row", { id: 0, nested: true });
 }
-function setOpenState(state) {
-  const config = widget.api.getState().tableConfig;
-  config.data.forEach((r) => (r.open = state));
-  // make a copy to create a new object for update
-  config.data = [...config.data];
-  // call 'render-table' event with updated 'config'
-  // if needed, use another property as a flag for the custom handler ('myEvent' in this demo)
-  widget.api.exec("render-table", { config });
-}
-
-const openAllButton = document.createElement("button");
-openAllButton.addEventListener("click", openAll);
-openAllButton.textContent = "Open all";
-
-const closeAllButton = document.createElement("button");
-closeAllButton.addEventListener("click", closeAll);
-closeAllButton.textContent = "Close all";
-
-document.body.appendChild(openAllButton);
-document.body.appendChild(closeAllButton);
 ~~~
 
 See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration/###freezing-columns).

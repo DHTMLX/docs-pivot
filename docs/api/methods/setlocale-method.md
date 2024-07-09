@@ -45,7 +45,9 @@ const widget = new pivot.Pivot("#root", {
 });
 
 // apply the "de" locale to Pivot
+const de = {...} //object with locale
 widget.setLocale(de);
+
 // apply the default locale to Pivot
 widget.setLocale(); // or setLocale(null);
 ~~~

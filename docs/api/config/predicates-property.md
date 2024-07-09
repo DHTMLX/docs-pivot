@@ -34,19 +34,19 @@ The property is an object where a key is the name of a custom function and value
   - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date" or "text" or an array of these values
   - `filter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
 	- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by the `handler` and if necessary, you can localize text values using `locale`.
+	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](/api/config/locale-property).
  
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 
 ~~~jsx
 const defaultPredicates = {
-	year: { label: "Year", type: "date" },
-	quarter: { label: "Quarter", type: "date" },
-	month: { label: "Month", type: "date" },
-	week: { label: "Week", type: "date" },
-	day: { label: "Day", type: "date" },
-	hour: { label: "Hour", type: "date" },
-	minute: { label: "Minute", type: "date" },
+  year: { label: "Year", type: "date" },
+  quarter: { label: "Quarter", type: "date" },
+  month: { label: "Month", type: "date" },
+  week: { label: "Week", type: "date" },
+  day: { label: "Day", type: "date" },
+  hour: { label: "Hour", type: "date" },
+  minute: { label: "Minute", type: "date" },
 };
 ~~~
 

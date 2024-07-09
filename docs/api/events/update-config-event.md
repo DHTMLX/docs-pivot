@@ -33,7 +33,7 @@ The callback of the action takes an object with the processed [`config`](/api/co
 - `columns` - defines columns for the Pivot table. It's an object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - the ID of a field
   - `method` - defines a method for data extraction (for time-based data fields).
-  By default, methods are available for the time-based fields (the **when** field) with the next values: year, month, day, hour, minute.
+  By default, methods are available for the time-based fields (the **date** type) with the next values: "year", "quarter", "month", "week", "day", "hour", "minute"
 - `values` - defines the data aggregation for the cells of the Pivot table. It's an object containing the field ID and the method for data aggregation. The object parameters are the following:
   - `field` - the ID of a field
   - `method` - defines a method for data extraction; about methods and possible options refer to [Applying methods](/guides/working-with-data#default-methods)
@@ -66,7 +66,7 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 //output the config object to console
-widget.api.intercept("update-config", (config) => {
+widget.api.on("update-config", (config) => {
   console.log("Config has changed", config);
 });
 ~~~

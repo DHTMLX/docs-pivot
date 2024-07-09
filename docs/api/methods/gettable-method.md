@@ -10,7 +10,7 @@ description: You can learn about the getTable method in the documentation of the
 
 @short: Gets access to the underlying DataGrid widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying DataGrid widget instance in Pivot. It provides direct access to all DataGrid functionality (link to dhtml DataGrid-????), allowing for operations such as data serialization and exporting in various formats.
+This method is used when there's a need to access the underlying DataGrid widget instance in Pivot. It provides direct access to DataGrid functionality allowing for operations such as data serialization and exporting in various formats. The DataGrid API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
 
 ### Usage
 
@@ -25,7 +25,7 @@ getTable(wait:boolean): Table | Promise;
 
 ### Example
 
-In the example below we get access to the DataGrid widget API and trigger the DataGrid `export`event with the button click using the [`api.exe()`](/api/internal/exec-method) method.
+In the example below we get access to the DataGrid widget API and trigger the DataGrid `export`event with the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx {}
 // create Pivot

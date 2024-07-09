@@ -26,8 +26,9 @@ The callback of the action takes an object with the following parameters:
 
 - `id` - (required) the id of a field that is updated
 - `method` - (required) the method can be one of the following:
-  - for the **values** area, it's one of the data operation types: [Default methods](/guides/working-with-data#default-methods)
-  - for the **rows** and **columns** areas and the **when** field, it's a default data predicate with one of the next values: year, month, day, hour, minute. If it's a custom predicate, the id is specified for the **predicate** property. 
+  - for the **values** area, it's a string with one of the data operation types: [Default methods](/guides/working-with-data#default-methods)
+  - for the **rows** and **columns** areas it can be data predicate value with one of the next values: "year", "quarter", "month", "week", "day", "hour", "minute". By default, a raw value is set.
+  If a custom predicate or method is set, the id should be specified for the [predicate](/api/config/predicates-property) or [methods](/api/config/methods-property) property.
 - `area` - (required) the name of the area where a field is updated, which can be "rows", "columns" or "values" area
 
 ### Example

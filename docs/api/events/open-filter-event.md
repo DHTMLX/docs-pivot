@@ -23,7 +23,7 @@ description: You can learn about the open-filter event in the documentation of t
 
 The callback of the action takes the next parameters:
 
-- `area` - the area where a field is applied (rows, columns, values)
+- `area` - the area where a field is applied ("rows", "columns", "values")
 - `id` - the id of a field; if there's a single id argument with null value, the filter will be closed.
 
 ### Returns
@@ -54,9 +54,9 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 
- widget.api.intercept("open-filter", (ev) => {
+ widget.api.on("open-filter", (ev) => {
 
-    if(!ev.field) {
+    if(!ev.id) {
       widget.api.exec("show-config-panel", {
         mode: false,
       });
@@ -87,6 +87,6 @@ const widget = new pivot.Pivot("#pivot", {
 });
 
 widget.api.on("open-filter", (ev) => {
-    console.log("The field id for which filter is activated:", ev.field.field);
+    console.log("The field id for which filter is activated:", ev.id);
 });
 ~~~

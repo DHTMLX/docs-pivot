@@ -14,14 +14,14 @@ description: You can learn about the tableShape config in the documentation of t
 
 ~~~jsx
 tableShape?: {
-    templates?: {
+  templates?: {
     [field: string]: (
       value: any,
       operation: string
     ) => any;
   },
   totalRow?: boolean,
-	totalColumn?: boolean,
+  totalColumn?: boolean,
   marks?: {
     [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
      | "max" 
@@ -44,8 +44,8 @@ tableShape?: {
 ### Parameters
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where:
- - each key is a field id
- - the value is a function that returns a string and receives cell value and operation 
+  - each key is a field id 
+  - the value is a function that returns a string and receives cell value and operation 
  All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
 - `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/configuration#marking-cells).
 - `sizes` - (optional) defines the following size parameters of the table: 

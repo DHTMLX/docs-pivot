@@ -21,23 +21,22 @@ api.getReactiveState(): object;
 The method returns an object with the following parameters:
 
 ~~~jsx {}
-{
+  {
    config: {}, // current config (rows, columns, values, filters)
-   data: [], // current source data
-   fields: [], // current fields array
-   result: [], // currently calculated data
-   operations: {}, // currently available data operations by fields types
-   predicates: {}, // currently available predicates by fields
-   activeFilter: {}, // current active filter object (if any filter is open) 
-   headerShape: {}, // table header settings
-   tableShape: {}, //table settings
-   methods: {}, // methods for data aggregation
-   configPanel: boolean, // the state of the configuration panel visibility
-   readonly: boolean, // the state of the read-only mode
+   activeFilter: {}, // active filter object (if any filter is open) 
    columnShape: {}, // pivot columns configuration
+   data: [], // source data
+   fields: [], // fields array
+   filters: {}, // filtering rules
+   headerShape: {}, // table header settings
+   predicates: {}, // available predicates by fields
    limits: {} // the maximum limit for the number of rows and columns in the dataset
-}  
-~~~  
+   methods: {}, // methods for data aggregation
+   tableShape: {}, // table settings (sizes, total row, templates)
+   tableConfig: {}, // table configuration settings (columns, data, sizes, tree mode, footer)
+   configPanel: boolean, // the state of the configuration panel visibility 
+  }  
+~~~
 
 ### Example
 
