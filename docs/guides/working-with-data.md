@@ -47,8 +47,8 @@ const widget = new pivot.Pivot("#pivot", {
       { field: "gdp", method: "sum" },
     ],
   },
-		fields,
-    filters: {
+  fields,
+  filters: {
       name: {
         contains: "B",
       },
