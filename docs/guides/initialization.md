@@ -14,7 +14,7 @@ This guide will give you detailed instructions on how to create Pivot on a page 
 
 ## Including source files
 
-See also how to download packages: [Downloading packages](/how-to-start)
+See also how to download packages: [Downloading packages](/how-to-start#step-1-downloading-packages).
 
 To create a Pivot app, you need to include 2 source files on your page:
 

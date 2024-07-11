@@ -8,9 +8,9 @@ description: You can learn about the getTable method in the documentation of the
 
 ### Description
 
-@short: Gets access to the underlying DataGrid widget instance in the Pivot table
+@short: Gets access to the underlying table widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying DataGrid widget instance in Pivot. It provides direct access to DataGrid functionality allowing for operations such as data serialization and exporting in various formats. The DataGrid API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Usage examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
+This method is used when there's a need to access the underlying table widget instance in Pivot. It provides direct access to the table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Usage examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
 
 ### Usage
 
@@ -21,11 +21,11 @@ getTable(wait:boolean): Table | Promise;
 
 ### Parameters
 
-`wait` - defines if to wait until DataGrid API is available in Pivot (necessary when DataGrid API is used during Pivot initialization). If the value is set to **true**, the method returns a promise with DataGrid API.
+`wait` - defines if to wait until Table API is available in Pivot (necessary when Table API is used during Pivot initialization). If the value is set to **true**, the method returns a promise with Table API.
 
 ### Example
 
-In the example below we get access to the DataGrid widget API and trigger the DataGrid `export`event with the button click using the [`api.exec()`](/api/internal/exec-method) method.
+In the example below we get access to the Table widget API and trigger the Table `export`event with the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx {}
 // create Pivot
@@ -48,6 +48,7 @@ const widget = new pivot.Pivot("#root", {
   },
 });
 
+// access table api
 let table = widget.getTable();
 
 function toCSV() {
