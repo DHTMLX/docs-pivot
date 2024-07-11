@@ -142,4 +142,4 @@ function closeAll() {
 }
 ~~~
 
-See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration/###freezing-columns).
+See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration#freezing-columns).
