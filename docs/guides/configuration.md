@@ -83,7 +83,7 @@ To set the width of specific column(s), apply the `width` parameter of the [colu
 
 The widget allows setting the minimum width value for all columns as well as enable sizing for the table data only, the table header or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
 
-All parameters of `autoWidth` are optional and for detailed description of each parameter refer to [columnShape property](/api/config/columnshape-property).
+All parameters of `autoWidth` are optional and for detailed description of each parameter refer to the [columnShape](/api/config/columnshape-property) property.
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
 - use the `auto` parameter to adjust the width to the header or cell content (or both)
@@ -129,7 +129,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 ## Applying templates to cells
 
-To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/properties/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
+To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
 
 In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
 
@@ -173,7 +173,7 @@ To define the format of text in headers, apply the `template` parameter of the [
 - returns the processed value 
 
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
-If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicate`](/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
+If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
 Example:
 
@@ -442,7 +442,7 @@ document.body.appendChild(closeAllButton);
 
 ## Changing text orientation in headers
 
-To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-propeprty) property and set its `vertical` parameter to **true**. 
+To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-property) property and set its `vertical` parameter to **true**. 
 
 ~~~jsx {4-6}
 const widget = new pivot.Pivot("#pivot", {
@@ -501,7 +501,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/methods/exec-method) method, and set the `mode` parameter to **false**.
+You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/internal/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
 const widget = new pivot.Pivot("#pivot", {
@@ -530,7 +530,7 @@ widget.api.exec("show-config-panel", {
 
 ### Disabling the default toggling functionality
 
-You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/methods/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
+You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/internal/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
 Example:
 

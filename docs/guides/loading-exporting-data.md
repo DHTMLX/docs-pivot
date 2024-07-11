@@ -304,7 +304,7 @@ document.body.appendChild(exportButton);
 
 ## Setting date format
 
-The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the `locale`. A default format is "%d.%m.%Y".
+The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). A default format is "%d.%m.%Y".
 
 Example:
 
