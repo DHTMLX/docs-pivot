@@ -262,9 +262,9 @@ document.body.appendChild(importButton);
 
 ## Exporting data
 
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying table widget instance inside Pivot and apply its API to export data. To do this, you should use the [`getTable`](/api/methods/gettable-method) method.
+To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying Table widget instance inside Pivot and apply its API to export data. To do this, you should use the [`getTable`](/api/methods/gettable-method) method.
 
-In the example below we get access to the table instance and trigger the `export`action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
+In the example below we get access to the Table instance and trigger the `export`action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx
 const pivotWidget = new pivot.Pivot("#pivot", {
@@ -304,7 +304,7 @@ document.body.appendChild(exportButton);
 
 ## Setting date format
 
-The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). A default format is "%d.%m.%Y".
+The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
 
 Example:
 

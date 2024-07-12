@@ -81,13 +81,13 @@ To set the width of specific column(s), apply the `width` parameter of the [colu
 
 ## Autosizing columns to content
 
-The widget allows setting the minimum width value for all columns as well as enable sizing for the table data only, the table header or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
+The widget allows setting the minimum width value for all columns and it also enables sizing for the table data only, the table header or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
 
 All parameters of `autoWidth` are optional and for detailed description of each parameter refer to the [columnShape](/api/config/columnshape-property) property.
 
 - use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
 - use the `auto` parameter to adjust the width to the header or cell content (or both)
-- use `maxRows` to specify how many data rows will be applied to detect size of a column; by default 20 rows are used
+- use `maxRows` to specify how many data rows will be applied to detect the size of a column; by default 20 rows are used
 
 If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
@@ -235,7 +235,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Freezing columns
 
-The widget allows freezing columns on the left side, which makes the left-most columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
+The widget allows freezing columns on the left side, which makes the leftmost columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
 
 :::info
 The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 

@@ -8,9 +8,9 @@ description: You can learn about the getTable method in the documentation of the
 
 ### Description
 
-@short: Gets access to the underlying table widget instance in the Pivot table
+@short: Gets access to the underlying Table widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying table widget instance in Pivot. It provides direct access to the table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Usage examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
+This method is used when there's a need to access the underlying Table widget instance in Pivot. It provides direct access to the Table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Usage examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
 
 ### Usage
 
