@@ -308,7 +308,7 @@ The Pivot accepts a date that is parsed into the Date object. By default, the `d
 
 Example:
 
-~~~jsx
+~~~jsx {17}
 function setFormat(value) {
   widget.setConfig({ locale: { formats: { dateFormat: value } } });
 }

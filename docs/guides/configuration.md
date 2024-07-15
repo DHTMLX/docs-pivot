@@ -37,10 +37,10 @@ The next sizes are applied by default:
 
 ~~~jsx
 const sizes = {
-	rowHeight: 34,
-	headerHeight: 30,
-	footerHeight: 30,
-	colWidth: 150,
+  rowHeight: 34,
+  headerHeight: 30,
+  footerHeight: 30,
+  colWidth: 150,
 };
 ~~~
 

@@ -30,7 +30,7 @@ predicates?: {
 
 The property is an object where a key is the name of a custom function and value is an object with actual function definitions. The predicate object can have multiple key-function pairs, and all of them will be available for use in the Pivot configuration. Each object has the following parameters:
 
-  - `label` - (required) a predicate's label displayed in GUI in the drop-down among data modifiers options for a row/column 
+  - `label` - (required) the label of a predicate displayed in GUI in the drop-down among data modifiers options for a row/column 
   - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date" or "text" or an array of these values
   - `filter` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
 	- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
