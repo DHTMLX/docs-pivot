@@ -10,31 +10,23 @@ This clear and comprehensive tutorial will guide your through the steps you need
 
 ![pivot-main](/assets/pivot_main.png)
 
-## Step 1. Downloading packages
+## Step 1. Downloading and installing packages
 
-[Download packages](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and unpack it into a folder of your project.
+[Download the package](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and unpack it into a folder of your project.
 
-You can install the necessary packages using `npm` or `yarn`commands:
+You can import JavaScript Pivot into your project using `yarn` or `npm` package manager.
 
-For licensed packages:
+#### Installing trial Pivot via npm and yarn
 
-~~~js
-//npm
-npm install @dhx/pivot
-//yarn
-yarn add @dhx/pivot
-~~~
+:::info
+If you want to use trial version of Pivot, download the trial [Pivot package](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and follow steps mentioned in the *README* file. Note that trial PIvot is available 30 days only.
+:::
 
-For trial packages:
+#### Installing PRO Pivot via npm and yarn
 
-~~~js
-//npm
-npm install @dhx/trial-pivot
-//yarn
-yarn add @dhx/trial-pivot
-~~~
-
-To get Pivot under the proprietary license, refer to [**Support Center**](https://dhtmlx.com/docs/technical-support.shtml)!
+:::info
+If you have already purchased Pivot under the proprietary license, send your **license number** on the *contact@dhtmlx.com* email to receive *login* and *password* for private **npm** as well as detailed guide on how to install Pivot. Note that private **npm** is available before the expiration of the proprietary Pivot license.
+:::
 
 ## Step 2. Including source files
 
