@@ -6,9 +6,9 @@ description: You can learn about the Migration to Newer Versions in the document
 
 # Migration to newer versions
 
-## 1.5.6 -> 2.0
+## 1.5 -> 2.0
 
-This list of changes will help you migrate from the previous version of Pivot 1.5.6 to the totally renewed version of Pivot 2.0
+This list of changes will help you migrate from the previous version of Pivot 1.5 to the totally renewed version of Pivot 2.0
 
 ### Changed API
 
@@ -48,6 +48,7 @@ New properties do not fully duplicate the previous ones but provide more extende
   - [templates for cells](https://docs.dhtmlx.com/pivot/guides__customization.html#settingtemplatesforcells) ->
   [applying templates to headers](/guides/configuration#applying-templates-to-cells)
 - Filtering: [manipulating with filters](https://docs.dhtmlx.com/pivot/guides__using_filters.html) -> [filtering data](/guides/working-with-data#filtering-data)
+
 
 
 
