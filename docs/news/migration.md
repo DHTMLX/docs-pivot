@@ -10,6 +10,10 @@ description: You can learn about the Migration to Newer Versions in the document
 
 This list of changes will help you migrate from the previous version of Pivot 1.5 to the totally renewed version of Pivot 2.0
 
+:::note
+Check our [converter for data migration from v.1.5](https://snippet.dhtmlx.com/s4sfdhq4)
+:::
+
 ### Changed API
 
 #### Properties
