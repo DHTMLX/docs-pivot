@@ -8,7 +8,7 @@ description: You can learn about the Migration to Newer Versions in the document
 
 ## 1.5.6 -> 2.0
 
-This list of changes will help you migrate from the previous version Pivot 1.5.6 to the totally renewed version Pivot 2.0
+This list of changes will help you migrate from the previous version of Pivot 1.5.6 to the totally renewed version of Pivot 2.0
 
 ### Changed API
 
