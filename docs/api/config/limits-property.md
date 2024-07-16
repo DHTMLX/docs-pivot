@@ -59,3 +59,5 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   
 });
 ~~~
+
+**Related sample:** [Pivot 2.0. Data limits](https://snippet.dhtmlx.com/7ryns8oe)

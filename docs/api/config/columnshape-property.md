@@ -76,3 +76,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+**Related samples:** 
+- [Pivot 2.0. Auto width. Sizing columns to content](https://snippet.dhtmlx.com/tn1yw14m)
+- [Pivot 2.0. Set columns width](https://snippet.dhtmlx.com/ceu34kkn)
+

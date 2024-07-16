@@ -58,3 +58,7 @@ const pivotWidget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
+
+**Related samples**: 
+- [Pivot 2.0: Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
+- [Pivot 2.0: Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)

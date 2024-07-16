@@ -9,7 +9,7 @@ description: You can learn about using typescript with the DHTMLX JavaScript Piv
 Starting from v2.0, the library of DHTMLX Pivot provides an ability to use TypeScript definitions. The built-in support of TypeScript works out of the box.
 
 :::info
-You can try out the functionality right in our <a href="https://snippet.dhtmlx.com/"  target="_blank">Snippet Tool</a>.
+You can try out the functionality right in our <a href="https://snippet.dhtmlx.com/y2buoahe"  target="_blank">Snippet Tool</a>.
 :::
 
 ## Advantages of using TypeScript

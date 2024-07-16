@@ -96,3 +96,7 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
+
+**Related samples:** 
+- [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
+- [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)

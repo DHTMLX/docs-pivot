@@ -50,3 +50,5 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 
 });
 ~~~
+
+**Related sample:** [Pivot 2.0. Readonly mode](https://snippet.dhtmlx.com/0k0mvycv)
