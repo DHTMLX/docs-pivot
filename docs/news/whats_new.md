@@ -33,7 +33,7 @@ For tips about migration to the new version, check the [Migration](/news/migrati
   - making columns collapsible
 - The shape and sizes of the table can be configured via the [`tableShape`](/api/config/tableshape-property) property that makes possible:
   - configuring the sizes: rowHeight, headerHeight, footerHeight, colWidth
-  - new version allows generating both columns and rows with total values 
+  - new version allows generating total values not only for columns but also for rows
   - hiding the duplicate values in the table view
   - fixing columns from the left making them static while scrolling
   - making all rows expand or collapse
