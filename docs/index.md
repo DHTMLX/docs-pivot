@@ -104,11 +104,13 @@ The fields to which filtering is applied are marked with a special filter sign:
 
 ## Table
 
-Data in the table is displayed as configured in the Configuration panel.
-
-The **sorting** in columns is enabled by default:
+Data in the table is displayed as configured in the Configuration panel. The **sorting** in columns is enabled by default:
 
 ![table](assets/table.png)
+
+:::info
+The image above displays the table in its default mode but you can easily change the look and behavior of the table. The widget API provides rich functionality for configuring the table such as enabling the tree mode with collapsible rows, resizing the table, freezing columns while scrolling, applying templates, and much more. 
+:::
 
 ## What's next
 
