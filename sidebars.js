@@ -21,7 +21,7 @@ module.exports = {
                     image: "/img/docusaurus.png",
                 },
                 items: [
-                    'news/whats_new',
+                    'news/whats-new',
                     'news/migration'
                 ]
             },
