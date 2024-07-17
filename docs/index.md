@@ -42,9 +42,7 @@ To remove a value, click the delete button ("x").
 
 ![add_remove](assets/add_remove.png)
 
-To change the order of values in the table, drag an item to the desired position. The closer the value is to the left in the toolbar values list, the higher its priority and position in the table columns. The values with the highest priority are in the leftmost position in the column they belong to. The field with the **Count** value in the image below has the highest priority:
-
-![priority](assets/priority.png)
+To change the order of values in the table, drag an item to the desired position. The closer the value is to the left in the toolbar values list, the higher its priority and position in the table columns. 
 
 To set operations that will be applied to all data of the column of the table, click the value operations for the required field in the drop-down list, and select the required option from the list.
 
@@ -64,9 +62,7 @@ To add a new column, click the "+" button and select the required name from the 
 
 To remove a column, click the delete button ("x").
 
-To change the order of columns in the table, drag an item to the desired position. The closer the column is to the left in the toolbar columns list, the higher its priority and position in the table header. The columns with the highest priority are in the leftmost position and include other columns with lower priority. For example, the **Year** column in the image below has the highest priority.
-
-![columns-priority](assets/columns-priority.png)
+To change the order of columns in the table, drag an item to the desired position. The closer the column is to the left in the toolbar columns list, the higher its priority and position in the table header. 
 
 ### Rows area
 
@@ -82,9 +78,7 @@ To add a new row, click the "+" button and select the required name from the dro
 
 To remove a row, click the delete button ("x").
 
-To change the order of rows in the table, drag an item to the desired position. The higher the row is in the list, the higher its priority and position in the table header. The rows with the highest priority are in the topmost position and include other rows with lower priority. The **Continent** field in the image below has the highest priority.
-
-![rows-priority](assets/rows-priority.png)
+To change the order of rows in the table, drag an item to the desired position. The higher the row is in the list, the higher its priority and position in the table header. The rows with the highest priority are in the topmost position and include other rows with lower priority.
 
 
 ### Filters
@@ -112,7 +106,7 @@ The fields to which filtering is applied are marked with a special filter sign:
 
 Data in the table is displayed as configured in the Configuration panel.
 
-The sorting in columns is enabled by default:
+The **sorting** in columns is enabled by default:
 
 ![table](assets/table.png)
 
@@ -120,4 +114,7 @@ The sorting in columns is enabled by default:
 
 Now you can get down to incorporating Pivot into your application. Follow the directions of the [How to start](./how-to-start) tutorial for guidance.
 
+If you apply the functionality provided by the widget API you can get a good-looking Pivot table with more features as the one in the sample below:
+
+<iframe src="https://snippet.dhtmlx.com/4cm4asbd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
