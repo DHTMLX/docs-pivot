@@ -32,7 +32,7 @@ For tips about migration to the new version, check the [Migration](/news/migrati
   - making columns collapsible (see the sample here: https://snippet.dhtmlx.com/pt2ljmcm)
 - The shape and sizes of the table can be configured via the [`tableShape`](/api/config/tableshape-property) property that makes possible:
   - configuring the height of rows, headers, footer: rowHeight, headerHeight, footerHeight ([Resizing the table](/guides/configuration#resizing-the-table))
-  - generating total values not only for columns but also for rows (see the sample here: https://snippet.dhtmlx.com/f0ag0t9t)
+  - generating total values not only for columns but also for rows, which is made possible via the **totalColumn** parameter of the `tableShape` property (see the sample here: https://snippet.dhtmlx.com/f0ag0t9t)
   - hiding the duplicate values in the table view (the **cleanRows** parameter of the [`tableShape`](/api/config/tableshape-property) property)
   - fixing columns from the left making them static while scrolling (see the sample here: https://snippet.dhtmlx.com/lahf729o)
   - making all rows expand or collapse (see the sample here: https://snippet.dhtmlx.com/i4mi6ejn)
