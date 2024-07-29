@@ -68,7 +68,9 @@ To remove a value, click the delete button ("x").
 
 ![add_remove](assets/add_remove.png)
 
-To change the order of values/rows/columns in the table, drag an item to the desired position. The closer an item is to the left in the toolbar list, the higher its priority and position in the table. 
+To change the order of values/rows/columns in the table, drag an item to the desired position. The closer an item is to the left in the area's toolbar list, the higher its priority and position in the table. 
+
+![priority](assets/priority.png)
 
 To set operations that will be applied to all data of the column of the table, in the **Values** area, click the value operation for the required field in the drop-down list, and select the required option from the list.
 
@@ -83,24 +85,15 @@ Filters appear as drop-down lists for each field in all areas. The Pivot provide
 - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
-To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**.
+To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**. The fields to which filtering is applied will be marked with a special filter sign.
 
 ![filters](assets/filter.png)
 
-The fields to which filtering is applied are marked with a special filter sign:
-
-![filter_applied](assets/filter_applied.png)
-
-
 ## Table
 
-Data in the table is displayed as configured in the Configuration panel. The **sorting** in columns is enabled by default:
+Data in the table is displayed as configured in the Configuration panel. The **sorting** in columns is enabled by clicking the column header:
 
 ![table](assets/table.png)
-
-:::info
-The image above displays the table in its default mode but you can easily change the look and behavior of the table. The widget API provides rich functionality for configuring the table such as enabling the tree mode with collapsible rows, resizing the table, freezing columns while scrolling, applying templates, and much more. 
-:::
 
 ## What's next
 

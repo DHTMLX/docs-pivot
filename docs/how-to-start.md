@@ -19,13 +19,13 @@ You can import JavaScript Pivot into your project using `yarn` or `npm` package 
 #### Installing trial Pivot via npm and yarn
 
 :::info
-If you want to use trial version of Pivot, download the trial [Pivot package](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and follow steps mentioned in the *README* file. Note that trial PIvot is available 30 days only.
+If you want to use trial version of Pivot, download the trial [Pivot package](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and follow the steps mentioned in the *README* file. Note that trial Pivot is available for 30 days only.
 :::
 
 #### Installing PRO Pivot via npm and yarn
 
 :::info
-If you have already purchased Pivot under the proprietary license, send your **license number** on the *contact@dhtmlx.com* email to receive *login* and *password* for private **npm** as well as detailed guide on how to install Pivot. Note that private **npm** is available before the expiration of the proprietary Pivot license.
+If you have already purchased Pivot under the proprietary license, send your **license number** to the *contact@dhtmlx.com* email in order to receive *login* and *password* for private **npm** as well as detailed guide on how to install Pivot. Note that private **npm** is available before the expiration of the proprietary Pivot license.
 :::
 
 ## Step 2. Including source files
@@ -116,7 +116,7 @@ config: {
 
 ## What's next
 
-That's all. Just three simple steps and you have a handy tool for analyzing data. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
+That's all. Just these simple steps and you have a handy tool for analyzing data. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
 
 - [Guides](/category/guides) pages provide instructions about installation, loading data, styling, and other helpful tips to go smoothly with the Pivot configuration
 - [API reference](/api/overview/main-overview) gives description of the Pivot functionality
