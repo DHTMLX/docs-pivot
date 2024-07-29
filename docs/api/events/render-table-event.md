@@ -22,7 +22,7 @@ It allows you to alter the final table configuration on the fly or prevent the r
     footer?: boolean,
     sizes: {},
     split?: {
-      left?: boolean,
+      left?: number,
     },
     tree?: boolean,
     cellStyle?: (row: any, col: any) => string
@@ -46,7 +46,7 @@ The callback of the action takes the `config` object with the following paramete
 - `data` - (optional) an array of objects with data for the table; each object represents a row
 - `footer` - (optional) if it's set to **true**, the table footer is displayed at the bottom of the table; it's set to **false** and invisible by default
 - `sizes` - (optional) an object with table sizes settings, namely, colWidth, footerHeight, headerHeight, rowHeight
-- `split` - (optional) if **true**, fixes the left-size table area during the scrolling process
+- `split` - (optional) the number of columns to be fixed from the left during the scrolling process
 - `tree` - (optional) the boolean value with the tree mode setting (**true** if the tree mode is enabled)
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 

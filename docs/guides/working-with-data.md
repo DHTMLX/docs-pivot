@@ -560,4 +560,3 @@ In this snippet you can see how to apply custom maths operations:
 **Related samples:** 
 - [Pivot 2.0: Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)
 - [Pivot 2.0. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
-- [Pivot 2.0. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
