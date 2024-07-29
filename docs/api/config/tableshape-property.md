@@ -101,4 +101,4 @@ const widget = new pivot.Pivot("#pivot", {
 - [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
 
-**Related articles**: [Configuration](/api/guides/configuration)
+**Related articles**: [Configuration](/guides/configuration)

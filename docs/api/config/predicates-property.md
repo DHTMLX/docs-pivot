@@ -92,4 +92,4 @@ const widget = new pivot.Pivot("#pivot", {
 ~~~
 
 
-**Related articles**: [Processing data with predicates](/api/guides/working-with-data#processing-data-with-predicates)
+**Related articles**: [Processing data with predicates](/guides/working-with-data#processing-data-with-predicates)

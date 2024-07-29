@@ -22,20 +22,20 @@ For tips about migration to the new version, check the [Migration](/news/migrati
 
 ### New functionality
 
-- Pivot 2.0 is quick at rendering and generating large datasets (see the sample here: https://snippet.dhtmlx.com/e6qwqrys)
+- Pivot 2.0 is quick at rendering and generating large datasets ([sample](https://snippet.dhtmlx.com/e6qwqrys))
 - Next new features for configuring the look and behavior of columns are available via the [`columnShape`](/api/config/columnshape-property) property:
-  - setting **autowidth** with the ability to set maxRows to be processed for the **autoWidth** calculation (see the sample here: https://snippet.dhtmlx.com/tn1yw14m)
+  - setting **autowidth** with the ability to set maxRows to be processed for the **autoWidth** calculation ([sample](https://snippet.dhtmlx.com/tn1yw14m))
   - the **firstOnly** feature when each field of the same data is analyzed only once to calculate the column width (by default) 
 - Now you can configure the look and behavior of headers using the [`headerShape`](/api/config/headershape-property) property that allows:  
-  - applying a template to the text in headers (see the sample here: https://snippet.dhtmlx.com/g89r9ryw)
-  - changing text orientation (see the sample here: https://snippet.dhtmlx.com/4qroi8ka)
-  - making columns collapsible (see the sample here: https://snippet.dhtmlx.com/pt2ljmcm)
+  - applying a template to the text in headers ([sample](https://snippet.dhtmlx.com/g89r9ryw))
+  - changing text orientation ([sample](https://snippet.dhtmlx.com/4qroi8ka))
+  - making columns collapsible ([sample](https://snippet.dhtmlx.com/pt2ljmcm))
 - The shape and sizes of the table can be configured via the [`tableShape`](/api/config/tableshape-property) property that makes possible:
   - configuring the height of rows, headers, footer: rowHeight, headerHeight, footerHeight ([Resizing the table](/guides/configuration#resizing-the-table))
-  - generating total values not only for columns but also for rows, which is made possible via the **totalColumn** parameter of the `tableShape` property (see the sample here: https://snippet.dhtmlx.com/f0ag0t9t)
+  - generating total values not only for columns but also for rows, which is made possible via the **totalColumn** parameter of the `tableShape` property ([sample](https://snippet.dhtmlx.com/f0ag0t9t))
   - hiding the duplicate values in the table view (the **cleanRows** parameter of the [`tableShape`](/api/config/tableshape-property) property)
-  - fixing columns from the left making them static while scrolling (see the sample here: https://snippet.dhtmlx.com/lahf729o)
-  - making all rows expand or collapse (see the sample here: https://snippet.dhtmlx.com/i4mi6ejn)
+  - fixing columns from the left making them static while scrolling ([sample](https://snippet.dhtmlx.com/lahf729o))
+  - making all rows expand or collapse ([sample](https://snippet.dhtmlx.com/i4mi6ejn))
 - More features are added to aggregate data:
   - [limiting loaded data](/guides/working-with-data#limiting-loaded-data)
   - more [operations with data](/guides/working-with-data#applying-maths-methods) are available 
