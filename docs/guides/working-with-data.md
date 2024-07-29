@@ -159,7 +159,7 @@ The Pivot widget provides the next condition types for filtering:
 - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
 - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
 
-The filter provides the **includes** filtering rule to define the set of values to be displayed. Fields with the additional filter are marked with a special sign in GUI (please, see [Filters](/#filters))
+The filter provides the **includes** filtering rule to define the set of values to be displayed. 
 
 #### Adding a filter
 
