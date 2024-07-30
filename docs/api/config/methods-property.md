@@ -162,4 +162,6 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-**Related sample:** [Pivot 2.0: Custom math methods](https://snippet.dhtmlx.com/lv90d8q2)
+**Related samples:** [Pivot 2.0: Custom math methods](https://snippet.dhtmlx.com/lv90d8q2)
+
+**Related article**: [Applying maths methods](/guides/working-with-data#applying-maths-methods)

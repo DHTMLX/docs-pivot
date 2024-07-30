@@ -64,7 +64,7 @@ In all three areas of the Configuration panel you can add and remove fields to/f
 
 To add a new field, in the required area, click the "+" button and select the name from the drop-down list. 
 
-To remove a value, click the delete button ("x").
+To remove an item, click the delete button ("x").
 
 ![add_remove](assets/add_remove.png)
 

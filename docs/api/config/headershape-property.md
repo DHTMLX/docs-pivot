@@ -64,4 +64,4 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 - [Pivot 2.0: Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
 - [Pivot 2.0. Headers template](https://snippet.dhtmlx.com/g89r9ryw)
 
-**Related articles**: [Configuration](/guides/configuration)
+**Related article**: [Configuration](/guides/configuration)

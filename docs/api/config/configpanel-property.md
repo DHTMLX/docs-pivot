@@ -52,8 +52,9 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+**Related sample:** [Pivot 2.0: Toggle visibility of configuration panel](https://snippet.dhtmlx.com/1xq1x5bo)
+
 **Related articles:** 
 - [`show-config-panel` event](/api/events/show-config-panel-event)
 - [`showConfigPanel()` method](/api/methods/showconfigpanel-method)
-
-**Related sample:** [Pivot 2.0: Toggle visibility of configuration panel](https://snippet.dhtmlx.com/1xq1x5bo)
+- [Controlling visibility of Configuration panel](/guides/configuration#controlling-visibility-of-configuration-panel)

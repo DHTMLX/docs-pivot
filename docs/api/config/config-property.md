@@ -145,3 +145,4 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 ~~~
+
