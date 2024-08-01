@@ -100,5 +100,6 @@ const widget = new pivot.Pivot("#pivot", {
 **Related samples:** 
 - [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
+- [Pivot 2.0. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
 
 **Related article**: [Configuration](/guides/configuration)
