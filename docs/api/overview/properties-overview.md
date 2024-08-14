@@ -4,7 +4,7 @@ title: Properties Overview
 description: You can have a Properties overview of JavaScript Pivot in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-# Pivot properties overview
+# Properties overview
 
 To configure the **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
 
