@@ -10,7 +10,7 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 Released on Month Day, 2024
 
-[Review of release on the blog](https://dhtmlx.com/blog/)
+Please, see the review of the release on [the blog page](https://dhtmlx.com/blog/)
 
 ### Breaking change
 
