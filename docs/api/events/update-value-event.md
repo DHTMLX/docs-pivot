@@ -60,4 +60,4 @@ widget.api.on("update-field", (ev) => {
 
 **Related articles**:
 - [api.on()](/api/internal/on-method)
-- [methods](/api/config/method-property)
+- [methods](/api/config/methods-property)

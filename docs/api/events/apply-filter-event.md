@@ -24,7 +24,7 @@ The callback of the action takes an object with the following parameters:
 
 - `rule` - any filter configuration object with such parameters as below:
   - `field` - (required) the field id to which filter will be applied
-  - `filter` - (required) filter type:
+  - `filter` - (required) filter type: 
      - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith
      - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains
      - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween

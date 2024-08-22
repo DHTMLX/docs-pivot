@@ -559,7 +559,7 @@ pivotWidget.api.intercept("show-config-panel", () => {
 });
 ~~~
 
-You can also control the visibility of the Configuration panel using the [`showConfigPanel()`](api/methods/showconfigpanel-method) method.
+You can also control the visibility of the Configuration panel using the [`showConfigPanel()`](/api/methods/showconfigpanel-method) method.
 
 ### Actions with fields in the panel
 
@@ -567,7 +567,7 @@ In the Configuration panel it's possible to perform the next operations with fie
 
 - [add-field](/api/events/add-field-event)
 - [delete-field](/api/events/delete-field-event)
-- [update-field](/api/events/update-field-event)
+- [update-field](/api/events/update-value-event)
 - [move-field](/api/events/reorder-fields-event)
 
 ## Example

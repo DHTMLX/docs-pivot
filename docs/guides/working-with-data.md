@@ -96,7 +96,6 @@ function switchSort(id){
     setFields(bar, fields);
 }
 
-
 const widget = new pivot.Pivot("#pivot", {
     fields,
     data: dataset,
@@ -421,31 +420,29 @@ const widget = new pivot.Pivot("#pivot", {
     tableShape: { templates },
     methods: { ...pivot.defaultMethods, ...methods },
     config:{
-		rows: [
-            "state"
-        ],
-        columns: [
-            "product_line",
-            "product_type"
-        ],
-        values: [
-            {
-                field: "sales",
-                method: "sum"
-            },
-            {
-                field: "sales",
-                method: "count"
-            },
-            {
-                field: "date",
-                method: "countunique_date"
-            },
-            {
-                field: "date",
-                method: "average_date"
-            },   
-        ]
+		rows: ["state"],
+    columns: [
+      "product_line",
+      "product_type"
+    ],
+    values: [
+      {
+        field: "sales",
+        method: "sum"
+      },
+      {
+        field: "sales",
+        method: "count"
+      },
+      {
+        field: "date",
+        method: "countunique_date"
+      },
+      {
+        field: "date",
+        method: "average_date"
+      },
+    ]
 	}
 });
 ~~~
@@ -457,13 +454,13 @@ For example, you can pre-process the date format before applying and displaying 
 
 ~~~jsx
 const defaultPredicates = {
-	year: { label: "Year", type: "date" },
-	quarter: { label: "Quarter", type: "date" },
-	month: { label: "Month", type: "date" },
-	week: { label: "Week", type: "date" },
-	day: { label: "Day", type: "date" },
-	hour: { label: "Hour", type: "date" },
-	minute: { label: "Minute", type: "date" },
+	year: { label: "Year", type: "date", filter: { type: "number" } },
+	quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
+	month: { label: "Month", type: "date", filter: { type: "tuple" } },
+	week: { label: "Week", type: "date", filter: { type: "tuple" } },
+	day: { label: "Day", type: "date", filter: { type: "number" } },
+	hour: { label: "Hour", type: "date", filter: { type: "number" } },
+	minute: { label: "Minute", type: "date", filter: { type: "number" } },
 };
 ~~~
 
@@ -472,27 +469,36 @@ To add a custom predicate, you should specify the parameters of the [`predicates
 - Add values that are objects with predicate configuration:
   - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column  
   - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value.
-  - if you want the data to be displayed in the way other than the `handler` function returns, add the template that defines how data should be displayed (optional)
+  - if you want the data to be displayed in the way other than the `handler` function returns, add the `template` that defines how data should be displayed (optional)
   - if necessary, add the `filter` function to specify how data should be filtered for the field 
 
 You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
 
 ~~~jsx
-// custom predicate
+// custom predicates
 const predicates = {
   monthYear: {
-    id: "monthYear",
-    label: "month-year",
+    label: "Month-year",
     type: "date",
-    handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1).getTime(),
-    template: (value, params) => {
-      const locale = params.locale;
-      const date = new Date(value);
+    handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
+    template: (date, locale) => {
       const months = locale.getRaw().calendar.monthFull;
       return months[date.getMonth()] + " " + date.getFullYear();
     },
   },
-};
+  balanceSign: {
+    label: "BalanceSign",
+    type: "number",
+    filter: {
+      type: "tuple",
+      format: v => (v < 0 ? "Negative" : "Positive"),
+    },
+    field: f => f === "balance",
+    handler: v => (v < 0 ? -1 : 1),
+    template: v =>
+      v < 0 ? "Negative balance" : "Positive balance",
+    },
+},
 
 const widget = new pivot.Pivot("#pivot", {
   fields,
