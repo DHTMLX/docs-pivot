@@ -20,7 +20,7 @@ predicates?: {
   handler: (value: any) => any,
   type: 'number' | 'date' | 'text' | [],
   label?: string | (type: 'number' | 'date' | 'text') => string,
-  template?: (value: any, locale: any) => string,
+  template?: (value: any, locale?: any) => string,
   field?: (value:string) => boolean,
   filter?: { 
     type: "number"|"text"|"date"|"tuple",
@@ -37,9 +37,9 @@ The property is an object where a key is the name of a custom function and value
   - `label` - (optional) the label of a predicate displayed in GUI in the drop-down among data modifiers options for a row/column 
   - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date", "text" or an array of these values
   - `field` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
-  - `filter` - (optional) if you need more filtering options than the `type` parameter provides you can use this `filter` object to add more specific filters to a field; the object has the next parameters:
-     - `type` - (optional) defines for which field types a filter can be applied: "number"|"text"|"date"|"tuple"; if not defined, the value from the `type` parameter is set; "tuple" is applied for numeric values used in dates (data will be filtered by this numeric value but the text value will be displayed in a label)
-     - `format` - (optional) the function that defines the format for displaying the filtered data; if no format is defined, the one from the `template` parameter will be applied; if the `type` here (for the `filter` object) is not specified, the format will be applied for the type set in the `type` parameter of the predicate
+  - `filter` - (optional) by default, filter type is taken from the `type` parameter, but if you need another one, you can use this `filter` object. It has the next parameters:
+    - `type` - (optional) defines which field type will be applied: "number"|"text"|"date"|"tuple". "tuple" is a combo filter applied for numeric values (data will be filtered by the numeric value but in filter the text value will be displayed)
+    - `format` - (optional) the function that defines the format for displaying filter options; if no format is defined, the one from the template parameter will be applied; if the type here (for the `filter` object) is not specified, the format will be applied for the type set in the `type` parameter of the predicate
 	- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
 	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](/api/config/locale-property).
  
@@ -47,13 +47,13 @@ The following default predicates are applied in case no predicate is specified v
 
 ~~~jsx
 const defaultPredicates = {
-	year: { label: "Year", type: "date", filter: { type: "number" } },
-	quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
-	month: { label: "Month", type: "date", filter: { type: "tuple" } },
-	week: { label: "Week", type: "date", filter: { type: "tuple" } },
-	day: { label: "Day", type: "date", filter: { type: "number" } },
-	hour: { label: "Hour", type: "date", filter: { type: "number" } },
-	minute: { label: "Minute", type: "date", filter: { type: "number" } },
+  year: { label: "Year", type: "date", filter: { type: "number" } },
+  quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
+  month: { label: "Month", type: "date", filter: { type: "tuple" } },
+  week: { label: "Week", type: "date", filter: { type: "tuple" } },
+  day: { label: "Day", type: "date", filter: { type: "number" } },
+  hour: { label: "Hour", type: "date", filter: { type: "number" } },
+  minute: { label: "Minute", type: "date", filter: { type: "number" } },
 };
 ~~~
 

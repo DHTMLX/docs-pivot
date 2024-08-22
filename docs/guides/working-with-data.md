@@ -454,13 +454,13 @@ For example, you can pre-process the date format before applying and displaying 
 
 ~~~jsx
 const defaultPredicates = {
-	year: { label: "Year", type: "date", filter: { type: "number" } },
-	quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
-	month: { label: "Month", type: "date", filter: { type: "tuple" } },
-	week: { label: "Week", type: "date", filter: { type: "tuple" } },
-	day: { label: "Day", type: "date", filter: { type: "number" } },
-	hour: { label: "Hour", type: "date", filter: { type: "number" } },
-	minute: { label: "Minute", type: "date", filter: { type: "number" } },
+  year: { label: "Year", type: "date", filter: { type: "number" } },
+  quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
+  month: { label: "Month", type: "date", filter: { type: "tuple" } },
+  week: { label: "Week", type: "date", filter: { type: "tuple" } },
+  day: { label: "Day", type: "date", filter: { type: "number" } },
+  hour: { label: "Hour", type: "date", filter: { type: "number" } },
+  minute: { label: "Minute", type: "date", filter: { type: "number" } },
 };
 ~~~
 
