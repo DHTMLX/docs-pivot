@@ -45,8 +45,7 @@ const table = new pivot.Pivot("#root", {
 });
 
 // apply the "de" locale to Pivot
-const de = {...} //object with locale
-table.setLocale(de);
+table.setLocale(pivot.locales.de);
 
 // apply the default locale to Pivot
 table.setLocale(); // or setLocale(null);

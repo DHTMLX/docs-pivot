@@ -151,30 +151,33 @@ const en = {
 };
 ~~~
 
-## Installing and applying locales
+## Applying locales
 
-You can install the desired locales via npm:
+You can access built-in locales via the pivot object. Pivot provides three built-in locales: en, de, cn. 
 
-~~~jsx
-npm install @dhx/pivot-locales
-npm install @dhx/core-locales
-npm install @dhx/query-locales
-~~~
-
-To apply a custom locale you need to:
-
-- create a custom locale file (or modify the default one) and provide translations for all text labels (it can be any language you need)
-- apply the new locale to Pivot via its [`locale`](/api/config/locale-property) property or use the [`setLocale()`](/api/methods/setlocale-method) method
-
-And you can apply a locale in the following way:
+Example:
 
 ~~~jsx
-import { de as coreDe } from "@dhx/core-locales "
-
 new pivot.Pivot({
     // other properties
-    locale: { ...coreDe, ...de },
+    locale: pivot.locales.de,
 });
+~~~
+
+To apply a custom locale, you need to:
+
+- create a custom locale object (or modify the default one) and provide translations for all text labels (it can be any language you need)
+- apply the new locale to Pivot via its [`locale`](/api/config/locale-property) property or use the [`setLocale()`](/api/methods/setlocale-method) method
+
+~~~jsx
+// create Pivot
+const widget = new pivot.Pivot("#root", {
+  data,
+//other configuration properties
+});
+
+const ko = {...} //object with locale
+widget.setLocale(ko);
 ~~~
 
 ## Example
