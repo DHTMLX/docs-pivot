@@ -12,47 +12,47 @@ This page describes how to aggregate data in Pivot. For the instructions about l
 
 Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table. To add a new field, you should add a new object to the `fields` array.  
 
-Example:
+### Example
 
-~~~jsx {}
-const widget = new pivot.Pivot("#pivot", {
-  fields: [
-   { id: "year", label: "Year", type: "number" },
-   { id: "continent", label: "Continent", type: "text" },
-   { id: "form", label: "Form", type: "text" },
-   { id: "oil", label: "Oil", type: "number" },
-   { id: "balance", label: "Balance", type: "number" },
-  ],
-  data,
-  config: {...},
+~~~jsx
+const table = new pivot.Pivot("#root", {
+    fields: [
+        { id: "year", label: "Year", type: "number" },
+        { id: "continent", label: "Continent", type: "text" },
+        { id: "form", label: "Form", type: "text" },
+        { id: "oil", label: "Oil", type: "number" },
+        { id: "balance", label: "Balance", type: "number" }
+    ],
+    data,
+    config: {...}
 });
 ~~~
 
-## Defining Pivot structure 
+## Defining Pivot structure
 
-You can create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details. 
+You can create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details.
 
-Example:
+### Example
 
 ~~~jsx {4-18}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["continent", "name"],
-    columns: ["year"],
-    values: [
-      "count(oil)",
-      { field: "oil", method: "sum" },
-      { field: "gdp", method: "sum" },
-    ],
-  },
-  fields,
-  filters: {
-      name: {
-        contains: "B",
-      },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["continent", "name"],
+        columns: ["year"],
+        values: [
+            "count(oil)",
+            { field: "oil", method: "sum" },
+            { field: "gdp", method: "sum" }
+        ]
     },
+    fields,
+    filters: {
+        name: {
+            contains: "B"
+        }
+    }
 });
 ~~~
 
@@ -91,12 +91,12 @@ function switchSort(id){
         }
     });
     // change fields in Pivot config
-    widget.setConfig({fields}); 
+    table.setConfig({fields}); 
     // update icons
     setFields(bar, fields);
 }
 
-const widget = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     config: {
@@ -112,7 +112,7 @@ const widget = new pivot.Pivot("#pivot", {
             {
                 field: "score",
                 method: "max"
-            },
+            }
         ]
     }
 });
@@ -121,26 +121,26 @@ const widget = new pivot.Pivot("#pivot", {
 The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
 
 ~~~jsx {19}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  columnShape: {
-    sort: false, 
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    },
+    columnShape: {
+        sort: false 
+    }
 });
 ~~~
 
@@ -164,34 +164,33 @@ The filter provides the **includes** filtering rule to define the set of values 
 
 To set a filter, add the **filters** object with the field ID and filter type to the [`config`](/api/config/config-property) property.
 
-~~~jsx {}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-    filters: {
-      genre: {
-        contains: "D",
-        includes: ["Drama"],
-      },
-
-      title: {
-        // filter for another field ("title")
-        contains: "A",
-      },
-    },
-  },
+~~~jsx
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ],
+        filters: {
+            genre: {
+                contains: "D",
+                includes: ["Drama"]
+            },
+            title: {
+                // filter for another field ("title")
+                contains: "A"
+            }
+        }
+    }
 });
 ~~~
 
@@ -203,27 +202,27 @@ To interrupt data rendering and prevent the component from hanging, you can limi
 Limits are used for large dataset. Limits values are approximate values and do not show the exact values of the rows and columns.
 :::
 
-Example:
+### Example
 
 ~~~jsx
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio"],
-    columns: ["genre"],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
-  limits: { rows: 10, columns: 3 },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio"],
+        columns: ["genre"],
+        values: [
+            {
+                id: "title",
+                method: "count"
+            },
+            {
+                id: "score",
+                method: "max"
+            }
+        ]
+    },
+    limits: { rows: 10, columns: 3 }
 });
 ~~~
 
@@ -250,59 +249,59 @@ The widget provides the following default methods for data aggregation:
 Predefined methods:
 
 ~~~jsx
-defaultMethods = {
-  sum: { type: "number", label: "sum" },
-  min: { type: ["number", "date"], label: "min" },
-  max: { type: ["number", "date"], label: "max" },
-  count: {
-    type: ["number", "date", "text"],
-    label: "count",
-    branchMath: "sum",
-  },
-  counta: {
-    type: ["number", "date", "text"],
-    label: "counta",
-    branchMath: "sum",
-  },
-  countunique: {
-    type: ["number", "text"],
-    label: "countunique",
-    branchMath: "sum",
-  },
-  average: { type: "number", label: "average", branchMode: "raw" },
-  median: { type: "number", label: "median", branchMode: "raw" },
-  product: { type: "number", label: "product" },
-  stdev: { type: "number", label: "stdev", branchMode: "raw" },
-  stdevp: { type: "number", label: "stdevp", branchMode: "raw" },
-  var: { type: "number", label: "var", branchMode: "raw" },
-  varp: { type: "number", label: "varp", branchMode: "raw" },
+const defaultMethods = {
+    sum: { type: "number", label: "sum" },
+    min: { type: ["number", "date"], label: "min" },
+    max: { type: ["number", "date"], label: "max" },
+    count: {
+        type: ["number", "date", "text"],
+        label: "count",
+        branchMath: "sum"
+    },
+    counta: {
+        type: ["number", "date", "text"],
+        label: "counta",
+        branchMath: "sum"
+    },
+    countunique: {
+        type: ["number", "text"],
+        label: "countunique",
+        branchMath: "sum"
+    },
+    average: { type: "number", label: "average", branchMode: "raw" },
+    median: { type: "number", label: "median", branchMode: "raw" },
+    product: { type: "number", label: "product" },
+    stdev: { type: "number", label: "stdev", branchMode: "raw" },
+    stdevp: { type: "number", label: "stdevp", branchMode: "raw" },
+    var: { type: "number", label: "var", branchMode: "raw" },
+    varp: { type: "number", label: "varp", branchMode: "raw" }
 };
 ~~~
 
 You can apply default methods using the `values` parameter of the [`config`](/api/config/config-property) property. See [Options for defining values](#options-for-defining-values) below.
 
-Example: 
+### Example
 
 ~~~jsx
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        //field id
-        field: "title",
-        //method
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                //field id
+                field: "title",
+                //method
+                method: "count"
+            },
+            {
+                id: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -312,13 +311,13 @@ You can define `values`in either of the two equally valid ways:
 - option one is a string representing a data field ID: `operation(fieldID)`
 - option two is an object containing the field ID and the method for data aggregation (both are required): `{ field: string, method: string }`
 
-Example:
+### Example
 
 ~~~jsx
-   values: [
-      "sum(sales)", // option one
-      { field: "sales", method: "sum" }, // option two
-   ],
+values: [
+    "sum(sales)", // option one
+    { field: "sales", method: "sum" } // option two
+]
 ~~~
 
 ### Redefining the default method
@@ -328,7 +327,7 @@ By default, the first available method for the data type is selected. You can re
 In the example below, we check whether a new field is added, and set the **max** method in case a numeric field is added.
 
 ~~~jsx {20-27}
-const widget = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
   fields,
   data: dataset,
   config: {
@@ -347,8 +346,8 @@ const widget = new pivot.Pivot("#pivot", {
   },
 });
 //adding values with a predefined method
-widget.api.intercept("add-field", (ev) => {
-  const { fields } = widget.api.getState();
+table.api.intercept("add-field", (ev) => {
+  const { fields } = table.api.getState();
   const type = fields.find((f) => f.id == ev.field).type;
 
   if (ev.area == "values" && type == "number") {
@@ -363,44 +362,44 @@ To add a custom method, use the [`methods`](/api/config/methods-property) proper
 
 The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that gets the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
 
-~~~jsx {}
+~~~jsx
 function countUnique(values, converter) {
-  const valueMap = {};
-  return values.reduce((acc, d) => {
-    if (converter) d = converter(d);
-    if (!valueMap[d]) {
-      acc++;
-      valueMap[d] = true;
-    }
-    return acc;
-  }, 0);
+    const valueMap = {};
+    return values.reduce((acc, d) => {
+        if (converter) d = converter(d);
+        if (!valueMap[d]) {
+            acc++;
+            valueMap[d] = true;
+        }
+        return acc;
+    }, 0);
 }
 
 const methods = {
-  countunique_date: {
-    handler: values => countUnique(values, v => new Date(v).getTime()),
-    type: "date",
-    label: "CountUnique",
-  },
-  average_date: {
-    type: "date",
-    label: "Average",
-    branchMode: "raw",
-    handler: values => {
-      if (!values.length) return null;
-      const sum = values.reduce((acc, d) => acc + d.getTime(), 0);
-      const avgTime = sum / values.length;
-      return new Date(avgTime);
+    countunique_date: {
+        handler: values => countUnique(values, v => new Date(v).getTime()),
+        type: "date",
+        label: "CountUnique",
     },
-  },
+    average_date: {
+        type: "date",
+        label: "Average",
+        branchMode: "raw",
+        handler: values => {
+            if (!values.length) return null;
+            const sum = values.reduce((acc, d) => acc + d.getTime(), 0);
+            const avgTime = sum / values.length;
+            return new Date(avgTime);
+        }
+    }
 };
 
 // show integers for "count" and "unique count" results
 const templates = {};
 fields.forEach(f => {
-  if (f.type == "number")
-    templates[f.id] = (v, method) =>
-    v && method.indexOf("count") < 0 ? parseFloat(v).toFixed(3) : v;
+    if (f.type == "number")
+        templates[f.id] = (v, method) =>
+        v && method.indexOf("count") < 0 ? parseFloat(v).toFixed(3) : v;
 });
 
 // date string to Date 
@@ -414,36 +413,36 @@ if (dateFields.length) {
     });
 }
 
-const widget = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields, 
     data: dataset,
     tableShape: { templates },
     methods: { ...pivot.defaultMethods, ...methods },
     config:{
-		rows: ["state"],
-    columns: [
-      "product_line",
-      "product_type"
-    ],
-    values: [
-      {
-        field: "sales",
-        method: "sum"
-      },
-      {
-        field: "sales",
-        method: "count"
-      },
-      {
-        field: "date",
-        method: "countunique_date"
-      },
-      {
-        field: "date",
-        method: "average_date"
-      },
-    ]
-	}
+        rows: ["state"],
+        columns: [
+            "product_line",
+            "product_type"
+        ],
+        values: [
+            {
+                field: "sales",
+                method: "sum"
+            },
+            {
+                field: "sales",
+                method: "count"
+            },
+            {
+                field: "date",
+                method: "countunique_date"
+            },
+            {
+                field: "date",
+                method: "average_date"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -454,13 +453,13 @@ For example, you can pre-process the date format before applying and displaying 
 
 ~~~jsx
 const defaultPredicates = {
-  year: { label: "Year", type: "date", filter: { type: "number" } },
-  quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
-  month: { label: "Month", type: "date", filter: { type: "tuple" } },
-  week: { label: "Week", type: "date", filter: { type: "tuple" } },
-  day: { label: "Day", type: "date", filter: { type: "number" } },
-  hour: { label: "Hour", type: "date", filter: { type: "number" } },
-  minute: { label: "Minute", type: "date", filter: { type: "number" } },
+    year: { label: "Year", type: "date", filter: { type: "number" } },
+    quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
+    month: { label: "Month", type: "date", filter: { type: "tuple" } },
+    week: { label: "Week", type: "date", filter: { type: "tuple" } },
+    day: { label: "Day", type: "date", filter: { type: "number" } },
+    hour: { label: "Hour", type: "date", filter: { type: "number" } },
+    minute: { label: "Minute", type: "date", filter: { type: "number" } }
 };
 ~~~
 
@@ -477,42 +476,41 @@ You should also add the predicate id as the value of the `method` parameter for 
 ~~~jsx
 // custom predicates
 const predicates = {
-  monthYear: {
-    label: "Month-year",
-    type: "date",
-    handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
-    template: (date, locale) => {
-      const months = locale.getRaw().calendar.monthFull;
-      return months[date.getMonth()] + " " + date.getFullYear();
+    monthYear: {
+        label: "Month-year",
+        type: "date",
+        handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
+        template: (date, locale) => {
+            const months = locale.getRaw().calendar.monthFull;
+            return months[date.getMonth()] + " " + date.getFullYear();
+        }
     },
-  },
-  balanceSign: {
-    label: "BalanceSign",
-    type: "number",
-    filter: {
-      type: "tuple",
-      format: v => (v < 0 ? "Negative" : "Positive"),
-    },
-    field: f => f === "balance",
-    handler: v => (v < 0 ? -1 : 1),
-    template: v =>
-      v < 0 ? "Negative balance" : "Positive balance",
-    },
-},
+    balanceSign: {
+        label: "BalanceSign",
+        type: "number",
+        filter: {
+            type: "tuple",
+            format: v => (v < 0 ? "Negative" : "Positive"),
+        },
+        field: f => f === "balance",
+        handler: v => (v < 0 ? -1 : 1),
+        template: v => v < 0 ? "Negative balance" : "Positive balance",
+    }
+};
 
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  predicates: { ...pivot.defaultPredicates, ...predicates },
-  config: {
-    rows: ["state"],
-    columns: [
-      { field: "date", method: "year" },
-      { field: "date", method: "monthYear" },
-      { field: "profit", method: "balanceSign" },
-    ],
-    values: [{ field: "sales", method: "sum" }],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    predicates: { ...pivot.defaultPredicates, ...predicates },
+    config: {
+        rows: ["state"],
+        columns: [
+            { field: "date", method: "year" },
+            { field: "date", method: "monthYear" },
+            { field: "profit", method: "balanceSign" }
+        ],
+        values: [{ field: "sales", method: "sum" }]
+    }
 });
 ~~~
 
@@ -522,38 +520,38 @@ To enable generating the rightmost column with total values, apply the [`tableSh
 
 To enable generating the footer with totals, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
 
-Example:
+### Example
 
 ~~~jsx {2-5}
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    totalRow: true,
-    totalColumn: true,
-  },
-  fields,
-  data,
-  config: {
-    rows: ["studio"],
-    columns: ["type"],
-    values: [
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "episodes",
-        method: "count",
-      },
-      {
-        field: "rank",
-        method: "min",
-      },
-      {
-        field: "members",
-        method: "sum",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        totalRow: true,
+        totalColumn: true
+    },
+    fields,
+    data,
+    config: {
+        rows: ["studio"],
+        columns: ["type"],
+        values: [
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "episodes",
+                method: "count"
+            },
+            {
+                field: "rank",
+                method: "min"
+            },
+            {
+                field: "members",
+                method: "sum"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -563,6 +561,6 @@ In this snippet you can see how to apply custom maths operations:
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related samples:** 
+**Related samples:**
 - [Pivot 2.0: Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)
 - [Pivot 2.0. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)

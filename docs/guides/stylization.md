@@ -32,8 +32,8 @@ You can apply the theme via adding the corresponding *CSS* classes to the widget
 
 - **Material theme**
 ~~~html {}
-    <!-- Pivot container -->
-    <div id="root" class="wx-material-theme"></div>
+<!-- Pivot container -->
+<div id="root" class="wx-material-theme"></div>
 ~~~
 
 or just include the theme on the page from the skins folder:
@@ -49,22 +49,22 @@ The example below demonstrates how to customize the **Material** theme that is a
 ~~~html
 <!-- custom styles -->
 <style>
-  .wx-material-theme {
-    color-scheme: dark;
-    --wx-color-font: rgba(255, 255, 255, 0.9);
-    --wx-table-header-background: #2ca0e3;
-    --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
-    --wx-icon-color: rgba(255, 255, 255, 0.7);
-    --wx-icon-color-hover: rgba(255, 255, 255, 0.2);
-    --wx-pivot-background: #444;
-    --wx-background: #444;
-    --wx-background-alt: #666;
-    --wx-pivot-content-background: #666;
-    --wx-border: 1px solid #818080;
-    --wx-border-medium: 1px solid #818080;
-    --wx-input-background: #9e9e9e;
-    --wx-color-font-disabled: #878585;
-  }
+    .wx-material-theme {
+        color-scheme: dark;
+        --wx-color-font: rgba(255, 255, 255, 0.9);
+        --wx-table-header-background: #2ca0e3;
+        --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
+        --wx-icon-color: rgba(255, 255, 255, 0.7);
+        --wx-icon-color-hover: rgba(255, 255, 255, 0.2);
+        --wx-pivot-background: #444;
+        --wx-background: #444;
+        --wx-background-alt: #666;
+        --wx-pivot-content-background: #666;
+        --wx-border: 1px solid #818080;
+        --wx-border-medium: 1px solid #818080;
+        --wx-input-background: #9e9e9e;
+        --wx-color-font-disabled: #878585;
+    }
 </style>
 ~~~
 
@@ -77,15 +77,15 @@ The example below shows how to apply a custom style to Pivot:
 ~~~html
 <div id="pivot" class="demo"></div>
 <style>
-  .demo {
-    --wx-background: #444;
-    --wx-color-font: rgba(255, 255, 255, 0.9);
-    --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
-    --wx-icon-color: rgba(255, 255, 255, 0.7);
-    --wx-pivot-primary-hover: #194e9e;
-    --wx-pivot-border-color: 1px solid #818080;
-    --wx-table-header-background: #2ca0e3;
-  }
+    .demo {
+        --wx-background: #444;
+        --wx-color-font: rgba(255, 255, 255, 0.9);
+        --wx-color-secondary-font: rgba(255, 255, 255, 0.5);
+        --wx-icon-color: rgba(255, 255, 255, 0.7);
+        --wx-pivot-primary-hover: #194e9e;
+        --wx-pivot-border-color: 1px solid #818080;
+        --wx-table-header-background: #2ca0e3;
+    }
 </style>
 ~~~
 
@@ -108,51 +108,51 @@ The widget API allows marking cells with the required values. You can do it by a
 In the example below, cells with min and max values are marked, and custom function is used to mark cells with values that are non-integer and greater than 2. 
 
 ~~~jsx {18-26}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  tableShape: {
-    marks: {
-      // built-in marks (min/max highlight)
-      min_cell: "min",
-      max_cell: "max",
-      // custom mark
-      g_avg: v => (v % 1 !== 0) && v > 2
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
     },
-  },
+    tableShape: {
+        marks: {
+            // built-in marks (min/max highlight)
+            min_cell: "min",
+            max_cell: "max",
+            // custom mark
+            g_avg: v => (v % 1 !== 0) && v > 2
+        }
+    }
 });
 ~~~
 
 ~~~html title="index.html"
 <style>
-  .min_cell {
-    background: #4caf50 !important;
-    color: #fff;
-  }
+    .min_cell {
+        background: #4caf50 !important;
+        color: #fff;
+    }
 
-  #pivot .max_cell {
-    background: #ff5722 !important;
-    color: #fff;
-  }
+    #root .max_cell {
+        background: #ff5722 !important;
+        color: #fff;
+    }
 
-  .g_avg {
-    background: #57a5c9 !important;
-    color: #fff;
-  }
+    .g_avg {
+        background: #57a5c9 !important;
+        color: #fff;
+    }
 </style>
 ~~~
 

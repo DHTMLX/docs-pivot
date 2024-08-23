@@ -14,148 +14,146 @@ The **English** locale is applied by default:
 
 ~~~jsx
 const en = {
-//pivot
-pivot: {
-  sum: "Sum",
-  min: "Min",
-  max: "Max",
-  count: "Count",
-  counta: "CountA",
-  countunique: "CountUnique",
-  average: "Average",
-  median: "Median",
-  product: "Product",
-  stdev: "StDev",
-  stdevp: "StDevP",
-  var: "Var",
-  varp: "VarP",
-  "Raw date": "Raw date",
-  "Raw number": "Raw number",
-  "Raw text": "Raw text",
-  Year: "Year",
-  Month: "Month",
-  Day: "Day",
-  Hour: "Hour",
-  Minute: "Minute",
-  Total: "Total",
-  Values: "Values",
-  Rows: "Rows",
-  Columns: "Columns",
-  "Click on the plus icon(s) to add data":
-  "Click on the plus icon(s) to add data",
-  'Click on "Show settings" to see the available configuration options':
-  'Click on "Show settings" to see the available configuration options',
-  "Show settings": "Show settings",
-  "Hide settings": "Hide settings",
-},
+    //pivot
+    pivot: {
+        sum: "Sum",
+        min: "Min",
+        max: "Max",
+        count: "Count",
+        counta: "CountA",
+        countunique: "CountUnique",
+        average: "Average",
+        median: "Median",
+        product: "Product",
+        stdev: "StDev",
+        stdevp: "StDevP",
+        var: "Var",
+        varp: "VarP",
+        "Raw date": "Raw date",
+        "Raw number": "Raw number",
+        "Raw text": "Raw text",
+        Year: "Year",
+        Month: "Month",
+        Day: "Day",
+        Hour: "Hour",
+        Minute: "Minute",
+        Total: "Total",
+        Values: "Values",
+        Rows: "Rows",
+        Columns: "Columns",
+        "Click on the plus icon(s) to add data":
+        "Click on the plus icon(s) to add data",
+        'Click on "Show settings" to see the available configuration options':
+        'Click on "Show settings" to see the available configuration options',
+        "Show settings": "Show settings",
+        "Hide settings": "Hide settings"
+    },
 
-//query
-query: {
-  "Add filter": "Add filter",
-  "Add Filter": "Add Filter",
-  "Add Group": "Add Group",
-  Edit: "Edit",
-  Delete: "Delete",
-  
-  "Select all": "Select all",
-  "Unselect all": "Unselect all",
-  
-  Cancel: "Cancel",
-  Apply: "Apply",
-  
-  and: "and",
-  or: "or",
-  in: "in",
-  
-  equal: "equal",
-  "not equal": "not equal",
-  contains: "contains",
-  "not contains": "not contains",
-  "begins with": "begins with",
-  "not begins with": "not begins with",
-  "ends with": "ends with",
-  "not ends with": "not ends with",
-  
-  greater: "greater",
-  "greater or equal": "greater or equal",
-  less: "less",
-  "less or equal": "less or equal",
-  between: "between",
-  "not between": "not between",
-},
+    //query
+    query: {
+        "Add filter": "Add filter",
+        "Add Filter": "Add Filter",
+        "Add Group": "Add Group",
+        Edit: "Edit",
+        Delete: "Delete",
+        
+        "Select all": "Select all",
+        "Unselect all": "Unselect all",
+        
+        Cancel: "Cancel",
+        Apply: "Apply",
+        
+        and: "and",
+        or: "or",
+        in: "in",
+        
+        equal: "equal",
+        "not equal": "not equal",
+        contains: "contains",
+        "not contains": "not contains",
+        "begins with": "begins with",
+        "not begins with": "not begins with",
+        "ends with": "ends with",
+        "not ends with": "not ends with",
+        
+        greater: "greater",
+        "greater or equal": "greater or equal",
+        less: "less",
+        "less or equal": "less or equal",
+        between: "between",
+        "not between": "not between"
+    },
 
-//calendar
-calendar: {
-  monthFull: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  monthShort: [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
- ],
-  
-  dayFull: [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ],
+    //calendar
+    calendar: {
+        monthFull: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ],
+        monthShort: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ],
+        
+        dayFull: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ],
 
-  dayShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-  hours: "Hours",
-  minutes: "Minutes",
-  done: "Done",
-  clear: "Clear",
-  today: "Today",
-  am: ["am", "AM"],
-  pm: ["pm", "PM"],
-  
-  weekStart: 7,
-  timeFormat: 24,
+        dayShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        hours: "Hours",
+        minutes: "Minutes",
+        done: "Done",
+        clear: "Clear",
+        today: "Today",
+        am: ["am", "AM"],
+        pm: ["pm", "PM"],
+        
+        weekStart: 7,
+        timeFormat: 24
+    },
 
-},
+    //core
+    core: {
+        ok:"OK",
+        cancel:"Cancel"
+    },
 
-//core
-core: {
-  ok:"OK",
-  cancel:"Cancel"
-},
-
-//formats
-formats: {
-  dateFormat: "%d.%m.%Y"
- }
-
+    //formats
+    formats: {
+        dateFormat: "%d.%m.%Y"
+    }
 };
 ~~~
 
 ## Installing and applying locales
 
-You can install the desired locales via npm: 
+You can install the desired locales via npm:
 
 ~~~jsx
 npm install @dhx/pivot-locales
