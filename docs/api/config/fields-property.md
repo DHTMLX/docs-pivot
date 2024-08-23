@@ -37,7 +37,7 @@ Each object in the `fields` array should have the following properties:
 ### Example
 
 ~~~jsx {2-34}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields: [
         {
             id: "rank",

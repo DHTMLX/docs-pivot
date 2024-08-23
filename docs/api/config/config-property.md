@@ -116,7 +116,7 @@ Parameters:
 ### Example
 
 ~~~jsx {4-26}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     config: {

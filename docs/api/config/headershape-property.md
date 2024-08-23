@@ -33,7 +33,7 @@ template: (label, id, subLabel) =>
 ## Example
 
 ~~~jsx {18-21}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     config: {

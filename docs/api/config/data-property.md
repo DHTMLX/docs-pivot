@@ -82,7 +82,7 @@ const data = [
 ### Example
 
 ~~~jsx {3-29}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: [
         {

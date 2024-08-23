@@ -74,7 +74,7 @@ The definition of each method you can see here: [Applying methods](/guides/worki
 
 The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that gets the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
 
-~~~jsx {}
+~~~jsx
 function countUnique(values, converter) {
     const valueMap = {};
     return values.reduce((acc, d) => {
@@ -125,7 +125,7 @@ if (dateFields.length) {
     });
 }
 
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields, 
     data: dataset,
     tableShape: { templates },

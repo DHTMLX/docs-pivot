@@ -43,7 +43,7 @@ columnShape?: {
 ## Example
 
 ~~~jsx {18-30}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data,
     config: {

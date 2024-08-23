@@ -29,7 +29,7 @@ The property can be set to **true** or **false**:
 
 ~~~jsx {5}
 // The configuration panel is hidden on init
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     configPanel: false,

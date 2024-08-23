@@ -69,7 +69,7 @@ In the example below we apply the template to the *score* values to display 2 di
 const templates = { price: (v) => (v ? "€" + v : v),
 score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
 
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     tableShape: {
         tree: true,
         templates

@@ -37,7 +37,7 @@ Limits are used for large dataset. Limits values are approximate values and do n
 ## Example
 
 ~~~jsx {18}
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     config: {

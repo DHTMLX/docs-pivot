@@ -84,7 +84,7 @@ const predicates = {
     }
 };
 
-const table = new pivot.Pivot("#pivot", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     predicates: { ...pivot.defaultPredicates, ...predicates },
