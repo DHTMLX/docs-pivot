@@ -26,7 +26,7 @@ To change the current locale dynamically, you can use the [`setLocale()`](/api/m
 
 ### Example
 
-~~~jsx {18}
+~~~jsx {19}
 const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,

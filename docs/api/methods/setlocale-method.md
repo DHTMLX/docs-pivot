@@ -23,7 +23,7 @@ setLocale(null | locale?: object): void;
 
 ### Example
 
-~~~jsx {21-23,25-26}
+~~~jsx 
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,
