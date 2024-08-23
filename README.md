@@ -20,7 +20,7 @@ $ yarn
 #### 3. Run the documentation on the local server and explore it
 
 ```
-$ yarn start
+$ yarn start 
 ```
 
 ## Related sources
