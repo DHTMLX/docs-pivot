@@ -14,19 +14,19 @@ It allows you to alter the final table configuration on the fly or prevent the r
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "render-table": ({
-   config: {
-    columns?: [],
-    data: [],
-    footer?: boolean,
-    sizes: {},
-    split?: {
-      left?: number,
-    },
-    tree?: boolean,
-    cellStyle?: (row: any, col: any) => string
-  }
+    config: {
+        columns?: [],
+        data: [],
+        footer?: boolean,
+        sizes: {},
+        split?: {
+            left?: number
+        },
+        tree?: boolean,
+        cellStyle?: (row: any, col: any) => string
+    }
 }) => boolean | void;
 ~~~
 
@@ -37,9 +37,9 @@ The callback of the action takes the `config` object with the following paramete
 - `columns` - (optional) columns array with the next parameters for each object:
   - `id` (number) - (optional) the id of a column
   - `header`- (optional) an object with header settings:
-      - `text` (string) - (optional) a header label
-      - `rowspan` (number) - (optional) the number of rows a header should span
-      - `colspan` (number) - (optional) the number of columns a header should span
+    - `text` (string) - (optional) a header label
+    - `rowspan` (number) - (optional) the number of rows a header should span
+    - `colspan` (number) - (optional) the number of columns a header should span
   - `footer` - (optional) a header label or an object with footer settings which are the same as the header settings
   - `field` - (optional) it's a string which is the id of a field
   - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
@@ -51,7 +51,7 @@ The callback of the action takes the `config` object with the following paramete
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 
 ### Returns
- 
+
 The callback may return boolean or void.  
 If the event handler returns **false**, it will block the operation in question. In this case, it will prevent the rendering of the table.
 
@@ -60,85 +60,86 @@ If the event handler returns **false**, it will block the operation in question.
 The next example shows how to output the [`config`](/api/config/config-property) object to console and add a footer.
 
 ~~~jsx {20-28}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
-widget.api.intercept("render-table", (ev) => {
-  console.log(ev.config); //output the config object
-  console.log(ev.config.columns); //output the columns array
+table.api.intercept("render-table", (ev) => {
+    console.log(ev.config); //output the config object
+    console.log(ev.config.columns); //output the columns array
 
-  ev.config.footer = true;
-  ev.config.columns[0].footer = ["Custom footer"];
+    ev.config.footer = true;
+    ev.config.columns[0].footer = ["Custom footer"];
 
-  // returning "false" here will prevent the table from rendering
+    // returning "false" here will prevent the table from rendering
 });
 ~~~
 
 The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property.
 
 ~~~jsx
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    tree: true,
-  },
-  fields,
-  data: dataset,
-  config: {
-    rows: ["type", "studio"],
-    columns: [],
-    values: [
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "rank",
-        method: "min",
-      },
-      {
-        field: "members",
-        method: "sum",
-      },
-      {
-        field: "episodes",
-        method: "count",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        tree: true,
+    },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["type", "studio"],
+        columns: [],
+        values: [
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "rank",
+                method: "min"
+            },
+            {
+                field: "members",
+                method: "sum"
+            },
+            {
+                field: "episodes",
+                method: "count"
+            }
+        ]
+    }
 });
 
-const api = widget.api;
+const api = table.api;
 const table = api.getTable();
+
 //  setting all table branches closed on the table config update
 api.intercept("render-table", (ev) => {
-  ev.config.data.forEach((r) => (r.open = false));
+    ev.config.data.forEach((r) => (r.open = false));
 
-  // returning "false" here will prevent the table from rendering
-  // return false;
+    // returning "false" here will prevent the table from rendering
+    // return false;
 });
 
 function openAll() {
-  table.exec("open-row", { id: 0, nested: true });
+    table.exec("open-row", { id: 0, nested: true });
 }
 
 function closeAll() {
-  table.exec("close-row", { id: 0, nested: true });
+    table.exec("close-row", { id: 0, nested: true });
 }
 ~~~
 

@@ -12,7 +12,7 @@ description: You can learn about the update-field event in the documentation of 
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "update-field": ({
     id: string | number,
     method: string,
@@ -34,27 +34,27 @@ The callback of the action takes an object with the following parameters:
 ### Example
 
 ~~~jsx {19-22}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 //output the id of a field that is updated to console
-widget.api.on("update-field", (ev) => {
-  console.log("The id of the field that was updated:", ev.id);
+table.api.on("update-field", (ev) => {
+    console.log("The id of the field that was updated:", ev.id);
 });
 ~~~
 

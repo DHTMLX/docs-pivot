@@ -12,10 +12,10 @@ description: You can learn about the open-filter event in the documentation of t
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "open-filter": ({
-  id: string | null,
-  area?: "values" | "rows" | "columns"
+    id: string | null,
+    area?: "values" | "rows" | "columns"
 }) => boolean | void;
 ~~~
 
@@ -35,31 +35,30 @@ The function may return either a boolean value or void. When it returns **false*
 The example below shows how to make the Configuration panel hide upon closing the filter box:
 
 ~~~jsx {20-27}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
- widget.api.on("open-filter", (ev) => {
-
+table.api.on("open-filter", (ev) => {
     if(!ev.id) {
-      widget.api.exec("show-config-panel", {
-        mode: false,
-      });
+        table.api.exec("show-config-panel", {
+            mode: false
+        });
     }    
 });
 ~~~
@@ -67,26 +66,26 @@ const widget = new pivot.Pivot("#pivot", {
 In the next example we output to console the id of the field for which filter is activated:
 
 ~~~jsx {20-22}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
-widget.api.on("open-filter", (ev) => {
+table.api.on("open-filter", (ev) => {
     console.log("The field id for which filter is activated:", ev.id);
 });
 ~~~

@@ -12,9 +12,9 @@ description: You can learn about the show-config-panel event in the documentatio
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "show-config-panel": ({
-  mode: boolean 
+    mode: boolean 
 }) 
 ~~~
 
@@ -27,30 +27,30 @@ The callback of the action takes an object with the following parameter:
 ### Example
 
 ~~~jsx {19-22}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 //hide the configuration panel
-widget.api.exec("show-config-panel", {
-  mode: false,
+table.api.exec("show-config-panel", {
+    mode: false
 });
 ~~~
 
-**Related articles**: 
+**Related articles**:
 - [`showConfigPanel()` method](/api/methods/showconfigpanel-method)
 - [`configPanel` property](/api/config/configpanel-property)

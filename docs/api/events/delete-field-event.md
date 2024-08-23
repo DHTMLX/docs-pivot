@@ -12,7 +12,7 @@ description: You can learn about the delete-field event in the documentation of 
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "delete-field": ({
     area: string,
     id: string | number
@@ -30,44 +30,47 @@ The callback of the action takes an object with the following parameters:
 
 In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/internal/exec-method) method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The action will be triggered with the button click.
 
-~~~jsx {}
+~~~jsx
 const table = new pivot.Pivot("#root", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
+
 //calling methods of API: remove a specific value from values in config
 function removeLastField() {
-  if (table.api) {
-    const state = table.api.getState();
-    const config = state.config;
+    if (table.api) {
+        const state = table.api.getState();
+        const config = state.config;
 
-    const count = config.values.length;
+        const count = config.values.length;
 
-    if (count) {
-      const lastValue = config.values[count - 1];
+        if (count) {
+            const lastValue = config.values[count - 1];
 
-      table.api.exec("delete-field", {
-        area: "values",
-        id: lastValue.id, // auto-generated ID of an item added to config.values
-      });
+            table.api.exec("delete-field", {
+                area: "values",
+                id: lastValue.id, // auto-generated ID of an item added to config.values
+            });
+        }
     }
-  }
 }
+
 const button = document.createElement("button");
+
 button.addEventListener("click", removeLastField);
 button.textContent = "Remove";
 
