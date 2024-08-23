@@ -12,7 +12,7 @@ description: You can learn about the setLocale() method in the documentation of 
 
 ### Usage
 
-~~~jsx
+~~~jsx {}
 setLocale(null | locale?: object): void;
 ~~~
 
@@ -23,7 +23,7 @@ setLocale(null | locale?: object): void;
 
 ### Example
 
-~~~jsx {21-23,25-26}
+~~~jsx
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,
@@ -45,8 +45,7 @@ const table = new pivot.Pivot("#root", {
 });
 
 // apply the "de" locale to Pivot
-const de = {...} //object with locale
-table.setLocale(de);
+table.setLocale(pivot.locales.de);
 
 // apply the default locale to Pivot
 table.setLocale(); // or setLocale(null);

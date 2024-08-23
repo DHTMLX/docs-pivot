@@ -59,44 +59,54 @@ const defaultPredicates = {
 
 ## Example
 
-~~~jsx {28}
-// custom predicates
+~~~jsx 
 const predicates = {
     monthYear: {
         label: "Month-year",
         type: "date",
-        handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
+        handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1),
         template: (date, locale) => {
             const months = locale.getRaw().calendar.monthFull;
             return months[date.getMonth()] + " " + date.getFullYear();
-        }
+        },
     },
-    balanceSign: {
-        label: "BalanceSign",
+    profitSign: {
+        label: "Profit Sign",
         type: "number",
         filter: {
             type: "tuple",
-            format: v => (v < 0 ? "Negative" : "Positive"),
+            format: (v) => (v < 0 ? "Negative" : "Positive"),
         },
-        field: f => f === "balance",
-        handler: v => (v < 0 ? -1 : 1),
-        template: v => v < 0 ? "Negative balance" : "Positive balance",
-    }
+        field: (f) => f === "profit",
+        handler: (v) => (v < 0 ? -1 : 1),
+        template: (v) => (v < 0 ? "Negative profit" : "Positive profit"),
+    },
 };
 
-const table = new pivot.Pivot("#root", {
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+    dataset.forEach((item) => {
+        dateFields.forEach((f) => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
+    });
+}
+
+const table = new pivot.Pivot("#pivot", {
     fields,
     data: dataset,
     predicates: { ...pivot.defaultPredicates, ...predicates },
+    tableShape: { tree: true },
     config: {
-        rows: ["state"],
+        rows: ["product_type", "product"],
         columns: [
-            { field: "date", method: "year" },
+            { field: "profit", method: "profitSign" },
             { field: "date", method: "monthYear" },
-            { field: "profit", method: "balanceSign" }
         ],
-        values: [{ field: "sales", method: "sum" }]
-    }
+        values: ["sales", "expenses"],
+    },
 });
 ~~~
 
