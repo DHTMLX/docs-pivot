@@ -37,7 +37,7 @@ New properties do not fully duplicate the previous ones but provide more extende
 - [Methods from version 1.5.6](https://docs.dhtmlx.com/pivot/api__refs__pivot_methods.html) are deprecated, all new methods you can find here: [Methods](/api/overview/main-overview#pivot-methods)
 - [Pivot 1.5.6 events](https://docs.dhtmlx.com/pivot/api__refs__pivot_events.html) (`change`, `fieldClick`, `applyButtonClick`) are no longer available in Pivot 2.0 but you can find more extended functionality in a new version (refer to [Pivot events](/api/overview/events-overview))
 
-### Important features 
+### Important features
 
 - Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/guides__export.html) -> [new export option](/guides/loading-exporting-data#exporting-data)
 - Sorting: [sorting fields](https://docs.dhtmlx.com/pivot/guides__configuration.html#configuringfields) -> [sorting data](/guides/working-with-data#sorting-data)
@@ -51,11 +51,3 @@ New properties do not fully duplicate the previous ones but provide more extende
   - [templates for cells](https://docs.dhtmlx.com/pivot/guides__customization.html#settingtemplatesforcells) ->
   [applying templates to headers](/guides/configuration#applying-templates-to-cells)
 - Filtering: [manipulating with filters](https://docs.dhtmlx.com/pivot/guides__using_filters.html) -> [filtering data](/guides/working-with-data#filtering-data)
-
-
-
-
-
-
-
-

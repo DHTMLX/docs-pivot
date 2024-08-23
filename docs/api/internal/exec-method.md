@@ -34,7 +34,7 @@ The full list of Pivot events can be found [**here**](/api/overview/events-overv
 
 In the example below, the [`delete-field`](/api/events/delete-field-event) event is triggered via the `api.exec()`method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The event will be triggered with the button click.
 
-~~~jsx
+~~~jsx {32-35}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,

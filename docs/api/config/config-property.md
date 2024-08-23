@@ -44,7 +44,7 @@ You can define `values` in either of the two equally valid ways:
 - option one is a string representing the field ID
 - option two is an object containing the field ID and the method for data aggregation
 
-Example:
+### Example
 
 ~~~jsx
 values: [

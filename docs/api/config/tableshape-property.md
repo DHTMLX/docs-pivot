@@ -65,7 +65,7 @@ By default, `tableShape` is undefined, implying that no total row, no total colu
 
 In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values.
 
-~~~jsx {1-2,7}
+~~~jsx {5-8}
 const templates = { price: (v) => (v ? "€" + v : v),
 score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
 

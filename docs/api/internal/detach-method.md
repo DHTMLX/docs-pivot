@@ -24,7 +24,7 @@ api.detach(tag: number | string ): void;
 
 In the example below we add an object with the **tag** property to the [`api.on()`](/api/internal/on-method) handler, and then we use the `api.detach()` method to stop logging the [`open-filter`](/api/events/open-filter-event) action.
 
-~~~jsx
+~~~jsx {31-34}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,

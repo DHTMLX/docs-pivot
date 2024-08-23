@@ -17,7 +17,7 @@ The Pivot UI consists of the two main components: the Configuration panel and th
 
 ## Configuration panel
 
-The Configuration panel allows adding columns and rows to the table as well as values' fields that define data aggregation methods. You can add each item via the next areas in the panel: 
+The Configuration panel allows adding columns and rows to the table as well as values' fields that define data aggregation methods. You can add each item via the next areas in the panel:
 
 - Values: you can add values that define how data is aggregated (such as sum, min, max values)
 - Columns: you can configure columns of the table (define which fields will be applied as columns)
@@ -33,7 +33,7 @@ In the **Values** area you can define which aggregation methods (such as min, ma
 
 - add and remove fields to/from the values area
 - change the order and priority of values in the table
-- filter data 
+- filter data
 - set operations that will be applied to the fields of the table
 
 For more details, please refer to the [Operations in areas](#operations-in-areas) and [Filters](#filters) sections.
@@ -42,9 +42,9 @@ For more details, please refer to the [Operations in areas](#operations-in-areas
 
 In the **Columns** area, you can perform the following operations:
 
-- add and remove columns (i.e., add/remove fields applied as columns) 
+- add and remove columns (i.e., add/remove fields applied as columns)
 - change the order and priority of columns in the table
-- filter data 
+- filter data
 
 For more details, please refer to the [Operations in areas](#operations-in-areas) and [Filters](#filters) sections.
 
@@ -52,15 +52,15 @@ For more details, please refer to the [Operations in areas](#operations-in-areas
 
 In the Configuration panel for the **Rows** area, you can perform the following operations:
 
-- add and remove rows (i.e., add/remove fields applied as rows) 
+- add and remove rows (i.e., add/remove fields applied as rows)
 - change the order and priority of rows in the table
-- filter data 
+- filter data
 
 For more details, please refer to the [Operations in areas](#operations-in-areas) and [Filters](#filters) sections.
 
 ### Operations in areas
 
-In all three areas of the Configuration panel you can add and remove fields to/from the table. If you want some field to be applied as a row or column, select it in the appropriate area (columns or rows). 
+In all three areas of the Configuration panel you can add and remove fields to/from the table. If you want some field to be applied as a row or column, select it in the appropriate area (columns or rows).
 
 To add a new field, in the required area, click the "+" button and select the name from the drop-down list. 
 
@@ -68,14 +68,13 @@ To remove an item, click the delete button ("x").
 
 ![add_remove](assets/add_remove.png)
 
-To change the order of values/rows/columns in the table, drag an item to the desired position. The closer an item is to the left in the area's toolbar list, the higher its priority and position in the table. 
+To change the order of values/rows/columns in the table, drag an item to the desired position. The closer an item is to the left in the area's toolbar list, the higher its priority and position in the table.
 
 ![priority](assets/priority.png)
 
 To set operations that will be applied to all data of the column of the table, in the **Values** area, click the value operation for the required field in the drop-down list, and select the required option from the list.
 
 ![operations](assets/operations.png)
-
 
 ### Filters
 
@@ -102,4 +101,3 @@ Now you can get down to incorporating Pivot into your application. Follow the di
 If you apply the functionality provided by the widget API you can get a good-looking Pivot table with more features as the one in the sample below:
 
 <iframe src="https://snippet.dhtmlx.com/4cm4asbd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
-

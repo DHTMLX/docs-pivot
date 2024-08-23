@@ -28,7 +28,7 @@ The property can be set to **true** or **false**:
 ## Example
 
 ~~~jsx {18}
-const pivotWidget = new pivot.Pivot("#root", {
+const table = new pivot.Pivot("#root", {
     fields,
     data: dataset,
     config: {
