@@ -14,10 +14,9 @@ This method is used when there's a need to access the underlying Table widget in
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 getTable(wait:boolean): Table | Promise;
 ~~~
-
 
 ### Parameters
 
@@ -27,40 +26,41 @@ getTable(wait:boolean): Table | Promise;
 
 In the example below we get access to the Table widget API and trigger the Table `export`event with the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
-~~~jsx {}
+~~~jsx
 // create Pivot
-const widget = new pivot.Pivot("#root", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
-// access table api
-let table = widget.getTable();
+// access table instance
+let table_instance = table.getTable();
 
 function toCSV() {
-  table.exeс("export", {
-    options: {
-      format: "csv",
-      cols: ";",
-    },
-  });
+    table_instance.exeс("export", {
+        options: {
+            format: "csv",
+            cols: ";"
+        }
+    });
 }
 
 const exportButton = document.createElement("button");
+
 exportButton.addEventListener("click", toCSV);
 exportButton.textContent = "Export";
 
