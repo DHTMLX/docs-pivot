@@ -113,11 +113,10 @@ module.exports = {
                     items: [
                         "api/events/add-field-event",
                         "api/events/apply-filter-event",
-                        
                         "api/events/delete-field-event",
+                        "api/events/move-field-event",
                         "api/events/open-filter-event",
                         "api/events/render-table-event",
-                        "api/events/reorder-fields-event",
                         "api/events/show-config-panel-event",
                         "api/events/update-config-event",
                         "api/events/update-value-event"   

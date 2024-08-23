@@ -14,37 +14,37 @@ description: You can learn about the tableShape config in the documentation of t
 
 ~~~jsx
 tableShape?: {
-  templates?: {
-    [field: string]: (
-      value: any,
-      operation: string
-    ) => any;
-  },
-  totalRow?: boolean,
-  totalColumn?: boolean,
-  marks?: {
-    [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
-     | "max" 
-     | "min"
-  },
-  sizes?: {
-    rowHeight?: number,
-    headerHeight?: number,
-    colWidth?: number,
-    footerHeight?: number
-  },
-  tree?:boolean,
-  cleanRows?: boolean,
-  split?: {
-    left?: boolean
-  },
+    templates?: {
+        [field: string]: (
+            value: any,
+            operation: string
+        ) => any;
+    },
+    totalRow?: boolean,
+    totalColumn?: boolean,
+    marks?: {
+        [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
+        | "max" 
+        | "min"
+    },
+    sizes?: {
+        rowHeight?: number,
+        headerHeight?: number,
+        colWidth?: number,
+        footerHeight?: number
+    },
+    tree?:boolean,
+    cleanRows?: boolean,
+    split?: {
+        left?: boolean
+    }
 };
 ~~~
 
 ### Parameters
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where:
-  - each key is a field id 
+  - each key is a field id
   - the value is a function that returns a string and receives cell value and operation 
  All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
 - `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
@@ -63,41 +63,41 @@ By default, `tableShape` is undefined, implying that no total row, no total colu
 
 ## Example
 
-In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
+In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values.
 
-~~~jsx {1-2,7}
+~~~jsx {5-8}
 const templates = { price: (v) => (v ? "€" + v : v),
 score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
 
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    tree: true,
-    templates,
-  },
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "price",
-        method: "count",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        tree: true,
+        templates
+    },
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "price",
+                method: "count"
+            }
+        ]
+    }
 });
 ~~~
 
-**Related samples:** 
+**Related samples:**
 - [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
 - [Pivot 2.0. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)

@@ -10,7 +10,7 @@ description: You can learn about the configPanel config in the documentation of 
 
 @short: Optional. Controls the visibility of the Configuration panel in UI
 
-In UI the panel is hidden/shown by clicking the **Hide Settings** button. 
+In UI the panel is hidden/shown by clicking the **Hide Settings** button.
 
 ### Usage
 
@@ -27,34 +27,32 @@ The property can be set to **true** or **false**:
 
 ## Example
 
-~~~jsx 
+~~~jsx {5}
 // The configuration panel is hidden on init
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-
-  configPanel: false,
-
-  config: {
-    rows: ["hobbies"],
-    columns: ["relationship_status"],
-    values: [
-      {
-        field: "age",
-        method: "min",
-      },
-      {
-        field: "age",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    configPanel: false,
+    config: {
+        rows: ["hobbies"],
+        columns: ["relationship_status"],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
 **Related sample:** [Pivot 2.0: Toggle visibility of configuration panel](https://snippet.dhtmlx.com/1xq1x5bo)
 
-**Related articles:** 
+**Related articles:**
 - [`show-config-panel` event](/api/events/show-config-panel-event)
 - [`showConfigPanel()` method](/api/methods/showconfigpanel-method)
 - [Controlling visibility of Configuration panel](/guides/configuration#controlling-visibility-of-configuration-panel)

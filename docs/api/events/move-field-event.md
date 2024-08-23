@@ -12,12 +12,12 @@ description: You can learn about the move-field event in the documentation of th
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "move-field": ({
-   area: string,
-   id: string | number,
-   before?: id,
-   after?: id,
+    area: string,
+    id: string | number,
+    before?: id,
+    after?: id
 }) => void | boolean;
 ~~~
 
@@ -32,28 +32,29 @@ The callback of the action takes an object with the following parameters:
 
 ### Example
 
-~~~jsx {}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+~~~jsx {20-23}
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
+
 //output the id of the reordered field to console 
-widget.api.on("move-field", (ev) => {
-  console.log("The id of the reordered field:", ev.id);
+table.api.on("move-field", (ev) => {
+    console.log("The id of the reordered field:", ev.id);
 });
 ~~~
 

@@ -12,10 +12,9 @@ description: You can learn about the showConfigPanel() method in the documentati
 
 This method can be useful when there's a need to control the visibility of the Configuration panel without user interaction. For instance, you might want to hide or display the panel based on some other interaction or state in your application.
 
-
 ### Usage
 
-~~~jsx {}
+~~~jsx
 showConfigPanel({mode: boolean}): void;
 ~~~
 
@@ -25,32 +24,32 @@ showConfigPanel({mode: boolean}): void;
 
 ### Example
 
-~~~jsx
+~~~jsx {21-23}
 // create Pivot
-const widget = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
-widget.showConfigPanel ({
+table.showConfigPanel ({
     mode: false
 })
 ~~~
 
-**Related articles**: 
+**Related articles**:
 - [`show-config-panel` event](/api/events/show-config-panel-event)
 - [`configPanel` property](/api/config/configpanel-property)

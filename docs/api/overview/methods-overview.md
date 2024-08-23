@@ -6,8 +6,8 @@ description: You can have a Methods overview of JavaScript Pivot in the document
 
 # Methods overview
 
-| Name                                        | Description                                |
-| ------------------------------------------- | ------------------------------------------ |
+| Name                                        | Description                                     |
+| ------------------------------------------- | ----------------------------------------------- |
 | [](../methods/gettable-method.md)           | @getshort(../methods/gettable-method.md)        |
 | [](../methods/setconfig-method.md)          | @getshort(../methods/setconfig-method.md)       |
 | [](../methods/setlocale-method.md)          | @getshort(../methods/setlocale-method.md)       |

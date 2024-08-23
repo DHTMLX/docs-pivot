@@ -14,7 +14,7 @@ The method is used to update the current configuration of the Pivot widget. It's
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 setConfig(config: { [key:any]: any }): void;
 ~~~
 
@@ -28,46 +28,46 @@ The method changes only the parameters you passed. It destroys the current compo
 
 ### Example
 
-~~~jsx
+~~~jsx {21-41}
 // create Pivot
-const widget = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 //update configuration parameters
-widget.setConfig({
-  config: {
-    rows: ["studio", "genre", "duration"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "type",
-        method: "count",
-      },
-    ],
-  },
+table.setConfig({
+    config: {
+        rows: ["studio", "genre", "duration"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "type",
+                method: "count"
+            }
+        ]
+    }
 });
 ~~~

@@ -12,7 +12,7 @@ description: You can learn about the setNext method in the documentation of the 
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 api.setNext(next: any): void;
 ~~~
 
@@ -24,8 +24,8 @@ api.setNext(next: any): void;
 
 The example below shows how to use the `api.setNext()` method to integrate some custom class into the Event Bus order:
 
-~~~jsx
-const widget = new pivot.Pivot("#pivot", { fields: [], data: [] });
+~~~jsx {13-14}
+const table = new pivot.Pivot("#root", { fields: [], data: [] });
 const server = "https://some-backend-url";
 
 // Assume you have a custom server service class named someServerService
@@ -35,12 +35,11 @@ Promise.all([
     fetch(server + "/data").then((res) => res.json()),
     fetch(server + "/fields").then((res) => res.json())
 ]).then(([data, fields]) => {
-    widget.setConfig({ data, fields });
+    table.setConfig({ data, fields });
     
     // Integrate the serverDataService into the Event Bus order of widget
-    widget.api.setNext(someServerService);
+    table.api.setNext(someServerService);
 });
 ~~~
-
 
 **Related articles**: [`setConfig`](/api/methods/setconfig-method)

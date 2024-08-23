@@ -37,41 +37,41 @@ The next sizes are applied by default:
 
 ~~~jsx
 const sizes = {
-  rowHeight: 34,
-  headerHeight: 30,
-  footerHeight: 30,
-  colWidth: 150,
+    rowHeight: 34,
+    headerHeight: 30,
+    footerHeight: 30,
+    colWidth: 150
 };
 ~~~
 
-Example:
+### Example
 
 ~~~jsx {4-11}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  tableShape: {
-    sizes: {
-      rowHeight: 44,
-      headerHeight: 60,
-      footerHeight: 30,
-      colWidth: 170,
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    tableShape: {
+        sizes: {
+            rowHeight: 44,
+            headerHeight: 60,
+            footerHeight: 30,
+            colWidth: 170
+        }
     },
-  },
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -91,39 +91,39 @@ All parameters of `autoWidth` are optional and for detailed description of each 
 
 If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
-Example:
+### Example
 
 ~~~jsx {18-30}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  columnShape: {
-    autoWidth: {
-      // calculate column width for these fields
-      columns: {
-        studio: true,
-        genre: true,
-        title: true,
-        score: true,
-      },
-      // analyze all fields
-      firstOnly: false,
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
     },
-  },
+    columnShape: {
+        autoWidth: {
+            // calculate column width for these fields
+            columns: {
+                studio: true,
+                genre: true,
+                title: true,
+                score: true
+            },
+            // analyze all fields
+            firstOnly: false
+        }
+    }
 });
 ~~~
 
@@ -135,34 +135,34 @@ In the example below we apply the template to the *score* values to display 2 di
 
 ~~~jsx {1-4,8}
 const templates = { 
-price: (v) => (v ? "€" + v : v),
-score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
+    price: (v) => (v ? "€" + v : v),
+    score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
 };
 
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    templates,
-  },
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "price",
-        method: "count",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        templates
+    },
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "price",
+                method: "count"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -175,33 +175,33 @@ To define the format of text in headers, apply the `template` parameter of the [
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
-Example:
+### Example
 
 In the example below for the **values** fields the header will display the method name (subLabel) and the label:
 
 ~~~jsx {19-22}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    },
 
-  headerShape: {
-    vertical: true,
-    template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
-  },
+    headerShape: {
+        vertical: true,
+        template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
+    }
 });
 ~~~
 
@@ -210,26 +210,26 @@ const pivotWidget = new pivot.Pivot("#pivot", {
 It's possible to collapse/expand columns that are under one header. To make columns collapsible, use the value of the `collapsible` parameter of the [`headerShape`](/api/config/headershape-property) property by setting it to **true**.
 
 ~~~jsx {4-6}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  headerShape: {
-    collapsible: true,
-  },
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    headerShape: {
+        collapsible: true,
+    },
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -241,28 +241,29 @@ The widget allows freezing columns on the left side, which makes the leftmost co
 The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
 :::
 
-~~~jsx {18-21}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio"],
-    columns: ["genre"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  tableShape: { split: {
-    left: true //freezes all fields from rows on the left side 
+~~~jsx {18-22}
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio"],
+        columns: ["genre"],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
     },
-  },
+    tableShape: { 
+        split: {
+            left: true //freezes all fields from rows on the left side 
+        }
+    }
 });
 ~~~
 
@@ -275,31 +276,31 @@ It's not recommended to split columns with colspans.
 
 In the example below we split all rows fields (two rows are defined in the config) and the first two columns (the first two values fields).
 
-~~~jsx {19-24}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["continent", "name"],
-    columns: ["year"],
-    values: [
-      {
-        field: "oil",
-        method: "sum",
-      },
-      {
-        field: "oil",
-        method: "count",
-      },
-    ],
-  },
+~~~jsx {19-25}
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["continent", "name"],
+        columns: ["year"],
+        values: [
+            {
+                field: "oil",
+                method: "sum"
+            },
+            {
+                field: "oil",
+                method: "count"
+            }
+        ]
+    }
 });
-pivotWidget.api.on("render-table", (tableConfig) => {
-  const config = api.getState().config;
+table.api.on("render-table", (tableConfig) => {
+    const config = api.getState().config;
 
-  tableConfig.split = {
-    left: config.rows.length + config.values.length * 2,
-  };
+    tableConfig.split = {
+        left: config.rows.length + config.values.length * 2
+    };
 });
 ~~~
 
@@ -308,26 +309,26 @@ pivotWidget.api.on("render-table", (tableConfig) => {
 The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
 
 ~~~jsx {19}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  columnShape: {
-    sort: false, 
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    },
+    columnShape: {
+        sort: false
+    }
 });
 ~~~
 
@@ -339,37 +340,37 @@ The widget allows presenting data in a hierarchical format with expandable rows.
 To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property. 
 
 ~~~jsx {3}
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    tree: true,
-  },
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "episodes",
-        method: "count",
-      },
-      {
-        field: "rank",
-        method: "min",
-      },
-      {
-        field: "members",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        tree: true
+    },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "episodes",
+                method: "count"
+            },
+            {
+                field: "rank",
+                method: "min"
+            },
+            {
+                field: "members",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -380,52 +381,52 @@ To expand/collapse all rows, the **tree** mode should be enabled via the [`table
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
 ~~~jsx
-const widget = new pivot.Pivot("#pivot", {
-  tableShape: {
-    tree: true,
-  },
-  fields,
-  data: dataset,
-  config: {
-    rows: ["type", "studio"],
-    columns: [],
-    values: [
-      {
-        field: "score",
-        method: "max",
-      },
-      {
-        field: "rank",
-        method: "min",
-      },
-      {
-        field: "members",
-        method: "sum",
-      },
-      {
-        field: "episodes",
-        method: "count",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    tableShape: {
+        tree: true
+    },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["type", "studio"],
+        columns: [],
+        values: [
+            {
+                field: "score",
+                method: "max"
+            },
+            {
+                field: "rank",
+                method: "min"
+            },
+            {
+                field: "members",
+                method: "sum"
+            },
+            {
+                field: "episodes",
+                method: "count"
+            }
+        ]
+    }
 });
 
-const api = widget.api;
+const api = table.api;
 const table = api.getTable();
-//  setting all table branches closed on the table config update
+// setting all table branches closed on the table config update
 api.intercept("render-table", (ev) => {
-  ev.config.data.forEach((r) => (r.open = false));
+    ev.config.data.forEach((r) => (r.open = false));
 
-  // returning "false" here will prevent the table from rendering
-  // return false;
+    // returning "false" here will prevent the table from rendering
+    // return false;
 });
 
 function openAll() {
-  table.exec("open-row", { id: 0, nested: true });
+    table.exec("open-row", { id: 0, nested: true });
 }
 
 function closeAll() {
-  table.exec("close-row", { id: 0, nested: true });
+    table.exec("close-row", { id: 0, nested: true });
 }
 
 const openAllButton = document.createElement("button");
@@ -445,26 +446,26 @@ document.body.appendChild(closeAllButton);
 To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-property) property and set its `vertical` parameter to **true**. 
 
 ~~~jsx {4-6}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  headerShape: {
-    vertical: true,
-  },
-  config: {
-    rows: ["studio"],
-    columns: ["type"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    headerShape: {
+        vertical: true
+    },
+    config: {
+        rows: ["studio"],
+        columns: ["type"],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -476,55 +477,53 @@ The Configuration panel is displayed by default. The widget provides the default
 
 To hide the panel, set the value of the [`configPanel`](/api/config/configpanel-property) property to **false**.
 
-~~~jsx 
-// The configuration panel is hidden on init
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  
-  configPanel: false,
-
-  config: {
-    rows: ["hobbies"],
-    columns: ["relationship_status"],
-    values: [
-      {
-        field: "age",
-        method: "min",
-      },
-      {
-        field: "age",
-        method: "max",
-      },
-    ],
-  },
+~~~jsx
+// the configuration panel is hidden on init
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    configPanel: false,
+    config: {
+        rows: ["hobbies"],
+        columns: ["relationship_status"],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 
 You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/internal/exec-method) method, and set the `mode` parameter to **false**.
 
 ~~~jsx {19-22}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 //hide the configuration panel
-widget.api.exec("show-config-panel", {
-  mode: false,
+table.api.exec("show-config-panel", {
+    mode: false
 });
 ~~~
 
@@ -532,30 +531,30 @@ widget.api.exec("show-config-panel", {
 
 You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/internal/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
-Example:
+### Example
 
 ~~~jsx {20-22}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
-pivotWidget.api.intercept("show-config-panel", () => {
-  return false;
+table.api.intercept("show-config-panel", () => {
+    return false;
 });
 ~~~
 

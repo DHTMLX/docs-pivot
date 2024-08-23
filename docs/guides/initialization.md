@@ -32,7 +32,7 @@ Make sure that you set correct relative paths to the source files:
 
 Add a container for Pivot and give it an ID, for example *"root"*:
 
-~~~jsx title="index.html"
+~~~html title="index.html"
 <div id="root"></div>
 ~~~
 
@@ -43,22 +43,22 @@ Initialize Pivot with the **pivot.Pivot** constructor. It takes two parameters:
 - an HTML container (the ID of the HTML container)
 - an object with configuration properties
 
-~~~jsx title="index.html"
+~~~jsx
 // create Pivot
 const table = new pivot.Pivot("#root", {
-//configuration properties
-fields,
-data,
-config: {
-    rows: ["studio", "genre"],
-    columns: ["title"],
-    values: [
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    //configuration properties
+    fields,
+    data,
+    config: {
+        rows: ["studio", "genre"],
+        columns: ["title"],
+        values: [
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 ~~~
 

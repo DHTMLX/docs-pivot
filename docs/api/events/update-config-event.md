@@ -8,13 +8,13 @@ description: You can learn about the update-config event in the documentation of
 
 ### Description
 
-@short: Fires when modifying rows, columns, or aggregation functions via the Pivot UI 
+@short: Fires when modifying rows, columns, or aggregation functions via the Pivot UI
 
 The action is useful for saving a user's aggregation configuration so that it can be applied the next time the widget is used allowing a user to continue where they left off. 
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 "update-config": ({
     rows: string[],
     columns: string[],
@@ -47,27 +47,27 @@ If the event handler function returns *false*, the operation that triggered the 
 ### Example
 
 ~~~jsx {19-22}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                id: "title",
+                method: "count"
+            },
+            {
+                id: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 //output the config object to console
-widget.api.on("update-config", (config) => {
-  console.log("Config has changed", config);
+table.api.on("update-config", (config) => {
+    console.log("Config has changed", config);
 });
 ~~~
 

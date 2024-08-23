@@ -28,24 +28,23 @@ To change the current locale dynamically, you can use the [`setLocale()`](/api/m
 
 ~~~jsx {18}
 const table = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-  locale: cn // the "cn" locale will be set initially
-  // other parameters
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    },
+    locale: cn // the "cn" locale will be set initially
+    // other parameters
 });
 ~~~
-

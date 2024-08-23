@@ -12,61 +12,61 @@ The following types of information can be loaded into Pivot:
 
 - [`data`](/api/config/data-property) - an array of objects, where each object represents the data row
 
-Example:
+### Example
 
 ~~~jsx
 const data = [
-   {
-      name: "Argentina",
-      year: 2015,
-      continent: "South America",
-      form: "Republic",
-      gdp: 181.357,
-      oil: 1.545,
-      balance: 4.699,
-      when: new Date("4/21/2015"),
-   },
-   {
-      name: "Argentina",
-      year: 2017,
-      continent: "South America",
-      form: "Republic",
-      gdp: 212.507,
-      oil: 1.732,
-      balance: 7.167,
-      when: new Date("1/15/2017"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 260.071,
-      oil: 2.845,
-      balance: 6.728,
-      when: new Date("6/16/2014"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 324.405,
-      oil: 4.333,
-      balance: 5.99,
-      when: new Date("2/20/2014"),
-   },
-   {
-      name: "Argentina",
-      year: 2014,
-      continent: "South America",
-      form: "Republic",
-      gdp: 305.763,
-      oil: 2.626,
-      balance: 7.544,
-      when: new Date("8/17/2014"),
-   },
-   //other data
+    {
+        name: "Argentina",
+        year: 2015,
+        continent: "South America",
+        form: "Republic",
+        gdp: 181.357,
+        oil: 1.545,
+        balance: 4.699,
+        when: new Date("4/21/2015")
+    },
+    {
+        name: "Argentina",
+        year: 2017,
+        continent: "South America",
+        form: "Republic",
+        gdp: 212.507,
+        oil: 1.732,
+        balance: 7.167,
+        when: new Date("1/15/2017")
+    },
+    {
+        name: "Argentina",
+        year: 2014,
+        continent: "South America",
+        form: "Republic",
+        gdp: 260.071,
+        oil: 2.845,
+        balance: 6.728,
+        when: new Date("6/16/2014")
+    },
+    {
+        name: "Argentina",
+        year: 2014,
+        continent: "South America",
+        form: "Republic",
+        gdp: 324.405,
+        oil: 4.333,
+        balance: 5.99,
+        when: new Date("2/20/2014")
+    },
+    {
+        name: "Argentina",
+        year: 2014,
+        continent: "South America",
+        form: "Republic",
+        gdp: 305.763,
+        oil: 2.626,
+        balance: 7.544,
+        when: new Date("8/17/2014")
+    },
+    //other data
 ];
 ~~~
 
@@ -74,55 +74,56 @@ const data = [
 See also how to define fields and Pivot structure: [Working with data](/guides/working-with-data)
 :::
 
-## Loading data 
+## Loading data
 
 You can load JSON data into Pivot from an external file or the server-side script after the component has been initialized.
 
 To load local data from a separate file, first prepare the source file with data.
 
-Example:
+### Example
 
 ~~~jsx
 function getData() {
-  return {
-    data,
-    config: {
-      rows: ["continent", "name"],
-      columns: ["year"],
-      values: [
-        "count(oil)",
-        { field: "oil", method: "sum" },
-        { field: "gdp", method: "sum" }],
-      filters: {
-      genre: {
-        contains: "D",
-        includes: ["Drama"],
-      },
-    },
-  },
-    fields,
-  };
+    return {
+        data,
+        config: {
+            rows: ["continent", "name"],
+            columns: ["year"],
+            values: [
+                "count(oil)",
+                { field: "oil", method: "sum" },
+                { field: "gdp", method: "sum" }
+            ],
+            filters: {
+                genre: {
+                    contains: "D",
+                    includes: ["Drama"],
+                }
+            }
+        },
+        fields
+    };
 }
 const fields = [
-  { id: "year", label: "Year", type: "number" },
-  { id: "continent", label: "Continent", type: "text" },
-  { id: "form", label: "Form", type: "text" },
-  { id: "oil", label: "Oil", type: "number" },
-  { id: "balance", label: "Balance", type: "number" },
+    { id: "year", label: "Year", type: "number" },
+    { id: "continent", label: "Continent", type: "text" },
+    { id: "form", label: "Form", type: "text" },
+    { id: "oil", label: "Oil", type: "number" },
+    { id: "balance", label: "Balance", type: "number" }
 ];
 
 const data = [
-  {
-    name: "Argentina",
-    year: 2015,
-    continent: "South America",
-    form: "Republic",
-    gdp: 181.357,
-    oil: 1.545,
-    balance: 4.699,
-    when: new Date("4/21/2015"),
-  },
-  //other data
+    {
+        name: "Argentina",
+        year: 2015,
+        continent: "South America",
+        form: "Republic",
+        gdp: 181.357,
+        oil: 1.545,
+        balance: 4.699,
+        when: new Date("4/21/2015")
+    },
+    //other data
 ];
 ~~~
 
@@ -135,25 +136,25 @@ Second, add the path to the source data file:
 <script src="./common/data.js"></script>
 ~~~
 
-Create Pivot and load data: 
+Create Pivot and load data:
 
-~~~jsx {}
+~~~jsx
 const { data, config, fields } = getData();
-const widget = new pivot.Pivot("#root", { data, config, fields });
+const table = new pivot.Pivot("#root", { data, config, fields });
 ~~~
 
 To get server data, you can send the request for data using the native **fetch** method (or any other way):
 
 ~~~jsx
-const widget = new pivot.Pivot("#pivot", {fields:[], data: []});
+const table = new pivot.Pivot("#root", {fields:[], data: []});
 const server = "https://some-backend-url";
 
 Promise.all([
-   fetch(server + "/data").then((res) => res.json()),
-   fetch(server + "/fields").then((res) => res.json())
- ]).then(([data, fields]) => {
-   widget.setConfig({data, fields});
- });
+    fetch(server + "/data").then((res) => res.json()),
+    fetch(server + "/fields").then((res) => res.json())
+]).then(([data, fields]) => {
+    table.setConfig({data, fields});
+});
 ~~~
 
 ## Loading CSV data
@@ -169,88 +170,88 @@ In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.
 - `meta` - an object where keys are the names of fields and values are the data types
 
 ~~~jsx
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields, 
-  data: dataset,
-  config: {
-    rows: [
-      "studio",
-      "genre"
-    ],
-    columns: [], 
-    values: [
-      {
-        field: "title",
-        method: "count"
-      },
-      {
-        field: "score",
-        method: "max"
-      },
-    ]
-  }
+const table = new pivot.Pivot("#root", {
+    fields, 
+    data: dataset,
+    config: {
+        rows: [
+            "studio",
+            "genre"
+        ],
+        columns: [], 
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 function convert(data, headers, meta) {
-  const header = headers.join(",") + "\n";
-  const processedData = header + data;
+    const header = headers.join(",") + "\n";
+    const processedData = header + data;
 
-  return Papa.parse(processedData, { 
-    header: true,
-    dynamicTyping: true,
-    transform: (v, f) => {
-      return meta && meta[f] === "date" ? new Date(v) : v;
-    }
-  })
+    return Papa.parse(processedData, { 
+        header: true,
+        dynamicTyping: true,
+        transform: (v, f) => {
+            return meta && meta[f] === "date" ? new Date(v) : v;
+        }
+    });
 }
 
 function fromCSV() {
-  const fields = [
-    { id: "name", label: "Name", type: "text" },
-    { id: "continent", label: "Continent", type: "text" },
-    { id: "form", label: "Form", type: "text" },
-    { id: "gdp", label: "GDP", type: "number" },
-    { id: "oil", label: "Oil", type: "number" },
-    { id: "balance", label: "Balance", type: "number" },
-    { id: "year", label: "Year", type: "number" },
-    { id: "when", label: "When", type: "date" },
-  ];
-  
-  const config = {
-    rows: ["continent", "name"],
-    columns: ["year"],
-    values: [
-      "count(oil)",
-      { field: "oil", method: "sum" },
-      { field: "gdp", method: "sum" },
-    ],
-  };
+    const fields = [
+        { id: "name", label: "Name", type: "text" },
+        { id: "continent", label: "Continent", type: "text" },
+        { id: "form", label: "Form", type: "text" },
+        { id: "gdp", label: "GDP", type: "number" },
+        { id: "oil", label: "Oil", type: "number" },
+        { id: "balance", label: "Balance", type: "number" },
+        { id: "year", label: "Year", type: "number" },
+        { id: "when", label: "When", type: "date" }
+    ];
+    
+    const config = {
+        rows: ["continent", "name"],
+        columns: ["year"],
+        values: [
+            "count(oil)",
+            { field: "oil", method: "sum" },
+            { field: "gdp", method: "sum" }
+        ]
+    };
 
-  const headers = [
-    "name",
-    "year",
-    "continent",
-    "form",
-    "gdp",
-    "oil",
-    "balance",
-    "when"
-  ];
+    const headers = [
+        "name",
+        "year",
+        "continent",
+        "form",
+        "gdp",
+        "oil",
+        "balance",
+        "when"
+    ];
   
-  // date fields must be explicitly marked for proper conversion
-  const meta = { when: "date" };
+    // date fields must be explicitly marked for proper conversion
+    const meta = { when: "date" };
 
-  const dataURL = "https://some-backend-url";
-  fetch(dataURL)
-    .then(response => response.text())
-    .then(text => convert(text, headers, meta))
-    .then(data => {
-    pivotWidget.setConfig({
-      data: data.data,
-      fields,
-      config
+    const dataURL = "https://some-backend-url";
+    fetch(dataURL)
+        .then(response => response.text())
+        .then(text => convert(text, headers, meta))
+        .then(data => {
+        table.setConfig({
+            data: data.data,
+            fields,
+            config
+        });
     });
-  });
 }
 
 const importButton = document.createElement("button");
@@ -267,32 +268,32 @@ To export the table data to the XLSX or CSV format, it's necessary to get access
 In the example below we get access to the Table instance and trigger the `export`action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        id: "title",
-        method: "count",
-      },
-      {
-        id: "score",
-        method: "max",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                id: "title",
+                method: "count"
+            },
+            {
+                id: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 function toCSV() {
-  pivotWidget.api.getTable().exec("export", {
-    options: {
-      format: "csv",
-      cols: ";",
-    },
-  });
+    table.api.getTable().exec("export", {
+        options: {
+            format: "csv",
+            cols: ";"
+        }
+    });
 }
 
 const exportButton = document.createElement("button");
@@ -306,46 +307,46 @@ document.body.appendChild(exportButton);
 
 The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
 
-Example:
+### Example
 
 ~~~jsx {17}
 function setFormat(value) {
-  widget.setConfig({ locale: { formats: { dateFormat: value } } });
+    table.setConfig({ locale: { formats: { dateFormat: value } } });
 }
 
 // date string to Date
 const dateFields = fields.filter((f) => f.type == "date");
 if (dateFields.length) {
-  dataset.forEach((item) => {
-    dateFields.forEach((f) => {
-      const v = item[f.id];
-      if (typeof v == "string") item[f.id] = new Date(v);
+    dataset.forEach((item) => {
+        dateFields.forEach((f) => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
     });
-  });
 }
 
-const widget = new pivot.Pivot("#pivot", {
-  locale: { formats: { dateFormat: "%d %M %Y %H:%i" } },
-  fields,
-  data: dataset,
-  config: {
-    rows: ["state"],
-    columns: ["product_line", "product_type"],
-    values: [
-      {
-        field: "date",
-        method: "min",
-      },
-      {
-        field: "profit",
-        method: "sum",
-      },
-      {
-        field: "sales",
-        method: "sum",
-      },
-    ],
-  },
+const table = new pivot.Pivot("#root", {
+    locale: { formats: { dateFormat: "%d %M %Y %H:%i" } },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["state"],
+        columns: ["product_line", "product_type"],
+        values: [
+            {
+                field: "date",
+                method: "min"
+            },
+            {
+                field: "profit",
+                method: "sum"
+            },
+            {
+                field: "sales",
+                method: "sum"
+            }
+        ]
+    }
 });
 ~~~
 
@@ -381,9 +382,8 @@ In this snippet you can see how to load JSON and CSV data:
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related samples:** 
+**Related samples:**
 - [Pivot 2.0. Export to XLSX, CSV](https://snippet.dhtmlx.com/zjuloqxd)
 - [Pivot 2.0: Date format](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2.0: Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2.0. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
-
