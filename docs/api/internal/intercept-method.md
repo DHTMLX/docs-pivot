@@ -12,7 +12,7 @@ description: You can learn about the intercept method in the documentation of th
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 api.intercept(
     event: string,
     callback: function
@@ -27,7 +27,7 @@ api.intercept(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md/#pivot-events).
+The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md/#root-events).
 Use the [`api.on()`](/api/internal/on-method) method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
 :::
 
@@ -35,25 +35,25 @@ Use the [`api.on()`](/api/internal/on-method) method if you want to listen to th
 
 The example shows how to make all collapsible rows close at the initialization. 
 
-~~~jsx
+~~~jsx {21-24}
 // create Pivot
 const table = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 //make all rows close at the initialization

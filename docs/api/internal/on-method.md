@@ -12,7 +12,7 @@ description: You can learn about the on method in the documentation of the DHTML
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 api.on(
     event: string,
     handler: function
@@ -27,7 +27,7 @@ api.on(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](/api/overview/main-overview/#pivot-events).
+The full list of the Pivot internal events can be found [**here**](/api/overview/main-overview/#root-events).
 Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](/api/internal/intercept-method) method.
 :::
 
@@ -35,33 +35,33 @@ Use the `api.on()` method if you want to listen to the actions without modifying
 
 The example below shows how to output the label of a field for which the filter was activated: 
 
-~~~jsx
+~~~jsx {21-28}
 // create Pivot
 const table = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 table.api.on("open-filter", (ev) => {
-  const fieldObj = ev.field;
-  const field = fieldObj.base || fieldObj.field;
+    const fieldObj = ev.field;
+    const field = fieldObj.base || fieldObj.field;
 
-  if (field) {
-    console.log("The field for which filter was activated:", ev.field.label);
-  }
+    if (field) {
+        console.log("The field for which filter was activated:", ev.field.label);
+    }
 });
 ~~~

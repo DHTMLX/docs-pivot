@@ -12,7 +12,7 @@ description: You can learn about the getStores method in the documentation of th
 
 ### Usage
 
-~~~jsx {}
+~~~jsx
 api.getStores(): object;
 ~~~
 
@@ -20,9 +20,9 @@ api.getStores(): object;
 
 The method returns an object with the **DataStore** parameters:
 
-~~~jsx {}
+~~~jsx
 {
-  data: DataStore // ( object of parameters )
+    data: DataStore // ( object of parameters )
 }
 ~~~
 
@@ -31,22 +31,22 @@ The method returns an object with the **DataStore** parameters:
 ~~~jsx {21-22}
 // create Pivot
 const table = new pivot.Pivot("#root", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    }
 });
 
 const stores = table.api.getStores();
