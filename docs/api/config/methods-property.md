@@ -133,35 +133,33 @@ const widget = new pivot.Pivot("#pivot", {
     tableShape: { templates },
     methods: { ...pivot.defaultMethods, ...methods },
     config:{
-		rows: [
-            "state"
-        ],
-        columns: [
-            "product_line",
-            "product_type"
-        ],
-        values: [
-            {
-                field: "sales",
-                method: "sum"
-            },
-            {
-                field: "sales",
-                method: "count"
-            },
-            {
-                field: "date",
-                method: "countunique_date"
-            },
-            {
-                field: "date",
-                method: "average_date"
-            },   
-        ]
+      rows: ["state"],
+      columns: [
+        "product_line",
+        "product_type"
+      ],
+      values: [
+        {
+          field: "sales",
+          method: "sum"
+        },
+        {
+          field: "sales",
+          method: "count"
+        },
+        {
+          field: "date",
+          method: "countunique_date"
+        },
+        {
+          field: "date",
+          method: "average_date"
+        },
+      ]
 	}
 });
 ~~~
 
-**Related samples:** [Pivot 2.0: Custom math methods](https://snippet.dhtmlx.com/lv90d8q2)
+**Related sample:** [Pivot 2.0: Custom math methods](https://snippet.dhtmlx.com/lv90d8q2)
 
 **Related article**: [Applying maths methods](/guides/working-with-data#applying-maths-methods)

@@ -104,11 +104,11 @@ function getData() {
   };
 }
 const fields = [
-      { id: "year", label: "Year", type: "number" },
-      { id: "continent", label: "Continent", type: "text" },
-      { id: "form", label: "Form", type: "text" },
-      { id: "oil", label: "Oil", type: "number" },
-      { id: "balance", label: "Balance", type: "number" },
+  { id: "year", label: "Year", type: "number" },
+  { id: "continent", label: "Continent", type: "text" },
+  { id: "form", label: "Form", type: "text" },
+  { id: "oil", label: "Oil", type: "number" },
+  { id: "balance", label: "Balance", type: "number" },
 ];
 
 const data = [

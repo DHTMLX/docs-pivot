@@ -81,23 +81,23 @@ values: [
 When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the [`api.getState()`](/api/internal/getstate-method) method, the full object will look like this:
 
 ~~~jsx
-interface IParsedField{
-      id: string;
-      field: string;
-      method: string | null;
-      area: 'rows'|'columns'|'values';
-      base?: string;
-      label: string;
-      type: 'number'|'date'|'text';
+interface IParsedField {
+  id: string,
+  field: string,
+  method: string | null,
+  area: 'rows'|'columns'|'values',
+  base?: string,
+  label: string,
+  type: 'number'|'date'|'text'
 }
 interface IParsedConfig {
-    rows: IParsedField[];
-    columns: IParsedField[]>;
-    values: IParsedField[];
-    filters: {
-        [field: string]: number | string | Array<number|string> | 
-        { [operation: string]: number | string | Array<number | string> | { start:Date, end: Date} };
-    }
+  rows: IParsedField[],
+  columns: IParsedField[],
+  values: IParsedField[],
+  filters: {
+    [field: string]: number | string | [] | 
+    { [operation: string]: number | string | [] | { start:Date, end: Date} }
+  }
 }
 ~~~
 
@@ -111,7 +111,6 @@ Parameters:
 - `label` - text label
 - `type` - data type
 :::
-
 
 ### Example
 

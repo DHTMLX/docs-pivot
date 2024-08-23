@@ -171,7 +171,7 @@ To apply a custom locale you need to:
 And you can apply a locale in the following way:
 
 ~~~jsx
-import { de as coreDe } from "@xbs/wx-core-locales"
+import { de as coreDe } from "@dhx/core-locales "
 
 new pivot.Pivot({
     // other properties

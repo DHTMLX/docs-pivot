@@ -182,6 +182,22 @@ const config = {
 			}
 		]
 	],
+
+	themes: [ 
+		[ // Local search parameters
+			require.resolve("@easyops-cn/docusaurus-search-local"),
+			{
+				indexDocs: true,
+				indexPages: true,
+				hashed: true,
+				highlightSearchTermsOnTargetPage: true,
+				removeDefaultStemmer: true,
+				removeDefaultStopWordFilter: true,
+				explicitSearchResultPath: true
+			}
+		]
+	],
+
   	themeConfig:
 	/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 	({
@@ -289,22 +305,7 @@ const config = {
 		prism: {
 			//theme: lightCodeTheme,
 			//darkTheme: darkCodeTheme,
-		},
-		/*algolia: {
-			// This is a read-only, search-only key served directly by the front-end, managed by Algolia via their
-			// free DocSearch program. The key is not sensitive. See https://docsearch.algolia.com/ for more details.
-			//appId: '0O8M0T0DUJ',
-			//apiKey: '541438887f3386a7cdb48fb77176a184',
-			//indexName: 'pivot',
-
-			// Optional: see doc section bellow
-			contextualSearch: true,
-
-			// Optional: Algolia search parameters
-			searchParameters: {},
-
-			//... other Algolia params
-		},*/
+		}
 	})
 };
 

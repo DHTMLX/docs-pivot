@@ -42,4 +42,5 @@ Promise.all([
 });
 ~~~
 
+
 **Related articles**: [`setConfig`](/api/methods/setconfig-method)
