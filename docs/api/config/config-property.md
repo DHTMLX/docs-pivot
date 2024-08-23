@@ -40,17 +40,17 @@ The `config` parameters are used to define which fields will be applied as rows 
 
 <summary><b>Options for defining values</b></summary>
 
-You can define `values`in either of the two equally valid ways: 
+You can define `values` in either of the two equally valid ways: 
 - option one is a string representing the field ID
 - option two is an object containing the field ID and the method for data aggregation
 
 Example:
 
-~~~
+~~~jsx
 values: [
-      "sum(sales)", // option one
-      { id: "sales", method: "sum" }, // option two
-   ]
+    "sum(sales)", // option one
+    { id: "sales", method: "sum" }, // option two
+]
 ~~~
 
 </details>
@@ -82,22 +82,23 @@ When config is processed by Pivot, its properties receive extra data and if you 
 
 ~~~jsx
 interface IParsedField {
-  id: string,
-  field: string,
-  method: string | null,
-  area: 'rows'|'columns'|'values',
-  base?: string,
-  label: string,
-  type: 'number'|'date'|'text'
+    id: string,
+    field: string,
+    method: string | null,
+    area: 'rows'|'columns'|'values',
+    base?: string,
+    label: string,
+    type: 'number'|'date'|'text'
 }
+
 interface IParsedConfig {
-  rows: IParsedField[],
-  columns: IParsedField[],
-  values: IParsedField[],
-  filters: {
-    [field: string]: number | string | [] | 
-    { [operation: string]: number | string | [] | { start:Date, end: Date} }
-  }
+    rows: IParsedField[],
+    columns: IParsedField[],
+    values: IParsedField[],
+    filters: {
+        [field: string]: number | string | [] | 
+        { [operation: string]: number | string | [] | { start:Date, end: Date} }
+    }
 }
 ~~~
 
@@ -114,34 +115,32 @@ Parameters:
 
 ### Example
 
-~~~jsx {4-28}
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-    filters: {
-      genre: {
-        contains: "D",
-        includes: ["Drama"],
-      },
-
-      title: {
-        // filter for another field ("title")
-        contains: "A",
-      },
-    },
-  },
+~~~jsx {4-26}
+const table = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ],
+        filters: {
+            genre: {
+                contains: "D",
+                includes: ["Drama"]
+            },
+            title: {
+                // filter for another field ("title")
+                contains: "A"
+            }
+        }
+    }
 });
 ~~~
-

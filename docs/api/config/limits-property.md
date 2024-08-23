@@ -16,9 +16,9 @@ Please, also refer to [Limiting data](/guides/working-with-data#limiting-loaded-
 
 ~~~jsx
 limits?: {
-  rows?: number,
-  columns?: number,
-  raws?: number
+    rows?: number,
+    columns?: number,
+    raws?: number
 };
 ~~~
 
@@ -28,7 +28,7 @@ The parameters define when to interrupt rendering data:
 
 - `rows` - (optional) sets the maximum number of rows in the final dataset; the default value is 10000.
 - `columns` - (optional) sets the maximum number of columns in the final dataset; the default value is 5000.
-- `raws` - (optional) the maximum number of source data rows before data is grouped (raw data records used for aggregating); the default value is infinity. 
+- `raws` - (optional) the maximum number of source data rows before data is grouped (raw data records used for aggregating); the default value is infinity.
 
 :::note
 Limits are used for large dataset. Limits values are approximate values and do not show the exact values of the rows and columns.
@@ -36,27 +36,25 @@ Limits are used for large dataset. Limits values are approximate values and do n
 
 ## Example
 
-~~~jsx {19}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-
-  limits:{ rows: 25, columns: 4 },
-  
+~~~jsx {18}
+const table = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            },
+        ],
+    },
+    limits:{ rows: 25, columns: 4 }
 });
 ~~~
 

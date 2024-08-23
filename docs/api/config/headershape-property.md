@@ -14,9 +14,9 @@ description: You can learn about the headerShape config in the documentation of 
 
 ~~~jsx  
 headerShape?: {
-  collapsible?: boolean,
-  vertical?: boolean,
-  template?: (label: string, field: string, subLabel?: string) => string
+    collapsible?: boolean,
+    vertical?: boolean,
+    template?: (label: string, field: string, subLabel?: string) => string
 };
 ~~~
 
@@ -30,36 +30,34 @@ template: (label, id, subLabel) =>
     label + (subLabel ? ` (${subLabel})` : "")
 ~~~
 
-
 ## Example
 
-~~~jsx {19-22}
-const pivotWidget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  config: {
-    rows: ["studio", "genre"],
-    columns: [],
-    values: [
-      {
-        field: "title",
-        method: "count",
-      },
-      {
-        field: "score",
-        method: "max",
-      },
-    ],
-  },
-
-  headerShape: {
-    vertical: true,
-    template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : ""),
-  },
+~~~jsx {18-21}
+const table = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    config: {
+        rows: ["studio", "genre"],
+        columns: [],
+        values: [
+            {
+                field: "title",
+                method: "count"
+            },
+            {
+                field: "score",
+                method: "max"
+            }
+        ]
+    },
+    headerShape: {
+        vertical: true,
+        template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : "")
+    }
 });
 ~~~
 
-**Related samples**: 
+**Related samples**:
 - [Pivot 2.0: Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
 - [Pivot 2.0: Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
 - [Pivot 2.0. Headers template](https://snippet.dhtmlx.com/g89r9ryw)

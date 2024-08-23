@@ -16,17 +16,17 @@ It defines how data should be modified before it's applied.
 
 ~~~jsx
 predicates?: {
-[key: string]: {
-  handler: (value: any) => any,
-  type: 'number' | 'date' | 'text' | [],
-  label?: string | (type: 'number' | 'date' | 'text') => string,
-  template?: (value: any, locale?: any) => string,
-  field?: (value:string) => boolean,
-  filter?: { 
-    type: "number"|"text"|"date"|"tuple",
-    format?:(any) => string
-    },
-  },
+    [key: string]: {
+        handler: (value: any) => any,
+        type: 'number' | 'date' | 'text' | [],
+        label?: string | (type: 'number' | 'date' | 'text') => string,
+        template?: (value: any, locale?: any) => string,
+        field?: (value:string) => boolean,
+        filter?: { 
+            type: "number"|"text"|"date"|"tuple",
+            format?:(any) => string
+        }
+    }
 };
 ~~~
 
@@ -47,60 +47,58 @@ The following default predicates are applied in case no predicate is specified v
 
 ~~~jsx
 const defaultPredicates = {
-  year: { label: "Year", type: "date", filter: { type: "number" } },
-  quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
-  month: { label: "Month", type: "date", filter: { type: "tuple" } },
-  week: { label: "Week", type: "date", filter: { type: "tuple" } },
-  day: { label: "Day", type: "date", filter: { type: "number" } },
-  hour: { label: "Hour", type: "date", filter: { type: "number" } },
-  minute: { label: "Minute", type: "date", filter: { type: "number" } },
+    year: { label: "Year", type: "date", filter: { type: "number" } },
+    quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
+    month: { label: "Month", type: "date", filter: { type: "tuple" } },
+    week: { label: "Week", type: "date", filter: { type: "tuple" } },
+    day: { label: "Day", type: "date", filter: { type: "number" } },
+    hour: { label: "Hour", type: "date", filter: { type: "number" } },
+    minute: { label: "Minute", type: "date", filter: { type: "number" } }
 };
 ~~~
 
 ## Example
 
-~~~jsx
+~~~jsx {28}
 // custom predicates
 const predicates = {
-  monthYear: {
-    label: "Month-year",
-    type: "date",
-    handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
-    template: (date, locale) => {
-      const months = locale.getRaw().calendar.monthFull;
-      return months[date.getMonth()] + " " + date.getFullYear();
+    monthYear: {
+        label: "Month-year",
+        type: "date",
+        handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
+        template: (date, locale) => {
+            const months = locale.getRaw().calendar.monthFull;
+            return months[date.getMonth()] + " " + date.getFullYear();
+        }
     },
-  },
-  balanceSign: {
-    label: "BalanceSign",
-    type: "number",
-    filter: {
-      type: "tuple",
-      format: v => (v < 0 ? "Negative" : "Positive"),
-    },
-    field: f => f === "balance",
-    handler: v => (v < 0 ? -1 : 1),
-    template: v =>
-      v < 0 ? "Negative balance" : "Positive balance",
-    },
-},
+    balanceSign: {
+        label: "BalanceSign",
+        type: "number",
+        filter: {
+            type: "tuple",
+            format: v => (v < 0 ? "Negative" : "Positive"),
+        },
+        field: f => f === "balance",
+        handler: v => (v < 0 ? -1 : 1),
+        template: v => v < 0 ? "Negative balance" : "Positive balance",
+    }
+};
 
-const widget = new pivot.Pivot("#pivot", {
-  fields,
-  data: dataset,
-  predicates: { ...pivot.defaultPredicates, ...predicates },
-  config: {
-    rows: ["state"],
-    columns: [
-      { field: "date", method: "year" },
-      { field: "date", method: "monthYear" },
-      { field: "profit", method: "balanceSign" },
-    ],
-    values: [{ field: "sales", method: "sum" }],
-  },
+const table = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    predicates: { ...pivot.defaultPredicates, ...predicates },
+    config: {
+        rows: ["state"],
+        columns: [
+            { field: "date", method: "year" },
+            { field: "date", method: "monthYear" },
+            { field: "profit", method: "balanceSign" }
+        ],
+        values: [{ field: "sales", method: "sum" }]
+    }
 });
 ~~~
-
 
 **Related article**: [Processing data with predicates](/guides/working-with-data#processing-data-with-predicates)
 
