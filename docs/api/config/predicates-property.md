@@ -103,3 +103,5 @@ const widget = new pivot.Pivot("#pivot", {
 
 
 **Related article**: [Processing data with predicates](/guides/working-with-data#processing-data-with-predicates)
+
+**Related sample**: [Pivot 2.0: Custom predicates](https://snippet.dhtmlx.com/mhymus00)
