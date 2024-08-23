@@ -44,6 +44,7 @@ const table = new pivot.Pivot("#root", {
             }
         ]
     },
+
     locale: pivot.locales.cn, // the "cn" locale will be set initially
     // other parameters
 });
