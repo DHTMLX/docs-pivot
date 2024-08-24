@@ -34,14 +34,14 @@ predicates?: {
 
 The property is an object where a key is the name of a custom function and value is an object with actual function definitions. The predicate object can have multiple key-function pairs, and all of them will be available for use in the Pivot configuration. Each object has the following parameters:
 
-  - `label` - (optional) the label of a predicate displayed in GUI in the drop-down among data modifiers options for a row/column 
-  - `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date", "text" or an array of these values
-  - `field` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
-  - `filter` - (optional) by default, filter type is taken from the `type` parameter, but if you need another one, you can use this `filter` object. It has the next parameters:
+- `label` - (optional) the label of a predicate displayed in GUI in the drop-down among data modifiers options for a row/column 
+- `type` - (required) defines for which types of fields this predicate can be applied; it can be "number", "date", "text" or an array of these values
+- `field` - (optional) the function that defines how data should be processed for the specified field, it takes the id of a field as a parameter and returns **true** if the predicate should be added to the specified field
+- `filter` - (optional) by default, the filter type is taken from the `type` parameter, but if you need another one, you can use this `filter` object. It has the next parameters:
     - `type` - (optional) defines which field type will be applied: "number"|"text"|"date"|"tuple". "tuple" is a combo filter applied for numeric values (data will be filtered by the numeric value but in filter the text value will be displayed)
-    - `format` - (optional) the function that defines the format for displaying filter options; if no format is defined, the one from the template parameter will be applied; if the type here (for the `filter` object) is not specified, the format will be applied for the type set in the `type` parameter of the predicate
-	- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-	- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](/api/config/locale-property).
+    - `format` - (optional) the function that defines the format for displaying filter options; if no format is defined, the one from the template parameter will be applied; if the type here (for the `filter` object) is not specified, the format will be applied for the type set for the `type` parameter of the predicate
+- `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
+- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](/api/config/locale-property).
  
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 

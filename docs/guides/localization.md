@@ -146,7 +146,8 @@ const en = {
 
     //formats
     formats: {
-        dateFormat: "%d.%m.%Y"
+        dateFormat: "%d.%m.%Y",
+        timeFormat: "%H:%i"
     }
 };
 ~~~
