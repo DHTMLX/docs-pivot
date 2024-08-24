@@ -465,52 +465,64 @@ const defaultPredicates = {
 
 To add a custom predicate, you should specify the parameters of the [`predicates`](/api/config/predicates-property) property:
 - Add keys that are predicate IDs
-- Add values that are objects with predicate configuration:
-  - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column  
-  - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value.
-  - if you want the data to be displayed in the way other than the `handler` function returns, add the `template` that defines how data should be displayed (optional)
-  - if necessary, add the `filter` function to specify how data should be filtered for the field 
+- Add values that are objects with the predicate configuration:
+    - specify the `type` to define fields types for which the predicate can be applied ("number", "date", "text")
+    - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column
+    - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value
+    - if you want data to be displayed in the way other than the `handler` function returns, add the `template` that defines how data should be displayed (optional)
+    - if necessary, add the `field` function to specify how data should be filtered for the field
+    - apply the `filter` parameter if you need the filter type other than the one in the `type` parameter or in case you need the data format different from the `template`
 
 You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
 
 ~~~jsx
-// custom predicates
 const predicates = {
     monthYear: {
         label: "Month-year",
         type: "date",
-        handler: d => new Date(d.getFullYear(), d.getMonth(), 1),
+        handler: (d) => new Date(d.getFullYear(), d.getMonth(), 1),
         template: (date, locale) => {
             const months = locale.getRaw().calendar.monthFull;
             return months[date.getMonth()] + " " + date.getFullYear();
-        }
+        },
     },
-    balanceSign: {
-        label: "BalanceSign",
+    profitSign: {
+        label: "Profit Sign",
         type: "number",
         filter: {
             type: "tuple",
-            format: v => (v < 0 ? "Negative" : "Positive"),
+            format: (v) => (v < 0 ? "Negative" : "Positive"),
         },
-        field: f => f === "balance",
-        handler: v => (v < 0 ? -1 : 1),
-        template: v => v < 0 ? "Negative balance" : "Positive balance",
-    }
+        field: (f) => f === "profit",
+        handler: (v) => (v < 0 ? -1 : 1),
+        template: (v) => (v < 0 ? "Negative profit" : "Positive profit"),
+    },
 };
 
-const table = new pivot.Pivot("#root", {
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+    dataset.forEach((item) => {
+        dateFields.forEach((f) => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
+    });
+}
+
+const table = new pivot.Pivot("#pivot", {
     fields,
     data: dataset,
     predicates: { ...pivot.defaultPredicates, ...predicates },
+    tableShape: { tree: true },
     config: {
-        rows: ["state"],
+        rows: ["product_type", "product"],
         columns: [
-            { field: "date", method: "year" },
+            { field: "profit", method: "profitSign" },
             { field: "date", method: "monthYear" },
-            { field: "profit", method: "balanceSign" }
         ],
-        values: [{ field: "sales", method: "sum" }]
-    }
+        values: ["sales", "expenses"],
+    },
 });
 ~~~
 
