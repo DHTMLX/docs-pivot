@@ -8,7 +8,7 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 ## Version 2.0
 
-Released on Month Day, 2024
+Released on August 26, 2024
 
 Please, see the review of the release on [the blog page](https://dhtmlx.com/blog/)
 
