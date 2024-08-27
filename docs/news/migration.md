@@ -35,7 +35,7 @@ New properties do not fully duplicate the previous ones but provide more extende
 ### Removed API
 
 - [Methods from version 1.5](https://docs.dhtmlx.com/pivot/1-5/api__refs__pivot_methods.html) are deprecated, all new methods you can find here: [Methods](/api/overview/main-overview#pivot-methods)
-- [Pivot 1.5.6 events](https://docs.dhtmlx.com/pivot/1-5/api__refs__pivot_events.html) (`change`, `fieldClick`, `applyButtonClick`) are no longer available in Pivot 2.0 but you can find more extended functionality in a new version (refer to [Pivot events](/api/overview/events-overview))
+- [Pivot 1.5 events](https://docs.dhtmlx.com/pivot/1-5/api__refs__pivot_events.html) (`change`, `fieldClick`, `applyButtonClick`) are no longer available in Pivot 2.0 but you can find more extended functionality in a new version (refer to [Pivot events](/api/overview/events-overview))
 
 ### Important features
 
