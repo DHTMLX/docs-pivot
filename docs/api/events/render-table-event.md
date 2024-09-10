@@ -50,6 +50,10 @@ The callback of the action takes the `config` object with the following paramete
 - `tree` - (optional) the boolean value with the tree mode setting (**true** if the tree mode is enabled)
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Returns
 
 The callback may return boolean or void.  

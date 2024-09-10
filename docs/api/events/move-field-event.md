@@ -30,6 +30,10 @@ The callback of the action takes an object with the following parameters:
 - `before` - (optional) the id of a field before which the moved field is placed
 - `after` - (optional) the id of a field after which the moved field is placed
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Example
 
 ~~~jsx {20-23}
