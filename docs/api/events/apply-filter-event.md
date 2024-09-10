@@ -31,6 +31,10 @@ The callback of the action takes an object with the following parameters:
   - `value` - (required) the value to filter by
   - `includes` - (required) an array of values to be displayed from those that are already filtered; available for text and date values
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Example
 
 ~~~jsx {20-23}

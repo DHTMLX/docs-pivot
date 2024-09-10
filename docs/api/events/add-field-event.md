@@ -33,6 +33,10 @@ The callback of the action takes an object with the following parameters:
   - it's optional for the **rows** and **columns** areas and if the value is set it's a predicate; it can be a custom predicate or one from default values: "year", "quarter", "month", "week", "day", "hour", "minute". By default, a raw value is set.
   If a custom predicate or method is set, the id should be specified for the [predicates](/api/config/predicates-property) or [methods](/api/config/methods-property) property.
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Example
 
 In the example below we use the [`api.intercept()`](/api/internal/intercept-method) method to add a new method to the value field with the **number** data type: 

@@ -31,6 +31,10 @@ The callback of the action takes an object with the following parameters:
   If a custom predicate or method is set, the id should be specified for the [predicate](/api/config/predicates-property) or [methods](/api/config/methods-property) property.
 - `area` - (required) the name of the area where a field is updated, which can be "rows", "columns" or "values" area
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Example
 
 ~~~jsx {19-22}

@@ -24,6 +24,10 @@ The callback of the action takes an object with the following parameter:
 
 - `mode` - (required) if the value is set to **true** (default), the Configuration panel is shown, and it's set to **false** when the Configuration panel is hidden
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Example
 
 ~~~jsx {19-22}

@@ -26,6 +26,10 @@ The callback of the action takes the next parameters:
 - `area` - the area where a field is applied ("rows", "columns", "values")
 - `id` - the id of a field; if there's a single id argument with null value, the filter will be closed.
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Returns
 
 The function may return either a boolean value or void. When it returns **false**, the event operation in question will be halted.

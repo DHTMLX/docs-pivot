@@ -39,6 +39,10 @@ The callback of the action takes an object with the processed [`config`](/api/co
   - `method` - defines a method for data extraction; about methods and possible options refer to [Applying methods](/guides/working-with-data#default-methods)
 - `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and data aggregation method. The description of the `filter` object you can see here: [`config`](/api/config/config-property)
 
+:::info
+For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+:::
+
 ### Returns
 
 The callback may return boolean or void.  
