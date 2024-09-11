@@ -358,6 +358,7 @@ Pivot uses the following characters for setting the date format:
 | %j        | day as a number                                   | from 1 to 31            |
 | %D        | short name of the day (abbreviation)              | Su Mo Tu Sat            |
 | %l        | full name of the day                              | Sunday Monday Tuesday   |
+| %W        | week as a number with leading zero (with Monday as the first day of the week) | from 01 to 52/53        |
 | %m        | month as a number with leading zero               | from 01 to 12           |
 | %n        | month as a number                                 | from 1 to 12            |
 | %M        | short name of the month                           | Jan Feb Mar             |
@@ -370,9 +371,11 @@ Pivot uses the following characters for setting the date format:
 | %G        | hours 24-format                                   | from 0 to 23            |
 | %i        | minutes with leading zero                         | from 01 to 59           |
 | %s        | seconds with leading zero                         | from 01 to 59           |
+| %S        | milliseconds                                      | 128                     |
 | %a        | am or pm                                          | am (for time from midnight until noon) and pm (for time from noon until midnight)|
 | %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
-| %u        | milliseconds                                      | 128                     |
+| %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
+
 
 To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
 
