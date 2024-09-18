@@ -42,7 +42,7 @@ columnShape?: {
 
 ## Example
 
-~~~jsx {18-30}
+~~~jsx {18-31}
 const table = new pivot.Pivot("#root", {
     fields,
     data,
