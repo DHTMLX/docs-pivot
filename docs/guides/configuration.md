@@ -567,7 +567,7 @@ In the Configuration panel it's possible to perform the next operations with fie
 - [add-field](/api/events/add-field-event)
 - [delete-field](/api/events/delete-field-event)
 - [update-field](/api/events/update-value-event)
-- [move-field](/api/events/reorder-fields-event)
+- [move-field](/api/events/move-field-event)
 
 ## Example
 
