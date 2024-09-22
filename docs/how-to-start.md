@@ -16,13 +16,17 @@ This clear and comprehensive tutorial will guide your through the steps you need
 
 You can import JavaScript Pivot into your project using `yarn` or `npm` package manager.
 
-#### Installing trial Pivot via npm and yarn
-
 :::info
-If you want to use trial version of Pivot, download the trial [Pivot package](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and follow the steps mentioned in the *README* file. Note that trial Pivot is available for 30 days only.
+If you want to integrate Pivot into React, Angular, Svelte or Vue projects, refer to the corresponding [**integration guides**](/category/integration-with-frameworks/) for more information.
 :::
 
-#### Installing PRO Pivot via npm and yarn
+### Installing trial Pivot via npm and yarn
+
+:::info
+If you want to use trial version of Pivot, download the [**trial Pivot package**](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml) and follow the steps mentioned in the *README* file. Note that trial Pivot is available for 30 days only.
+:::
+
+### Installing PRO Pivot via npm and yarn
 
 :::info
 If you have already purchased Pivot under the proprietary license, send your **license number** to the *contact@dhtmlx.com* email in order to receive *login* and *password* for private **npm** as well as detailed guide on how to install Pivot. Note that private **npm** is available before the expiration of the proprietary Pivot license.
@@ -53,13 +57,9 @@ There are two necessary files:
 </html>
 ~~~
 
-:::tip
-If you want to integrate JavaScript Pivot into React, Angular or Vue projects, refer to the corresponding [**Examples on CodeSandbox**](https://codesandbox.io/u/DHTMLX) for more information.
-:::
-
 ## Step 3. Creating Pivot
 
-Now you are ready to add Pivot to the page. First, let's create the DIV container for Pivot. 
+Now you are ready to add Pivot to the page. First, let's create the DIV container for Pivot.
 
 ~~~html {} title="index.html"
 <!DOCTYPE html>
@@ -92,7 +92,7 @@ To start working with Pivot, first you need to provide the initial data. The exa
 
 The **fields** array is necessary to define the fields IDs, labels for display, and data types.
 
-The **data** array should hold the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table. 
+The **data** array should hold the actual data that is displayed in the Pivot widget. Each object in the array represents a row in the table.
 
 The **config** object defines the structure of the Pivot table, namely, which fields will be applied as rows and columns of the table and which data aggregation methods should be applied to the fields.
 
