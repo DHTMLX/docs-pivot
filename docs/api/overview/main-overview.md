@@ -17,7 +17,7 @@ new pivot.Pivot("#root", {
 **Parameters**:
 
 - an HTML container (the ID of the HTML container)
-- an object of the configuration parameters ([check here](#root-properties))
+- an object of the configuration parameters ([check here](#pivot-properties))
 
 ## Pivot methods
 
