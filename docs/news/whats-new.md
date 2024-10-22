@@ -6,6 +6,17 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 # What's new
 
+If you are updating Pivot from an older version, check [Migration to newer versions](news/migration.md) for details.
+
+## Version 2.0.2
+
+Released on October 22, 2024
+
+### Fixes
+
+- `columnShape` type definition
+- correct package contents
+
 ## Version 2.0
 
 Released on August 26, 2024
