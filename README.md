@@ -29,7 +29,7 @@ $ yarn start
 
 [Live demos](https://snippet.dhtmlx.com/mhymus00?tag=pivot)
 
-[Blog](hhttps://dhtmlx.com/blog/tag/pivot/)
+[Blog](https://dhtmlx.com/blog/tag/pivot/)
 
 [Forum](https://forum.dhtmlx.com/c/pivot/16)
 
