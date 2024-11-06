@@ -27,11 +27,11 @@ $ yarn start
 
 [Download DHTMLX Pivot](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml)
 
-[Live demos](https://snippet.dhtmlx.com/)
+[Live demos](https://snippet.dhtmlx.com/mhymus00?tag=pivot)
 
-[Blog](https://dhtmlx.com/blog/)
+[Blog](https://dhtmlx.com/blog/tag/pivot/)
 
-[Forum](https://forum.dhtmlx.com/)
+[Forum](https://forum.dhtmlx.com/c/pivot/16)
 
 ## Follow us
 

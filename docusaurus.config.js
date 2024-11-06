@@ -211,22 +211,22 @@ const config = {
 			items: [
 				{
 					"label": "Examples",
-					"href": "https://snippet.dhtmlx.com/", // TODO!!!
+					"href": "https://snippet.dhtmlx.com/mhymus00?tag=pivot", 
 					"position": "right"
 				},
 				{
 					"label": "Forum",
-					"href": "https://forum.dhtmlx.com/", // TODO!!!
+					"href": "https://forum.dhtmlx.com/c/pivot/16", 
 					"position": "right"
 				},
 				{
 					"label": "Support",
-					"href": "https://dhtmlx.com/docs/technical-support.shtml", // TODO!!!
+					"href": "https://dhtmlx.com/docs/technical-support.shtml", 
 					"position": "right"
 				},
 				{
 					"label": "Download",
-					"href": "https://dhtmlx.com/docs/products/", // TODO!!!
+					"href": "https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml", 
 					"position": "right"
 				}
 			],
@@ -239,21 +239,21 @@ const config = {
 					"items": [
 						{
 							"label": "Download JS Pivot",
-							"href": "https://dhtmlx.com/docs/products/", // TODO!!!
+							"href": "https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml", 
 							"position": "right"
 						},
 						{
 							"label": "Examples",
-							"href": "https://snippet.dhtmlx.com/", // TODO!!!
+							"href": "https://snippet.dhtmlx.com/mhymus00?tag=pivot", 
 							"position": "right"
 						},
 						{
 							"label": "Blog",
-							"href": "https://dhtmlx.com/blog/" // TODO!!!
+							"href": "https://dhtmlx.com/blog/tag/pivot/" 
 						},
 						{
 							"label": "Forum",
-							"href": "https://forum.dhtmlx.com/", // TODO!!!
+							"href": "https://forum.dhtmlx.com/c/pivot/16", 
 							"position": "right"
 						}
 					]
