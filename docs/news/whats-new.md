@@ -8,6 +8,18 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 If you are updating Pivot from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.0.3
+
+Released on November 29, 2024
+
+### Fixes
+
+- export to Excel/CSV of tree structure contains only topmost branches
+- exported columns with autowidth are too narrow in the resulting Excel file
+- incorrect position of a popup with filters
+- incorrect behaviour after changing configuration with the setConfig method
+- more presize type definitions
+
 ## Version 2.0.2
 
 Released on October 22, 2024
