@@ -141,7 +141,9 @@ const en = {
     //core
     core: {
         ok:"OK",
-        cancel:"Cancel"
+        cancel:"Cancel",
+        select: "Select",
+        "No data": "No data"
     },
 
     //formats
@@ -149,6 +151,8 @@ const en = {
         dateFormat: "%d.%m.%Y",
         timeFormat: "%H:%i"
     }
+
+    lang: "en-US",
 };
 ~~~
 
