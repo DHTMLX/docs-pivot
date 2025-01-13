@@ -80,7 +80,7 @@ You can load JSON data into Pivot from an external file or the server-side scrip
 
 To load local data from a separate file, first prepare the source file with data.
 
-### Example
+Example:
 
 ~~~jsx
 function getData() {
@@ -303,82 +303,6 @@ exportButton.textContent = "Export";
 document.body.appendChild(exportButton);
 ~~~
 
-## Setting date format
-
-The Pivot accepts a date that is parsed into the Date object. By default, the `dateFormat` of the current locale is applied. To redefine the format, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
-
-### Example
-
-~~~jsx {17}
-function setFormat(value) {
-    table.setConfig({ locale: { formats: { dateFormat: value } } });
-}
-
-// date string to Date
-const dateFields = fields.filter((f) => f.type == "date");
-if (dateFields.length) {
-    dataset.forEach((item) => {
-        dateFields.forEach((f) => {
-            const v = item[f.id];
-            if (typeof v == "string") item[f.id] = new Date(v);
-        });
-    });
-}
-
-const table = new pivot.Pivot("#root", {
-    locale: { formats: { dateFormat: "%d %M %Y %H:%i" } },
-    fields,
-    data: dataset,
-    config: {
-        rows: ["state"],
-        columns: ["product_line", "product_type"],
-        values: [
-            {
-                field: "date",
-                method: "min"
-            },
-            {
-                field: "profit",
-                method: "sum"
-            },
-            {
-                field: "sales",
-                method: "sum"
-            }
-        ]
-    }
-});
-~~~
-
-Pivot uses the following characters for setting the date format:
-
-| Character | Definition                                        |Example                  |
-| :-------- | :------------------------------------------------ |:------------------------|
-| %d        | day as a number with leading zero                 | from 01 to 31           |
-| %j        | day as a number                                   | from 1 to 31            |
-| %D        | short name of the day (abbreviation)              | Su Mo Tu Sat            |
-| %l        | full name of the day                              | Sunday Monday Tuesday   |
-| %W        | week as a number with leading zero (with Monday as the first day of the week) | from 01 to 52/53        |
-| %m        | month as a number with leading zero               | from 01 to 12           |
-| %n        | month as a number                                 | from 1 to 12            |
-| %M        | short name of the month                           | Jan Feb Mar             |
-| %F        | full name of the month                            | January February March  |
-| %y        | year as a number, 2 digits                        | 24                      |
-| %Y        | year as a number, 4 digits                        | 2024                    |
-| %h        | hours 12-format with leading zero                 | from 01 to 12           |
-| %g        | hours 12-format                                   | from 1 to 12            |
-| %H        | hours 24-format with leading zero                 | from 00 to 23           |
-| %G        | hours 24-format                                   | from 0 to 23            |
-| %i        | minutes with leading zero                         | from 01 to 59           |
-| %s        | seconds with leading zero                         | from 01 to 59           |
-| %S        | milliseconds                                      | 128                     |
-| %a        | am or pm                                          | am (for time from midnight until noon) and pm (for time from noon until midnight)|
-| %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
-| %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
-
-
-To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
-
 ## Example
 
 In this snippet you can see how to load JSON and CSV data:
@@ -390,3 +314,5 @@ In this snippet you can see how to load JSON and CSV data:
 - [Pivot 2.0: Date format](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2.0: Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2.0. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
+
+**Related articles**: [Date formatting](/guides/localization#date-formatting)
