@@ -269,15 +269,15 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 
 ## Number formatting
 
-By default, all fields with the *number** type are localized according to the locale (the value in the `lang` field of the locale). The `Intl.NumberFormat` object enables language-sensitive number formatting. In case you need to disable number formatting of some fields, add the template via the [`tableShape`](/api/config/tableshape-property) property or set the *text* type for this field instead of the *number* type. 
+By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to disable number formatting of some fields, add the template via the [`tableShape`](/api/config/tableshape-property) property or set the *text* type for this field instead of the *number* type. 
 
 Example:
 
 ~~~jsx
     // Define number formatting options
 	const numOptions = { maximumFractionDigits: 2, minimumFractionDigits: 2 };
-
-   // Create number formatters
+    
+    // Create number formatters
 	const num = new Intl.NumberFormat("en-US", numOptions);
 	const eurNum = new Intl.NumberFormat("en-US", {
 		style: "currency",
