@@ -100,6 +100,45 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 
 ## Cell style
 
+To apply a CSS class to a cell, use the `cellStyle` parameter of the [`tableShape`](/api/properties/tableshape-property) property. The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. In the example provided, if the `method` contains "count", it will return the string "count", which is associated with a CSS class *.count* that has the font-weight of 600. In the example we also apply number formatters: 
+- `numOptions`  ensures that numbers are displayed with exactly two decimal places, regardless of their value
+- `new Intl.NumberFormat("en-US", numOptions)` creates a number formatter for the US locale ("en-US") using the options defined in `numOptions`. It also creates another number formatter specifically for formatting numbers as Euro currency (currency: "EUR") in the US locale with two decimal places. More about number formatting, see here: [Number formatting](/guides/localization/#number-formatting).
+
+~~~jsx
+    // Number formatting options
+    const numOptions = { maximumFractionDigits: 2, minimumFractionDigits: 2 };
+    const num = new Intl.NumberFormat("en-US", numOptions);
+    const eurNum = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "EUR",
+        ...numOptions,
+    });
+
+    // Cell style function
+    const cellStyle = (field, value, area, method) => {
+        if (method?.indexOf("count") > -1) return "count";
+    };
+
+    const table = new pivot.Pivot("#root", {
+        fields,
+        data,
+        config,
+        tableShape: {
+            cellStyle // Apply the cellStyle function
+        }
+    });
+~~~
+
+~~~html title="index.html"
+<style>
+    .count {
+         font-weight: 600;
+    }
+</style>
+~~~
+
+## Marking cells
+
 The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
 - create a CSS class to be applied to the marked cell
 - add the CSS class name as the parameter of the `marks` object
@@ -155,6 +194,14 @@ const table = new pivot.Pivot("#root", {
     }
 </style>
 ~~~
+
+## Aligning numbers in a cell
+
+By default, numbers are justified against the end of a cell (aligned to the right) and the number alignment is not applied in headers and in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). If you want to change the number alignment in a cell, except for the cases mentioned, use the global `wx-number` class. 
+
+tbd
+
+
 
 ## Example
 

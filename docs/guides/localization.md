@@ -238,7 +238,7 @@ In case you need to set format to a specific field, use the template parameter o
 
 ## Date and time format specification 
 
-Pivot uses the following characters for setting the date format:
+Pivot uses the following characters for setting the date and time format:
 
 | Character | Definition                                        |Example                  |
 | :-------- | :------------------------------------------------ |:------------------------|

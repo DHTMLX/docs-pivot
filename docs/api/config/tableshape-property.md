@@ -37,7 +37,8 @@ tableShape?: {
     cleanRows?: boolean,
     split?: {
         left?: boolean
-    }
+    },
+    cellStyle?: (field: string, value: any, area: string, method?: string) => string,
 };
 ~~~
 
@@ -53,6 +54,12 @@ tableShape?: {
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30
   - `colWidth` - (optional) the column width in pixels; the default value is 150
+- `cellStyle` - (optional) the function that applies a custom style to a cell; the function has the next parameters:
+    - `field` - (required) a string representing the field name for which the style is applied
+    - `value` - (required) the value of the cell (the actual data for that particular row and column)
+    - `area` - (required) a string indicating the area of the table where a cell resides ("rows", "columns" or "values" area)
+    - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.).
+    The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. 
 - `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
 - `totalColumn` - (optional) enables generating the total column with total values for rows. The default value is **false**; 
 - `totalRow` - (optional) enables generating the footer with total values (if set to **true**) the default value is **false**
