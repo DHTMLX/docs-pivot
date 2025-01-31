@@ -197,9 +197,15 @@ const table = new pivot.Pivot("#root", {
 
 ## Aligning numbers in a cell
 
-By default, numbers are justified against the end of a cell (aligned to the right) and the number alignment is not applied in headers and in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). If you want to change the number alignment in a cell, except for the cases mentioned, use the global `wx-number` class. 
+By default, numbers are justified against the end of a cell (aligned to the right) and the number alignment is not applied in headers and in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). If you want to change the number alignment in a cell, except for the cases mentioned, use the `wx-number` CSS class. 
 
-tbd
+~~~html
+<style>
+    .wx-number {
+        justify-content: start;
+    }
+</style>
+~~~
 
 
 
