@@ -100,7 +100,7 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 
 ## Cell style
 
-To apply a CSS class to a cell, use the `cellStyle` parameter of the [`tableShape`](/api/properties/tableshape-property) property. The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. In the example provided, if the `method` contains "count", it will return the string "count", which is associated with a CSS class *.count* that has the font-weight of 600. In the example we also apply number formatters: 
+To apply a CSS class to a cell, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. In the example provided, if the `method` contains "count", it will return the string "count", which is associated with a CSS class *.count* that has the font-weight of 600. In the example we also apply number formatters: 
 - `numOptions`  ensures that numbers are displayed with exactly two decimal places, regardless of their value
 - `new Intl.NumberFormat("en-US", numOptions)` creates a number formatter for the US locale ("en-US") using the options defined in `numOptions`. It also creates another number formatter specifically for formatting numbers as Euro currency (currency: "EUR") in the US locale with two decimal places. More about number formatting, see here: [Number formatting](/guides/localization/#number-formatting).
 
@@ -206,7 +206,6 @@ By default, numbers are justified against the end of a cell (aligned to the righ
     }
 </style>
 ~~~
-
 
 
 ## Example
