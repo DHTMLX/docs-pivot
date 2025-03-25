@@ -235,7 +235,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Freezing columns
 
-The widget allows freezing columns on the left or right side, which makes the columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` or `right` property to **true**.
+The widget allows freezing columns on the left or right side, which makes the columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` or `right` parameter to **true**. More details with examples, see below. 
 
 ### Fixing columns on the left
 
@@ -312,29 +312,29 @@ The `right` parameter of the [`tableShape`](/api/config/tableshape-property) pro
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
-    fields, 
+    fields,
     data: dataset,
     tableShape:{
         split: {right: true},// fixes total columns
         totalColumn: true,
     },
     config:  {
-		rows: [
-			"hobbies"
-		],
-		columns: [
-			"relationship_status"
-		],
-		values: [
-			{
-				field: "age",
-				method: "min"
-			},
-			{
-				field: "age",
-				method: "max"
-			}
-		]
+        rows: [
+            "hobbies"
+        ],
+        columns: [
+            "relationship_status"
+        ],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
 	}
 });
 ~~~
@@ -343,25 +343,25 @@ To fix custom columns on the right, you need to apply the table API via the [`re
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
-    fields, 
+    fields,
     data: dataset,
     config:  {
-		rows: [
-			"hobbies"
-		],
-		columns: [
-			"relationship_status"
-		],
-		values: [
-			{
-				field: "age",
-				method: "min"
-			},
-			{
-				field: "age",
-				method: "max"
-			}
-		]
+        rows: [
+            "hobbies"
+        ],
+        columns: [
+            "relationship_status"
+        ],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
 	}
 });
 
