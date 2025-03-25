@@ -36,7 +36,8 @@ tableShape?: {
     tree?:boolean,
     cleanRows?: boolean,
     split?: {
-        left?: boolean
+        left?: boolean,
+        right?: boolean,
     },
     cellStyle?: (field: string, value: any, area: string, method?: string) => string,
 };
@@ -64,7 +65,9 @@ tableShape?: {
 - `totalColumn` - (optional) enables generating the total column with total values for rows. The default value is **false**; 
 - `totalRow` - (optional) enables generating the footer with total values (if set to **true**) the default value is **false**
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
-- `split` - (optional) if set to **true**, fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
+- `split` - (optional) allows freezing columns on the right or left depending on the parameter specified (refer to [Freezing columns](/guides/configuration/#freezing-columns)):
+    - `left` (boolean) - if set to **true** (**false** is set by default), fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
+    - `right` (boolean) - fixes total columns on the right; default value is **false**
 
 By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and left columns are not fixed during scroll.
 

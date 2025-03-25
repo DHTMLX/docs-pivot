@@ -532,7 +532,7 @@ To enable generating the rightmost column with total values, apply the [`tableSh
 
 To enable generating the footer with totals, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
 
-### Example
+**Example:**
 
 ~~~jsx {2-5}
 const table = new pivot.Pivot("#root", {
