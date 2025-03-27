@@ -18,7 +18,7 @@ Released on November 29, 2024
 - exported columns with autowidth are too narrow in the resulting Excel file
 - incorrect position of a popup with filters
 - incorrect behaviour after changing configuration with the setConfig method
-- more presize type definitions
+- more precise type definitions
 
 ## Version 2.0.2
 
