@@ -12,7 +12,7 @@ The following types of information can be loaded into Pivot:
 
 - [`data`](/api/config/data-property) - an array of objects, where each object represents the data row
 
-### Example
+**Example:**
 
 ~~~jsx
 const data = [
@@ -302,6 +302,10 @@ exportButton.textContent = "Export";
 
 document.body.appendChild(exportButton);
 ~~~
+
+:::info
+Raw values are exported for date and number fields with visible formatting, but if a template is defined for a field, it exports the rendered value defined by that template.
+:::
 
 ## Example
 

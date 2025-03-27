@@ -8,6 +8,23 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 If you are updating Pivot from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1
+
+### New functionality
+
+- [Ability to freeze columns on the right](/guides/configuration/#freezing-columns)
+- [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with possibility to define custom number formats within templates
+- [Ability to change the number alignment in a cell](/guides/stylization/#aligning-numbers-in-a-cell)
+- [Ability to style cells](/guides/stylization/#cell-style)
+- Text fields and numbers are exported as they are seen in grid cells. If a template is applied to a cell, the rendered value is exported.
+
+### Fixes
+
+- Total columns are not sorted
+- Values are converted to numbers during export
+- Predicate template is not applied to rows/columns
+
+
 ## Version 2.0.3
 
 Released on November 29, 2024
@@ -18,7 +35,7 @@ Released on November 29, 2024
 - exported columns with autowidth are too narrow in the resulting Excel file
 - incorrect position of a popup with filters
 - incorrect behaviour after changing configuration with the setConfig method
-- more presize type definitions
+- more precise type definitions
 
 ## Version 2.0.2
 

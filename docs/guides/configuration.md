@@ -240,7 +240,7 @@ The widget allows freezing columns on the left or right side, which makes the co
 ### Fixing columns on the left
 
 :::info
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. 
 :::
 
 ~~~jsx {18-22}
