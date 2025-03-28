@@ -235,10 +235,12 @@ const table = new pivot.Pivot("#root", {
 
 ## Freezing columns
 
-The widget allows freezing columns on the left side, which makes the leftmost columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
+The widget allows freezing columns on the left or right side, which makes the columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` or `right` parameter to **true**. More details with examples, see below. 
+
+### Fixing columns on the left
 
 :::info
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. 
 :::
 
 ~~~jsx {18-22}
@@ -302,6 +304,73 @@ table.api.on("render-table", (tableConfig) => {
         left: config.rows.length + config.values.length * 2
     };
 });
+~~~
+
+### Fixing columns on the right
+
+The `right` parameter of the [`tableShape`](/api/config/tableshape-property) property allows fixing total columns on the right. 
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    tableShape:{
+        split: {right: true},// fixes total columns
+        totalColumn: true,
+    },
+    config:  {
+        rows: [
+            "hobbies"
+        ],
+        columns: [
+            "relationship_status"
+        ],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+	}
+});
+~~~
+
+To fix custom columns on the right, you need to apply the table API via the [`render-table`](/api/events/render-table-event) event.
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    config:  {
+        rows: [
+            "hobbies"
+        ],
+        columns: [
+            "relationship_status"
+        ],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+	}
+});
+
+widget.api.on("render-table", ({ config: tableConfig }) => {
+    const { config } = widget.api.getState();
+    tableConfig.split = {
+        right: config.values.length,
+    }
+})
 ~~~
 
 ## Sorting in columns

@@ -43,7 +43,7 @@ New properties do not fully duplicate the previous ones but provide more extende
 - Sorting: [sorting fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringfields) -> [sorting data](/guides/working-with-data#sorting-data)
 - Tree mode: [gridMode](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#gridmode) -> [enabling tree mode](/guides/configuration#enabling-the-tree-mode)
 - Date format: [configuring date fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringdatefields) ->
-[setting date format](/guides/loading-exporting-data#setting-date-format)
+[setting date format](/guides/localization#date-formatting)
 - Customization: 
   - [cells formatting](https://docs.dhtmlx.com/pivot/1-5/guides__customization.html#conditionalformattingofcells) -> [cells style](/guides/stylization#cell-style)
   - [templates for headers](https://docs.dhtmlx.com/pivot/1-5/guides__customization.html#settingtemplatesforheaders) ->

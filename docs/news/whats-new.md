@@ -8,6 +8,23 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 If you are updating Pivot from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1
+
+### New functionality
+
+- [Ability to freeze columns on the right](/guides/configuration/#freezing-columns)
+- [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with possibility to define custom number formats within templates
+- [Ability to change the number alignment in a cell](/guides/stylization/#aligning-numbers-in-a-cell)
+- [Ability to style cells](/guides/stylization/#cell-style)
+- Text fields and numbers are exported as they are seen in grid cells. If a template is applied to a cell, the rendered value is exported.
+- Cell navigation with a focus frame
+
+### Fixes
+
+- Total columns are not sorted
+- Values are converted to numbers during export
+- Predicate template is not applied to rows/columns
+
 ## Version 2.0.3
 
 Released on November 29, 2024
@@ -63,6 +80,6 @@ For tips about migration to the new version, check the [Migration](/news/migrati
   - [limiting loaded data](/guides/working-with-data#limiting-loaded-data)
   - more [operations with data](/guides/working-with-data#applying-maths-methods) are available 
   - [processing data with predicates](/guides/working-with-data#processing-data-with-predicates) - applying custom pre-processing functions for data
-  - [setting date format via locale](/guides/loading-exporting-data#setting-date-format)
+  - [setting date format via locale](/guides/localization#date-formatting)
 - New methods are added: [`getTable()`](/api/methods/gettable-method), [`setConfig()`](/api/methods/setconfig-method), [`setLocale()`](/api/methods/setlocale-method), [`showConfigPanel()`](/api/methods/showconfigpanel-method)  
 - New events are added: [`add-field`](/api/events/add-field-event), [`delete-field`](/api/events/delete-field-event), [`open-filter`](/api/events/open-filter-event), [`render-table`](/api/events/render-table-event), [`move-field`](/api/events/move-field-event), [`show-config-panel`](/api/events/show-config-panel-event), [`show-config-panel`](/api/events/show-config-panel-event), [`update-config`](/api/events/update-config-event), [`update-value`](/api/events/update-value-event).

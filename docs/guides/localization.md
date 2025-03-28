@@ -185,6 +185,139 @@ const ko = {...} //object with locale
 widget.setLocale(ko);
 ~~~
 
+## Date formatting
+
+Pivot accepts a date as a Date object (make sure to parse a date to a Date object). By default, the `dateFormat` of the current locale is applied. To redefine the format for all date fields in Pivot, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
+
+Example:
+
+~~~jsx {17}
+function setFormat(value) {
+    table.setConfig({ locale: { formats: { dateFormat: value } } });
+}
+
+// date string to Date
+const dateFields = fields.filter((f) => f.type == "date");
+if (dateFields.length) {
+    dataset.forEach((item) => {
+        dateFields.forEach((f) => {
+            const v = item[f.id];
+            if (typeof v == "string") item[f.id] = new Date(v);
+        });
+    });
+}
+
+const table = new pivot.Pivot("#root", {
+    locale: { formats: { dateFormat: "%d %M %Y %H:%i" } },
+    fields,
+    data: dataset,
+    config: {
+        rows: ["state"],
+        columns: ["product_line", "product_type"],
+        values: [
+            {
+                field: "date",
+                method: "min"
+            },
+            {
+                field: "profit",
+                method: "sum"
+            },
+            {
+                field: "sales",
+                method: "sum"
+            }
+        ]
+    }
+});
+~~~
+
+:::info
+In case you need to set format to a specific field, use the template parameter of the [`tableShape`](/api/config/tableshape-property) or [`headerShape`](/api/config/headershape-property)
+:::
+
+## Date and time format specification 
+
+Pivot uses the following characters for setting the date and time format:
+
+| Character | Definition                                        |Example                  |
+| :-------- | :------------------------------------------------ |:------------------------|
+| %d        | day as a number with leading zero                 | from 01 to 31           |
+| %j        | day as a number                                   | from 1 to 31            |
+| %D        | short name of the day (abbreviation)              | Su Mo Tu Sat            |
+| %l        | full name of the day                              | Sunday Monday Tuesday   |
+| %W        | week as a number with leading zero (with Monday as the first day of the week) | from 01 to 52/53        |
+| %m        | month as a number with leading zero               | from 01 to 12           |
+| %n        | month as a number                                 | from 1 to 12            |
+| %M        | short name of the month                           | Jan Feb Mar             |
+| %F        | full name of the month                            | January February March  |
+| %y        | year as a number, 2 digits                        | 24                      |
+| %Y        | year as a number, 4 digits                        | 2024                    |
+| %h        | hours 12-format with leading zero                 | from 01 to 12           |
+| %g        | hours 12-format                                   | from 1 to 12            |
+| %H        | hours 24-format with leading zero                 | from 00 to 23           |
+| %G        | hours 24-format                                   | from 0 to 23            |
+| %i        | minutes with leading zero                         | from 01 to 59           |
+| %s        | seconds with leading zero                         | from 01 to 59           |
+| %S        | milliseconds                                      | 128                     |
+| %a        | am or pm                                          | am (for time from midnight until noon) and pm (for time from noon until midnight)|
+| %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
+| %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
+
+
+To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+
+## Number formatting
+
+By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to disable number formatting of some fields, add the template via the [`tableShape`](/api/config/tableshape-property) property or set the *text* type for this field instead of the *number* type. 
+
+Example:
+
+~~~jsx
+    // Define number formatting options
+	const numOptions = { maximumFractionDigits: 2, minimumFractionDigits: 2 };
+    
+    // Create number formatters
+	const num = new Intl.NumberFormat("en-US", numOptions);
+	const eurNum = new Intl.NumberFormat("en-US", {
+		style: "currency",
+		currency: "EUR",
+		...numOptions,
+	});
+
+    // Templates for specific fields
+	const templates = {
+		continent: v => (v === "North America" ? "NA" : v),
+		oil: (v, op) => (v && op != "count" ? num.format(v) : v),
+		gdp: (v, op) => (v && op != "count" ? eurNum.format(v) : v),
+		year: v => v,
+	};
+
+    // Function to style cells based on field, value, area, and method
+	function cellStyle(field, value, area, method) {
+		if (method?.indexOf("count") > -1) return "count";
+	}
+
+    const table = new pivot.Pivot("#root", {
+        data,
+        fields,
+        config,
+        tableShape: {
+            templates,
+            cellStyle,
+        },
+    });
+
+    // Apply styles for count class
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .count {
+            font-weight: 600;
+        }
+    `;
+    document.head.appendChild(style);
+~~~
+
 ## Example
 
 In this snippet you can see how to switch between several locales:
