@@ -20,8 +20,8 @@ tableShape?: {
             operation: string
         ) => any;
     },
-    totalRow?: boolean,
-    totalColumn?: boolean,
+	totalRow?: boolean | "sumOnly",
+	totalColumn?: boolean | "sumOnly",
     marks?: {
         [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
         | "max" 
@@ -54,8 +54,8 @@ tableShape?: {
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30
   - `colWidth` - (optional) the column width in pixels; the default value is 150
 - `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
-- `totalColumn` - (optional) enables generating the total column with total values for rows. The default value is **false**; 
-- `totalRow` - (optional) enables generating the footer with total values (if set to **true**) the default value is **false**
+- `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default); if the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 
+- `totalRow` - (optional) if **true**, enables generating the footer with total values (**false** is set by default); if the value is set to "sumOnly", the row with the total row value will be generated (available only for sum operations)
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
 - `split` - (optional) if set to **true**, fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
 
