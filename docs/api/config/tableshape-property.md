@@ -20,8 +20,8 @@ tableShape?: {
             operation: string
         ) => any;
     },
-    totalRow?: boolean,
-    totalColumn?: boolean,
+	totalRow?: boolean | "sumOnly",
+	totalColumn?: boolean | "sumOnly",
     marks?: {
         [cssClass: string]: ((v: any, columnData: any, rowData: any) => boolean)
         | "max" 
@@ -62,14 +62,14 @@ tableShape?: {
     - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.).
     The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. 
 - `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
-- `totalColumn` - (optional) enables generating the total column with total values for rows. The default value is **false**; 
-- `totalRow` - (optional) enables generating the footer with total values (if set to **true**) the default value is **false**
+- `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default); if the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 
+- `totalRow` - (optional) if **true**, enables generating the footer with total values (**false** is set by default); if the value is set to "sumOnly", the row with the total row value will be generated (available only for sum operations) 
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
 - `split` - (optional) allows freezing columns on the right or left depending on the parameter specified (refer to [Freezing columns](/guides/configuration/#freezing-columns)):
     - `left` (boolean) - if set to **true** (**false** is set by default), fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
     - `right` (boolean) - fixes total columns on the right; default value is **false**
 
-By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and left columns are not fixed during scroll.
+By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and columns are not fixed during scroll.
 
 ## Example
 

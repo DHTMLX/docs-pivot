@@ -17,13 +17,13 @@ If you are updating Pivot from an older version, check [Migration to newer versi
 - [Ability to change the number alignment in a cell](/guides/stylization/#aligning-numbers-in-a-cell)
 - [Ability to style cells](/guides/stylization/#cell-style)
 - Text fields and numbers are exported as they are seen in grid cells. If a template is applied to a cell, the rendered value is exported.
+- Cell navigation with a focus frame
 
 ### Fixes
 
 - Total columns are not sorted
 - Values are converted to numbers during export
 - Predicate template is not applied to rows/columns
-
 
 ## Version 2.0.3
 
