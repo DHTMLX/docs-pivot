@@ -329,7 +329,7 @@ const widget = new pivot.Pivot("#pivot", {
                 method: "max"
             }
         ]
-	}
+    }
 });
 ~~~
 
@@ -352,7 +352,7 @@ const widget = new pivot.Pivot("#pivot", {
                 method: "max"
             }
         ]
-	}
+    }
 });
 
 widget.api.on("render-table", ({ config: tableConfig }) => {
