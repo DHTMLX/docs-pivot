@@ -34,7 +34,7 @@ Each object in the `fields` array should have the following properties:
 - `label` - (optional) the field label to be displayed in GUI
 - `type` - (required) data type in a field ( "number", "date", or "string")
 - `sort` - (optional) defines the default sorting order for the field. Accepts "asc", "desc", or a custom sorting function
-- `format` - (optional) allows customizing the format of numbers and dates in a cell; by default, the format is taken from locale; the format will be also applied during export
+- `format` - (optional) allows customizing the format of numbers and dates in a field; by default, the format is taken from locale; the format will be also applied during export
     - `string` - (optional) the format for dates
     - `boolean` - (optional) defines if date or number should be formatted: **false** (not formatted) or **true** (formatted); useful for numeric values like years
     - `numberFormatOptions` - (optional) an object with options for formatting:
