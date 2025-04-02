@@ -19,7 +19,8 @@ fields?: [{
     id: string,
     label?: string,
     type: "number" | "date" | "text",
-    sort?: "asc" | "desc" | ((a: any, b: any) => number)  
+    sort?: "asc" | "desc" | ((a: any, b: any) => number),
+    format?: string | boolean | numberFormatOptions{}
 }];
 ~~~
 
@@ -33,6 +34,20 @@ Each object in the `fields` array should have the following properties:
 - `label` - (optional) the field label to be displayed in GUI
 - `type` - (required) data type in a field ( "number", "date", or "string")
 - `sort` - (optional) defines the default sorting order for the field. Accepts "asc", "desc", or a custom sorting function
+- `format` - (optional) allows customizing the format of numbers and dates in a cell; by default, the format is taken from locale; the format will be also applied during export
+    - `string` - (optional) the format for dates
+    - `boolean` - (optional) defines if date or number should be formatted: **false** (not formatted) or **true** (formatted); useful for numeric values like years
+    - `numberFormatOptions` - (optional) an object with options for formatting:
+        - `minimumIntegerDigits`(number) - (optional) the minimum number of integer digits to use; possible values are from 1 to 21; the default is 1;
+        - `minimumFractionDigits`(number) - (optional) the minimum number of fraction digits to use; possible values are from 0 to 100; the default is 1;
+        - `maximumFractionDigits`(number) - (optional) the maximum number of fraction digits to use; possible values are from 0 to 100; the default is 3;  
+        For more details about digit options refer to  [Digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumintegerdigits)
+        - `prefix` (string) - (optional) a string (before a number) for additional symbols like currency
+        - `suffix` (string) - (optional) a string (after a number) for additional symbols like currency
+
+:::info
+If a template is applied via the [`tableShape`](/api/config/tableshape-property) property, it will override the `format` settings.
+:::
 
 ### Example
 
@@ -88,3 +103,5 @@ const table = new pivot.Pivot("#root", {
     }
 });
 ~~~
+
+**Related article**: [Number formatting](/guides/localization/#number-formatting)
