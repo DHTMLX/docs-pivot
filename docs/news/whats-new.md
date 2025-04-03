@@ -10,13 +10,15 @@ If you are updating Pivot from an older version, check [Migration to newer versi
 
 ## Version 2.1
 
+Released on ...
+
 ### New functionality
 
 - [Ability to freeze columns on the right](/guides/configuration/#freezing-columns)
 - [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with possibility to define custom number formats within templates
 - [Ability to change the number alignment in a cell](/guides/stylization/#aligning-numbers-in-a-cell)
 - [Ability to style cells](/guides/stylization/#cell-style)
-- `format` added to the [`fields`](/api/config/fields-property)
+- `format` added to the [`fields`](/api/config/fields-property) property
 - Text fields and numbers are exported as they are seen in grid cells. If a template is applied to a cell, the rendered value is exported.
 - Cell navigation with a focus frame
 
