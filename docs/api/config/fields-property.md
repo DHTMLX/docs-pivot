@@ -35,15 +35,16 @@ Each object in the `fields` array should have the following properties:
 - `type` - (required) data type in a field ( "number", "date", or "string")
 - `sort` - (optional) defines the default sorting order for the field. Accepts "asc", "desc", or a custom sorting function
 - `format` - (optional) allows customizing the format of numbers and dates in a field; by default, the format is taken from locale; the format will be also applied during export
-    - `string` - (optional) the format for dates
-    - `boolean` - (optional) defines if date or number should be formatted: **false** (not formatted) or **true** (formatted); useful for numeric values like years
+    - `string` - (optional) the format for dates (by default, Pivot uses `dateFormat` from locale)
+    - `boolean` - (optional) if set to **false**, a number is displayed as is, without any formatting
     - `numberFormatOptions` - (optional) an object with options for formatting:
-        - `minimumIntegerDigits`(number) - (optional) the minimum number of integer digits to use; possible values are from 1 to 21; the default is 1;
-        - `minimumFractionDigits`(number) - (optional) the minimum number of fraction digits to use; possible values are from 0 to 100; the default is 1;
-        - `maximumFractionDigits`(number) - (optional) the maximum number of fraction digits to use; possible values are from 0 to 100; the default is 3;  
+        - `minimumIntegerDigits`(number) - (optional) the minimum number of integer (for example, if the value is set to 2, the number 1 will be shown as "01"); the default is 1;
+        - `minimumFractionDigits`(number) - (optional) the minimum number of fraction digits to use (for example, if the value is set to 2, the number 10.5 will be shown as "10.50"); the default is 1;
+        - `maximumFractionDigits`(number) - (optional) the maximum number of fraction digits to use (for example, if the value is set to 2, the number 10.3333... will be shown as "10.33" ); the default is 3;  
         For more details about digit options refer to  [Digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumintegerdigits)
         - `prefix` (string) - (optional) a string (before a number) for additional symbols like currency
         - `suffix` (string) - (optional) a string (after a number) for additional symbols like currency
+
 
 :::info
 If a template is applied via the [`tableShape`](/api/config/tableshape-property) property, it will override the `format` settings.
