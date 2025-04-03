@@ -1,7 +1,7 @@
 ---
-sidebar_label: Loading and exporting data
-title: Loading and exporting data
-description: You can explore how to load and export data in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
+sidebar_label: Loading data
+title: Loading data
+description: You can explore how to load data in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
 ## Preparing data for loading
@@ -261,52 +261,6 @@ importButton.textContent = "Import";
 document.body.appendChild(importButton);
 ~~~
 
-## Exporting data
-
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying Table widget instance inside Pivot and apply its API to export data. To do this, you should use the [`getTable`](/api/methods/gettable-method) method.
-
-In the example below we get access to the Table instance and trigger the `export`action on the button click using the [`api.exec()`](/api/internal/exec-method) method.
-
-~~~jsx
-const table = new pivot.Pivot("#root", {
-    fields,
-    data: dataset,
-    config: {
-        rows: ["studio", "genre"],
-        columns: [],
-        values: [
-            {
-                id: "title",
-                method: "count"
-            },
-            {
-                id: "score",
-                method: "max"
-            }
-        ]
-    }
-});
-
-function toCSV() {
-    table.api.getTable().exec("export", {
-        options: {
-            format: "csv",
-            cols: ";"
-        }
-    });
-}
-
-const exportButton = document.createElement("button");
-exportButton.addEventListener("click", toCSV);
-exportButton.textContent = "Export";
-
-document.body.appendChild(exportButton);
-~~~
-
-:::info
-Raw values are exported for date and number fields with visible formatting, but if a template is defined for a field, it exports the rendered value defined by that template.
-:::
-
 ## Example
 
 In this snippet you can see how to load JSON and CSV data:
@@ -314,7 +268,6 @@ In this snippet you can see how to load JSON and CSV data:
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related samples:**
-- [Pivot 2.0. Export to XLSX, CSV](https://snippet.dhtmlx.com/zjuloqxd)
 - [Pivot 2.0: Date format](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2.0: Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2.0. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)

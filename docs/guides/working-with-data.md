@@ -6,7 +6,7 @@ description: You can explore how to work with Data in the documentation of the D
 
 # Working with data
 
-This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading and exporting data](/guides/loading-exporting-data).
+This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading data](/guides/loading-data) and [Exporting data](/guides/exporting-data).
 
 ## Defining fields
 

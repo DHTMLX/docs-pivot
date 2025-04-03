@@ -181,7 +181,8 @@ module.exports = {
             items: [
                 "guides/initialization",
                 "guides/configuration",
-                "guides/loading-exporting-data",
+                "guides/exporting-data",
+                "guides/loading-data",
                 "guides/localization",
                 "guides/stylization",
                 "guides/typescript-support",

@@ -39,7 +39,7 @@ New properties do not fully duplicate the previous ones but provide more extende
 
 ### Important features
 
-- Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/1-5/guides__export.html) -> [new export option](/guides/loading-exporting-data#exporting-data)
+- Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/1-5/guides__export.html) -> [new export option](/guides/exporting-data)
 - Sorting: [sorting fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringfields) -> [sorting data](/guides/working-with-data#sorting-data)
 - Tree mode: [gridMode](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#gridmode) -> [enabling tree mode](/guides/configuration#enabling-the-tree-mode)
 - Date format: [configuring date fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringdatefields) ->
