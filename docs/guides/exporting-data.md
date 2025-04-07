@@ -14,12 +14,14 @@ To export the table data to the XLSX or CSV format, it's necessary to get access
     result: any
 }) => boolean|void;
 ```
-
 The `export` action of the Table widget has the next parameters that you can configure to your needs: 
 
 - `options` - an object with the export options; options differ depending on the format type:
     - `format` (string) - (optional) the export format that can be "csv" or "xlsx"  
     **Options for "xlsx" format:**
+    :::info
+    By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
+    :::
     - `fileName` (string) - (optional) a name of .xlsx file ("data" by default)
     - `sheetName` (string) - a name of Excel sheet ( "data" by default)
     - `styles` - custom styles for cells in the header, body, and footer. Can be configured using a hash of style properties:
@@ -34,7 +36,7 @@ The `export` action of the Table widget has the next parameters that you can con
         ~~~
         If `styles` is set to **false**, grid will be exported without any styling.
 	- `cellTemplate` - a function to customize the export value of each cell. It takes the value, row, and column objects as parameters and returns the custom value to be exported: `(value, rowObj, columnObj) => string`
-	- `headerCellTemplate` -  a function that customizes the value of a header or footer cell during export. It is called with the text, header cell object, column object, and cell type ("header" or "footer"). This allows users to modify the exported header/footer values: `(text, headerCell, columnObj, type: "header"| "footer") => string`
+	- `headerCellTemplate` -  a function that customizes the value of a header or footer cell during export. It is called with the text, header cell object, column object, and cell type ("header" or "footer"). This allows users to modify the exported header/footer values. `(text, headerCell, columnObj, type: "header"| "footer") => string`
 	- `cellStyle` -  a function that allows customizing the style and format of individual cells during export. It takes the value, row, and column objects as parameters and should return an object with style properties (e.g., alignment or format): `(value, rowObj, columnObj) => any | null`
 	- `headerCellStyle` - similar to cellStyle, but specifically for the header and footer cells. This function takes the text, header cell object, column object, and type ("header" or "footer") and returns style properties: `(text, headerCell, columnObj, type: "header"| "footer") => any | null`
     - `header` (boolean) - (optional) defines if a header should be exported (**true** by default)
@@ -86,10 +88,6 @@ exportButton.textContent = "Export";
 
 document.body.appendChild(exportButton);
 ~~~
-
-:::info
-Raw values are exported for date and number fields with visible formatting, but if a template is defined for a field, it exports the rendered value defined by that template. You can also configure the export settings via the `format` parameter of the [`fields`](/api/config/fields-property) property. In case both the template and format are set, the template settings will override the format ones. 
-:::
 
 ## Example
 
