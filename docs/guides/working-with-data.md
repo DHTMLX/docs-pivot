@@ -574,5 +574,6 @@ In this snippet you can see how to apply custom maths operations:
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related samples:**
-- [Pivot 2.0: Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)
-- [Pivot 2.0. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
+- [Pivot 2. Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)
+- [Pivot 2. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
+- [Pivot 2. External filter](https://snippet.dhtmlx.com/s7tc9g4z)

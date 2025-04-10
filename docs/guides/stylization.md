@@ -214,4 +214,8 @@ In this snippet you can see how to apply a custom style to Pivot
 
 <iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related sample**: [Pivot 2.0. Min/max and custom marks for cells (conditional format)](https://snippet.dhtmlx.com/4cm4asbd)
+**Related samples**: 
+
+- [Pivot 2. Styling (custom CSS) for total column](https://snippet.dhtmlx.com/9lkdbzmm)
+- [Pivot 2. Min/max and custom marks for cells (conditional format)](https://snippet.dhtmlx.com/4cm4asbd)
+- [Pivot 2. Alternate row color (striped rows, zebra-striping)](https://snippet.dhtmlx.com/0cm0uko2)

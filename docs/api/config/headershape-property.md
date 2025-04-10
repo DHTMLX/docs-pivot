@@ -58,8 +58,8 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 **Related samples**:
-- [Pivot 2.0: Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
-- [Pivot 2.0: Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
-- [Pivot 2.0. Headers template](https://snippet.dhtmlx.com/g89r9ryw)
+- [Pivot 2. Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
+- [Pivot 2. Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
+- [Pivot 2. Headers template](https://snippet.dhtmlx.com/g89r9ryw)
 
 **Related article**: [Configuration](/guides/configuration)

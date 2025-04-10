@@ -635,5 +635,7 @@ In this snippet you can see how to apply templates to the Pivot cells:
 <iframe src="https://snippet.dhtmlx.com/n9ylp6b2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related samples:**
-- [Pivot 2.0: Sorting](https://snippet.dhtmlx.com/j7vtief6)
-- [Pivot 2.0. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
+- [Pivot 2. Sorting](https://snippet.dhtmlx.com/j7vtief6)
+- [Pivot 2. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
+- [Pivot 2. Frozen(fixed) columns on the left and right](https://snippet.dhtmlx.com/lahf729o)
+- [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)

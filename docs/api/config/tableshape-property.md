@@ -108,8 +108,10 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 **Related samples:**
-- [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
-- [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
-- [Pivot 2.0. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
+
+- [Pivot 2. Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
+- [Pivot 2. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
+- [Pivot 2. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
+- [Pivot 2. Clean rows](https://snippet.dhtmlx.com/rwwhgv2w?tag=pivot)
 
 **Related article**: [Configuration](/guides/configuration)

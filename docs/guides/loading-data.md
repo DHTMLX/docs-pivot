@@ -268,8 +268,8 @@ In this snippet you can see how to load JSON and CSV data:
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related samples:**
-- [Pivot 2.0: Date format](https://snippet.dhtmlx.com/shn1l794)
-- [Pivot 2.0: Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
-- [Pivot 2.0. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
+- [Pivot 2. Date format](https://snippet.dhtmlx.com/shn1l794)
+- [Pivot 2. Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
+- [Pivot 2. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
 
 **Related articles**: [Date formatting](/guides/localization#date-formatting)
