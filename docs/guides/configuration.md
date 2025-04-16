@@ -40,7 +40,7 @@ const sizes = {
     rowHeight: 34,
     headerHeight: 30,
     footerHeight: 30,
-    colWidth: 150
+    columnWidth: 150
 };
 ~~~
 
@@ -55,7 +55,7 @@ const table = new pivot.Pivot("#root", {
             rowHeight: 44,
             headerHeight: 60,
             footerHeight: 30,
-            colWidth: 170
+            columnWidth: 170
         }
     },
     config: {
@@ -639,3 +639,4 @@ In this snippet you can see how to apply templates to the Pivot cells:
 - [Pivot 2. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
 - [Pivot 2. Frozen(fixed) columns on the left and right](https://snippet.dhtmlx.com/lahf729o)
 - [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+

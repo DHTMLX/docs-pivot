@@ -30,7 +30,7 @@ tableShape?: {
     sizes?: {
         rowHeight?: number,
         headerHeight?: number,
-        colWidth?: number,
+        columnWidth?: number,
         footerHeight?: number
     },
     tree?:boolean,
@@ -54,7 +54,7 @@ tableShape?: {
   - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30
-  - `colWidth` - (optional) the column width in pixels; the default value is 150
+  - `columnWidth` - (optional) the column width in pixels; the default value is 150
 - `cellStyle` - (optional) a function that applies a custom style to a cell; the function has the next parameters:
     - `field` - (required) a string representing the field name for which the style is applied
     - `value` - (required) the value of the cell (the actual data for that particular row and column)
