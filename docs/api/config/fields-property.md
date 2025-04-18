@@ -37,7 +37,7 @@ Each object in the `fields` array should have the following properties:
 - `format` - (optional) allows customizing the format of numbers and dates in a field; the format will be also applied during [export](/guides/exporting-data)
     - `string` - (optional) the format for dates (by default, Pivot uses `dateFormat` from locale)
     - `boolean` - (optional) if set to **false**, a number is displayed as is, without any formatting
-    - `numberFormatOptions` - (optional) an object with options for formatting:
+    - `numberFormatOptions` - (optional) an object with options for formatting numeric fields; by default, numbers will be shown with a maximum of 3 decimal digits and group separation for the integer part is applied.
         - `minimumIntegerDigits`(number) - (optional) the minimum number of integer (for example, if the value is set to 2, the number 1 will be shown as "01"); the default is 1;
         - `minimumFractionDigits`(number) - (optional) the minimum number of fraction digits to use (for example, if the value is set to 2, the number 10.5 will be shown as "10.50"); the default is 1;
         - `maximumFractionDigits`(number) - (optional) the maximum number of fraction digits to use (for example, if the value is set to 2, the number 10.3333... will be shown as "10.33"); the default is 3;  

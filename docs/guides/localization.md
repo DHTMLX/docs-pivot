@@ -236,7 +236,7 @@ const table = new pivot.Pivot("#root", {
 In case you need to set format to a specific field, use the template parameter of the [`tableShape`](/api/config/tableshape-property) or [`headerShape`](/api/config/headershape-property)
 :::
 
-## Date and time format specification 
+## Date and time format specification
 
 Pivot uses the following characters for setting the date and time format:
 
@@ -270,10 +270,6 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 ## Number formatting
 
 By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to disable number formatting of some fields, add the template via the [`tableShape`](/api/config/tableshape-property) property or set the *text* type for this field instead of the *number* type. 
-
-:::info
-Number and date formats can also be set via the `format` parameter of the [`fields`](/api/config/fields-property) property. If both the template (via the [`tableShape`](/api/config/tableshape-property) property) and format are set, the template will override the format settings. 
-:::
 
 Example:
 
@@ -321,6 +317,30 @@ Example:
     `;
     document.head.appendChild(style);
 ~~~
+
+## Applying custom format to numeric and date fields
+
+You can apply a custom format to the date and numeric fields using the `format` parameter of the [`fields`](/api/config/fields-property) property. 
+
+You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
+
+~~~js
+const fields = [
+     { id: "sales",  type: "number",  format: {suffix: " EUR", maximumFractionDigits: 2}},
+];
+~~~
+
+By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. The `format` parameter allows you to display numeric values without group separation (for example, years):
+
+~~~js
+const fields = [
+     { id: "year", label: "Year",  type: "number",  format: false},
+];
+~~~
+
+:::info
+If both the template (via the [`tableShape`](/api/config/tableshape-property) property) and `format` are set, the template will override the format settings.
+:::
 
 ## Example
 
