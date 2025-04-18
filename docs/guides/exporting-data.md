@@ -49,6 +49,7 @@ To export the table data to the XLSX or CSV format, it's necessary to get access
     result?: any;
 }) => boolean|void;
 ```
+
 The `export` action of the Table widget has the next parameters that you can configure to your needs: 
 
 - `options` - an object with the export options; options differ depending on the format type:
@@ -64,7 +65,7 @@ The `export` action of the Table widget has the next parameters that you can con
     - `sheetName` (string) - a name of Excel sheet ( "data" by default)
     - `styles` (boolean or object) - if set to **false**, grid will be exported without any styling; an object includes parameters for custom styles for cells in the header, body, and footer. Can be configured using a hash of style properties:  
         - header - style properties for header cells with the next properties: 
-            - `fontWeight` (string) - (optional) can set to "bold" or if not set, the font will be normal
+            - `fontWeight` (string) - (optional) can be set to "bold" or if not set, the font will be normal
             - `color` (string) - (optional) text color in header
             - `background` (string) - (optional) background color for header
             - `align` - (optional) text alignment that can be "left"|"right"|"center"; if not set, alignment set in Excel will be applied
