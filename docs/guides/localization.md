@@ -326,7 +326,7 @@ You can add text before and after numeric values using the `prefix` and `suffix`
 
 ~~~js
 const fields = [
-     { id: "sales",  type: "number",  format: {suffix: " EUR", maximumFractionDigits: 2}},
+     { id: "sales", type: "number", format: {suffix: " EUR", maximumFractionDigits: 2}},
 ];
 ~~~
 
@@ -334,7 +334,7 @@ By default, the format for numeric values limits fraction digits to 3 and applie
 
 ~~~js
 const fields = [
-     { id: "year", label: "Year",  type: "number",  format: false},
+     { id: "year", label: "Year", type: "number", format: false},
 ];
 ~~~
 

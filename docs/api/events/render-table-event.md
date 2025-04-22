@@ -17,15 +17,21 @@ It allows you to alter the final table configuration on the fly or prevent the r
 ~~~jsx
 "render-table": ({
     config: {
-        columns?: [],
-        data: [],
+        columns?: any[],
+        data?: any[],
         footer?: boolean,
-        sizes: {},
+        sizes?: {
+            rowHeight?: number,
+            headerHeight?: number,
+            columnWidth?: number,
+            footerHeight?: number
+        },
         split?: {
-            left?: number
+            left?: number;
+            right?: number;
         },
         tree?: boolean,
-        cellStyle?: (row: any, col: any) => string
+        cellStyle?: (row: any, col: any) => string,
     }
 }) => boolean | void;
 ~~~
@@ -35,19 +41,37 @@ It allows you to alter the final table configuration on the fly or prevent the r
 The callback of the action takes the `config` object with the following parameters:
 
 - `columns` - (optional) columns array with the next parameters for each object:
-  - `id` (number) - (optional) the id of a column
-  - `header`- (optional) an object with header settings:
-    - `text` (string) - (optional) a header label
-    - `rowspan` (number) - (optional) the number of rows a header should span
-    - `colspan` (number) - (optional) the number of columns a header should span
+    - `cell` (any) - (optional) a template with the cell content (и ссылка на статью про cell templates)
+    - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
+    - `method` (string) - (optional) a method, if defined for a field in this column
+    - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
+    - `format` (string or object) - date or number [format](/guides/localization/#applying-custom-format-to-numeric-and-date-fields)
+    - `isNumeric` (boolean) - (optional) defines whether a column contains numeric values
+    - `isTotal` (boolean) - (optional) defines whether it is a total column
+    - `id` (number) - (optional) the id of a column
+    - `area` (string) - (optional) an area where the column is rendered: "rows", "columns", "values"
+    - `header`- (optional) an array of header cells with the next properties for each cell:
+        - `text` (string) - (optional) cell text, or formatted value, or processed with a predicate template
+        - `rowspan` (number) - (optional) the number of rows a header should span
+        - `colspan` (number) - (optional) the number of columns a header should span
+        - `value` (any) - raw value, if a cell belongs to "columns" area
+        - `field` (string) - field, which value is displayed, if a cell belongs to "columns" area
+        - `method` (string) - field predicate, if a cell belongs to "columns" area and predicate is defined
+        - `format` (string or object) - date or number [format](/guides/localization/#applying-custom-format-to-numeric-and-date-fields)
   - `footer` - (optional) a header label or an object with footer settings which are the same as the header settings
   - `field` - (optional) it's a string which is the id of a field
   - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
-- `data` - (optional) an array of objects with data for the table; each object represents a row
+- `data` - (optional) an array of objects with data for the table; each object represents a row:
+    - `id` (number) - row id
+    - `values` (array) - an array with row data
+    - `open` (boolean)- (optional) branch state
+    - `$level` (boolean)- (optional) branch index
 - `footer` - (optional) if it's set to **true**, the table footer is displayed at the bottom of the table; it's set to **false** and invisible by default
 - `sizes` - (optional) an object with table sizes settings, namely, columnWidth, footerHeight, headerHeight, rowHeight
-- `split` - (optional) the number of columns to be fixed from the left during the scrolling process
-- `tree` - (optional) the boolean value with the tree mode setting (**true** if the tree mode is enabled)
+- `split` (object) - (optional) an object with the next properties:
+    - `left` (number) - the number of fixed columns from the left
+    - `right` (number) - the number of fixed columns from the right
+- `tree` - (optional) defines if the tree mode is enabled (**true** if enabled)
 - `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
 
 :::info
@@ -149,4 +173,4 @@ function closeAll() {
 
 See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration#freezing-columns).
 
-**Related sample:** [Pivot 2.0. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+**Related sample:** [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)

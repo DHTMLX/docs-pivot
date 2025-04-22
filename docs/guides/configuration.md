@@ -129,6 +129,8 @@ const table = new pivot.Pivot("#root", {
 
 ## Applying templates to cells
 
+### Adding templates via tableShape
+
 To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
 
 In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
@@ -166,16 +168,60 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
+### Adding a templates via the template helper
+
+You can also define HTML templates using the `pivot.template` helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `cell` parameter inside `columns` array. Define the template via the `pivot.template` helper.
+
+The example shows how you can add icons to body cells based on their field (id, user_score):
+
+~~~js
+function cellTemplate(value, method, row, column) {
+    const field = column.fields ? column.fields[row.$level] : column.field;
+
+    if (field === "id") {
+        return idTemplate(value);
+    }
+
+    if (field === "user_score") {
+        return scoreTemplate(value);
+    }
+
+    return value;
+}
+
+function idTemplate(value) {
+    const name = value?.toString().split("-")[0];
+    return `<span class="cell-id flag-${name}"></span> ${value}`;
+}
+
+function scoreTemplate(value) {
+    return `<i class="cell-score wxi-star"></i> ${value}`;
+}
+
+widget.api.intercept("render-table", ({ config: tableConfig }) => {
+    tableConfig.columns = tableConfig.columns.map((c) => {
+        if (c.area === "rows") {
+            // Apply a template to body cells in row fields
+            c.cell = pivot.template(({ value, method, row, column }) => cellTemplate(value, method, row, column));
+        }
+        return c;
+    });
+});
+~~~
+
 ## Applying templates to headers
 
+### Adding templates via headerShape
+
 To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that:
+
 - takes the field id, label and sublabel (the name of a method if any is applied)
 - returns the processed value 
 
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
-### Example
+Example
 
 In the example below for the **values** fields the header will display the method name (subLabel) and the label:
 
@@ -202,6 +248,47 @@ const table = new pivot.Pivot("#root", {
         vertical: true,
         template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
     }
+});
+~~~
+
+### Adding templates via the template helper
+
+You can also define HTML templates using the `pivot.template` helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `header` parameter inside `columns` array. Define the template via the `pivot.template` helper.
+
+The example below shows how to add icons to:
+
+- the row header labels based on the field name
+- the column headers based on the value
+
+~~~jsx
+function rowsHeaderTemplate(value, field) {
+    let icon = "";
+    if (field === "id") icon = "<i class='icon wxi-earth'></i>";
+    if (field === "user_score") icon = "<i class='icon wxi-star'></i>";
+    return `${value} ${icon}`;
+}
+
+function statusTemplate(value) {
+    let icon = "";
+    if (value === "Up") icon = "<i style='color:green' class='icon wxi-arrow-up'></i>";
+    if (value === "Down") icon = "<i style='color:red' class='icon wxi-arrow-down'></i>";
+    return `${value} ${icon}`;
+}
+
+widget.api.intercept("render-table", ({ config: tableConfig }) => {
+    tableConfig.columns = tableConfig.columns.map((c) => {
+        if (c.area === "rows") {
+            // Apply a template to the first header row of row fields
+            c.header[0].cell = pivot.template(({ value, field }) => rowsHeaderTemplate(value, field));
+        } else {
+            // For headers in columns (like "status")
+            const headerCell = c.header.find((h) => h.field === "status");
+            if (headerCell) {
+                headerCell.cell = pivot.template(({ value }) => statusTemplate(value));
+            }
+        }
+        return c;
+    });
 });
 ~~~
 
