@@ -41,7 +41,7 @@ It allows you to alter the final table configuration on the fly or prevent the r
 The callback of the action takes the `config` object with the following parameters:
 
 - `columns` - (optional) columns array with the next parameters for each object:
-    - `cell` (any) - (optional) a template with the cell content (и ссылка на статью про cell templates)
+    - `cell` (any) - (optional) a template with the cell content (please, refer to [Applying templates to cells](/guides/configuration/#applying-templates-to-cells))
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode

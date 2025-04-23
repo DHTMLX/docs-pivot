@@ -149,6 +149,21 @@ module.exports = {
                 }
             ]
         },
+        {
+            type: "category",
+            label: "Helpers",
+            collapsible: true,
+            collapsed: true,
+            link: {
+                type: 'generated-index',
+            },
+        
+            items: [
+                {
+                    type: "doc",
+                    id: "api/helpers/template",
+                    
+                },]},
         //start Framework integration
         {
             type: "category",

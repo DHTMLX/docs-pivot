@@ -168,11 +168,11 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-### Adding a templates via the template helper
+### Adding a template via the template helper
 
 You can also define HTML templates using the `pivot.template` helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `cell` parameter inside `columns` array. Define the template via the `pivot.template` helper.
 
-The example shows how you can add icons to body cells based on their field (id, user_score):
+The example shows how you can add icons (star or flag icon) to body cells based on their field (id, user_score):
 
 ~~~js
 function cellTemplate(value, method, row, column) {
@@ -221,8 +221,6 @@ To define the format of text in headers, apply the `template` parameter of the [
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
-Example
-
 In the example below for the **values** fields the header will display the method name (subLabel) and the label:
 
 ~~~jsx {19-22}
@@ -257,8 +255,8 @@ You can also define HTML templates using the `pivot.template` helper. You need t
 
 The example below shows how to add icons to:
 
-- the row header labels based on the field name
-- the column headers based on the value
+- the header labels based on the field name (for example, if the field is "id", it adds the globe icon next to the header value)
+- the column headers based on the value (colored arrow indicators are added)
 
 ~~~jsx
 function rowsHeaderTemplate(value, field) {
