@@ -232,7 +232,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property.
+In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Custom date formatting](/guides/custom-formatting/#custom-date-formatting).
 
 ## Date and time format specification
 
@@ -267,15 +267,7 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 
 ## Number formatting
 
-By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
-
-~~~js
-const fields = [
-     { id: "sales", type: "number", format: {suffix: " EUR", maximumFractionDigits: 2}},
-];
-~~~
-
-By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. The `format` parameter allows you to display numeric values without group separation (for example, years):
+By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. The `format` parameter allows you to display numeric values without group separation (for example, years):
 
 ~~~js
 const fields = [
@@ -283,55 +275,7 @@ const fields = [
 ];
 ~~~
 
-In the example below, fields like marketing, profit, and sales are identified as currency-related. A formatting object is applied to these fields with:
-
-- prefix: "$" to display a dollar sign
-- *minimumFractionDigits* and *maximumFractionDigits* set to 2 for consistent decimal formatting
-
-~~~jsx
-const dataset = [...]; // your dataset array
-const fields = [
-    { id: "profit", type: "number" },
-    { id: "sales", type: "number" },
-    { id: "marketing", type: "number" },
-    { id: "date", type: "date" },
-    // other fields...
-];
-
-// Apply custom formatting
-const currencyFields = ["marketing", "profit", "sales"];
-
-fields.forEach(field => {
-    if (currencyFields.includes(field.id)) {
-        // Apply currency formatting
-        field.format = {
-            prefix: "$",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        };
-    } else if (field.type === "date") {
-        // Apply date formatting
-        field.format = "%M %d, %Y";
-    }
-});
-
-// Initialize pivot with pre-defined dataset and fields
-new pivot.Pivot("#pivot", {
-    data: dataset,
-    config: {
-        rows: ["state", "product_type"],
-        columns: [],
-        values: [
-            { field: "profit", method: "sum" },
-            { field: "sales", method: "sum" },
-            { field: "marketing", method: "sum" },
-            { field: "date", method: "min" },
-            { field: "cogs", method: "sum" },
-        ],
-    },
-    fields
-});
-~~~
+For more information, refer to [Custom number formatting](/guides/custom-formatting/#custom-number-formatting).
 
 :::info
 In case you need to disable number formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 

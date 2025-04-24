@@ -41,7 +41,7 @@ For body cells the function takes the next parameters:
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
-    - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
+    - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
     - `isNumeric` (boolean) - (optional) defines whether a column contains numeric values
     - `isTotal` (boolean) - (optional) defines whether it is a total column
     - `area` (string) - (optional) an area where the column is rendered: "rows", "columns", "values"
@@ -52,7 +52,7 @@ For body cells the function takes the next parameters:
         - `value` (any) - (required) raw value, if a cell belongs to "columns" area
         - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
         - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-        - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
+        - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
 
 For header cells the function parameters are the following:
 
@@ -66,7 +66,7 @@ For header cells the function parameters are the following:
     - `value` (any) - (required) raw value, if a cell belongs to "columns" area
     - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
     - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-    - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
+    - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
 - `column` - (required) an object with column data (the same as for the body cell)
 
 ### Example
@@ -82,8 +82,8 @@ The snippet demonstrates how you can add icons to:
 <iframe src="https://snippet.dhtmlx.com/4viq7cft?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
 
-**Related articles:** 
+**Related articles:**
 
-- [`render-table` event](/api/events/render-table-event)
+- [`render-table`](/api/events/render-table-event)
 - [Applying templates to cells](/guides/configuration/#applying-templates-to-cells)
 - [Applying templates to headers](/guides/configuration/#applying-templates-to-headers)
