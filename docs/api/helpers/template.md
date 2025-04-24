@@ -41,7 +41,7 @@ For body cells the function takes the next parameters:
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
-    - `format` (string or object) - (required) date or number [format](/guides/localization/#applying-custom-format-to-numeric-and-date-fields)
+    - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
     - `isNumeric` (boolean) - (optional) defines whether a column contains numeric values
     - `isTotal` (boolean) - (optional) defines whether it is a total column
     - `area` (string) - (optional) an area where the column is rendered: "rows", "columns", "values"
@@ -52,7 +52,7 @@ For body cells the function takes the next parameters:
         - `value` (any) - (required) raw value, if a cell belongs to "columns" area
         - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
         - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-        - `format` (string or object) - (required) date or number [format](/guides/localization/#applying-custom-format-to-numeric-and-date-fields)
+        - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
 
 For header cells the function parameters are the following:
 
@@ -66,7 +66,7 @@ For header cells the function parameters are the following:
     - `value` (any) - (required) raw value, if a cell belongs to "columns" area
     - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
     - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-    - `format` (string or object) - (required) date or number [format](/guides/localization/#applying-custom-format-to-numeric-and-date-fields)
+    - `format` (string or object) - (required) [date format](/guides/localization/#date-formatting) or [number format](/guides/localization/#number-formatting)
 - `column` - (required) an object with column data (the same as for the body cell)
 
 ### Example

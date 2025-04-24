@@ -232,9 +232,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-:::info
-In case you need to set format to a specific field, use the template parameter of the [`tableShape`](/api/config/tableshape-property) or [`headerShape`](/api/config/headershape-property)
-:::
+In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property.
 
 ## Date and time format specification
 
@@ -269,60 +267,7 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 
 ## Number formatting
 
-By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to disable number formatting of some fields, add the template via the [`tableShape`](/api/config/tableshape-property) property or set the *text* type for this field instead of the *number* type. 
-
-Example:
-
-~~~jsx
-    // Define number formatting options
-	const numOptions = { maximumFractionDigits: 2, minimumFractionDigits: 2 };
-    
-    // Create number formatters
-	const num = new Intl.NumberFormat("en-US", numOptions);
-	const eurNum = new Intl.NumberFormat("en-US", {
-		style: "currency",
-		currency: "EUR",
-		...numOptions,
-	});
-
-    // Templates for specific fields
-	const templates = {
-		continent: v => (v === "North America" ? "NA" : v),
-		oil: (v, op) => (v && op != "count" ? num.format(v) : v),
-		gdp: (v, op) => (v && op != "count" ? eurNum.format(v) : v),
-		year: v => v,
-	};
-
-    // Function to style cells based on field, value, area, and method
-	function cellStyle(field, value, area, method) {
-		if (method?.indexOf("count") > -1) return "count";
-	}
-
-    const table = new pivot.Pivot("#root", {
-        data,
-        fields,
-        config,
-        tableShape: {
-            templates,
-            cellStyle,
-        },
-    });
-
-    // Apply styles for count class
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .count {
-            font-weight: 600;
-        }
-    `;
-    document.head.appendChild(style);
-~~~
-
-## Applying custom format to numeric and date fields
-
-You can apply a custom format to the date and numeric fields using the `format` parameter of the [`fields`](/api/config/fields-property) property. 
-
-You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
+By default, all fields with the *number* type are localized according to the locale (the value in the `lang` field of the locale). The [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) object enables language-sensitive number formatting. In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
 
 ~~~js
 const fields = [
@@ -338,8 +283,58 @@ const fields = [
 ];
 ~~~
 
+In the example below, fields like marketing, profit, and sales are identified as currency-related. A formatting object is applied to these fields with:
+
+- prefix: "$" to display a dollar sign
+- *minimumFractionDigits* and *maximumFractionDigits* set to 2 for consistent decimal formatting
+
+~~~jsx
+const dataset = [...]; // your dataset array
+const fields = [
+    { id: "profit", type: "number" },
+    { id: "sales", type: "number" },
+    { id: "marketing", type: "number" },
+    { id: "date", type: "date" },
+    // other fields...
+];
+
+// Apply custom formatting
+const currencyFields = ["marketing", "profit", "sales"];
+
+fields.forEach(field => {
+    if (currencyFields.includes(field.id)) {
+        // Apply currency formatting
+        field.format = {
+            prefix: "$",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        };
+    } else if (field.type === "date") {
+        // Apply date formatting
+        field.format = "%M %d, %Y";
+    }
+});
+
+// Initialize pivot with pre-defined dataset and fields
+new pivot.Pivot("#pivot", {
+    data: dataset,
+    config: {
+        rows: ["state", "product_type"],
+        columns: [],
+        values: [
+            { field: "profit", method: "sum" },
+            { field: "sales", method: "sum" },
+            { field: "marketing", method: "sum" },
+            { field: "date", method: "min" },
+            { field: "cogs", method: "sum" },
+        ],
+    },
+    fields
+});
+~~~
+
 :::info
-If both the template (via the [`tableShape`](/api/config/tableshape-property) property) and `format` are set, the template will override the format settings.
+In case you need to disable number formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
 :::
 
 ## Example
