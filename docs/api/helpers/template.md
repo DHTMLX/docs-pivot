@@ -4,8 +4,6 @@ title: template
 description: You can learn about the Pivot template helper in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-## template
-
 ### Description
 
 The `template` function allows applying a template to the table header and body cells.

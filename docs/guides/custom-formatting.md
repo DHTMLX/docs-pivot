@@ -6,7 +6,7 @@ description: You can learn about date and custom formatting in the documentation
 
 ## Default formatting 
 
-About default formatting that depends on locale, please refer to [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
+For the description of default formatting of date and numeric fields, which depends on locale, refer to [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
 
 ## Custom number formatting
 
