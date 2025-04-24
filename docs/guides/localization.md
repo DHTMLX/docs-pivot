@@ -278,7 +278,7 @@ const fields = [
 For more information, refer to [Custom number formatting](/guides/custom-formatting/#custom-number-formatting).
 
 :::info
-In case you need to disable number formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
+In case you need to disable formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
 :::
 
 ## Example
