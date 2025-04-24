@@ -80,3 +80,10 @@ The snippet demonstrates how you can add icons to:
 - the column headers based on the value (colored arrow indicators are added)
 
 <iframe src="https://snippet.dhtmlx.com/4viq7cft?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
+
+
+**Related articles:** 
+
+- [`render-table` event](/api/events/render-table-event)
+- [Applying templates to cells](/guides/configuration/#applying-templates-to-cells)
+- [Applying templates to headers](/guides/configuration/#applying-templates-to-headers)
