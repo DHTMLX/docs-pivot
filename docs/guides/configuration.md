@@ -324,9 +324,7 @@ The widget allows freezing columns on the left or right side, which makes the co
 
 ### Freezing columns on the left
 
-:::info
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. 
-:::
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. In the sample below, 1 column is fixed initially on the left, which is equal to the number of fields defined for the "rows" area.
 
 ~~~jsx {19}
 const table = new pivot.Pivot("#root", {
@@ -347,19 +345,14 @@ const table = new pivot.Pivot("#root", {
         ]
     },
     tableShape: { 
-        split: {left: true } //freezes all fields from rows on the left side 
+        split: {left: true } 
     }
 });
 ~~~
 
-You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. 
+You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans.
 
-:::info
-For the custom split, the number of columns that are split depends on the number of the rows and values fields that are defined in the [`config`](/api/config/config-property) property.
-It's not recommended to split columns with colspans.
-:::
-
-In the example below we split all rows fields (two rows are defined in the config) and the first two columns (the first two values fields).
+In the sample below all columns from the "rows" area and first 4 columns from the "values" area are fixed initially. The number of columns that are split depends on the number of the rows and values fields that are defined via the [`config`](/api/config/config-property) property.
 
 ~~~jsx {19-25}
 const table = new pivot.Pivot("#root", {
@@ -418,7 +411,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-To fix custom columns on the right, you need to apply the table API via the [`render-table`](/api/events/render-table-event) event.
+To fix custom columns on the right, you need to apply the table API via the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans. In the sample below, 2 columns on the right are fixed initially. 
 
 ~~~jsx {20-25}
 const widget = new pivot.Pivot("#pivot", {

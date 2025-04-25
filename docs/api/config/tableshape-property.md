@@ -39,7 +39,7 @@ tableShape?: {
         left?: boolean,
         right?: boolean,
     },
-    cellStyle?: (field: string, value: any, area: string, method?: string) => string,
+    cellStyle?: (field: string, value: any, area: string, method?: string, isTotal?: string) => string,
 };
 ~~~
 
@@ -47,9 +47,8 @@ tableShape?: {
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where:
   - each key is a field id
-  - the value is a function that returns a string and receives cell value and operation 
- All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
-- `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
+  - the value is a function that returns a string and receives cell value and operation. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
+- `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
 - `sizes` - (optional) defines the following size parameters of the table: 
   - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
@@ -59,7 +58,8 @@ tableShape?: {
     - `field` - (required) a string representing the field name for which the style is applied
     - `value` - (required) the value of the cell (the actual data for that particular row and column)
     - `area` - (required) a string indicating the area of the table where a cell resides ("rows", "columns" or "values" area)
-    - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.).
+    - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.)
+    - `isTotal` - (optional) defines whether a cell belongs to a total row, total column, or both: "row"|"column"|"both   
     The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. 
 - `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
 - `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default); if the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 

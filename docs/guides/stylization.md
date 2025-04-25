@@ -119,7 +119,6 @@ To apply a CSS class to a cell, use the `cellStyle` parameter of the [`tableShap
 ~~~
 
 
-
 ## Marking cells
 
 The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
@@ -180,7 +179,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Aligning numbers in a cell
 
-By default, numbers are justified against the end of a cell (aligned to the right) and the number alignment is not applied in headers and in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). If you want to change the number alignment in a cell, except for the cases mentioned, use the `wx-number` CSS class. 
+By default, in the table body numbers are aligned to the right with the help of the built-in `.wx-number` CSS class. The exception is the hierarchical column in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). To reset the default number alignment, change the related CSS class. 
 
 ~~~html
 <style>
@@ -189,7 +188,6 @@ By default, numbers are justified against the end of a cell (aligned to the righ
     }
 </style>
 ~~~
-
 
 ## Example
 
