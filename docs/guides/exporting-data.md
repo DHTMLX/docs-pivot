@@ -67,25 +67,21 @@ The `export` action of the Table widget has the next parameters that you can con
 
     - `sheetName` (string) - a name of Excel sheet ( "data" by default)
     - `styles` (boolean or object) - if set to **false**, grid will be exported without any styling; can be configured using a hash of style properties:  
-        - header - an object with the next settings for header cells: 
+        - `header` - an object with the next settings for header cells: 
             - `fontWeight` (string) - (optional) can be set to "bold" or if not set, the font will be normal
             - `color` (string) - (optional) text color in header
             - `background` (string) - (optional) background color for header
             - `align` - (optional) text alignment that can be "left"|"right"|"center". If not set, alignment set in Excel will be applied
             - `borderBottom` (string) - (optional) the style of the bottom border
             - `borderRight` (string) - (optional) the style of the right border (e.g., *borderRight:  "0.5px solid #dfdfdf"* )
-        - lastHeaderCell - style properties for the last row of header cells. Properties are the same as for *header*
-        - cell - style properties for body cells.Properties are the same as for *header*
-        - firstFooterCell - style properties for the first row of footer cells. Properties are the same as for *header*
-        - footer - style properties for footer cells. Properties are the same as for *header*
+        - `lastHeaderCell` - style properties for the last row of header cells. Properties are the same as for *header*
+        - `cell` - style properties for body cells.Properties are the same as for *header*
+        - `firstFooterCell` - style properties for the first row of footer cells. Properties are the same as for *header*
+        - `footer` - style properties for footer cells. Properties are the same as for *header*
     - `cellTemplate` - a function to customize the export value of each cell. It takes the value, row, and column objects as parameters and returns the custom value to be exported
 	- `headerCellTemplate` -  a function that customizes the value of a header or footer cell during export. It is called with the text, header cell object, column object, and cell type ("header" or "footer"). This allows users to modify the exported header/footer values
 	- `cellStyle` -  a function that allows customizing the style and format of individual cells during export. It takes the value, row, and column objects as parameters and should return an object with style properties (e.g., alignment or format)
 	- `headerCellStyle` - similar to cellStyle, but specifically for the header and footer cells. This function takes the text, header cell object, column object, and type ("header" or "footer") and returns style properties
-    - `header` (boolean) - (optional) defines if a header should be exported (**true** by default)
-    - `footer` (boolean) - (optional) defines if a footer should be exported (**true** by default)
-    - `download` (boolean) - (optional) defines whether to download a file. **true** is set by default. If set to **false**, the file will not be downloaded, Excel data (Blob) will be available as `ev.result`
-         
     :::note
     By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
     :::
