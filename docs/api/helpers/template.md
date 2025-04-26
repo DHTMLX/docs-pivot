@@ -35,8 +35,10 @@ For body cells the function takes the next parameters:
     - `$level` (boolean)- (optional) branch index
 - `column` - (required) an object with column data:
     - `id` (number) - (required) the id of a column
-    - `cell` (any) - (optional) a template with the cell content (please, refer to [Applying templates to cells](/guides/configuration/#applying-templates-to-cells))
+    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](/guides/configuration/#adding-a-template-via-the-template-helper))    
+    - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
+     - `field` - (optional) it's a string which is the id of a field
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
     - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
@@ -49,12 +51,12 @@ For body cells the function takes the next parameters:
         - `colspan` (number) - (optional) the number of columns a header should span
         - `value` (any) - (required) raw value, if a cell belongs to "columns" area
         - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
-        - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-        - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
+        - `method` (string) - (required) the field predicate, if a cell belongs to "columns" area and predicate is defined
+        - `format` (string or object) - [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
 
 For header cells the function parameters are the following:
 
-- `value` (any) - (required) raw cell value
+- `value` (any) - (required) a raw cell value
 - `method` (string) - (optional) a predicate used for a column
 - `field` (string) - (optional) a field which value is displayed in a cell
 - `cell` - (required) an object with cell data:

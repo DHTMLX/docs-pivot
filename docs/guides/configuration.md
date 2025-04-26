@@ -170,7 +170,7 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding a template via the template helper
 
-You can also define HTML templates using the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `columns` array. Define the template via the `pivot.template` helper.
+You can also define a template as a cell property of the `column` object via the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `columns` array. Define the template via the `pivot.template` helper.
 
 The example shows how you can add icons (star or flag icon) to body cells based on their field (id, user_score):
 
@@ -201,7 +201,7 @@ function scoreTemplate(value) {
 widget.api.intercept("render-table", ({ config: tableConfig }) => {
     tableConfig.columns = tableConfig.columns.map((c) => {
         if (c.area === "rows") {
-            // Apply a template to body cells in row fields
+            // Apply a template to column cells from the "rows" area
             c.cell = pivot.template(({ value, method, row, column }) => cellTemplate(value, method, row, column));
         }
         return c;
@@ -251,7 +251,7 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding templates via the template helper
 
-You can also define HTML templates using the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `header` parameter in the `columns` array. Define the template via the `pivot.template` helper.
+You can also define a template as a cell property of the `header` object via the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `header` parameter in the `columns` array. Define the template via the `pivot.template` helper.
 
 The example below shows how to add icons to:
 
@@ -276,10 +276,10 @@ function statusTemplate(value) {
 widget.api.intercept("render-table", ({ config: tableConfig }) => {
     tableConfig.columns = tableConfig.columns.map((c) => {
         if (c.area === "rows") {
-            // Apply a template to the first header row of row fields
+            // Apply a template to the first header row of the columns from the "rows" area
             c.header[0].cell = pivot.template(({ value, field }) => rowsHeaderTemplate(value, field));
         } else {
-            // For headers in columns (like "status")
+            // For header cells that display values from the "status" field
             const headerCell = c.header.find((h) => h.field === "status");
             if (headerCell) {
                 headerCell.cell = pivot.template(({ value }) => statusTemplate(value));

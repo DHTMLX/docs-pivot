@@ -100,22 +100,59 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 
 ## Cell style
 
-To apply a CSS class to a cell, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. In the example provided, if the `method` contains "count", it will return the string "count", which is associated with the related CSS class.
+To apply a CSS class to the table body cell, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. The style of the header and footer cells can be customized via the `cellStyle` parameter of the [`headerShape`](/api/config/tableshape-property) property. In both cases the `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell.   
+
+In the example below the styles of cells in the table body and headers are customized in the following way:
+- for the table body cells, styles are applied dynamically based on cell values (e.g., "Down", "Up", "Idle") in the "status" field and on total values (greater than 40 or less than 5) 
+- the style of header cells is determined by the value in the "streaming" field, with specific styles applied for "no" or other values (the CSS class "status-down" is applied for the "no" value and "status-up" is applied for the not "no" value)
 
 ~~~jsx
-    // Cell style function
-    const cellStyle = (field, value, area, method) => {
-        if (method?.indexOf("count") > -1) return "count";
-    };
-
-    const table = new pivot.Pivot("#root", {
-        fields,
-        data,
-        config,
-        tableShape: {
-            cellStyle // Apply the cellStyle function
+const widget = new pivot.Pivot("#pivot", {
+    tableShape: {
+        totalColumn: true,
+        totalRow:true,
+        cellStyle: (field, value, area, method, isTotal) => {
+            if (field === "status" && area === "rows" && value) {
+                if (value === "Down") {
+                    return "status-down";
+                } else if (value === "Up") {
+                    return "status-up";
+                } else if (value === "Idle") {
+                    return "status-idle";
+                }
+            }
+            if(isTotal ==="column" && area == "values"){
+                if(value > 40)
+                    return "status-up";
+                else if (value < 5)
+                    return "status-down";
+            }
         }
-    });
+    },
+    headerShape:{
+        cellStyle:(field, value, area, method, isTotal) => {
+            if(field == "streaming")
+                return value ==="no"?"status-down":"status-up";
+        }
+    },
+    fields,
+    data: dataset,
+    config: {
+        rows: [
+            "protocol",
+            "status",
+        ],
+        columns: [
+            "streaming"
+        ],
+        values: [
+            {
+                field: "id",
+                method: "count"
+            }
+        ]
+    }
+});
 ~~~
 
 

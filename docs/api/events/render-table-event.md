@@ -42,8 +42,10 @@ The callback of the action takes the `config` object with the following paramete
 
 - `columns` - (optional) columns array with the next parameters for each object:
     - `id` (number) - (required) the id of a column
-    - `cell` (any) - (optional) a template with the cell content (please, refer to [Applying templates to cells](/guides/configuration/#applying-templates-to-cells))
+    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](/guides/configuration/#adding-a-template-via-the-template-helper))    
+    - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
+     - `field` - (optional) it's a string which is the id of a field
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
     - `format` (string or object) - (required) [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
@@ -59,9 +61,7 @@ The callback of the action takes the `config` object with the following paramete
         - `method` (string) - (required) the field predicate, if a cell belongs to "columns" area and predicate is defined
         - `format` (string or object) - [date format](/guides/custom-formatting/#custom-date-formatting) or [number format](/guides/custom-formatting/#custom-number-formatting)
   - `footer` - (optional) a header label or an object with footer settings which are the same as the header settings
-  - `field` - (optional) it's a string which is the id of a field
-  - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
-- `data` - (optional) an array of objects with data for the table; each object represents a row:
+ - `data` - (optional) an array of objects with data for the table; each object represents a row:
     - `id` (number) - (required) row id
     - `values` (array) - (required) an array with row data
     - `open` (boolean)- (optional) branch state
