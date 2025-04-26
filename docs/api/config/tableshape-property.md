@@ -39,7 +39,13 @@ tableShape?: {
         left?: boolean,
         right?: boolean,
     },
-    cellStyle?: (field: string, value: any, area: string, method?: string, isTotal?: string) => string,
+    cellStyle?: (
+    field: string, 
+    value: any, 
+    area: "rows"|"columns"|"values", 
+    method?: string,
+    isTotal?: "row"|"column"|"both") 
+    => string,
 };
 ~~~
 

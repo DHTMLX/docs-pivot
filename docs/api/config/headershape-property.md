@@ -16,7 +16,14 @@ description: You can learn about the headerShape config in the documentation of 
 headerShape?: {
     collapsible?: boolean,
     vertical?: boolean,
-    template?: (label: string, field: string, subLabel?: string) => string
+    template?: (label: string, field: string, subLabel?: string) => string,
+    cellStyle?: (
+        field: string, 
+        value: any, 
+        area: "rows"|"columns"|"values", 
+        method?: string,
+        isTotal?: boolean) 
+        => string,
 };
 ~~~
 
@@ -28,7 +35,7 @@ headerShape?: {
     - `field` (string) - (required) a string representing the field name the cell corresponds to. For the header of the tree column the field is ""
     - `value` (string | number | date) - (required) the value of a cell 
     - `area` - (required) a string indicating the area of the table where a cell resides ("rows", "columns" or "values" area)
-    - `method` string - (optional) a string that can represent the operation performed for a field from the "values` area (e.g., "sum", "count", etc.) or the name of a predicate set for a field from the "columns" area
+    - `method` (string) - (optional) a string that can represent the operation performed for a field from the "values` area (e.g., "sum", "count", etc.) or the name of a predicate set for a field from the "columns" area
     - `isTotal` - (optional) defines whether a cell belongs to a total column
 - `template` - (optional) defines the format of text in headers. By default, for the fields applied as rows the value of the `label` parameter is displayed and for the fields applied as values the label and method are shown (e.g., *Oil(count)*). The function takes the field id, label and the method or predicate id (if any) and returns the processed value. The default template is as follows: 
 ~~~js
@@ -58,7 +65,7 @@ const table = new pivot.Pivot("#root", {
     },
     headerShape: {
         vertical: true,
-        template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : "")
+        template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : ""),
     }
 });
 ~~~

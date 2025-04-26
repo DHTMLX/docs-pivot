@@ -155,6 +155,16 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
+It's also possible to customize the style of total columns and total rows via the `wx-total` class:
+
+~~~html
+<style>
+    .wx-cell.wx-total {
+        background: #fafafb;
+        font-weight: var(--wx-header-font-weight);
+    }
+</style>
+~~~
 
 ## Marking cells
 
