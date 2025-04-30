@@ -18,7 +18,7 @@ const fields = [
 ];
 ~~~
 
-By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. The `format` parameter allows you to display numeric values without group separation (for example, years):
+By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. You can cancel formatting by setting `format` to *false* in the `field` configuration:
 
 ~~~js
 const fields = [
@@ -86,7 +86,7 @@ const fields = [
 ];
 ~~~
 
-In the example below we set the date format to "%d %M %Y %H:%i" for the "date" field only. The format displays day, full month name, year, hours, and minutes, e.g., "24 April 2025 14:30".
+In the example below we set the date format to "%d %M %Y %H:%i" for the "date" field only. The format displays day, full month name, year, hours, and minutes, e.g., "24 April 2025 14:30". In case you need to disable formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
 
 ~~~jsx
 const fields = [
@@ -134,9 +134,6 @@ new pivot.Pivot("#pivot", {
 });
 ~~~
 
-:::info
-In case you need to disable formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
-:::
 
 ## Example
 

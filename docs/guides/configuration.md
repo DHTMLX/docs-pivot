@@ -170,7 +170,7 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding a template via the template helper
 
-You can also define a template as a cell property of the `column` object via the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `columns` array. Define the template via the `pivot.template` helper.
+You can insert HTML content to table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the `column` object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. 
 
 The example shows how you can add icons (star or flag icon) to body cells based on their field (id, user_score):
 
@@ -251,7 +251,7 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding templates via the template helper
 
-You can also define a template as a cell property of the `header` object via the [`pivot.template`](/api/helpers/template) helper. You need to apply it right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. Use this event to modify the table's config, namely the `header` parameter in the `columns` array. Define the template via the `pivot.template` helper.
+You can insert HTML content to header cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header cell object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method.
 
 The example below shows how to add icons to:
 

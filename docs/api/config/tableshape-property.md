@@ -40,12 +40,12 @@ tableShape?: {
         right?: boolean,
     },
     cellStyle?: (
-    field: string, 
-    value: any, 
-    area: "rows"|"columns"|"values", 
-    method?: string,
-    isTotal?: "row"|"column"|"both") 
-    => string,
+        field: string, 
+        value: any, 
+        area: "rows"|"columns"|"values", 
+        method?: string,
+        isTotal?: "row"|"column"|"both") 
+        => string,
 };
 ~~~
 
