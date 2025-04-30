@@ -31,7 +31,7 @@ headerShape?: {
 
 - `collapsible` - (optional) if set to **true**, dimension groups in the table are collapsible. It's set to **false** by default
 - `vertical` - (optional) if set to **true**, changes the text orientation in all headers from horizontal to vertical. The default value is **false**
-- `cellStyle` - (optional) a function that applies a custom style to a header or footer cell. The function returns a name of css class and takes the following parameters:
+- `cellStyle` - (optional) a function that applies a custom style to a header cell. The function returns a name of css class and takes the following parameters:
     - `field` (string) - (required) a string representing the field name the cell corresponds to. For the header of the tree column the field is ""
     - `value` (string | number | date) - (required) the value of a cell 
     - `area` - (required) a string indicating the area of the table where a cell resides ("rows", "columns" or "values" area)
