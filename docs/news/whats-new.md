@@ -14,7 +14,7 @@ Released on ...
 
 ### New functionality
 
-- [Ability to freeze columns on the right](/guides/configuration/#freezing-columns)
+- [Ability to freeze columns on the right](/guides/configuration/#freezing-columns-on-the-right)
 - [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with [a new possibility to define custom number formats within templates](/guides/custom-formatting) (for date and numeric fields) via `format` added to the [`fields`](/api/config/fields-property) property
 - [Ability to style header and table cells](/guides/stylization/#cell-style) via the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) and [`headerShape`](/api/config/tableshape-property) properties
 - Ability to insert HTML content to header and table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header and column objects (table customization by intercepting the [render-table](/api/events/render-table-event) event)
