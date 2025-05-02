@@ -225,7 +225,7 @@ By default, in the table body numbers are aligned to the right with the help of 
 </style>
 ~~~
 
-It's also possible to customize the style of total columns and total rows via the ` .wx-total` CSS class:
+It's also possible to customize the style of total columns via the ` .wx-total` CSS class:
 
 ~~~html
 <style>
