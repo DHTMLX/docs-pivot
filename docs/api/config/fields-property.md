@@ -104,4 +104,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**Related article**: [Number formatting](/guides/localization/#number-formatting)
+**Related articles**: 
+
+- [Number formatting](/guides/localization/#number-formatting)
+- [Custom fields formatting](/guides/custom-formatting)
+
+**Related sample:**  [Pivot 2. Defining fields formats](https://snippet.dhtmlx.com/77nc4j8v)
