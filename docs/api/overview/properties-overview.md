@@ -6,7 +6,7 @@ description: You can have Properties overview of JavaScript Pivot in the documen
 
 # Properties overview
 
-To configure the **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
+To configure **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
 
 | Name                                               | Description                                      |
 | -------------------------------------------------- | ------------------------------------------------ |

@@ -15,14 +15,15 @@ Released on ...
 ### New functionality
 
 - [Ability to freeze columns on the right](/guides/configuration/#freezing-columns-on-the-right)
-- [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with [a new possibility to define custom number formats within templates](/guides/working-with-data/#applying-formats-to-fields) (for date and numeric fields) via `format` added to the [`fields`](/api/config/fields-property) property
+- [Numbers are formatted](/guides/localization/#number-formatting) according to the current locale with [a new possibility to define custom number formats](/guides/working-with-data/#applying-formats-to-fields) (for date and numeric fields) via `format` added to the [`fields`](/api/config/fields-property) property
 - [Ability to style header and table cells](/guides/stylization/#cell-style) via the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) and [`headerShape`](/api/config/tableshape-property) properties
 - Ability to insert HTML content to header and table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header and column objects (table customization by intercepting the [render-table](/api/events/render-table-event) event)
 - [Excel and CSV export settings enhanced](/guides/exporting-data):
-  - date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property; if a template is applied to a cell, the rendered value is exported
+  - for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property
   - ability to add a file name, define whether to display heder/footer in the exported file, and other settings
-  - ability to style cells and add export templates
+  - ability to add styles and templates for exported cells
 - Visual frame for cell navigation
+- [Integration with frameworks](/category/integration-with-frameworks)
 
 ### Fixes
 

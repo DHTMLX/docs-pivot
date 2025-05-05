@@ -6,6 +6,10 @@ description: You can learn about the Migration to Newer Versions in the document
 
 # Migration to newer versions
 
+## 2.0 -> 2.1
+
+- `colWidth` parameter of the `sizes` object in the `tableShape` property renamed to `columnWidth`
+
 ## 1.5 -> 2.0
 
 This list of changes will help you migrate from the previous version of Pivot 1.5 to the totally renewed version of Pivot 2.0
