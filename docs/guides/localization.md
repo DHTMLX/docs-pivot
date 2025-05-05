@@ -232,7 +232,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Custom date formatting](/guides/custom-formatting/#custom-date-formatting).
+In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
 
 ## Date and time format specification
 
@@ -268,7 +268,7 @@ To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.12
 ## Number formatting
 
 By default, all fields with the number type are localized according to the locale (the value in the `lang` field of the locale). Pivot uses [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. By default the fraction digits are limited to 3 and group separation is applied for the integer part. 
-In case you do not need to format specific fields with numeric values or need to set a custom format, use the the `format` parameter of the [`fields`](/api/config/fields-property) property. It can be either *false* to cancel formatting or an object with format settings (refer to [Custom number formatting](/guides/custom-formatting/#custom-number-formatting)). 
+In case you do not need to format specific fields with numeric values or need to set a custom format, use the the `format` parameter of the [`fields`](/api/config/fields-property) property. It can be either *false* to cancel formatting or an object with format settings (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)). 
 
 ~~~jsx
 const fields = [
