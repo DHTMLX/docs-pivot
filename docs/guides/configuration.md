@@ -44,7 +44,7 @@ const sizes = {
 };
 ~~~
 
-### Example
+Example:
 
 ~~~jsx {4-11}
 const table = new pivot.Pivot("#root", {
@@ -91,7 +91,7 @@ All parameters of `autoWidth` are optional and for detailed description of each 
 
 If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
-### Example
+Example:
 
 ~~~jsx {18-30}
 const table = new pivot.Pivot("#root", {
