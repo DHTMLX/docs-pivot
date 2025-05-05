@@ -24,7 +24,7 @@ module.exports = {
                     'news/whats-new',
                     'news/migration'
                 ]
-            },
+        },
         {
             type: "category",
             label: "API",
@@ -146,7 +146,25 @@ module.exports = {
                         "api/config/readonly-property",
                         "api/config/tableshape-property"
                     ]
-                }
+                },
+
+                {
+                    type: "category",
+                    label: "Table events",
+                    collapsible: true,
+                    collapsed: true,
+                    link: {
+                        type: "doc",
+                        id: "api/overview/table-events-overview"
+                        
+                    },
+                    items: [
+                        "api/table/close-row",
+                        "api/table/export",
+                        "api/table/filter-rows",
+                        "api/table/open-row"
+                    ]
+                },
             ]
         },
         {

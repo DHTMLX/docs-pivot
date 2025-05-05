@@ -282,6 +282,10 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
+:::info
+You can also filter data using the [`filter-rows`](/api/table/filter-rows) event of the Table widget by getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
+:::
+
 ## Limiting loaded data
 
 To interrupt data rendering and prevent the component from hanging, you can limit the number of rows and columns in the final dataset. To limit data, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data. The limits are applied based on the rows/columns defined within the Pivot configuration. The default value for rows is 10 000 and for columns it's 5 000.
