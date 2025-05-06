@@ -100,7 +100,64 @@ You can also apply a custom style to the scroll bar of Pivot. For this, you can 
 
 ## Cell style
 
-The widget API allows marking cells with the required values. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
+To apply a CSS class to the table body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. The style of the header cells can be customized via the `cellStyle` parameter of the [`headerShape`](/api/config/tableshape-property) property. In both cases the `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell.   
+
+In the example below the styles of cells in the table body and headers are customized in the following way:
+- for the table body cells, styles are applied dynamically based on cell values (e.g., "Down", "Up", "Idle") in the "status" field and on total values (greater than 40 or less than 5) 
+- the style of header cells is determined by the value in the "streaming" field, with specific styles applied for "no" or other values (the CSS class "status-down" is applied for the "no" value and "status-up" is applied for the not "no" value)
+
+~~~jsx
+const widget = new pivot.Pivot("#pivot", {
+    tableShape: {
+        totalColumn: true,
+        totalRow:true,
+        cellStyle: (field, value, area, method, isTotal) => {
+            if (field === "status" && area === "rows" && value) {
+                if (value === "Down") {
+                    return "status-down";
+                } else if (value === "Up") {
+                    return "status-up";
+                } else if (value === "Idle") {
+                    return "status-idle";
+                }
+            }
+            if(isTotal ==="column" && area == "values"){
+                if(value > 40)
+                    return "status-up";
+                else if (value < 5)
+                    return "status-down";
+            }
+        }
+    },
+    headerShape:{
+        cellStyle:(field, value, area, method, isTotal) => {
+            if(field == "streaming")
+                return value ==="no"?"status-down":"status-up";
+        }
+    },
+    fields,
+    data: dataset,
+    config: {
+        rows: [
+            "protocol",
+            "status",
+        ],
+        columns: [
+            "streaming"
+        ],
+        values: [
+            {
+                field: "id",
+                method: "count"
+            }
+        ]
+    }
+});
+~~~
+
+## Marking values in cells
+
+The widget API allows marking required values in cells. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
 - create a CSS class to be applied to the marked cell
 - add the CSS class name as the parameter of the `marks` object
 - set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
@@ -156,10 +213,37 @@ const table = new pivot.Pivot("#root", {
 </style>
 ~~~
 
+## Specific CSS classes
+
+By default, in the table body numbers are aligned to the right with the help of the built-in `.wx-number` CSS class. The exception is the hierarchical column in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). To reset the default number alignment, change the related CSS class. 
+
+~~~html
+<style>
+    .wx-number {
+        justify-content: start;
+    }
+</style>
+~~~
+
+It's also possible to customize the style of total columns via the ` .wx-total` CSS class:
+
+~~~html
+<style>
+    .wx-cell.wx-total {
+        background: #fafafb;
+        font-weight: var(--wx-header-font-weight);
+    }
+</style>
+~~~
+
 ## Example
 
 In this snippet you can see how to apply a custom style to Pivot
 
 <iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related sample**: [Pivot 2.0. Min/max and custom marks for cells (conditional format)](https://snippet.dhtmlx.com/4cm4asbd)
+**Related samples**: 
+
+- [Pivot 2. Styling (custom CSS) for total column](https://snippet.dhtmlx.com/9lkdbzmm)
+- [Pivot 2. Min/max and custom marks for cells (conditional format)](https://snippet.dhtmlx.com/4cm4asbd)
+- [Pivot 2. Alternate row color (striped rows, zebra-striping)](https://snippet.dhtmlx.com/0cm0uko2)

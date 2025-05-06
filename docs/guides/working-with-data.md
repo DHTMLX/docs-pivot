@@ -6,13 +6,13 @@ description: You can explore how to work with Data in the documentation of the D
 
 # Working with data
 
-This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading and exporting data](/guides/loading-exporting-data).
+This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading data](/guides/loading-data) and [Exporting data](/guides/exporting-data).
 
 ## Defining fields
 
 Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table. To add a new field, you should add a new object to the `fields` array.  
 
-### Example
+Example:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -28,11 +28,103 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
+## Applying formats to fields
+
+For the description of default formatting of date and numeric fields, which depends on locale, refer to [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
+
+In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
+
+~~~js
+const fields = [
+     { id: "sales", type: "number", format: {suffix: " EUR", maximumFractionDigits: 2}},
+];
+~~~
+
+By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. You can cancel formatting by setting `format` to *false* in the `field` configuration:
+
+~~~js
+const fields = [
+     { id: "year", label: "Year", type: "number", format: false},
+];
+~~~
+
+In the example below, fields like marketing, profit, and sales are identified as currency-related. A formatting object is applied to these fields with:
+
+- prefix: "$" to display a dollar sign
+- *minimumFractionDigits* and *maximumFractionDigits* set to 2 for consistent decimal formatting
+
+~~~jsx
+// Initialize pivot with pre-defined dataset and fields
+new pivot.Pivot("#pivot", {
+    data,
+    config: {
+        rows: ["state", "product_type"],
+        columns: [],
+        values: [
+            { field: "marketing", method: "sum" },
+            // other values
+
+        ],
+    },
+    fields:[
+        // Custom format
+        { id: "marketing", label: "Marketing", type:"number", format:{
+                prefix: "$", minimumFractionDigits: 2, maximumFractionDigits: 2 }
+        }
+    ]
+});
+~~~
+
+To override the default locale-wide `dateFormat`, apply the `format` parameter of the [`fields`](/api/config/fields-property) property. Date format is a string, for example:
+
+~~~jsx
+const fields = [
+     { id: "date",  type: "date",  format: "%M %d, %Y"},
+];
+~~~
+
+In the example below we set the date format to "%d %M %Y %H:%i" for the "date" field only. The format displays day, full month name, year, hours, and minutes, e.g., "24 April 2025 14:30". In case you need to disable formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
+
+~~~jsx
+// Convert date strings to Date objects
+const dateFields = fields.filter(f => f.type === "date");
+dataset.forEach(item => {
+    dateFields.forEach(f => {
+        const v = item[f.id];
+        if (typeof v === "string") {
+            item[f.id] = new Date(v);
+        }
+    });
+});
+
+// Initialize Pivot with field-specific date format
+new pivot.Pivot("#pivot", {
+    data,
+    config: {
+        rows: ["state"],
+        columns: ["product_type"],
+        values: [
+            { field: "date", method: "min" },
+            { field: "profit", method: "sum" },
+            { field: "sales", method: "sum" }
+        ]
+    },
+    fields:[
+        // Custom format: Day Month Year Hour:Minute
+        {id:"date", label:"Date", type:"date", "%d %M %Y %H:%i"}
+    ]
+});
+~~~
+
+:::note
+By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
+:::
+
 ## Defining Pivot structure
 
 You can create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details.
 
-### Example
+Example:
 
 ~~~jsx {4-18}
 const table = new pivot.Pivot("#root", {
@@ -194,6 +286,10 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
+:::info
+You can also filter data using the [`filter-rows`](/api/table/filter-rows) event of the Table widget by getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
+:::
+
 ## Limiting loaded data
 
 To interrupt data rendering and prevent the component from hanging, you can limit the number of rows and columns in the final dataset. To limit data, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data. The limits are applied based on the rows/columns defined within the Pivot configuration. The default value for rows is 10 000 and for columns it's 5 000.
@@ -202,7 +298,7 @@ To interrupt data rendering and prevent the component from hanging, you can limi
 Limits are used for large dataset. Limits values are approximate values and do not show the exact values of the rows and columns.
 :::
 
-### Example
+Example:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -280,7 +376,7 @@ const defaultMethods = {
 
 You can apply default methods using the `values` parameter of the [`config`](/api/config/config-property) property. See [Options for defining values](#options-for-defining-values) below.
 
-### Example
+Example:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -311,7 +407,7 @@ You can define `values`in either of the two equally valid ways:
 - option one is a string representing a data field ID: `operation(fieldID)`
 - option two is an object containing the field ID and the method for data aggregation (both are required): `{ field: string, method: string }`
 
-### Example
+Example:
 
 ~~~jsx
 values: [
@@ -532,7 +628,7 @@ To enable generating the rightmost column with total values, apply the [`tableSh
 
 To enable generating the footer with totals, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
 
-### Example
+**Example:**
 
 ~~~jsx {2-5}
 const table = new pivot.Pivot("#root", {
@@ -574,5 +670,8 @@ In this snippet you can see how to apply custom maths operations:
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related samples:**
-- [Pivot 2.0: Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)
-- [Pivot 2.0. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
+
+- [Pivot 2. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
+- [Pivot 2. Defining fields formats](https://snippet.dhtmlx.com/77nc4j8v)
+- [Pivot 2. External filter](https://snippet.dhtmlx.com/s7tc9g4z)
+- [Pivot 2. Grand total for columns and rows](https://snippet.dhtmlx.com/f0ag0t9t)

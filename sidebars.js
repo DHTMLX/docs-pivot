@@ -24,7 +24,7 @@ module.exports = {
                     'news/whats-new',
                     'news/migration'
                 ]
-            },
+        },
         {
             type: "category",
             label: "API",
@@ -146,9 +146,42 @@ module.exports = {
                         "api/config/readonly-property",
                         "api/config/tableshape-property"
                     ]
-                }
+                },
+
+                {
+                    type: "category",
+                    label: "Table events",
+                    collapsible: true,
+                    collapsed: true,
+                    link: {
+                        type: "doc",
+                        id: "api/overview/table-events-overview"
+                        
+                    },
+                    items: [
+                        "api/table/close-row",
+                        "api/table/export",
+                        "api/table/filter-rows",
+                        "api/table/open-row"
+                    ]
+                },
             ]
         },
+        {
+            type: "category",
+            label: "Helpers",
+            collapsible: true,
+            collapsed: true,
+            link: {
+                type: 'generated-index',
+            },
+        
+            items: [
+                {
+                    type: "doc",
+                    id: "api/helpers/template",
+                    
+                },]},
         //start Framework integration
         {
             type: "category",
@@ -181,7 +214,8 @@ module.exports = {
             items: [
                 "guides/initialization",
                 "guides/configuration",
-                "guides/loading-exporting-data",
+                "guides/exporting-data",
+                "guides/loading-data",
                 "guides/localization",
                 "guides/stylization",
                 "guides/typescript-support",

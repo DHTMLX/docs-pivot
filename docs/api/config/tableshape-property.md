@@ -30,14 +30,22 @@ tableShape?: {
     sizes?: {
         rowHeight?: number,
         headerHeight?: number,
-        colWidth?: number,
+        columnWidth?: number,
         footerHeight?: number
     },
     tree?:boolean,
     cleanRows?: boolean,
     split?: {
-        left?: boolean
-    }
+        left?: boolean,
+        right?: boolean,
+    },
+    cellStyle?: (
+        field: string, 
+        value: any, 
+        area: "rows"|"columns"|"values", 
+        method?: string,
+        isTotal?: "row"|"column"|"both") 
+        => string,
 };
 ~~~
 
@@ -45,61 +53,79 @@ tableShape?: {
 
 - `templates` -  (optional) allows setting templates to a cell; it's an object where:
   - each key is a field id
-  - the value is a function that returns a string and receives cell value and operation 
- All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
-- `marks` - (optional) allows marking a cell with the required values; it's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The default value is {}. The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
+  - the value is a function that returns a string and receives cell value and operation. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
+- `marks` - (optional) allows marking a cell with the required values. It's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value. If **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
 - `sizes` - (optional) defines the following size parameters of the table: 
-  - `rowHeight` - (optional) the row height in the Pivot table in pixels; the default value is 34
+  - `rowHeight` - (optional) the row height in the Pivot table in pixels. The default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
   - `footerHeight` - (optional) the footer height in pixels; the default value is 30
-  - `colWidth` - (optional) the column width in pixels; the default value is 150
-- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows; the default value is **false**; more information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
-- `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default); if the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 
-- `totalRow` - (optional) if **true**, enables generating the footer with total values (**false** is set by default); if the value is set to "sumOnly", the row with the total row value will be generated (available only for sum operations)
+  - `columnWidth` - (optional) the column width in pixels; the default value is 150
+- `cellStyle` - (optional) a function that applies a custom style to a cell. The function has the next parameters:
+    - `field` - (required) a string representing the field name for which the style is applied
+    - `value` - (required) the value of the cell (the actual data for that particular row and column)
+    - `area` - (required) a string indicating the area of the table where a cell resides ("rows", "columns" or "values" area)
+    - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.)
+    - `isTotal` - (optional) defines whether a cell belongs to a total row, total column, or both: "row"|"column"|"both   
+    The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. 
+- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows, the default value is **false**. More information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
+- `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default). If the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 
+- `totalRow` - (optional) if **true**, enables generating the footer with total values (**false** is set by default). If the value is set to "sumOnly", the row with the total row value will be generated (available only for sum operations) 
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
-- `split` - (optional) if set to **true**, fixes the columns from the left, which makes columns static and visible while scrolling; the number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property.
+- `split` - (optional) allows freezing columns on the right or left depending on the parameter specified (refer to [Freezing columns](/guides/configuration/#freezing-columns)):
+    - `left` (boolean) - if set to **true** (**false** is set by default), fixes the columns from the left, which makes columns static and visible while scrolling. The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property
+    - `right` (boolean) - fixes total columns on the right; default value is **false**
 
-By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and left columns are not fixed during scroll.
+By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and columns are not fixed during scroll.
 
 ## Example
 
-In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values.
+In the example below we apply the template to the *state* cells to show the combined name of a state (the full name and abbreviation).
 
-~~~jsx {5-8}
-const templates = { price: (v) => (v ? "€" + v : v),
-score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
+~~~jsx {10-15}
+const states = {
+  "California": "CA",
+  "Colorado": "CO",
+  "Connecticut": "CT",
+  "Florida": "FL",
+// other values,
+};
 
 const table = new pivot.Pivot("#root", {
     tableShape: {
-        tree: true,
-        templates
+        templates: {
+            // set a template to customize values of "state" cells
+            state: v => v+ ` (${states[v]})`,
+        }
     },
     fields,
     data,
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
+                field: "sales",
+                method: "sum"
             },
-            {
-                field: "price",
-                method: "count"
-            }
-        ]
-    }
+            // other values
+        ],
+    },
+    fields,
 });
 ~~~
 
 **Related samples:**
-- [Pivot 2.0: Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
-- [Pivot 2.0. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
-- [Pivot 2.0. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
 
-**Related article**: [Configuration](/guides/configuration)
+- [Pivot 2. Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
+- [Pivot 2. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
+- [Pivot 2. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
+- [Pivot 2. Clean rows](https://snippet.dhtmlx.com/rwwhgv2w?tag=pivot)
+- [Pivot 2. Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
+
+**Related articles**: 
+- [Configuration](/guides/configuration)
+- [Cell style](/guides/stylization/#cell-style)

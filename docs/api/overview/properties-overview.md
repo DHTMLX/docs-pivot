@@ -1,12 +1,12 @@
 ---
 sidebar_label: Properties overview
 title: Properties Overview
-description: You can have a Properties overview of JavaScript Pivot in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
+description: You can have Properties overview of JavaScript Pivot in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
 # Properties overview
 
-To configure the **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
+To configure **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
 
 | Name                                               | Description                                      |
 | -------------------------------------------------- | ------------------------------------------------ |
@@ -17,6 +17,7 @@ To configure the **Pivot**, refer to the [Configuration](../../../guides/configu
 | [](../config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
 | [](../config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |
 | [](../config/limits-property.md)                   | @getshort(../config/limits-property.md)          |
+| [](../config/locale-property.md)                   | @getshort(../config/locale-property.md)          |
 | [](../config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
 | [](../config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
 | [](../config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |

@@ -6,6 +6,10 @@ description: You can learn about the Migration to Newer Versions in the document
 
 # Migration to newer versions
 
+## 2.0 -> 2.1
+
+- `colWidth` parameter of the `sizes` object in the `tableShape` property renamed to `columnWidth`
+
 ## 1.5 -> 2.0
 
 This list of changes will help you migrate from the previous version of Pivot 1.5 to the totally renewed version of Pivot 2.0
@@ -39,11 +43,11 @@ New properties do not fully duplicate the previous ones but provide more extende
 
 ### Important features
 
-- Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/1-5/guides__export.html) -> [new export option](/guides/loading-exporting-data#exporting-data)
+- Exporting data: [previous export option](https://docs.dhtmlx.com/pivot/1-5/guides__export.html) -> [new export option](/guides/exporting-data)
 - Sorting: [sorting fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringfields) -> [sorting data](/guides/working-with-data#sorting-data)
 - Tree mode: [gridMode](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#gridmode) -> [enabling tree mode](/guides/configuration#enabling-the-tree-mode)
 - Date format: [configuring date fields](https://docs.dhtmlx.com/pivot/1-5/guides__configuration.html#configuringdatefields) ->
-[setting date format](/guides/loading-exporting-data#setting-date-format)
+[setting date format](/guides/localization#date-formatting)
 - Customization: 
   - [cells formatting](https://docs.dhtmlx.com/pivot/1-5/guides__customization.html#conditionalformattingofcells) -> [cells style](/guides/stylization#cell-style)
   - [templates for headers](https://docs.dhtmlx.com/pivot/1-5/guides__customization.html#settingtemplatesforheaders) ->

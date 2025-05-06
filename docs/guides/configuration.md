@@ -40,11 +40,11 @@ const sizes = {
     rowHeight: 34,
     headerHeight: 30,
     footerHeight: 30,
-    colWidth: 150
+    columnWidth: 150
 };
 ~~~
 
-### Example
+Example:
 
 ~~~jsx {4-11}
 const table = new pivot.Pivot("#root", {
@@ -55,7 +55,7 @@ const table = new pivot.Pivot("#root", {
             rowHeight: 44,
             headerHeight: 60,
             footerHeight: 30,
-            colWidth: 170
+            columnWidth: 170
         }
     },
     config: {
@@ -91,7 +91,7 @@ All parameters of `autoWidth` are optional and for detailed description of each 
 
 If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
 
-### Example
+Example:
 
 ~~~jsx {18-30}
 const table = new pivot.Pivot("#root", {
@@ -129,79 +129,168 @@ const table = new pivot.Pivot("#root", {
 
 ## Applying templates to cells
 
+### Adding templates via tableShape
+
 To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
 
-In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
+In the example below we apply the template to the *state* cells to show the combined name of a state (the full name and abbreviation).
 
-~~~jsx {1-4,8}
-const templates = { 
-    price: (v) => (v ? "€" + v : v),
-    score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
+~~~jsx {10-15}
+const states = {
+  "California": "CA",
+  "Colorado": "CO",
+  "Connecticut": "CT",
+  "Florida": "FL",
+// other values,
 };
 
 const table = new pivot.Pivot("#root", {
     tableShape: {
-        templates
+        templates: {
+            // set a template to customize values of "state" cells
+            state: v => v+ ` (${states[v]})`,
+        }
     },
     fields,
     data,
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
+                field: "sales",
+                method: "sum"
             },
-            {
-                field: "price",
-                method: "count"
-            }
-        ]
+            // other values
+        ],
+    },
+    fields,
+});
+~~~
+
+### Adding a template via the template helper
+
+You can insert HTML content to table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the `column` object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. 
+
+The example shows how you can add icons (star or flag icon) to body cells based on their field (id, user_score):
+
+~~~js
+function cellTemplate(value, method, row, column) {
+    const field = column.fields ? column.fields[row.$level] : column.field;
+
+    if (field === "id") {
+        return idTemplate(value);
     }
+
+    if (field === "user_score") {
+        return scoreTemplate(value);
+    }
+
+    return value;
+}
+
+function idTemplate(value) {
+    const name = value?.toString().split("-")[0];
+    return `<span class="cell-id flag-${name}"></span> ${value}`;
+}
+
+function scoreTemplate(value) {
+    return `<i class="cell-score wxi-star"></i> ${value}`;
+}
+
+widget.api.intercept("render-table", ({ config: tableConfig }) => {
+    tableConfig.columns = tableConfig.columns.map((c) => {
+        if (c.area === "rows") {
+            // Apply a template to column cells from the "rows" area
+            c.cell = pivot.template(({ value, method, row, column }) => cellTemplate(value, method, row, column));
+        }
+        return c;
+    });
 });
 ~~~
 
 ## Applying templates to headers
 
+### Adding templates via headerShape
+
 To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that:
+
 - takes the field id, label and sublabel (the name of a method if any is applied)
 - returns the processed value 
 
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
-### Example
+In the example below for the **values** fields the header will display the label, the method name (subLabel) and converts the result to lowercase (e.g., *profit (sum)*):
 
-In the example below for the **values** fields the header will display the method name (subLabel) and the label:
-
-~~~jsx {19-22}
-const table = new pivot.Pivot("#root", {
-    fields,
+~~~jsx {3-6}
+new pivot.Pivot("#pivot", {
     data,
+    headerShape: {
+        // a custom template for header text 
+        template: (label, id, subLabel) => (label + (subLabel ? ` (${subLabel})` : "")).toLowerCase(),
+        },
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
-            }
-        ]
+                field: "sales",
+                method: "sum"
+            },
+            // other values
+        ],
     },
+    fields,
+});
+~~~
 
-    headerShape: {
-        vertical: true,
-        template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
-    }
+### Adding templates via the template helper
+
+You can insert HTML content to header cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header cell object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method.
+
+The example below shows how to add icons to:
+
+- the header labels based on the field name (for example, if the field is "id", it adds the globe icon next to the header value)
+- the column headers based on the value (colored arrow indicators are added)
+
+~~~jsx
+function rowsHeaderTemplate(value, field) {
+    let icon = "";
+    if (field === "id") icon = "<i class='icon wxi-earth'></i>";
+    if (field === "user_score") icon = "<i class='icon wxi-star'></i>";
+    return `${value} ${icon}`;
+}
+
+function statusTemplate(value) {
+    let icon = "";
+    if (value === "Up") icon = "<i style='color:green' class='icon wxi-arrow-up'></i>";
+    if (value === "Down") icon = "<i style='color:red' class='icon wxi-arrow-down'></i>";
+    return `${value} ${icon}`;
+}
+
+widget.api.intercept("render-table", ({ config: tableConfig }) => {
+    tableConfig.columns = tableConfig.columns.map((c) => {
+        if (c.area === "rows") {
+            // Apply a template to the first header row of the columns from the "rows" area
+            c.header[0].cell = pivot.template(({ value, field }) => rowsHeaderTemplate(value, field));
+        } else {
+            // For header cells that display values from the "status" field
+            const headerCell = c.header.find((h) => h.field === "status");
+            if (headerCell) {
+                headerCell.cell = pivot.template(({ value }) => statusTemplate(value));
+            }
+        }
+        return c;
+    });
 });
 ~~~
 
@@ -235,13 +324,13 @@ const table = new pivot.Pivot("#root", {
 
 ## Freezing columns
 
-The widget allows freezing columns on the left side, which makes the leftmost columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` property to **true**.
+The widget allows freezing columns on the left or right side, which makes the columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` or `right` parameter to **true**. More details with examples, see below. 
 
-:::info
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. 2 columns are fixed by default. In the **tree** mode only one columns gets frozen regardless of the number of the rows fields that are defined. 
-:::
+### Freezing columns on the left
 
-~~~jsx {18-22}
+The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. In the sample below, 1 column is fixed initially on the left, which is equal to the number of fields defined for the "rows" area.
+
+~~~jsx {19}
 const table = new pivot.Pivot("#root", {
     fields,
     data,
@@ -260,21 +349,14 @@ const table = new pivot.Pivot("#root", {
         ]
     },
     tableShape: { 
-        split: {
-            left: true //freezes all fields from rows on the left side 
-        }
+        split: {left: true } 
     }
 });
 ~~~
 
-You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. 
+You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans.
 
-:::info
-For the custom split, the number of columns that are split depends on the number of the rows and values fields that are defined in the [`config`](/api/config/config-property) property.
-It's not recommended to split columns with colspans.
-:::
-
-In the example below we split all rows fields (two rows are defined in the config) and the first two columns (the first two values fields).
+In the sample below all columns from the "rows" area and first 4 columns from the "values" area are fixed initially. The number of columns that are split depends on the number of the rows and values fields that are defined via the [`config`](/api/config/config-property) property.
 
 ~~~jsx {19-25}
 const table = new pivot.Pivot("#root", {
@@ -302,6 +384,65 @@ table.api.on("render-table", (tableConfig) => {
         left: config.rows.length + config.values.length * 2
     };
 });
+~~~
+
+### Freezing columns on the right
+
+The `right` parameter of the [`tableShape`](/api/config/tableshape-property) property allows fixing total columns on the right. 
+
+~~~jsx {4-7}
+const widget = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    tableShape:{
+        split: {right: true},
+        totalColumn: true,
+    },
+    config:  {
+        rows: ["hobbies"],
+        columns: ["relationship_status"],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+    }
+});
+~~~
+
+To fix custom columns on the right, you need to apply the table API via the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans. In the sample below, 2 columns on the right are fixed initially. 
+
+~~~jsx {20-25}
+const widget = new pivot.Pivot("#pivot", {
+    fields,
+    data: dataset,
+    config:  {
+        rows: ["hobbies"],
+        columns: ["relationship_status"],
+        values: [
+            {
+                field: "age",
+                method: "min"
+            },
+            {
+                field: "age",
+                method: "max"
+            }
+        ]
+    }
+});
+
+widget.api.on("render-table", ({ config: tableConfig }) => {
+    const { config } = widget.api.getState();
+    tableConfig.split = {
+        right: config.values.length,
+    }
+})
 ~~~
 
 ## Sorting in columns
@@ -376,7 +517,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Expanding/collapsing all rows
 
-To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`render-table`](/api/events/render-table-event) event that allows changing configuration settings, namely, making data rows expand or collapse (via the `row.open` parameter of the [`config`](/api/config/config-property) object).
+To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`close-row`](/api/table/close-row) and [`open-row`](/api/table/open-row) events of the Table widget getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
 
 The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
 
@@ -531,7 +672,7 @@ table.api.exec("show-config-panel", {
 
 You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/internal/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
-### Example
+Example:
 
 ~~~jsx {20-22}
 const table = new pivot.Pivot("#root", {
@@ -569,12 +710,11 @@ In the Configuration panel it's possible to perform the next operations with fie
 - [update-field](/api/events/update-value-event)
 - [move-field](/api/events/move-field-event)
 
-## Example
-
-In this snippet you can see how to apply templates to the Pivot cells:
-
-<iframe src="https://snippet.dhtmlx.com/n9ylp6b2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
-
 **Related samples:**
-- [Pivot 2.0: Sorting](https://snippet.dhtmlx.com/j7vtief6)
-- [Pivot 2.0. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
+- [Pivot 2. Adding text templates for table and header cells](https://snippet.dhtmlx.com/n9ylp6b2)
+- [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+- [Pivot 2. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
+- [Pivot 2. Frozen(fixed) columns on the left and right](https://snippet.dhtmlx.com/lahf729o)
+- [Pivot 2. Sorting](https://snippet.dhtmlx.com/j7vtief6)
+
+

@@ -10,7 +10,7 @@ description: You can learn about the getTable method in the documentation of the
 
 @short: Gets access to the underlying Table widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying Table widget instance in Pivot. It provides direct access to the Table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the `open-row`, `close-row`, `export` events. Usage examples with the events you can see here: [Expanding/collapsing all rows](/guides/configuration#expandingcollapsing-all-rows), [Exporting data](/guides/loading-exporting-data#exporting-data)
+This method is used when there's a need to access the underlying Table widget instance in Pivot. It provides direct access to the Table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the [`open-row`](/api/table/open-row), [`close-row`](/api/table/close-row), [`export`](/api/table/export), and [`filter-rows`](/api/table/filter-rows) events. 
 
 ### Usage
 
@@ -66,3 +66,10 @@ exportButton.textContent = "Export";
 
 document.body.appendChild(exportButton);
 ~~~
+
+**Related articles:**:
+
+- [`close-row`](/api/table/close-row)
+- [`export`](/api/table/export)
+- [`filter-rows`](/api/table/filter-rows)
+- [`open-row`](/api/table/open-row)

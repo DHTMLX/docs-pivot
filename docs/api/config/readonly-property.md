@@ -49,4 +49,4 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**Related sample:** [Pivot 2.0. Readonly mode](https://snippet.dhtmlx.com/0k0mvycv)
+**Related sample:** [Pivot 2. Readonly mode](https://snippet.dhtmlx.com/0k0mvycv)
