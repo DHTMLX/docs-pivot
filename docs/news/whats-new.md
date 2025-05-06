@@ -40,6 +40,7 @@ Released on May 6, 2025
 - Total columns are not sorted
 - String values with the leading 0 are converted to numbers during export
 - Predicate template is not applied to rows/columns
+- Resize observer error in corner cases
 
 ### Breaking changes
 
