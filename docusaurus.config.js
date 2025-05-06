@@ -132,7 +132,7 @@ const onAfterDataTransformation = (data) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	noIndex: false,
+	noIndex: true,
 	title: 'DHTMLX JavaScript Pivot Docs',
 	tagline: 'DHTMLX JavaScript Pivot Docs',
 	url: 'https://docs.dhtmlx.com',
