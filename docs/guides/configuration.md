@@ -133,38 +133,42 @@ const table = new pivot.Pivot("#root", {
 
 To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
 
-In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values. 
+In the example below we apply the template to the *state* cells to show the combined name of a state (the full name and abbreviation).
 
-~~~jsx {1-4,8}
-const templates = { 
-    price: (v) => (v ? "€" + v : v),
-    score: (v) => (v ? parseFloat(v).toFixed(2) : v) 
+~~~jsx {10-15}
+const states = {
+  "California": "CA",
+  "Colorado": "CO",
+  "Connecticut": "CT",
+  "Florida": "FL",
+// other values,
 };
 
 const table = new pivot.Pivot("#root", {
     tableShape: {
-        templates
+        templates: {
+            // set a template to customize values of "state" cells
+            state: v => v+ ` (${states[v]})`,
+        }
     },
     fields,
     data,
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
+                field: "sales",
+                method: "sum"
             },
-            {
-                field: "price",
-                method: "count"
-            }
-        ]
-    }
+            // other values
+        ],
+    },
+    fields,
 });
 ~~~
 
@@ -221,31 +225,31 @@ To define the format of text in headers, apply the `template` parameter of the [
 A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
 If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
 
-In the example below for the **values** fields the header will display the method name (subLabel) and the label:
+In the example below for the **values** fields the header will display the label, the method name (subLabel) and converts the result to lowercase (e.g., *profit (sum)*):
 
-~~~jsx {19-22}
-const table = new pivot.Pivot("#root", {
-    fields,
+~~~jsx {3-6}
+new pivot.Pivot("#pivot", {
     data,
+    headerShape: {
+        // a custom template for header text 
+        template: (label, id, subLabel) => (label + (subLabel ? ` (${subLabel})` : "")).toLowerCase(),
+        },
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
-            }
-        ]
+                field: "sales",
+                method: "sum"
+            },
+            // other values
+        ],
     },
-
-    headerShape: {
-        vertical: true,
-        template: (label, id, subLabel) => id + (subLabel ? ` (${subLabel})` : ""),
-    }
+    fields,
 });
 ~~~
 
@@ -668,7 +672,7 @@ table.api.exec("show-config-panel", {
 
 You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/internal/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
 
-### Example
+Example:
 
 ~~~jsx {20-22}
 const table = new pivot.Pivot("#root", {
@@ -706,15 +710,11 @@ In the Configuration panel it's possible to perform the next operations with fie
 - [update-field](/api/events/update-value-event)
 - [move-field](/api/events/move-field-event)
 
-## Example
-
-In this snippet you can see how to apply templates to the Pivot cells:
-
-<iframe src="https://snippet.dhtmlx.com/n9ylp6b2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
-
 **Related samples:**
-- [Pivot 2. Sorting](https://snippet.dhtmlx.com/j7vtief6)
+- [Pivot 2. Adding text templates for table and header cells](https://snippet.dhtmlx.com/n9ylp6b2)
+- [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
 - [Pivot 2. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
 - [Pivot 2. Frozen(fixed) columns on the left and right](https://snippet.dhtmlx.com/lahf729o)
-- [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+- [Pivot 2. Sorting](https://snippet.dhtmlx.com/j7vtief6)
+
 

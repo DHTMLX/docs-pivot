@@ -45,35 +45,37 @@ template: (label, id, subLabel) =>
 
 ## Example
 
-~~~jsx {18-21}
-const table = new pivot.Pivot("#root", {
-    fields,
-    data: dataset,
+In the example below for the **values** fields the header will display the label, the method name (subLabel) and converts the result to lowercase (e.g., *profit (sum)*):
+
+~~~jsx {3-6}
+new pivot.Pivot("#pivot", {
+    data,
+    headerShape: {
+        // a custom template for header text 
+        template: (label, id, subLabel) => (label + (subLabel ? ` (${subLabel})` : "")).toLowerCase(),
+        },
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
-            }
-        ]
+                field: "sales",
+                method: "sum"
+            },
+            // other values
+        ],
     },
-    headerShape: {
-        vertical: true,
-        template: (label, field, subLabel) => field + (subLabel ? ` (${subLabel})` : ""),
-    }
+    fields,
 });
 ~~~
 
 **Related samples**:
 - [Pivot 2. Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
 - [Pivot 2. Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
-- [Pivot 2. Headers template](https://snippet.dhtmlx.com/g89r9ryw)
 - [Pivot 2. Pivot 2: Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
 
 **Related articles**: 

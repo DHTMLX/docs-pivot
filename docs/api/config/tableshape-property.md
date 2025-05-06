@@ -79,37 +79,42 @@ By default, `tableShape` is undefined, implying that no total row, no total colu
 
 ## Example
 
-In the example below we apply the template to the *score* values to display 2 digits after the decimal point for these values and we add the "€" sign to the *price* values.
+In the example below we apply the template to the *state* cells to show the combined name of a state (the full name and abbreviation).
 
-~~~jsx {5-8}
-const templates = { price: (v) => (v ? "€" + v : v),
-score: (v) => (v ? parseFloat(v).toFixed(2) : v) };
+~~~jsx {10-15}
+const states = {
+  "California": "CA",
+  "Colorado": "CO",
+  "Connecticut": "CT",
+  "Florida": "FL",
+// other values,
+};
 
 const table = new pivot.Pivot("#root", {
     tableShape: {
-        tree: true,
-        templates
+        templates: {
+            // set a template to customize values of "state" cells
+            state: v => v+ ` (${states[v]})`,
+        }
     },
     fields,
     data,
     config: {
-        rows: ["studio", "genre"],
+        rows: ["state", "product_type"],
         columns: [],
         values: [
             {
-                field: "title",
-                method: "count"
+                field: "profit",
+                method: "sum"
             },
             {
-                field: "score",
-                method: "max"
+                field: "sales",
+                method: "sum"
             },
-            {
-                field: "price",
-                method: "count"
-            }
-        ]
-    }
+            // other values
+        ],
+    },
+    fields,
 });
 ~~~
 
@@ -119,7 +124,7 @@ const table = new pivot.Pivot("#root", {
 - [Pivot 2. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
 - [Pivot 2. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
 - [Pivot 2. Clean rows](https://snippet.dhtmlx.com/rwwhgv2w?tag=pivot)
-- [Pivot 2. Pivot 2: Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
+- [Pivot 2. Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
 
 **Related articles**: 
 - [Configuration](/guides/configuration)
