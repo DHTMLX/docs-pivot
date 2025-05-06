@@ -32,8 +32,6 @@ The callback of the action takes an object with the following parameters:
 If `id` is set to 0 and `nested` to **true**, all rows in the table will be collapsed
 :::
 
-Returning **false** from the event handler will prevent collapsing rows.
-
 ### Example
 
 The snippet below demonstrates how to open/close all rows with a button click:

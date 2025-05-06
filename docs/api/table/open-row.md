@@ -34,8 +34,6 @@ If `id` is set to 0 and `nested` to **true**, all rows in the table will be expa
 
 ### Example
 
-### Example
-
 The snippet below demonstrates how to open/close all rows with a button click:
 
 <iframe src="https://snippet.dhtmlx.com/i4mi6ejn?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 

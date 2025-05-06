@@ -106,5 +106,5 @@ In this snippet you can see how to export data:
 **Related articles**: 
 - [`getTable`](/api/methods/gettable-method)
 - [Exporting data](/guides/exporting-data)
-- [Date formatting](/guides/localization#date-formatting)
+- [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)
 

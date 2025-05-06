@@ -116,6 +116,10 @@ new pivot.Pivot("#pivot", {
 });
 ~~~
 
+:::note
+By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
+:::
+
 ## Defining Pivot structure
 
 You can create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details.
