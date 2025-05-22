@@ -29,7 +29,7 @@ If you want to use trial version of Pivot, download the [**trial Pivot package**
 ### Installing PRO Pivot via npm and yarn
 
 :::info
-If you have already purchased Pivot under the proprietary license, send your **license number** to the *contact@dhtmlx.com* email in order to receive *login* and *password* for private **npm** as well as detailed guide on how to install Pivot. Note that private **npm** is available before the expiration of the proprietary Pivot license.
+You can access the DHTMLX private **npm** directly in the [Client's Area](https://dhtmlx.com/clients/) by generating your login and password for **npm**. A detailed installation guide is also available there. Please note that access to the private **npm** is available only while your proprietary Pivot license is active.
 :::
 
 ## Step 2. Including source files
