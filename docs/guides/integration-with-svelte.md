@@ -58,7 +58,7 @@ Now you should get the DHTMLX Pivot source code. First of all, stop the app and 
 
 ### Step 1. Package installation
 
-Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-and-yarn) and follow steps mentioned in the README file. Note that trial Pivot is available 30 days only.
+Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow steps mentioned in the README file. Note that trial Pivot is available 30 days only.
 
 ### Step 2. Component creation
 
