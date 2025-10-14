@@ -138,11 +138,16 @@ const config = {
 	url: 'https://docs.dhtmlx.com',
 	baseUrl: '/pivot/',
 	onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'warn',
+	// onBrokenMarkdownLinks: 'warn', // deprecated in v3.9.1
 	favicon: 'img/favicon.ico',
 	organizationName: 'DHTMLX', // Usually your GitHub org/user name.
 	projectName: 'docs-pivot', // Usually your repo name.
 	trailingSlash: true,
+	markdown: {
+		hooks: {
+			onBrokenMarkdownLinks: 'warn',
+		}
+	},
 	presets: [
 		[
 			'@docusaurus/preset-classic',
