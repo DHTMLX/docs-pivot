@@ -15,7 +15,8 @@ description: You can learn about the on method in the documentation of the DHTML
 ~~~jsx
 api.on(
     event: string,
-    handler: function
+    handler: function,
+    config?: { intercept?: boolean, tag?: number | string | symbol }
 ): void;
 ~~~
 
@@ -23,6 +24,9 @@ api.on(
 
 - `event` - (required) an event to be fired
 - `handler` - (required) a handler to be attached (the handler arguments will depend on the event to be fired)
+- `config` - (optional) an object that stores the following parameters:
+    - `intercept` - (optional) if you set `intercept: true` during event listener creation, this event listener will run before all others
+    - `tag` - (optional) an action tag. You can use the tag name to remove an action handler via the [`detach`](api/internal/js_kanban_detach_method.md) method
 
 ### Events
 
@@ -63,5 +67,5 @@ table.api.on("open-filter", (ev) => {
     if (field) {
         console.log("The field for which filter was activated:", ev.field.label);
     }
-});
+}, {tag: "open-filter-tag"});
 ~~~

@@ -15,14 +15,17 @@ description: You can learn about the intercept method in the documentation of th
 ~~~jsx
 api.intercept(
     event: string,
-    callback: function
+    callback: function,
+    config?: { tag?: number | string | symbol } 
 ): void;
 ~~~
 
 ### Parameters
 
-- `event` - (required) an event to be fired 
+- `event` - (required) an event to be fired
 - `callback` - (required) a callback to be performed (the callback arguments will depend on the event to be fired)
+- `config` - (optional) an object that stores the following parameter:
+    - `tag` - (optional) an action tag. You can use the tag name to remove an action handler via the [`detach`](api/internal/js_kanban_detach_method.md) method
 
 ### Events
 
@@ -59,7 +62,7 @@ const table = new pivot.Pivot("#root", {
 //make all rows close at the initialization
 table.api.intercept("render-table", (ev) => {
     ev.config.data.forEach((row) => (row.open = false));
-})
+}, {tag: "render-table-tag"});
 ~~~
 
 **Related articles**: [`render-table`](/api/events/render-table-event)
