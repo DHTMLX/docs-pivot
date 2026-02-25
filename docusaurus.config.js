@@ -138,6 +138,16 @@ const config = {
 	tagline: 'DHTMLX JavaScript Pivot Docs',
 	url: 'https://docs.dhtmlx.com',
 	baseUrl: '/pivot/',
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'de', 'ru', 'zh', 'ko'],
+		localeConfigs: {
+			zh: {
+				htmlLang: 'zh-CN',
+				label: '中文'
+			},
+		}
+	},
 	onBrokenLinks: 'warn',
 	// onBrokenMarkdownLinks: 'warn', // deprecated in v3.9.1
 	favicon: 'img/favicon.ico',
@@ -234,6 +244,10 @@ const config = {
 					"label": "Download",
 					"href": "https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml", 
 					"position": "right"
+				},
+				{
+					type: 'localeDropdown',
+					position: 'right',
 				}
 			],
 		},

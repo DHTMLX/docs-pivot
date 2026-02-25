@@ -1,0 +1,70 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.What's new and migration": {
+    "message": "What's new and migration",
+    "description": "The label for category 'What's new and migration' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.What's new and migration.link.generated-index.title": {
+    "message": "What's new and migration",
+    "description": "The generated-index page title for category 'What's new and migration' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.API": {
+    "message": "API",
+    "description": "The label for category 'API' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Pivot methods": {
+    "message": "Pivot methods",
+    "description": "The label for category 'Pivot methods' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Pivot internal API": {
+    "message": "Pivot internal API",
+    "description": "The label for category 'Pivot internal API' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Pivot internal API.link.generated-index.title": {
+    "message": "Internal API overview",
+    "description": "The generated-index page title for category 'Pivot internal API' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Event Bus methods": {
+    "message": "Event Bus methods",
+    "description": "The label for category 'Event Bus methods' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.State methods": {
+    "message": "State methods",
+    "description": "The label for category 'State methods' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Pivot events": {
+    "message": "Pivot events",
+    "description": "The label for category 'Pivot events' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Pivot properties": {
+    "message": "Pivot properties",
+    "description": "The label for category 'Pivot properties' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Table events": {
+    "message": "Table events",
+    "description": "The label for category 'Table events' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Helpers": {
+    "message": "Helpers",
+    "description": "The label for category 'Helpers' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integration with frameworks": {
+    "message": "Integration with frameworks",
+    "description": "The label for category 'Integration with frameworks' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integration with frameworks.link.generated-index.title": {
+    "message": "Integration with frameworks",
+    "description": "The generated-index page title for category 'Integration with frameworks' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Guides": {
+    "message": "Guides",
+    "description": "The label for category 'Guides' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Guides.link.generated-index.title": {
+    "message": "Guides",
+    "description": "The generated-index page title for category 'Guides' in sidebar 'docs'"
+  }
+}
