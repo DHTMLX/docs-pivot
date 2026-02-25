@@ -9,11 +9,11 @@ description: You can have an overview of DHTMLX JavaScript Pivot library in the 
 
 JavaScript Pivot library is a ready-made component for creating Pivot tables from large datasets. The widget API can be easily adjusted to the needs of your web application. It provides the end user with functionality for comparing and analyzing complex data within one table.
 
-## Pivot structure­
+## Pivot structure
 
 The Pivot UI consists of the two main components: the Configuration panel and the table with data.
 
-![Main](assets/pivot-main.png)
+![Main](/assets/pivot-main.png)
 
 ## Configuration panel
 
@@ -25,7 +25,7 @@ The Configuration panel allows adding columns and rows to the table as well as v
 
 To hide the Configuration panel, click the **Hide Settings** button:
 
-![config_panel](assets/config_panel.png)
+![config_panel](/assets/config_panel.png)
 
 ### Values area
 
@@ -66,15 +66,15 @@ To add a new field, in the required area, click the "+" button and select the na
 
 To remove an item, click the delete button ("x").
 
-![add_remove](assets/add_remove.png)
+![add_remove](/assets/add_remove.png)
 
 To change the order of values/rows/columns in the table, drag an item to the desired position. The closer an item is to the left in the area's toolbar list, the higher its priority and position in the table.
 
-![priority](assets/priority.png)
+![priority](/assets/priority.png)
 
 To set operations that will be applied to all data of the column of the table, in the **Values** area, click the value operation for the required field in the drop-down list, and select the required option from the list.
 
-![operations](assets/operations.png)
+![operations](/assets/operations.png)
 
 ### Filters
 
@@ -86,13 +86,13 @@ Filters appear as drop-down lists for each field in all areas. The Pivot provide
 
 To filter data in the table, click the filter sign of one of the items in the required area, and then select the operator and set the value to filter by, and then click **Apply**. The fields to which filtering is applied will be marked with a special filter sign.
 
-![filters](assets/filter.png)
+![filters](/assets/filter.png)
 
 ## Table
 
 Data in the table is displayed as configured in the Configuration panel. The **sorting** in columns is enabled by clicking the column header:
 
-![table](assets/table.png)
+![table](/assets/table.png)
 
 ## What's next
 
