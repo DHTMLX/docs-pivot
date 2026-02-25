@@ -23,10 +23,10 @@ new pivot.Pivot("#root", {
 
 | Name                                        | Description                                |
 | ------------------------------------------- | ------------------------------------------ |
-| [](../methods/gettable-method.md)           | @getshort(../methods/gettable-method.md)        |
-| [](../methods/setconfig-method.md)          | @getshort(../methods/setconfig-method.md)       |
-| [](../methods/setlocale-method.md)          | @getshort(../methods/setlocale-method.md)       |
-| [](../methods/showconfigpanel-method.md)    | @getshort(../methods/showconfigpanel-method.md) |
+| [getTable()](/api/methods/gettable-method/)           | @getshort(../methods/gettable-method.md)        |
+| [setConfig()](/api/methods/setconfig-method/)          | @getshort(../methods/setconfig-method.md)       |
+| [setLocale()](/api/methods/setlocale-method/)          | @getshort(../methods/setlocale-method.md)       |
+| [showConfigPanel()](/api/methods/showconfigpanel-method/)    | @getshort(../methods/showconfigpanel-method.md) |
 
 ## Pivot internal API
 
@@ -34,47 +34,47 @@ new pivot.Pivot("#root", {
 
 | Name                                  | Description                                  |
 | :------------------------------------ | :------------------------------------------- |
-| [](../internal/detach-method.md)      | @getshort(../internal/detach-method.md)      |  
-| [](../internal/exec-method.md)        | @getshort(../internal/exec-method.md)        |
-| [](../internal/intercept-method.md)   | @getshort(../internal/intercept-method.md)   |
-| [](../internal/on-method.md)          | @getshort(../internal/on-method.md)          |
-| [](../internal/setnext-method.md)     | @getshort(../internal/setnext-method.md)     |
+| [api.detach()](/api/internal/detach-method/)      | @getshort(../internal/detach-method.md)      |  
+| [api.exec()](/api/internal/exec-method/)        | @getshort(../internal/exec-method.md)        |
+| [api.intercept()](/api/internal/intercept-method/)   | @getshort(../internal/intercept-method.md)   |
+| [api.on()](/api/internal/on-method/)          | @getshort(../internal/on-method.md)          |
+| [api.setNext()](/api/internal/setnext-method/)     | @getshort(../internal/setnext-method.md)     |
 
 ### State methods
 
 | Name                                            | Description                                        |
 | :---------------------------------------------- | :------------------------------------------------- |
-| [](../internal/getreactivestate-method.md)      | @getshort(../internal/getreactivestate-method.md)  |
-| [](../internal/getstate-method.md)              | @getshort(../internal/getstate-method.md)          |
-| [](../internal/getstores-method.md)             | @getshort(../internal/getstores-method.md)         |
+| [api.getReactiveState()](/api/internal/getreactivestate-method/)      | @getshort(../internal/getreactivestate-method.md)  |
+| [api.getState()](/api/internal/getstate-method/)              | @getshort(../internal/getstate-method.md)          |
+| [api.getStores()](/api/internal/getstores-method/)             | @getshort(../internal/getstores-method.md)         |
 
 ## Pivot events
 
 | Name                                              | Description                                     |
 | :------------------------------------------------ | :---------------------------------------------- |
-| [](../events/add-field-event.md)                  | @getshort(../events/add-field-event.md)         |
-| [](../events/apply-filter-event.md)               | @getshort(../events/apply-filter-event.md)      |
-| [](../events/delete-field-event.md)               | @getshort(../events/delete-field-event.md)      |
-| [](../events/move-field-event.md)                 | @getshort(../events/move-field-event.md)        |
-| [](../events/open-filter-event.md)                | @getshort(../events/open-filter-event.md)       |
-| [](../events/render-table-event.md)               | @getshort(../events/render-table-event.md)      |
-| [](../events/show-config-panel-event.md)          | @getshort(../events/show-config-panel-event.md) |
-| [](../events/update-config-event.md)              | @getshort(../events/update-config-event.md)     |
-| [](../events/update-value-event.md)               | @getshort(../events/update-value-event.md)      |
+| [add-field](/api/events/add-field-event/)                  | @getshort(../events/add-field-event.md)         |
+| [apply-filter](/api/events/apply-filter-event/)               | @getshort(../events/apply-filter-event.md)      |
+| [delete-field](/api/events/delete-field-event/)               | @getshort(../events/delete-field-event.md)      |
+| [move-field](/api/events/move-field-event/)                 | @getshort(../events/move-field-event.md)        |
+| [open-filter](/api/events/open-filter-event/)                | @getshort(../events/open-filter-event.md)       |
+| [render-table](/api/events/render-table-event/)               | @getshort(../events/render-table-event.md)      |
+| [show-config-panel](/api/events/show-config-panel-event/)          | @getshort(../events/show-config-panel-event.md) |
+| [update-config](/api/events/update-config-event/)              | @getshort(../events/update-config-event.md)     |
+| [update-field](/api/events/update-value-event/)               | @getshort(../events/update-value-event.md)      |
 
 ## Pivot properties
 
 | Name                                               | Description                                      |
 | :------------------------------------------------- | :----------------------------------------------- |
-| [](../config/columnshape-property.md)              | @getshort(../config/columnshape-property.md)     |
-| [](../config/config-property.md)                   | @getshort(../config/config-property.md)          |
-| [](../config/configpanel-property.md)              | @getshort(../config/configpanel-property.md)     |
-| [](../config/data-property.md)                     | @getshort(../config/data-property.md)            |
-| [](../config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
-| [](../config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |
-| [](../config/limits-property.md)                   | @getshort(../config/limits-property.md)          |
-| [](../config/locale-property.md)                   | @getshort(../config/locale-property.md)          |
-| [](../config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
-| [](../config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
-| [](../config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |
-| [](../config/tableshape-property.md)               | @getshort(../config/tableshape-property.md)      |
+| [columnShape](/api/config/columnshape-property/)              | @getshort(../config/columnshape-property.md)     |
+| [config](/api/config/config-property/)                   | @getshort(../config/config-property.md)          |
+| [configPanel](/api/config/configpanel-property/)              | @getshort(../config/configpanel-property.md)     |
+| [data](/api/config/data-property/)                     | @getshort(../config/data-property.md)            |
+| [fields](/api/config/fields-property/)                   | @getshort(../config/fields-property.md)          |
+| [headerShape](/api/config/headershape-property/)              | @getshort(../config/headershape-property.md)     |
+| [limits](/api/config/limits-property/)                   | @getshort(../config/limits-property.md)          |
+| [locale](/api/config/locale-property/)                   | @getshort(../config/locale-property.md)          |
+| [methods](/api/config/methods-property/)                  | @getshort(../config/methods-property.md)         |
+| [predicates](/api/config/predicates-property/)               | @getshort(../config/predicates-property.md)      |
+| [readonly](/api/config/readonly-property/)                 | @getshort(../config/readonly-property.md)        |
+| [tableShape](/api/config/tableshape-property/)               | @getshort(../config/tableshape-property.md)      |

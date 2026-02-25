@@ -6,10 +6,10 @@ description: You can have an Internal Event Bus methods overview of JavaScript P
 
 # Event Bus methods overview
 
-| Name                                           | Description                                       |
-| ---------------------------------------------- | ------------------------------------------------- |
-| [](../internal/detach-method.md)               | @getshort(../internal/detach-method.md)           |
-| [](../internal/exec-method.md)                 | @getshort(../internal/exec-method.md)             |
-| [](../internal/intercept-method.md)            | @getshort(../internal/intercept-method.md)        |
-| [](../internal/on-method.md)                   | @getshort(../internal/on-method.md)               |
-| [](../internal/setnext-method.md)              | @getshort(../internal/setnext-method.md)          |
+| Name                                  | Description                                  |
+| :------------------------------------ | :------------------------------------------- |
+| [api.detach()](/api/internal/detach-method/)      | @getshort(../internal/detach-method.md)      |  
+| [api.exec()](/api/internal/exec-method/)        | @getshort(../internal/exec-method.md)        |
+| [api.intercept()](/api/internal/intercept-method/)   | @getshort(../internal/intercept-method.md)   |
+| [api.on()](/api/internal/on-method/)          | @getshort(../internal/on-method.md)          |
+| [api.setNext()](/api/internal/setnext-method/)     | @getshort(../internal/setnext-method.md)     |

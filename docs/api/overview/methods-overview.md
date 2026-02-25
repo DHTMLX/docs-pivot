@@ -6,9 +6,9 @@ description: You can have Methods overview of JavaScript Pivot in the documentat
 
 # Methods overview
 
-| Name                                        | Description                                     |
-| ------------------------------------------- | ----------------------------------------------- |
-| [](../methods/gettable-method.md)           | @getshort(../methods/gettable-method.md)        |
-| [](../methods/setconfig-method.md)          | @getshort(../methods/setconfig-method.md)       |
-| [](../methods/setlocale-method.md)          | @getshort(../methods/setlocale-method.md)       |
-| [](../methods/showconfigpanel-method.md)    | @getshort(../methods/showconfigpanel-method.md) |
+| Name                                        | Description                                |
+| ------------------------------------------- | ------------------------------------------ |
+| [getTable()](/api/methods/gettable-method/)           | @getshort(../methods/gettable-method.md)        |
+| [setConfig()](/api/methods/setconfig-method/)          | @getshort(../methods/setconfig-method.md)       |
+| [setLocale()](/api/methods/setlocale-method/)          | @getshort(../methods/setlocale-method.md)       |
+| [showConfigPanel()](/api/methods/showconfigpanel-method/)    | @getshort(../methods/showconfigpanel-method.md) |
