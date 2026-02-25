@@ -10,7 +10,7 @@ The [`getTable`](/api/methods/gettable-method) method of the Pivot API allows ge
 
 | Name                                              | Description                                     |
 | ------------------------------------------------- | ----------------------------------------------- |
-| [](../table/close-row.md)                         | @getshort(../table/close-row.md)                |
-| [](../table/export.md)                            | @getshort(../table/export.md)                   |
-| [](../table/filter-rows.md)                       | @getshort(../table/filter-rows.md)              |
-| [](../table/open-row.md)                          | @getshort(../table/open-row.md)                 |
+| [close-row](/api/table/close-row/)                | @getshort(../table/close-row.md)                |
+| [export](/api/table/export/)                      | @getshort(../table/export.md)                   |
+| [filter-rows](/api/table/filter-rows/)            | @getshort(../table/filter-rows.md)              |
+| [open-row](/api/table/open-row/)                  | @getshort(../table/open-row.md)                 |
