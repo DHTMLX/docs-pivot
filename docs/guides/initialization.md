@@ -30,7 +30,7 @@ Set correct relative paths to the source files:
 
 ## Create a container
 
-Add a container for Pivot and give it an ID, for example `"root"`:
+Add a container for Pivot and give the container an ID, for example `"root"`:
 
 ~~~html title="index.html"
 <div id="root"></div>

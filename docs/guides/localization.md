@@ -6,7 +6,7 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
-Localize all labels in the Pivot interface by creating a new locale or modifying a built-in one and applying it to Pivot.
+Localize all labels in the Pivot interface by creating a new locale or modifying a built-in one and applying the locale to Pivot.
 
 ## Default locale
 
@@ -200,7 +200,7 @@ table.setLocale(null);  // same result
 
 ## Format dates
 
-Pivot accepts dates as `Date` objects — parse date strings to `Date` before passing them to Pivot. The widget applies the `dateFormat` from the current locale by default. To redefine the format for all date fields, change the `dateFormat` value in the `formats` object of the [`locale`](/api/config/locale-property) property. The default format is `"%d.%m.%Y"`.
+Pivot accepts dates as `Date` objects. Parse date strings to `Date` before passing the date strings to Pivot. The widget applies the `dateFormat` from the current locale by default. To redefine the format for all date fields, change the `dateFormat` value in the `formats` object of the [`locale`](/api/config/locale-property) property. The default format is `"%d.%m.%Y"`.
 
 The following code snippet sets a custom date format on init and updates it dynamically:
 
@@ -281,7 +281,7 @@ To display June 20, 2024 with the exact time as `2024-09-20 16:47:08.128`, use `
 
 By default, Pivot localizes all number fields according to the `lang` value in the locale object, using the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. Fraction digits are limited to 3 and group separation applies to the integer part.
 
-To disable formatting for a specific field or apply a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set it to `false` to cancel formatting or pass an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
+To disable formatting for a specific field or apply a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set the `format` parameter to `false` to cancel formatting or pass an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
 
 The following code snippet disables number formatting for the `year` field:
 

@@ -286,7 +286,7 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 :::info
-You can also filter data using the [`filter-rows`](/api/table/filter-rows) event of the Table widget by getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
+You can also filter data using the [`filter-rows`](/api/table/filter-rows) event of the Table widget by getting access to the Table widget API via the [`getTable`](/api/methods/gettable-method) method.
 :::
 
 ### Track configuration changes
@@ -585,7 +585,7 @@ To add a custom predicate, configure the [`predicates`](/api/config/predicates-p
 
 Set the predicate ID as the `method` value for the row or column where the predicate applies.
 
-The following code snippet defines two custom predicates — one for grouping dates by month-year and one for labeling profit sign:
+The following code snippet defines two custom predicates: one groups dates by month-year, and the other labels profit sign:
 
 ~~~jsx
 const predicates = {

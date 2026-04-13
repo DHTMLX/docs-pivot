@@ -94,7 +94,7 @@ The following code snippet applies custom CSS variables to a Pivot container:
 
 ## Style the scrollbar
 
-Use the `.wx-styled-scroll` CSS class to apply a custom style to the Pivot scrollbar. Check browser compatibility [here](https://caniuse.com/css-scrollbar) before using it.
+Use the `.wx-styled-scroll` CSS class to apply a custom style to the Pivot scrollbar. Check browser compatibility [here](https://caniuse.com/css-scrollbar) before using the class.
 
 The following code snippet enables the styled scrollbar:
 

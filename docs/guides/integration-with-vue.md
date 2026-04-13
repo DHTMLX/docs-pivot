@@ -26,7 +26,7 @@ npm create vue@latest
 
 This command installs and executes `create-vue`, the official Vue project scaffolding tool. See the [Vue.js Quick Start](https://vuejs.org/guide/quick-start.html#creating-a-vue-application) for details.
 
-Name the project `my-vue-pivot-app`.
+Name the project *my-vue-pivot-app*.
 
 ### Install dependencies
 
@@ -64,11 +64,11 @@ Download the [trial Pivot package](/how-to-start/#installing-trial-pivot-via-npm
 
 ### Step 2. Create the component
 
-Create a Vue component to add Pivot to the application. Create a new file in the `src/components/` directory and name it `Pivot.vue`.
+Create a Vue component to add Pivot to the application. In the *src/components/* directory, add a new file and name it *Pivot.vue*.
 
 #### Import source files
 
-Open `Pivot.vue` and import Pivot source files.
+Open *Pivot.vue* and import Pivot source files.
 
 - PRO version installed from a local folder:
 
@@ -79,7 +79,7 @@ import 'dhx-pivot-package/dist/pivot.css';
 </script>
 ~~~
 
-Depending on the package, source files may be minified. In that case import `pivot.min.css` instead.
+Depending on the package, source files may be minified. In that case import *pivot.min.css* instead.
 
 - Trial version:
 
@@ -141,7 +141,7 @@ body,
 
 #### Load data
 
-Create the `data.js` file in the `src/` directory and add your data:
+Create the *data.js* file in the *src/* directory and add your data:
 
 ~~~jsx title="data.js"
 export function getData() {
@@ -199,7 +199,7 @@ export function getData() {
 };
 ~~~
 
-Open `App.vue`, import the data, and initialize it via the `data()` method. Pass the data to the `<Pivot/>` component as props:
+Open *App.vue*, import the data, and initialize the data via the `data()` method. Pass the data to the `<Pivot/>` component as props:
 
 ~~~html {3,7-13,18} title="App.vue"
 <script>
@@ -223,7 +223,7 @@ export default {
 </template>
 ~~~
 
-Open `Pivot.vue` and apply the props to the Pivot configuration object:
+Open *Pivot.vue* and apply the props to the Pivot configuration object:
 
 ~~~html {6,10-11} title="Pivot.vue"
 <script>
@@ -262,13 +262,13 @@ export default {
 </template>
 ~~~
 
-The Pivot component is ready. When the element mounts, it initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
+The Pivot component is ready. When the element mounts, the component initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
 
 #### Handle events
 
 Pivot fires events when a user interacts with the widget. Use these events to detect actions and run the corresponding code. See the [full list of events](/api/overview/events-overview/).
 
-Open `Pivot.vue` and add an event listener inside `mounted()`:
+Open *Pivot.vue* and add an event listener inside `mounted()`:
 
 ~~~html {22-24} title="Pivot.vue"
 <script>

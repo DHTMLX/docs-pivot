@@ -18,7 +18,7 @@ DHTMLX Pivot is compatible with React. For a complete working example, see the [
 Before creating a new project, install [Vite](https://vite.dev/) (optional) and [Node.js](https://nodejs.org/en/).
 :::
 
-Create a basic React project or use React with Vite. The following command creates a project named `my-react-pivot-app`:
+Create a basic React project or use React with Vite. The following command creates a project named *my-react-pivot-app*:
 
 ~~~json
 npx create-react-app my-react-pivot-app
@@ -60,11 +60,11 @@ Download the [trial Pivot package](/how-to-start/#installing-trial-pivot-via-npm
 
 ### Step 2. Create the component
 
-Create a React component to add Pivot to the application. Create a new file in the `src/` directory and name it `Pivot.jsx`.
+Create a React component to add Pivot to the application. In the *src/* directory, add a new file and name it *Pivot.jsx*.
 
 #### Import source files
 
-Open `Pivot.jsx` and import Pivot source files.
+Open *Pivot.jsx* and import Pivot source files.
 
 - PRO version installed from a local folder:
 
@@ -73,7 +73,7 @@ import { Pivot } from 'dhx-pivot-package';
 import 'dhx-pivot-package/dist/pivot.css';
 ~~~
 
-Depending on the package, source files may be minified. In that case import `pivot.min.css` instead.
+Depending on the package, source files may be minified. In that case import *pivot.min.css* instead.
 
 - Trial version:
 
@@ -132,7 +132,7 @@ body,
 
 #### Load data
 
-Create the `data.js` file in the `src/` directory and add your data:
+Create the *data.js* file in the *src/* directory and add your data:
 
 ~~~jsx title="data.js"
 export function getData() {
@@ -190,7 +190,7 @@ export function getData() {
 };
 ~~~
 
-Open `App.js`, import the data, and pass it to the `<Pivot/>` component as props:
+Open *App.js*, import the data, and pass the data to the `<Pivot/>` component as props:
 
 ~~~jsx {2,5-6} title="App.js"
 import Pivot from "./Pivot";
@@ -204,7 +204,7 @@ function App() {
 export default App;
 ~~~
 
-Open `Pivot.jsx` and apply the props to the Pivot configuration object:
+Open *Pivot.jsx* and apply the props to the Pivot configuration object:
 
 ~~~jsx {5,10-11} title="Pivot.jsx"
 import { useEffect, useRef } from "react";
@@ -240,13 +240,13 @@ export default function PivotComponent(props) {
 }
 ~~~
 
-The Pivot component is ready. When the element mounts, it initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
+The Pivot component is ready. When the element mounts, the component initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
 
 #### Handle events
 
 Pivot fires events when a user interacts with the widget. Use these events to detect actions and run the corresponding code. See the [full list of events](/api/overview/events-overview/).
 
-Open `Pivot.jsx` and add an event listener inside `useEffect()`:
+Open *Pivot.jsx* and add an event listener inside `useEffect()`:
 
 ~~~jsx {19-21} title="Pivot.jsx"
 // ...

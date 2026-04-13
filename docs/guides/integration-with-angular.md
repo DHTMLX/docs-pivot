@@ -18,7 +18,7 @@ DHTMLX Pivot is compatible with Angular. For a complete working example, see the
 Before creating a new project, install [Angular CLI](https://v17.angular.io/cli) and [Node.js](https://nodejs.org/en/).
 :::
 
-Create a new `my-angular-pivot-app` project using Angular CLI:
+Create a new *my-angular-pivot-app* project using Angular CLI:
 
 ~~~json
 ng new my-angular-pivot-app
@@ -28,7 +28,7 @@ ng new my-angular-pivot-app
 Disable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering) when creating the Angular app to follow this guide.
 :::
 
-The command installs all necessary tools — no additional commands are needed.
+The command installs all necessary tools. No additional commands are needed.
 
 ### Install dependencies
 
@@ -57,11 +57,11 @@ Download the [trial Pivot package](/how-to-start/#installing-trial-pivot-via-npm
 
 ### Step 2. Create the component
 
-Create a `pivot` folder in the `src/app/` directory, add a new file named `pivot.component.ts`, then complete the steps below.
+Create a *pivot* folder in the *src/app/* directory, add a new file named *pivot.component.ts*, then complete the steps below.
 
 #### Import source files
 
-Open `pivot.component.ts` and import Pivot source files.
+Open *pivot.component.ts* and import Pivot source files.
 
 - PRO version installed from a local folder:
 
@@ -111,7 +111,7 @@ export class PivotComponent implements OnInit, OnDestroy {
 
 #### Add styles
 
-Create the `pivot.component.css` file in the `src/app/pivot/` directory and specify styles for Pivot and its container:
+Create the *pivot.component.css* file in the *src/app/pivot/* directory and specify styles for Pivot and its container:
 
 ~~~css title="pivot.component.css"
 /* import Pivot styles */
@@ -134,7 +134,7 @@ body {
 
 #### Load data
 
-Create the `data.ts` file in the `src/app/pivot/` directory and add your data:
+Create the *data.ts* file in the *src/app/pivot/* directory and add your data:
 
 ~~~jsx title="data.ts"
 export function getData() {
@@ -192,7 +192,7 @@ export function getData() {
 };
 ~~~
 
-Open `pivot.component.ts`, import the data, and pass it to the Pivot configuration inside `ngOnInit()`:
+Open *pivot.component.ts*, import the data, and pass the data to the Pivot configuration inside `ngOnInit()`:
 
 ~~~jsx {2,18,20-21} title="pivot.component.ts"
 import { Pivot } from '@dhx/trial-pivot';
@@ -236,13 +236,13 @@ export class PivotComponent implements OnInit, OnDestroy {
 }
 ~~~
 
-The Pivot component is ready. When the element mounts, it initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
+The Pivot component is ready. When the element mounts, the component initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
 
 #### Handle events
 
 Pivot fires events when a user interacts with the widget. Use these events to detect actions and run the corresponding code. See the [full list of events](/api/overview/events-overview/).
 
-Open `pivot.component.ts` and add an event listener inside `ngOnInit()`:
+Open *pivot.component.ts* and add an event listener inside `ngOnInit()`:
 
 ~~~jsx {18-20} title="pivot.component.ts"
 // ...
@@ -274,7 +274,7 @@ ngOnDestroy(): void {
 
 ### Step 3. Add Pivot to the app
 
-Open `src/app/app.component.ts` and replace the default code with the following:
+Open *src/app/app.component.ts* and replace the default code with the following:
 
 ~~~jsx {5} title="app.component.ts"
 import { Component } from "@angular/core";
@@ -288,7 +288,7 @@ export class AppComponent {
 }
 ~~~
 
-Create the `app.module.ts` file in the `src/app/` directory and specify `PivotComponent`:
+Create the *app.module.ts* file in the *src/app/* directory and specify `PivotComponent`:
 
 ~~~jsx {4-5,8} title="app.module.ts"
 import { NgModule } from "@angular/core";
@@ -305,7 +305,7 @@ import { PivotComponent } from "./pivot/pivot.component";
 export class AppModule {}
 ~~~
 
-Open `src/main.ts` and replace the existing code with the following:
+Open *src/main.ts* and replace the existing code with the following:
 
 ~~~jsx title="main.ts"
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
