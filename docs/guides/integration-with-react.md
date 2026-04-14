@@ -7,32 +7,32 @@ description: You can learn about the integration with React in the documentation
 # Integration with React
 
 :::tip
-You should be familiar with the basic concepts and patterns of [**React**](https://react.dev) before reading this documentation. To refresh your knowledge, please refer to the [**React documentation**](https://react.dev/learn).
+Be familiar with the basic concepts and patterns of [**React**](https://react.dev) before reading this documentation. To refresh your knowledge, refer to the [**React documentation**](https://react.dev/learn).
 :::
 
 DHTMLX Pivot is compatible with **React**. We have prepared code examples on how to use DHTMLX Pivot with **React**. For more information, refer to the corresponding [**Example on GitHub**](https://github.com/DHTMLX/react-pivot-demo).
 
-## Creating a project
+## Create a project
 
 :::info
-Before you start to create a new project, install [**Vite**](https://vite.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
+Before creating a new project, install [**Vite**](https://vite.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
 :::
 
-You can create a basic **React** project or use **React with Vite**. Let's name the project as **my-react-pivot-app**:
+Create a basic **React** project or use **React with Vite**. Name the project *my-react-pivot-app*:
 
 ~~~json
 npx create-react-app my-react-pivot-app
 ~~~
 
-### Installation of dependencies
+### Install dependencies
 
-Go to the new created app directory:
+Go to the newly created app directory:
 
 ~~~json
 cd my-react-pivot-app
 ~~~
 
-Install dependencies and start the dev server. For this, use a package manager:
+Install dependencies and start the dev server with a package manager:
 
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
@@ -50,30 +50,30 @@ npm run dev
 
 The app should run on a localhost (for instance `http://localhost:3000`).
 
-## Creating Pivot
+## Create Pivot
 
-Now you should get the DHTMLX Pivot source code. First of all, stop the app and proceed with installing the Pivot package.
+Get the DHTMLX Pivot source code. Stop the dev server and install the Pivot package.
 
 ### Step 1. Package installation
 
-Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow steps mentioned in the README file. Note that trial Pivot is available 30 days only.
+Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow the steps in the README file. Note that the trial version is available for 30 days only.
 
-### Step 2. Component creation
+### Step 2. Create the component
 
-Now you need to create a React component, to add a Pivot into the application. Create a new file in the ***src/*** directory and name it ***Pivot.jsx***.
+Create a React component to add Pivot to the application. Add a new file to the *src/* directory and name it *Pivot.jsx*.
 
 #### Import source files
 
-Open the ***Pivot.jsx*** file and import Pivot source files. Note that:
+Open *Pivot.jsx* and import Pivot source files. Note that:
 
-- if you use PRO version and install the Pivot package from a local folder, the import paths look like this:
+- if you use the PRO version installed from a local folder, use these import paths:
 
 ~~~jsx title="Pivot.jsx"
 import { Pivot } from 'dhx-pivot-package';
 import 'dhx-pivot-package/dist/pivot.css';
 ~~~
 
-Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as ***pivot.min.css***.
+Depending on the package, source files may be minified. In that case, import *pivot.min.css* instead of *pivot.css*.
 
 - if you use the trial version of Pivot, specify the following paths:
 
@@ -82,11 +82,11 @@ import { Pivot } from '@dhx/trial-pivot';
 import "@dhx/trial-pivot/dist/pivot.css";
 ~~~
 
-In this tutorial you can see how to configure the **trial** version of Pivot.
+This tutorial uses the **trial** version of Pivot.
 
-#### Setting the container and adding Pivot
+#### Set the container and add Pivot
 
-To display Pivot on the page, you need to create the container for Pivot, and initialize this component using the corresponding constructor:
+To display Pivot on the page, create the container and initialize the component:
 
 ~~~jsx {2,6,9-10} title="Pivot.jsx"
 import { useEffect, useRef } from "react";
@@ -109,9 +109,9 @@ export default function PivotComponent(props) {
 }
 ~~~
 
-#### Adding styles
+#### Add styles
 
-To display Pivot correctly, you need to specify important styles for Pivot and its container in the main css file of the project:
+Add the following styles to the main CSS file to display Pivot correctly:
 
 ~~~css title="index.css"
 /* specify styles for initial page */
@@ -130,9 +130,9 @@ body,
 }
 ~~~
 
-#### Loading data
+#### Load data
 
-To add data into the Pivot, you need to provide a data set. You can create the ***data.js*** file in the ***src/*** directory and add some data into it:
+To load data into Pivot, create a *data.js* file in the *src/* directory and add data:
 
 ~~~jsx title="data.js"
 export function getData() {
@@ -170,7 +170,7 @@ export function getData() {
             "state": "Colorado",
             "expenses": 45,
             "type": "Decaf"
-        }, // othe data items
+        }, // other data items
     ];
 
     const fields = [
@@ -190,7 +190,7 @@ export function getData() {
 };
 ~~~
 
-Then open the ***App.js*** file and import data. After this you can pass data into the new created `<Pivot/>` components as **props**:
+Open *App.js*, import data, and pass the data to the `<Pivot/>` component as props:
 
 ~~~jsx {2,5-6} title="App.js"
 import Pivot from "./Pivot";
@@ -204,7 +204,7 @@ function App() {
 export default App;
 ~~~
 
-Go to the ***Pivot.jsx*** file and apply the passed **props** to the Pivot configuration object:
+Open *Pivot.jsx* and apply the props to the Pivot configuration object:
 
 ~~~jsx {5,10-11} title="Pivot.jsx"
 import { useEffect, useRef } from "react";
@@ -240,13 +240,13 @@ export default function PivotComponent(props) {
 }
 ~~~
 
-Now the Pivot component is ready to use. When the element will be added to the page, it will initialize the Pivot with data. You can provide necessary configuration settings as well. Visit our [Pivot API docs](/api/overview/properties-overview/) to check the full list of available properties.
+The Pivot component is ready to use. When the element is added to the page, Pivot initializes with data. Provide additional configuration settings as needed. See the [Pivot API docs](/api/overview/properties-overview/) for the full list of available properties.
 
-#### Handling events
+#### Handle events
 
-When a user makes some action in the Pivot, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events-overview/).
+User actions in Pivot trigger events. Handle these events to detect actions and run custom code. See the [full list of events](/api/overview/events-overview/).
 
-Open ***Pivot.jsx*** and complete the `useEffect()` method in the following way:
+Open *Pivot.jsx* and add event handling to the `useEffect()` method:
 
 ~~~jsx {19-21} title="Pivot.jsx"
 // ...
@@ -278,8 +278,8 @@ useEffect(() => {
 // ...
 ~~~
 
-After that, you can start the app to see Pivot loaded with data on a page.
+Start the app to see Pivot loaded with data on a page.
 
 ![Pivot initialization](../assets/trial_pivot.png)
 
-Now you know how to integrate DHTMLX Pivot with React. You can customize the code according to your specific requirements. The final example you can find on [**GitHub**](https://github.com/DHTMLX/react-pivot-demo).
+Customize the code for your specific requirements. Find the final example on [**GitHub**](https://github.com/DHTMLX/react-pivot-demo).
