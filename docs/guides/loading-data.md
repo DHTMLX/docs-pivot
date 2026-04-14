@@ -4,15 +4,18 @@ title: Loading data
 description: You can explore how to load data in the documentation of the DHTMLX JavaScript Pivot library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Pivot.
 ---
 
-## Preparing data for loading
+# Loading data
 
-Pivot supports JSON data format. You can also load CSV data that will be converted to JSON. 
+## Prepare data for loading
 
-The following types of information can be loaded into Pivot:
+Pivot supports JSON data. Load CSV data to convert the data to JSON.
 
-- [`data`](/api/config/data-property) - an array of objects, where each object represents the data row
+Load the following data into Pivot:
 
-**Example:**
+- [`data`](/api/config/data-property) — an array of objects where each object represents a data row
+- [`fields`](/api/config/fields-property) — an array of objects that define field IDs, labels, types, and formatting
+
+The example below defines a sample `data` array:
 
 ~~~jsx
 const data = [
@@ -74,13 +77,13 @@ const data = [
 See also how to define fields and Pivot structure: [Working with data](/guides/working-with-data)
 :::
 
-## Loading data
+## Load data
 
-You can load JSON data into Pivot from an external file or the server-side script after the component has been initialized.
+Load JSON data from an external file or a server-side script after the component initializes.
 
-To load local data from a separate file, first prepare the source file with data.
+To load local data from a separate file, prepare the source data file first.
 
-Example:
+The following code snippet defines the source data file:
 
 ~~~jsx
 function getData() {
@@ -143,7 +146,7 @@ const { data, config, fields } = getData();
 const table = new pivot.Pivot("#root", { data, config, fields });
 ~~~
 
-To get server data, you can send the request for data using the native **fetch** method (or any other way):
+To load server data, use the native `fetch` method or any other HTTP client:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {fields:[], data: []});
@@ -157,17 +160,17 @@ Promise.all([
 });
 ~~~
 
-## Loading CSV data
+## Load CSV data
 
-You can load CSV data and convert it to JSON and then continue working with this data in the Pivot table.
+Load CSV data and convert the data to JSON to use in Pivot.
 
-To convert data, you should use an external parsing library for JS to convert data from CSV to JSON.
+Use an external JS parsing library to convert data from CSV to JSON.
 
-In the example below we apply the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library and enable loading and converting data on a button click. In this example we use the `convert()` function which takes the following parameters:
+The example below uses the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library to load and convert data on button click. The `convert()` function takes the following parameters:
 
-- `data` - a string with CSV data
-- `headers` - an array with the names of fields for CSV data
-- `meta` - an object where keys are the names of fields and values are the data types
+- `data` — a string with CSV data
+- `headers` — an array with the names of fields for CSV data
+- `meta` — an object where keys are field names and values are data types
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -263,11 +266,12 @@ document.body.appendChild(importButton);
 
 ## Example
 
-In this snippet you can see how to load JSON and CSV data:
+The following code snippet loads JSON and CSV data:
 
-<iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
 **Related samples:**
+
 - [Pivot 2. Date format](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2. Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
