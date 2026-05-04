@@ -6,11 +6,11 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
-You can localize all labels in the interface of JavaScript Pivot. For this purpose you need to create a new locale or modify a built-in one and apply it to Pivot.
+Localize all labels in the Pivot interface by creating a new locale or modifying a built-in one and applying the locale to Pivot.
 
 ## Default locale
 
-The **English** locale is applied by default:
+The English locale applies by default. The following code snippet shows the full structure of the default locale object:
 
 ~~~jsx
 const en = {
@@ -150,17 +150,19 @@ const en = {
     formats: {
         dateFormat: "%d.%m.%Y",
         timeFormat: "%H:%i"
-    }
+    },
 
     lang: "en-US",
 };
 ~~~
 
-## Applying locales
+## Apply a locale
 
-You can access built-in locales via the pivot object. Pivot provides three built-in locales: en, de, cn. 
+Access built-in locales through the `pivot` object. Pivot includes three built-in locales: `en`, `de`, and `cn`.
 
-Example:
+### Use a built-in locale
+
+The following code snippet applies the built-in German locale via the `locale` property:
 
 ~~~jsx
 new pivot.Pivot({
@@ -169,27 +171,38 @@ new pivot.Pivot({
 });
 ~~~
 
-To apply a custom locale, you need to:
+### Apply a custom locale
 
-- create a custom locale object (or modify the default one) and provide translations for all text labels (it can be any language you need)
-- apply the new locale to Pivot via its [`locale`](/api/config/locale-property) property or use the [`setLocale()`](/api/methods/setlocale-method) method
+To apply a custom locale:
+
+- create a custom locale object (or modify the default one) and provide translations for all text labels
+- apply the locale via the [`locale`](/api/config/locale-property) property or the [`setLocale()`](/api/methods/setlocale-method) method
+
+The following code snippet applies a custom locale with `setLocale()`:
 
 ~~~jsx
 // create Pivot
 const widget = new pivot.Pivot("#root", {
-  data,
-//other configuration properties
+    data,
+    // other configuration properties
 });
 
-const ko = {...} //object with locale
+const ko = { /*...*/ }; // custom locale object
 widget.setLocale(ko);
 ~~~
 
-## Date formatting
+To reset to the default English locale, call `setLocale()` with no arguments or pass `null`:
 
-Pivot accepts a date as a Date object (make sure to parse a date to a Date object). By default, the `dateFormat` of the current locale is applied. To redefine the format for all date fields in Pivot, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
+~~~jsx
+table.setLocale();      // reset to English
+table.setLocale(null);  // same result
+~~~
 
-Example:
+## Format dates
+
+Pivot accepts dates as `Date` objects. Parse date strings to `Date` before passing the date strings to Pivot. The widget applies the `dateFormat` from the current locale by default. To redefine the format for all date fields, change the `dateFormat` value in the `formats` object of the [`locale`](/api/config/locale-property) property. The default format is `"%d.%m.%Y"`.
+
+The following code snippet sets a custom date format on init and updates it dynamically:
 
 ~~~jsx {17}
 function setFormat(value) {
@@ -232,9 +245,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
+To set a custom format for a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. See [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
 
-## Date and time format specification
+## Date and time format reference
 
 Pivot uses the following characters for setting the date and time format:
 
@@ -262,22 +275,22 @@ Pivot uses the following characters for setting the date and time format:
 | %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
 | %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
 
+To display June 20, 2024 with the exact time as `2024-09-20 16:47:08.128`, use `"%Y-%m-%d-%H:%i:%s.%u"`.
 
-To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+## Format numbers
 
-## Number formatting
+By default, Pivot localizes all number fields according to the `lang` value in the locale object, using the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. Fraction digits are limited to 3 and group separation applies to the integer part.
 
-By default, all fields with the number type are localized according to the locale (the value in the `lang` field of the locale). Pivot uses [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. By default the fraction digits are limited to 3 and group separation is applied for the integer part. 
-In case you do not need to format specific fields with numeric values or need to set a custom format, use the the `format` parameter of the [`fields`](/api/config/fields-property) property. It can be either *false* to cancel formatting or an object with format settings (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)). 
+To disable formatting for a specific field or apply a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set the `format` parameter to `false` to cancel formatting or pass an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
+
+The following code snippet disables number formatting for the `year` field:
 
 ~~~jsx
 const fields = [
-     { id: "year", label: "Year", type: "number", format: false},
+    { id: "year", label: "Year", type: "number", format: false },
 ];
 ~~~
 
-## Example
+The live example below demonstrates switching between locales:
 
-In this snippet you can see how to switch between several locales:
-
-<iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>

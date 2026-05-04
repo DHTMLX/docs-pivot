@@ -7,26 +7,26 @@ description: You can learn about the integration with Svelte in the documentatio
 # Integration with Svelte
 
 :::tip
-You should be familiar with the basic concepts and patterns of **Svelte** before reading this documentation. To refresh your knowledge, please refer to the [**Svelte documentation**](https://svelte.dev/).
+Familiarize yourself with the basic concepts and patterns of [Svelte](https://svelte.dev/) before reading this documentation. See the [Svelte documentation](https://svelte.dev/) for reference.
 :::
 
-DHTMLX Pivot is compatible with **Svelte**. We have prepared code examples on how to use DHTMLX Pivot with **Svelte**. For more information, refer to the corresponding [**Example on GitHub**](https://github.com/DHTMLX/svelte-pivot-demo).
+DHTMLX Pivot is compatible with Svelte. For a complete working example, see the [Example on GitHub](https://github.com/DHTMLX/svelte-pivot-demo).
 
-## Creating a project
+## Create a project
 
 :::info
-Before you start to create a new project, install [**Vite**](https://vite.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
+Before creating a new project, install [Vite](https://vite.dev/) (optional) and [Node.js](https://nodejs.org/en/).
 :::
 
-To create a **Svelte** JS project, run the following command:
+Run the following command to create a Svelte project:
 
 ~~~json
 npm create vite@latest
 ~~~
 
-Let's name the project as **my-svelte-pivot-app**.
+Name the project *my-svelte-pivot-app*.
 
-### Installation of dependencies
+### Install dependencies
 
 Go to the app directory:
 
@@ -34,41 +34,41 @@ Go to the app directory:
 cd my-svelte-pivot-app
 ~~~
 
-Install dependencies and start the dev server. For this, use a package manager:
+Install dependencies and start the dev server using a package manager:
 
-- if you use [**yarn**](https://yarnpkg.com/), run the following commands:
+- [yarn](https://yarnpkg.com/):
 
 ~~~jsx
-yarn 
+yarn
 yarn start // or yarn dev
 ~~~
 
-- if you use [**npm**](https://www.npmjs.com/), run the following commands:
+- [npm](https://www.npmjs.com/):
 
 ~~~json
 npm install
 npm run dev
 ~~~
 
-The app should run on a localhost (for instance `http://localhost:3000`).
+The app runs on a localhost (for instance `http://localhost:3000`).
 
-## Creating Pivot
+## Create a Pivot component
 
-Now you should get the DHTMLX Pivot source code. First of all, stop the app and proceed with installing the Pivot package.
+Stop the app and install the Pivot package.
 
 ### Step 1. Package installation
 
-Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow steps mentioned in the README file. Note that trial Pivot is available 30 days only.
+Download the [trial Pivot package](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow the steps in the README file. The trial version is available for 30 days.
 
-### Step 2. Component creation
+### Step 2. Create the component
 
-Now you need to create a Svelte component, to add Pivot into the application. Let's create a new file in the ***src/*** directory and name it ***Pivot.svelte***.
+Create a Svelte component to add Pivot to the application. In the *src/* directory, add a new file and name it *Pivot.svelte*.
 
 #### Import source files
 
-Open the ***Pivot.svelte*** file and import Pivot source files. Note that:
+Open *Pivot.svelte* and import Pivot source files.
 
-- if you use PRO version and install the Pivot package from a local folder, the import paths look like this:
+- PRO version installed from a local folder:
 
 ~~~html title="Pivot.svelte"
 <script>
@@ -77,9 +77,9 @@ import 'dhx-pivot-package/dist/pivot.css';
 </script>
 ~~~
 
-Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as ***pivot.min.css***.
+Depending on the package, source files may be minified. In that case import *pivot.min.css* instead.
 
-- if you use the trial version of Pivot, specify the following paths:
+- Trial version:
 
 ~~~html title="Pivot.svelte"
 <script>
@@ -88,11 +88,11 @@ import '@dhx/trial-pivot/dist/pivot.css';
 </script>
 ~~~
 
-In this tutorial you can see how to configure the **trial** version of Pivot.
+This tutorial uses the trial version of Pivot.
 
-#### Setting the container and adding Pivot
+#### Set up the container
 
-To display Pivot on the page, you need to create the container for Pivot, and initialize this component using the corresponding constructor:
+Create a container for Pivot and initialize it with the constructor:
 
 ~~~html {3,6,10-11,19} title="Pivot.svelte"
 <script>
@@ -116,9 +116,9 @@ To display Pivot on the page, you need to create the container for Pivot, and in
 <div bind:this={container} class="widget"></div>
 ~~~
 
-#### Adding styles
+#### Add styles
 
-To display Pivot correctly, you need to specify important styles for Pivot and its container in the main css file of the project:
+Specify styles for Pivot and its container in the main CSS file of the project:
 
 ~~~css title="main.css"
 /* specify styles for initial page */
@@ -137,9 +137,9 @@ body,
 }
 ~~~
 
-#### Loading data
+#### Load data
 
-To add data into the Pivot, we need to provide a data set. You can create the ***data.js*** file in the ***src/*** directory and add some data into it:
+Create the *data.js* file in the *src/* directory and add your data:
 
 ~~~jsx title="data.js"
 export function getData() {
@@ -177,7 +177,7 @@ export function getData() {
             "state": "Colorado",
             "expenses": 45,
             "type": "Decaf"
-        }, // othe data items
+        }, // other data items
     ];
 
     const fields = [
@@ -197,7 +197,7 @@ export function getData() {
 };
 ~~~
 
-Then open the ***App.svelte*** file, import data, and pass it into the new created `<Pivot/>` components as **props**:
+Open *App.svelte*, import the data, and pass the data to the `<Pivot/>` component as props:
 
 ~~~html {3,5,8} title="App.svelte"
 <script>
@@ -210,7 +210,7 @@ Then open the ***App.svelte*** file, import data, and pass it into the new creat
 <Pivot fields={fields} dataset={dataset} />
 ~~~
 
-Go to the ***Pivot.svelte*** file and apply the passed **props** to the Pivot configuration object:
+Open *Pivot.svelte* and apply the props to the Pivot configuration object:
 
 ~~~html {6-7,14-15} title="Pivot.svelte"
 <script>
@@ -250,13 +250,13 @@ onDestroy(() => {
 <div bind:this={container} class="widget"></div>
 ~~~
 
-Now the Pivot component is ready to use. When the element will be added to the page, it will initialize the Pivot with data. You can provide necessary configuration settings as well. Visit our [Pivot API docs](/api/overview/properties-overview/) to check the full list of available properties.
+The Pivot component is ready. When the element mounts, the component initializes Pivot with data. See the [Pivot API reference](/api/overview/properties-overview/) for the full list of properties.
 
-#### Handling events
+#### Handle events
 
-When a user makes some action in the Pivot, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events-overview/).
+Pivot fires events when a user interacts with the widget. Use these events to detect actions and run the corresponding code. See the [full list of events](/api/overview/events-overview/).
 
-Open ***Pivot.svelte*** and complete the `onMount()` method in the following way:
+Open *Pivot.svelte* and add an event listener inside `onMount()`:
 
 ~~~html {22-24} title="Pivot.svelte"
 <script>
@@ -293,8 +293,8 @@ onDestroy(() => {
 // ...
 ~~~
 
-After that, you can start the app to see Pivot loaded with data on a page.
+After that, start the app to see Pivot loaded with data on the page.
 
 ![Pivot initialization](../assets/trial_pivot.png)
 
-Now you know how to integrate DHTMLX Pivot with Svelte. You can customize the code according to your specific requirements. The final example you can find on [**GitHub**](https://github.com/DHTMLX/svelte-pivot-demo).
+Customize the code to fit your requirements. See the complete example on [GitHub](https://github.com/DHTMLX/svelte-pivot-demo).
