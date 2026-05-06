@@ -6,9 +6,9 @@ description: You can explore how to export data in the documentation of the DHTM
 
 # Exporting data
 
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying Table widget instance inside Pivot and apply its API to export data. To do this, you should use the [`getTable`](/api/methods/gettable-method) method and execute the [`export`](/api/table/export) event.
+To export the table data to XLSX or CSV format, access the underlying Table widget instance inside Pivot via the [`getTable`](/api/methods/gettable-method) method and trigger the [`export`](/api/table/export) action through its API.
 
-In the example below we get access to the Table instance and trigger the `export`action using the [`api.exec()`](/api/internal/exec-method) method.
+The example below accesses the Table instance and triggers the `export` action via the [`api.exec()`](/api/internal/exec-method) method.
 
 ~~~jsx
 const widget = new pivot.Pivot("#root", { /*setting*/});
@@ -29,11 +29,11 @@ widget.api.getTable().exec("export", {
 
 ## Example
 
-In this snippet you can see how to export data:
+The snippet below shows how to export data:
 
-<iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
-**Related articles**: 
+**Related articles:**
 
 - [Date formatting](/guides/localization#date-formatting)
 - [`export`](/api/table/export)

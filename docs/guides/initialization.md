@@ -6,7 +6,7 @@ description: You can learn about the initialization in the documentation of the 
 
 # Initialization
 
-This guide will give you detailed instructions on how to create Pivot on a page to enrich your application with features of the Pivot table. Take the following steps to get a ready-to-use component:
+This guide explains how to add Pivot to a page. Follow these steps to get a ready-to-use component:
 
 1. [Include the Pivot source files on a page](#including-source-files).
 2. [Create a container for Pivot](#creating-container).
@@ -14,14 +14,14 @@ This guide will give you detailed instructions on how to create Pivot on a page 
 
 ## Including source files
 
-See also how to download packages: [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
+For instructions on downloading packages, see [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
 
-To create a Pivot app, you need to include 2 source files on your page:
+To create a Pivot app, include 2 source files on your page:
 
-- *pivot.js*
-- *pivot.css*
+- `pivot.js`
+- `pivot.css`
 
-Make sure that you set correct relative paths to the source files:
+Set correct relative paths to the source files:
 
 ~~~html title="index.html"
 <script type="text/javascript" src="./dist/pivot.js"></script>  
@@ -30,7 +30,7 @@ Make sure that you set correct relative paths to the source files:
 
 ## Creating container
 
-Add a container for Pivot and give it an ID, for example *"root"*:
+Add a container for Pivot and give it an ID, for example `"root"`:
 
 ~~~html title="index.html"
 <div id="root"></div>
@@ -38,7 +38,7 @@ Add a container for Pivot and give it an ID, for example *"root"*:
 
 ## Initializing Pivot
 
-Initialize Pivot with the **pivot.Pivot** constructor. It takes two parameters:
+Initialize Pivot with the `pivot.Pivot` constructor. It takes two parameters:
 
 - an HTML container (the ID of the HTML container)
 - an object with configuration properties
@@ -65,11 +65,11 @@ const table = new pivot.Pivot("#root", {
 ## Configuration properties
 
 :::info
-The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties-overview.md).
+For the full list of properties, see [Properties overview](api/overview/properties-overview.md).
 :::
 
 ## Example
 
-In this snippet you can see how to initialize **Pivot** with the initial data:
+The snippet below shows how to initialize Pivot with initial data:
 
 <iframe src="https://snippet.dhtmlx.com/y2buoahe?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>

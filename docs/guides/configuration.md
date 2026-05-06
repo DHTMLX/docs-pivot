@@ -6,23 +6,23 @@ description: You can learn about the configuration in the documentation of the D
 
 # Configuration
 
-You can configure Pivot appearance and functionality via the corresponding API, namely, you can configure the Pivot table elements and the configuration panel. The available parameters will allow you to:
+You can configure the Pivot table elements and the Configuration panel via the corresponding API. The available parameters let you:
 
 - define the structure of the Pivot table and how data is aggregated via the [`config`](/api/config/config-property) property
 - change the table configuration on the fly via the [`render-table`](/api/events/render-table-event) event
 - configure the look of the Pivot table via the [`tableShape`](/api/config/tableshape-property) property
 - configure the look and behavior of the Pivot columns via the [`columnShape`](/api/config/columnshape-property) property
 - configure the look and behavior of headers in the Pivot table via the [`headerShape`](/api/config/headershape-property) property
-- control the visibility of the configuration panel via the [`configPanel`](/api/config/configpanel-property) property
+- control the visibility of the Configuration panel via the [`configPanel`](/api/config/configpanel-property) property
 - apply the desired locale via the [`setLocale()`](/api/methods/setlocale-method) method (see the [Localization](/guides/localization) section)
 - load data and fields via the corresponding [`data`](/api/config/data-property) and [`fields`](/api/config/fields-property) properties
 - define how data should be modified before it's applied via the [`predicates`](/api/config/predicates-property) property
 - define custom mathematical methods for data aggregation via the [`methods`](/api/config/methods-property) property
 - control the maximum limit for the number of rows and columns in the final dataset via the [`limits`](/api/config/limits-property) property
 
-All instructions about working with data see here: [Working with data](/guides/working-with-data)
+For instructions on working with data, see [Working with data](/guides/working-with-data).
 
-You can configure and/or customize the following elements of the Pivot table:
+You can configure the following elements of the Pivot table:
 
 - columns and rows
 - headers and footers
@@ -31,9 +31,9 @@ You can configure and/or customize the following elements of the Pivot table:
 
 ## Resizing the table
 
-You can change the size of the table rows and columns, header and footer using the [`tableShape`](/api/config/tableshape-property) property.
+To change the size of the table rows and columns, header, and footer, use the [`tableShape`](/api/config/tableshape-property) property.
 
-The next sizes are applied by default:
+The default sizes are:
 
 ~~~jsx
 const sizes = {
@@ -81,15 +81,15 @@ To set the width of specific column(s), apply the `width` parameter of the [colu
 
 ## Autosizing columns to content
 
-The widget allows setting the minimum width value for all columns and it also enables sizing for the table data only, the table header or combined auto sizing. To configure all these autosizing settings, you should apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property. 
+The widget can set a minimum width for all columns, size the table data only, the table header only, or combine these modes. To configure autosizing, apply the `autoWidth` parameter of the [`columnShape`](/api/config/columnshape-property) property.
 
-All parameters of `autoWidth` are optional and for detailed description of each parameter refer to the [columnShape](/api/config/columnshape-property) property.
+All parameters of `autoWidth` are optional. For a detailed description of each parameter, refer to the [columnShape](/api/config/columnshape-property) property.
 
-- use the `columns` parameter to define if the width of columns should be calculated automatically and which columns will be affected
+- use the `columns` parameter to define if the column width is calculated automatically and which columns are affected
 - use the `auto` parameter to adjust the width to the header or cell content (or both)
-- use `maxRows` to specify how many data rows will be applied to detect the size of a column; by default 20 rows are used
+- use `maxRows` to specify how many data rows the widget analyzes to detect the column size; the default is 20 rows
 
-If `firstOnly` is set to **true** (default), each field of the same data is analyzed only once to calculate the column width. In case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width.
+If `firstOnly` is set to `true` (default), the widget analyzes each field of the same data only once to calculate the column width. If multiple columns rely on the same data (for example, the `oil` field with the `count` operation and the `oil` field with the `sum` operation), the widget analyzes only the first one and applies its width to the others.
 
 Example:
 
@@ -131,9 +131,9 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding templates via tableShape
 
-To set a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. It's an object where each key is a field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied. 
+To apply a template to cells, use the `templates` parameter of the [`tableShape`](/api/config/tableshape-property) property. The parameter takes an object where each key is a field id and the value is a function that returns a string. The widget applies the template to all columns based on the specified field.
 
-In the example below we apply the template to the *state* cells to show the combined name of a state (the full name and abbreviation).
+The example below applies a template to the `state` cells to show the combined name of a state (full name and abbreviation).
 
 ~~~jsx {10-15}
 const states = {
@@ -174,9 +174,9 @@ const table = new pivot.Pivot("#root", {
 
 ### Adding a template via the template helper
 
-You can insert HTML content to table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the `column` object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. 
+To insert HTML content into table cells, use the [`pivot.template`](/api/helpers/template) helper. Define a template as a `cell` property of the `column` object, then apply it right before the table renders by intercepting the [`render-table`](/api/events/render-table-event) event with the [`api.intercept()`](/api/internal/intercept-method) method.
 
-The example shows how you can add icons (star or flag icon) to body cells based on their field (id, user_score):
+The example below adds icons (a star or a flag) to body cells based on the field (`id` or `user_score`):
 
 ~~~js
 function cellTemplate(value, method, row, column) {
@@ -217,15 +217,21 @@ widget.api.intercept("render-table", ({ config: tableConfig }) => {
 
 ### Adding templates via headerShape
 
-To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter is the function that:
+To define the format of text in headers, apply the `template` parameter of the [`headerShape`](/api/config/headershape-property) property. The parameter takes a function that:
 
-- takes the field id, label and sublabel (the name of a method if any is applied)
-- returns the processed value 
+- takes the field id, label, and sublabel (the name of a method if any is applied)
+- returns the processed value
 
-A default template is as follows: *template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")*. By default, for the fields applied as values the label and method are shown (e.g., *Oil(count)*). 
-If no other template is applied to columns, the value of the `label` parameter is displayed. If any [`predicates`](/api/config/predicates-property) template is applied, it will override the template of the `headerShape` property. 
+The default template is:
 
-In the example below for the **values** fields the header will display the label, the method name (subLabel) and converts the result to lowercase (e.g., *profit (sum)*):
+~~~js
+template: (label, id, subLabel) => label + (subLabel ? `(${subLabel})` : "")
+~~~
+
+For fields applied as values, the header shows the label and method (for example, *Oil(count)*).
+If no other template is applied to columns, the header displays the value of the `label` parameter. A [`predicates`](/api/config/predicates-property) template, if applied, overrides the template of the `headerShape` property.
+
+In the example below, for the `values` fields the header displays the label and the method name (subLabel) and converts the result to lowercase (for example, *profit (sum)*):
 
 ~~~jsx {3-6}
 new pivot.Pivot("#pivot", {
@@ -255,7 +261,7 @@ new pivot.Pivot("#pivot", {
 
 ### Adding templates via the template helper
 
-You can insert HTML content to header cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header cell object. You need to apply the template right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method.
+To insert HTML content into header cells, use the [`pivot.template`](/api/helpers/template) helper. Define a template as a `cell` property of the header cell object, then apply it right before the table renders by intercepting the [`render-table`](/api/events/render-table-event) event with the [`api.intercept()`](/api/internal/intercept-method) method.
 
 The example below shows how to add icons to:
 
@@ -296,7 +302,7 @@ widget.api.intercept("render-table", ({ config: tableConfig }) => {
 
 ## Making columns collapsible
 
-It's possible to collapse/expand columns that are under one header. To make columns collapsible, use the value of the `collapsible` parameter of the [`headerShape`](/api/config/headershape-property) property by setting it to **true**.
+You can collapse and expand columns that share one header. To make columns collapsible, set the `collapsible` parameter of the [`headerShape`](/api/config/headershape-property) property to `true`.
 
 ~~~jsx {4-6}
 const table = new pivot.Pivot("#root", {
@@ -324,11 +330,11 @@ const table = new pivot.Pivot("#root", {
 
 ## Freezing columns
 
-The widget allows freezing columns on the left or right side, which makes the columns static and visible while scrolling. To freeze columns, apply the **split** parameter of the [`tableShape`](/api/config/tableshape-property) property by setting the value of the `left` or `right` parameter to **true**. More details with examples, see below. 
+The widget can freeze columns on the left or right side, which keeps them static and visible during scrolling. To freeze columns, set the `left` or `right` parameter of the `split` parameter ([`tableShape`](/api/config/tableshape-property) property) to `true`. See the details and examples below.
 
 ### Freezing columns on the left
 
-The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property. In the **tree** mode only one column gets frozen regardless of the number of the rows fields that are defined. In the sample below, 1 column is fixed initially on the left, which is equal to the number of fields defined for the "rows" area.
+The number of split columns equals the number of `rows` fields defined in the [`config`](/api/config/config-property) property. In the `tree` mode, only one column freezes regardless of how many `rows` fields are defined. In the sample below, 1 column is fixed initially on the left, which equals the number of fields defined for the `rows` area.
 
 ~~~jsx {19}
 const table = new pivot.Pivot("#root", {
@@ -354,9 +360,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-You can also apply a custom split using the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans.
+You can also apply a custom split via the [`render-table`](/api/events/render-table-event) event. Avoid splitting columns with colspans.
 
-In the sample below all columns from the "rows" area and first 4 columns from the "values" area are fixed initially. The number of columns that are split depends on the number of the rows and values fields that are defined via the [`config`](/api/config/config-property) property.
+In the sample below, the widget fixes all columns from the `rows` area and the first 4 columns from the `values` area initially. The number of split columns depends on the number of `rows` and `values` fields defined via the [`config`](/api/config/config-property) property.
 
 ~~~jsx {19-25}
 const table = new pivot.Pivot("#root", {
@@ -388,7 +394,7 @@ table.api.on("render-table", (tableConfig) => {
 
 ### Freezing columns on the right
 
-The `right` parameter of the [`tableShape`](/api/config/tableshape-property) property allows fixing total columns on the right. 
+Use the `right` parameter of the [`tableShape`](/api/config/tableshape-property) property to fix total columns on the right.
 
 ~~~jsx {4-7}
 const widget = new pivot.Pivot("#pivot", {
@@ -415,7 +421,7 @@ const widget = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-To fix custom columns on the right, you need to apply the table API via the [`render-table`](/api/events/render-table-event) event. It's not recommended to split columns with colspans. In the sample below, 2 columns on the right are fixed initially. 
+To fix custom columns on the right, apply the table API via the [`render-table`](/api/events/render-table-event) event. Avoid splitting columns with colspans. In the sample below, 2 columns on the right are fixed initially.
 
 ~~~jsx {20-25}
 const widget = new pivot.Pivot("#pivot", {
@@ -447,7 +453,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## Sorting in columns
 
-The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
+Sorting is enabled by default. A user can click the column header to sort data. To disable or enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. The example below disables sorting.
 
 ~~~jsx {19}
 const table = new pivot.Pivot("#root", {
@@ -477,8 +483,8 @@ For more information about sorting data, refer to [Sorting data](/guides/working
 
 ## Enabling the tree mode
 
-The widget allows presenting data in a hierarchical format with expandable rows. To switch to the tree mode, apply the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property by setting its value to **true** (default is **false**).
-To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property. 
+The widget can present data in a hierarchical format with expandable rows. To switch to the tree mode, set the `tree` parameter of the [`tableShape`](/api/config/tableshape-property) property to `true` (the default is `false`).
+To specify the parent row, put its name first in the `rows` array of the [`config`](/api/config/config-property) property.
 
 ~~~jsx {3}
 const table = new pivot.Pivot("#root", {
@@ -517,9 +523,9 @@ const table = new pivot.Pivot("#root", {
 
 ## Expanding/collapsing all rows
 
-To expand/collapse all rows, the **tree** mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property and you should use the [`close-row`](/api/table/close-row) and [`open-row`](/api/table/open-row) events of the Table widget getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
+To expand or collapse all rows, enable the `tree` mode via the [`tableShape`](/api/config/tableshape-property) property. Then access the Table widget API via the [`getTable`](/api/methods/gettable-method) method and use its [`close-row`](/api/table/close-row) and [`open-row`](/api/table/open-row) events.
 
-The example below shows how to expand/collapse all data rows with the button click in the table tree mode.
+The example below shows how to expand or collapse all data rows on a button click in the table tree mode.
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -584,7 +590,7 @@ document.body.appendChild(closeAllButton);
 
 ## Changing text orientation in headers
 
-To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-property) property and set its `vertical` parameter to **true**. 
+To change text orientation from default horizontal to vertical, use the [`headerShape`](/api/config/headershape-property) property and set its `vertical` parameter to `true`.
 
 ~~~jsx {4-6}
 const table = new pivot.Pivot("#root", {
@@ -610,13 +616,13 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Controlling visibility of Configuration panel
+## Controlling visibility of the Configuration panel
 
-The Configuration panel is displayed by default. The widget provides the default functionality that allows controlling the visibility of the Configuration panel with the button click. It's made possible via the [`configPanel`](/api/config/configpanel-property) property or [`show-config-panel`](/api/events/show-config-panel-event) event.
+The Configuration panel is visible by default. The widget toggles its visibility on a button click out of the box, and you can control this behavior via the [`configPanel`](/api/config/configpanel-property) property or the [`show-config-panel`](/api/events/show-config-panel-event) event.
 
-### Hiding Configuration panel
+### Hiding the Configuration panel
 
-To hide the panel, set the value of the [`configPanel`](/api/config/configpanel-property) property to **false**.
+To hide the panel, set the value of the [`configPanel`](/api/config/configpanel-property) property to `false`.
 
 ~~~jsx
 // the configuration panel is hidden on init
@@ -641,7 +647,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/internal/exec-method) method, and set the `mode` parameter to **false**.
+You can also trigger the [`show-config-panel`](/api/events/show-config-panel-event) event with the [`api.exec()`](/api/internal/exec-method) method, and set the `mode` parameter to `false`.
 
 ~~~jsx {19-22}
 const table = new pivot.Pivot("#root", {
@@ -670,7 +676,7 @@ table.api.exec("show-config-panel", {
 
 ### Disabling the default toggling functionality
 
-You can block toggling the visibility of the Configuration panel on the button click via the [`api.intercept()`](/api/internal/intercept-method) method (by listening to the [`show-config-panel`](/api/events/show-config-panel-event) event and returning *false*).
+To block visibility toggling on a button click, use the [`api.intercept()`](/api/internal/intercept-method) method to listen to the [`show-config-panel`](/api/events/show-config-panel-event) event and return *false*.
 
 Example:
 
@@ -703,7 +709,7 @@ You can also control the visibility of the Configuration panel using the [`showC
 
 ### Actions with fields in the panel
 
-In the Configuration panel it's possible to perform the next operations with fields:
+The Configuration panel supports the following operations on fields:
 
 - [add-field](/api/events/add-field-event)
 - [delete-field](/api/events/delete-field-event)

@@ -6,11 +6,11 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
-You can localize all labels in the interface of JavaScript Pivot. For this purpose you need to create a new locale or modify a built-in one and apply it to Pivot.
+You can localize all labels in the JavaScript Pivot interface. To do so, create a new locale or modify a built-in one, then apply it to Pivot.
 
 ## Default locale
 
-The **English** locale is applied by default:
+The default locale is English:
 
 ~~~jsx
 const en = {
@@ -158,7 +158,7 @@ const en = {
 
 ## Applying locales
 
-You can access built-in locales via the pivot object. Pivot provides three built-in locales: en, de, cn. 
+You can access built-in locales via the `pivot` object. Pivot ships with three built-in locales: `en`, `de`, `cn`.
 
 Example:
 
@@ -169,10 +169,10 @@ new pivot.Pivot({
 });
 ~~~
 
-To apply a custom locale, you need to:
+To apply a custom locale:
 
-- create a custom locale object (or modify the default one) and provide translations for all text labels (it can be any language you need)
-- apply the new locale to Pivot via its [`locale`](/api/config/locale-property) property or use the [`setLocale()`](/api/methods/setlocale-method) method
+- Create a custom locale object (or modify the default one) and provide translations for all text labels in any language you need.
+- Apply the new locale to Pivot via the [`locale`](/api/config/locale-property) property or the [`setLocale()`](/api/methods/setlocale-method) method.
 
 ~~~jsx
 // create Pivot
@@ -187,7 +187,7 @@ widget.setLocale(ko);
 
 ## Date formatting
 
-Pivot accepts a date as a Date object (make sure to parse a date to a Date object). By default, the `dateFormat` of the current locale is applied. To redefine the format for all date fields in Pivot, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
+Pivot accepts a date as a `Date` object — make sure to parse incoming values into `Date`. Pivot applies the `dateFormat` of the current locale by default. To redefine the format for all date fields in Pivot, set the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is `"%d.%m.%Y"`.
 
 Example:
 
@@ -232,7 +232,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
+If you need to set a custom format for a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. See [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
 
 ## Date and time format specification
 
@@ -263,12 +263,12 @@ Pivot uses the following characters for setting the date and time format:
 | %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
 
 
-To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+To present a date and time as `2024-09-20 16:47:08.128`, specify `"%Y-%m-%d %H:%i:%s.%u"`.
 
 ## Number formatting
 
-By default, all fields with the number type are localized according to the locale (the value in the `lang` field of the locale). Pivot uses [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. By default the fraction digits are limited to 3 and group separation is applied for the integer part. 
-In case you do not need to format specific fields with numeric values or need to set a custom format, use the the `format` parameter of the [`fields`](/api/config/fields-property) property. It can be either *false* to cancel formatting or an object with format settings (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)). 
+Pivot localizes all `number` fields by default, based on the value in the `lang` field of the locale. Number formatting follows the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification: the default limits fraction digits to 3 and applies group separation to the integer part.
+If you want to skip formatting for specific numeric fields or set a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set it to `false` to cancel formatting, or pass an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
 
 ~~~jsx
 const fields = [
@@ -278,6 +278,6 @@ const fields = [
 
 ## Example
 
-In this snippet you can see how to switch between several locales:
+The snippet below shows how to switch between several locales:
 
-<iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>

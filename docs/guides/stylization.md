@@ -21,30 +21,29 @@ description: You can learn about the styling in the documentation of the DHTMLX 
 ~~~
 
 :::tip Note
-Next versions of Pivot can bring some changes for the variables and their names. Please, do not forget to check the names after updating to the newer versions and modify them in your code to avoid problems with display of the component.
+Future versions of Pivot may rename or change CSS variables. After each update, check the variable names and update your code to keep the component rendering correctly.
 :::
 
 ## Built-in theme
 
-The widget provides one built-in theme which is the **Material** theme. 
+Pivot ships with one built-in theme — Material.
 
-You can apply the theme via adding the corresponding *CSS* classes to the widget container:
+To apply the theme, add the corresponding CSS class to the widget container:
 
-- **Material theme**
-~~~html {}
+~~~html
 <!-- Pivot container -->
 <div id="root" class="wx-material-theme"></div>
 ~~~
 
-or just include the theme on the page from the skins folder:
+Or include the theme stylesheet from the skins folder:
 
-~~~html {}
+~~~html
 <link type="stylesheet" href="path/to/pivot/skins/material.css"/>
 ~~~
 
 ## Customize built-in theme
 
-The example below demonstrates how to customize the **Material** theme that is applied to the Pivot table:
+The example below shows how to customize the Material theme:
 
 ~~~html
 <!-- custom styles -->
@@ -70,9 +69,7 @@ The example below demonstrates how to customize the **Material** theme that is a
 
 ## Custom style
 
-You can change the appearance of Pivot by applying the corresponding CSS variables.
-
-The example below shows how to apply a custom style to Pivot:
+To change the appearance of Pivot, apply the corresponding CSS variables. The example below shows how to apply a custom style to Pivot:
 
 ~~~html
 <div id="pivot" class="demo"></div>
@@ -91,20 +88,21 @@ The example below shows how to apply a custom style to Pivot:
 
 ## Scroll style
 
-You can also apply a custom style to the scroll bar of Pivot. For this, you can use the `.wx-styled-scroll` CSS class. Before using it, check compatibility with the modern browsers [here](https://caniuse.com/css-scrollbar).
+To apply a custom style to the Pivot scroll bar, use the `.wx-styled-scroll` CSS class. Check [browser compatibility](https://caniuse.com/css-scrollbar) before using it.
 
-~~~html {} title="index.html"
+~~~html title="index.html"
 <!--container for Pivot-->
-<div id="root" class="wx-styled-scroll"></div> 
+<div id="root" class="wx-styled-scroll"></div>
 ~~~
 
 ## Cell style
 
-To apply a CSS class to the table body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. The style of the header cells can be customized via the `cellStyle` parameter of the [`headerShape`](/api/config/tableshape-property) property. In both cases the `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell.   
+To apply a CSS class to body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. To style header cells, use the `cellStyle` parameter of the [`headerShape`](/api/config/headershape-property) property. In both cases, `cellStyle` returns a string that Pivot uses as the CSS class name for the cell.
 
-In the example below the styles of cells in the table body and headers are customized in the following way:
-- for the table body cells, styles are applied dynamically based on cell values (e.g., "Down", "Up", "Idle") in the "status" field and on total values (greater than 40 or less than 5) 
-- the style of header cells is determined by the value in the "streaming" field, with specific styles applied for "no" or other values (the CSS class "status-down" is applied for the "no" value and "status-up" is applied for the not "no" value)
+The example below customizes cell styles as follows:
+
+- for body cells, styles depend on cell values in the `status` field (`Down`, `Up`, `Idle`) and on total values (greater than 40 or less than 5)
+- for header cells, the value in the `streaming` field selects the class — `status-down` for `no` and `status-up` for any other value
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
@@ -157,12 +155,13 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Marking values in cells
 
-The widget API allows marking required values in cells. You can do it by applying the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. You need to do the following:
-- create a CSS class to be applied to the marked cell
-- add the CSS class name as the parameter of the `marks` object
-- set its value which can be a custom function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value; if **true** is returned, the css class is assigned to the cell.
+The widget API can mark specific values in cells via the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property. To mark cells:
 
-In the example below, cells with min and max values are marked, and custom function is used to mark cells with values that are non-integer and greater than 2. 
+- Create a CSS class for the marked cell.
+- Add the CSS class name as a parameter of the `marks` object.
+- Set its value to a custom function or one of the predefined strings (`"max"`, `"min"`). The function takes the checked value and returns a boolean; when it returns `true`, Pivot assigns the CSS class to the cell.
+
+The example below marks cells with min and max values and uses a custom function to mark non-integer values greater than 2.
 
 ~~~jsx {18-26}
 const table = new pivot.Pivot("#root", {
@@ -215,7 +214,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Specific CSS classes
 
-By default, in the table body numbers are aligned to the right with the help of the built-in `.wx-number` CSS class. The exception is the hierarchical column in the tree mode (when `tree` is set to **true** for the [`tableShape`](/api/config/tableshape-property) property). To reset the default number alignment, change the related CSS class. 
+By default, the built-in `.wx-number` CSS class right-aligns numbers in the table body. The exception is the hierarchical column in the tree mode (when `tree` is set to `true` in the [`tableShape`](/api/config/tableshape-property) property). To reset the default number alignment, change the related CSS class.
 
 ~~~html
 <style>
@@ -225,7 +224,7 @@ By default, in the table body numbers are aligned to the right with the help of 
 </style>
 ~~~
 
-It's also possible to customize the style of total columns via the ` .wx-total` CSS class:
+You can also style total columns via the `.wx-total` CSS class:
 
 ~~~html
 <style>
@@ -238,11 +237,11 @@ It's also possible to customize the style of total columns via the ` .wx-total` 
 
 ## Example
 
-In this snippet you can see how to apply a custom style to Pivot
+The snippet below shows how to apply a custom style to Pivot:
 
-<iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
+<iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
-**Related samples**: 
+**Related samples:**
 
 - [Pivot 2. Styling (custom CSS) for total column](https://snippet.dhtmlx.com/9lkdbzmm)
 - [Pivot 2. Min/max and custom marks for cells (conditional format)](https://snippet.dhtmlx.com/4cm4asbd)
