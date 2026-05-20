@@ -157,6 +157,10 @@ Promise.all([
 });
 ~~~
 
+:::info
+See [Working with server](/guides/working-with-server) for a full round-trip: loading rows, saving the layout, and storing aggregated results.
+:::
+
 ## Loading CSV data
 
 You can load CSV data and convert it to JSON and then continue working with this data in the Pivot table.
