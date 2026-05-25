@@ -22,7 +22,7 @@ Configure the Pivot table and the Configuration panel through the following API:
 
 For instructions on working with data, see [Working with data](/guides/working-with-data).
 
-The following Pivot table elements can be configured or customized:
+You can configure the following Pivot table elements:
 
 - columns and rows
 - headers and footers
@@ -228,7 +228,7 @@ template: (label, id, subLabel) =>
     label + (subLabel ? ` (${subLabel})` : "")
 ~~~
 
-By default, fields in the `values` area display the label and method (e.g., `Oil(count)`). If no template is set for a column, the field's `label` value is displayed. A [`predicates`](/api/config/predicates-property) template overrides the `headerShape` template.
+Without a custom template, `values`-area fields display the label and method (e.g., `Oil(count)`), and other-area fields display the `label` value. A [`predicates`](/api/config/predicates-property) template overrides the `headerShape` template.
 
 The example below converts header text to lowercase, producing labels such as `profit (sum)`:
 
@@ -533,7 +533,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Expand or collapse all rows
 
-To expand or collapse all rows programmatically, enable tree mode via the [`tableShape`](/api/config/tableshape-property) property, then access the Table widget instance with the [`getTable`](/api/methods/gettable-method) method and trigger the [`open-row`](/api/table/open-row) or [`close-row`](/api/table/close-row) event through the Table's `api.exec` method.
+To expand or collapse all rows programmatically, enable tree mode via the [`tableShape`](/api/config/tableshape-property) property. Then access the Table widget instance with the [`getTable`](/api/methods/gettable-method) method and trigger the [`open-row`](/api/table/open-row) or [`close-row`](/api/table/close-row) event through the Table's `api.exec` method.
 
 The example below renders Open all and Close all buttons that expand or collapse every branch in tree mode:
 
@@ -630,7 +630,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Control Configuration panel visibility {#controlling-visibility-of-configuration-panel}
 
-The Configuration panel is shown by default. Users can toggle it through the **Hide Settings** / **Show Settings** button. Control the panel programmatically through the [`configPanel`](/api/config/configpanel-property) property, the [`show-config-panel`](/api/events/show-config-panel-event) event, or the [`showConfigPanel`](/api/methods/showconfigpanel-method) method.
+The Configuration panel appears by default. Users can toggle it through the **Hide Settings** / **Show Settings** button. Control the panel programmatically through the [`configPanel`](/api/config/configpanel-property) property, the [`show-config-panel`](/api/events/show-config-panel-event) event, or the [`showConfigPanel`](/api/methods/showconfigpanel-method) method.
 
 ### Hide the Configuration panel
 
