@@ -6,7 +6,7 @@ description: You can explore how to load data in the documentation of the DHTMLX
 
 # Loading data
 
-Pivot accepts data in JSON format via the [`data`](/api/config/data-property) property. CSV data is also supported after conversion to JSON.
+Pivot accepts data in JSON format via the [`data`](/api/config/data-property) property. Pivot also accepts CSV data after conversion to JSON.
 
 ## Prepare data for loading
 
@@ -71,12 +71,12 @@ const data = [
 ~~~
 
 :::info
-See also how to define fields and Pivot structure: [Working with data](/guides/working-with-data).
+For information on defining fields and Pivot structure, see [Working with data](/guides/working-with-data).
 :::
 
 ## Load data from a file
 
-Pivot loads JSON data from an external file after initialization. First, prepare the source file with the data, fields, and configuration.
+Pivot loads JSON data from an external file after initialization. Prepare a source file with the data, fields, and configuration.
 
 The following code snippet defines `data`, `fields`, and a `getData()` accessor in a separate file:
 
@@ -143,7 +143,7 @@ const table = new pivot.Pivot("#root", { data, config, fields });
 
 ## Load data from a server
 
-To load data from a server endpoint, send a request with the native `fetch` method (or any equivalent), then pass the response to the [`setConfig`](/api/methods/setconfig-method) method. The `setConfig` method updates the Pivot configuration and preserves previously set options.
+To load data from a server endpoint, send a request with the native `fetch` method (or any equivalent), then pass the response to [`setConfig`](/api/methods/setconfig-method), which updates the Pivot configuration and preserves previously set options.
 
 The following code snippet initializes Pivot with empty data, fetches data and fields from a server, then applies them with `setConfig`:
 
@@ -161,13 +161,13 @@ Promise.all([
 
 ## Load CSV data
 
-Pivot accepts CSV data after conversion to JSON. Use an external JS parsing library to convert CSV to JSON, then work with the converted data the same way as native JSON.
+Pivot accepts CSV data after you convert it to JSON with an external JS parsing library. The converted data behaves the same as native JSON.
 
 The example below uses the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library to load and convert data on a button click. The `convert()` helper takes the following parameters:
 
 - `data` — a string with CSV data
-- `headers` — an array with the names of fields for CSV data
-- `meta` — an object where keys are the names of fields and values are the data types
+- `headers` — an array of CSV field names
+- `meta` — an object mapping field names to data types
 
 The following code snippet creates Pivot, defines the `convert()` helper, and applies parsed CSV data through [`setConfig`](/api/methods/setconfig-method) on a button click:
 
@@ -265,7 +265,7 @@ document.body.appendChild(importButton);
 
 ## Example
 
-The snippet below demonstrates loading JSON and CSV data:
+The snippet below loads JSON and CSV data:
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
