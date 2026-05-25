@@ -244,7 +244,7 @@ export default function PivotComponent({ fields, dataset }) {
 }
 ~~~
 
-Now the Pivot component is ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
+The component is now ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
 
 #### Handle events
 
@@ -282,7 +282,7 @@ useEffect(() => {
 // ...
 ~~~
 
-Start the app to see Pivot rendered with data on the page.
+Start the app to see Pivot render the data on the page.
 
 ![Pivot initialization](../assets/trial_pivot.png)
 
