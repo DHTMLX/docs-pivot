@@ -57,7 +57,7 @@ Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via
   
 ### Step 2. Create the component
 
-Create an Angular component that mounts Pivot. Add a *pivot* folder under *src/app/* and create *src/app/pivot/pivot.component.ts*. Then follow the steps below.
+Create an Angular component that mounts Pivot. Add a *pivot* folder under *src/app/* and create *src/app/pivot/pivot.component.ts*. Then follow these steps:
 
 #### Import source files
 
@@ -238,7 +238,7 @@ export class PivotComponent implements OnInit, OnDestroy {
 }
 ~~~
 
-Now the Pivot component is ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
+The component is now ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
 
 #### Handle events
 
@@ -318,7 +318,7 @@ platformBrowserDynamic()
     .catch((err) => console.error(err));
 ~~~
 
-Start the app to see Pivot rendered with data on the page.
+Start the app to see Pivot render the data on the page.
 
 ![Pivot initialization](../assets/trial_pivot.png)
 
