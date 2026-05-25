@@ -75,7 +75,7 @@ The example below overrides Material theme variables to render Pivot in a dark c
 
 ## Custom style
 
-Change the appearance of Pivot by overriding the Pivot CSS variables on a custom class applied to the widget container.
+Change the appearance of Pivot by overriding the CSS variables on a custom class applied to the widget container.
 
 The example below applies a custom style to Pivot via the `.demo` class:
 
@@ -107,11 +107,11 @@ The following code snippet enables the styled scroll bar on the widget container
 
 ## Cell style
 
-To style body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. To style header cells, use the `cellStyle` parameter of the [`headerShape`](/api/config/headershape-property) property. In both cases the `cellStyle` function returns a string, and Pivot uses the returned string as a CSS class name on the cell.
+To style body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. To style header cells, use the `cellStyle` parameter of the [`headerShape`](/api/config/headershape-property) property. In both cases, the `cellStyle` function returns a CSS class name that Pivot applies to the cell.
 
 The example below applies styles to body and header cells:
 
-- body cells receive a class based on cell values (e.g. `"Down"`, `"Up"`, `"Idle"` in the `status` field) and on total values (greater than 40 or less than 5)
+- body cells receive a class based on cell values (e.g., `"Down"`, `"Up"`, `"Idle"` in the `status` field) and on total values (greater than 40 or less than 5)
 - header cells receive a class based on the value of the `streaming` field — `status-down` for `"no"` and `status-up` for any other value
 
 ~~~jsx
@@ -169,7 +169,7 @@ Use the `marks` parameter of the [`tableShape`](/api/config/tableshape-property)
 
 The rule is either a predefined string (`"max"` or `"min"`) or a custom function `(value, columnData, rowData) => boolean`. When the function returns `true`, Pivot adds the CSS class to the cell.
 
-Before applying `marks`, create the CSS classes in your stylesheet.
+Create the CSS classes in your stylesheet before applying `marks`.
 
 The example below highlights cells with the minimum and maximum values, and uses a custom function to mark non-integer values greater than 2:
 
@@ -226,7 +226,7 @@ The following code snippet defines the CSS classes referenced by the `marks` obj
 
 ## Specific CSS classes
 
-Pivot ships several utility CSS classes that you can override for fine-grained control over table elements.
+Pivot includes several utility CSS classes that you can override for fine-grained control over table elements.
 
 Pivot aligns numbers in body cells to the right via the built-in `.wx-number` CSS class. The exception is the hierarchical column in tree mode (when `tree: true` is set in [`tableShape`](/api/config/tableshape-property)). To reset the default number alignment, override the class.
 
