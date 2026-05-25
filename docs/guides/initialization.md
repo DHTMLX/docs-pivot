@@ -14,7 +14,7 @@ This guide explains how to create Pivot on a page and enrich your application wi
 
 ## Include source files
 
-A Pivot app requires two source files on the page. See also how to download packages: [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
+A Pivot app requires two source files on the page. For instructions on downloading the package, see [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
 
 Include the following files:
 
@@ -38,9 +38,9 @@ Pivot renders into an HTML container element. Add a container and assign an ID, 
 
 ## Initialize Pivot
 
-Initialize Pivot with the `pivot.Pivot` constructor. The constructor takes two parameters:
+The `pivot.Pivot` constructor takes two parameters:
 
-- an HTML container (the ID of the HTML container)
+- the ID of the HTML container
 - an object with configuration properties
 
 The following code snippet creates a Pivot instance in the *"root"* container with initial fields, data, and structure:
@@ -64,7 +64,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-The constructor returns a Pivot instance. Use the instance to call API methods on the widget:
+The constructor returns a Pivot instance. Call API methods on the returned instance:
 
 - [`getTable`](api/methods/gettable-method.md) — get access to the underlying Table widget instance
 - [`setConfig`](api/methods/setconfig-method.md) — update the current Pivot configuration
