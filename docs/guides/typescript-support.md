@@ -6,7 +6,7 @@ description: You can learn about using typescript with the DHTMLX JavaScript Piv
 
 # TypeScript support
 
-DHTMLX Pivot ships TypeScript definitions starting from v2.0. The definitions work out of the box — no extra configuration is required.
+DHTMLX Pivot ships TypeScript definitions starting from v2.0. The definitions are ready to use — no extra configuration needed.
 
 :::info
 Try Pivot live in the [Snippet Tool](https://snippet.dhtmlx.com/y2buoahe).
@@ -14,4 +14,4 @@ Try Pivot live in the [Snippet Tool](https://snippet.dhtmlx.com/y2buoahe).
 
 ## Advantages of TypeScript
 
-TypeScript makes the development process more robust. Type checking and autocompletion catch potential mistakes early, and the bundled definitions tell you exactly which data types the DHTMLX Pivot API expects.
+Type checking and autocompletion catch mistakes early, and the bundled definitions tell you exactly which data types the DHTMLX Pivot API expects.
