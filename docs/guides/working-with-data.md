@@ -6,13 +6,13 @@ description: You can explore how to work with Data in the documentation of the D
 
 # Working with data
 
-This page describes how to aggregate data in Pivot. For the instructions about loading and exporting data refer to [Loading data](/guides/loading-data) and [Exporting data](/guides/exporting-data).
+This page describes how to aggregate, format, sort, filter, and pre-process data in Pivot. For instructions on loading and exporting data, see [Loading data](/guides/loading-data) and [Exporting data](/guides/exporting-data).
 
-## Defining fields
+## Define fields
 
-Use the [`fields`](/api/config/fields-property) property to add fields to the Pivot table. To add a new field, you should add a new object to the `fields` array.  
+Use the [`fields`](/api/config/fields-property) property to declare the fields that Pivot can place in rows, columns, and values. Each item in the `fields` array describes one field — its ID, label, and data type.
 
-Example:
+The following code snippet initializes Pivot with five fields:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -28,33 +28,34 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Applying formats to fields
+## Apply formats to fields {#applying-formats-to-fields}
 
-For the description of default formatting of date and numeric fields, which depends on locale, refer to [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
+Pivot applies a default format to numeric and date fields based on the current locale. For details, see [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. You can add text before and after numeric values using the `prefix` and `suffix` parameters. For example, to convert the value *12.345* to "12.35 EUR", `format` should contain the " EUR" suffix and maximumFractionDigits of 2:
+To override the default for a specific field, set the `format` parameter of the [`fields`](/api/config/fields-property) property.
 
-~~~js
-const fields = [
-     { id: "sales", type: "number", format: {suffix: " EUR", maximumFractionDigits: 2}},
-];
-~~~
+### Format numeric fields
 
-By default, the format for numeric values limits fraction digits to 3 and applies group separation for the integer part. You can cancel formatting by setting `format` to *false* in the `field` configuration:
+Use `prefix` and `suffix` to add text around numeric values, and `maximumFractionDigits` to control decimal precision. For example, to render `12.345` as `"12.35 EUR"`, set the suffix to `" EUR"` and `maximumFractionDigits` to `2`:
 
 ~~~js
 const fields = [
-     { id: "year", label: "Year", type: "number", format: false},
+     { id: "sales", type: "number", format: { suffix: " EUR", maximumFractionDigits: 2 } },
 ];
 ~~~
 
-In the example below, fields like marketing, profit, and sales are identified as currency-related. A formatting object is applied to these fields with:
+By default, Pivot limits numeric fields to 3 fraction digits and applies group separation to the integer part. To disable formatting entirely, set `format` to `false`:
 
-- prefix: "$" to display a dollar sign
-- *minimumFractionDigits* and *maximumFractionDigits* set to 2 for consistent decimal formatting
+~~~js
+const fields = [
+     { id: "year", label: "Year", type: "number", format: false },
+];
+~~~
+
+The example below marks `marketing`, `profit`, and `sales` as currency fields with a `$` prefix and fixed 2-digit decimals:
 
 ~~~jsx
-// Initialize pivot with pre-defined dataset and fields
+// initialize Pivot with a pre-defined dataset and fields
 new pivot.Pivot("#pivot", {
     data,
     config: {
@@ -67,7 +68,7 @@ new pivot.Pivot("#pivot", {
         ],
     },
     fields:[
-        // Custom format
+        // custom format
         { id: "marketing", label: "Marketing", type:"number", format:{
                 prefix: "$", minimumFractionDigits: 2, maximumFractionDigits: 2 }
         }
@@ -75,18 +76,22 @@ new pivot.Pivot("#pivot", {
 });
 ~~~
 
-To override the default locale-wide `dateFormat`, apply the `format` parameter of the [`fields`](/api/config/fields-property) property. Date format is a string, for example:
+### Format date fields
+
+To override the locale-wide `dateFormat` for a single field, set the `format` parameter of [`fields`](/api/config/fields-property) to a date-format string.
+
+The following code snippet sets `"%M %d, %Y"` as the format for the `date` field:
 
 ~~~jsx
 const fields = [
-     { id: "date",  type: "date",  format: "%M %d, %Y"},
+     { id: "date",  type: "date",  format: "%M %d, %Y" },
 ];
 ~~~
 
-In the example below we set the date format to "%d %M %Y %H:%i" for the "date" field only. The format displays day, full month name, year, hours, and minutes, e.g., "24 April 2025 14:30". In case you need to disable formatting of some fields, set the `format` parameter of the [`fields`](/api/config/fields-property) property to *false*. 
+The example below converts string dates to `Date` objects, then initializes Pivot with the format `"%d %M %Y %H:%i"` for the `date` field, producing labels such as `"24 April 2025 14:30"`. To disable formatting for a field, set `format` to `false`.
 
 ~~~jsx
-// Convert date strings to Date objects
+// convert date strings to Date objects
 const dateFields = fields.filter(f => f.type === "date");
 dataset.forEach(item => {
     dateFields.forEach(f => {
@@ -97,7 +102,7 @@ dataset.forEach(item => {
     });
 });
 
-// Initialize Pivot with field-specific date format
+// initialize Pivot with a field-specific date format
 new pivot.Pivot("#pivot", {
     data,
     config: {
@@ -110,21 +115,21 @@ new pivot.Pivot("#pivot", {
         ]
     },
     fields:[
-        // Custom format: Day Month Year Hour:Minute
-        {id:"date", label:"Date", type:"date", "%d %M %Y %H:%i"}
+        // custom format: Day Month Year Hour:Minute
+        { id: "date", label: "Date", type: "date", format: "%d %M %Y %H:%i" }
     ]
 });
 ~~~
 
 :::note
-By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
+For the `xlsx` export format, Pivot exports date and number fields as raw values with their default format (or the format defined via the [`fields`](/api/config/fields-property) property). If a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), Pivot exports the rendered value produced by that template. If both `template` and `format` are set, the template overrides the format.
 :::
 
-## Defining Pivot structure
+## Define Pivot structure
 
-You can create the Pivot structure using the [`config`](/api/config/config-property) property that also defines how data is aggregated. By default, it has no predefined values. You need to specify this property to define the configuration of the Pivot table, namely, which fields should be applied as columns and rows. The property also allows adding data aggregation methods to be applied to the fields. Here you can also add filters. Please, refer to the [`config`](/api/config/config-property) property description for details.
+Use the [`config`](/api/config/config-property) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. By default, `config` has no predefined values — you must set it to render any data. See the [`config`](/api/config/config-property) reference for the full parameter list.
 
-Example:
+The following code snippet places `continent` and `name` in rows, `year` in columns, three aggregations in values, and a filter on `name`:
 
 ~~~jsx {4-18}
 const table = new pivot.Pivot("#root", {
@@ -148,13 +153,13 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Sorting data
+## Sort data {#sorting-data}
 
-The widget API allows configuring the sorting settings that are applied to all areas (values, columns and rows) during aggregation. The sorting in UI is enabled by clicking the column header.
+Pivot supports sorting in all three areas (values, columns, rows) during aggregation. In the UI, users click a column header to sort.
 
-To set default sorting values, apply the **sort** parameter of the [`fields`](/api/config/fields-property) property. It accepts either the "asc" or "desc" value, or a custom sorting function.
+To set a default sort, use the `sort` parameter of the [`fields`](/api/config/fields-property) property. The parameter accepts `"asc"`, `"desc"`, or a custom comparator function.
 
-In the example below we add clickable field labels and the sorting functionality that is enabled with the icon click:
+The example below renders clickable field labels above Pivot and toggles the sort direction on click:
 
 ~~~jsx
 const bar = document.getElementById("bar");
@@ -182,9 +187,9 @@ function switchSort(id){
              f.sort =  f.sort != "desc" ? "desc" : "asc";
         }
     });
-    // change fields in Pivot config
-    table.setConfig({fields}); 
-    // update icons
+    // update Pivot fields
+    table.setConfig({ fields }); 
+    // refresh icons
     setFields(bar, fields);
 }
 
@@ -210,7 +215,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-The sorting functionality is enabled by default. A user can click the column's header to sort data. To disable/enable sorting, apply the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property. In the example below we disable sorting.
+Sorting in the UI is enabled by default. To disable it, set the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property to `false`.
+
+The following code snippet disables UI sorting:
 
 ~~~jsx {19}
 const table = new pivot.Pivot("#root", {
@@ -236,25 +243,27 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Filtering data
+## Filter data {#filtering-data}
 
-The widget allows you to set various filters for fields depending on the type of data. It's possible to specify filters both via the Pivot interface after initialization or through the corresponding API using the [`config`](/api/config/config-property) property.
+Pivot supports filters tied to field data types. Set filters through the Pivot UI after initialization or declaratively through the `filters` object of the [`config`](/api/config/config-property) property.
 
-In GUI, filters appear as drop-down lists for each field.
+In the UI, filters appear as drop-down lists for each field.
 
-#### Types of filters
+#### Filter types
 
-The Pivot widget provides the next condition types for filtering:
+Pivot supports the following filter conditions per data type:
 
-- for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith  
-- for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains, begins with, not begins with, ends with, not ends with  
-- for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
+- text fields — `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
+- numeric fields — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
+- date fields — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
 
-The filter provides the **includes** filtering rule to define the set of values to be displayed. 
+The `includes` rule restricts a filter to a specific set of allowed values.
 
-#### Adding a filter
+#### Add a filter
 
-To set a filter, add the **filters** object with the field ID and filter type to the [`config`](/api/config/config-property) property.
+To declare a filter, add the `filters` object to the [`config`](/api/config/config-property) property, keyed by field ID. Each value is an object of filter conditions.
+
+The following code snippet filters the `genre` field to values containing `"D"` and restricts to `"Drama"`, and filters the `title` field to values containing `"A"`:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -287,18 +296,18 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 :::info
-You can also filter data using the [`filter-rows`](/api/table/filter-rows) event of the Table widget by getting access to its API via the [`getTable`](/api/methods/gettable-method) method.
+To filter data through the Table widget API instead, access the Table instance with the [`getTable`](/api/methods/gettable-method) method and use the [`filter-rows`](/api/table/filter-rows) event.
 :::
 
-## Limiting loaded data
+## Limit loaded data {#limiting-loaded-data}
 
-To interrupt data rendering and prevent the component from hanging, you can limit the number of rows and columns in the final dataset. To limit data, specify the values using the [`limits`](/api/config/limits-property) property. The values define when to interrupt rendering data. The limits are applied based on the rows/columns defined within the Pivot configuration. The default value for rows is 10 000 and for columns it's 5 000.
+To prevent the component from hanging on very large datasets, cap the number of rows and columns in the final dataset with the [`limits`](/api/config/limits-property) property. Pivot interrupts rendering once the limit is reached. The default cap is 10000 for rows and 5000 for columns.
 
 :::note
-Limits are used for large dataset. Limits values are approximate values and do not show the exact values of the rows and columns.
+Limits apply to large datasets. The numbers are approximate — Pivot does not guarantee an exact row/column count.
 :::
 
-Example:
+The following code snippet caps the dataset at 10 rows and 3 columns:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -309,11 +318,11 @@ const table = new pivot.Pivot("#root", {
         columns: ["genre"],
         values: [
             {
-                id: "title",
+                field: "title",
                 method: "count"
             },
             {
-                id: "score",
+                field: "score",
                 method: "max"
             }
         ]
@@ -322,27 +331,27 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Applying maths methods
+## Apply math methods {#applying-maths-methods}
 
 ### Default methods
 
-The widget provides the following default methods for data aggregation:
+Pivot provides the following built-in aggregation methods:
 
-- sum (for numeric values only) - sums all the values of the selected data; empty cells, logical values like TRUE, or text are ignored
-- min (for numeric and date values)- finds and displays the minimum value of the selected data; empty cells, logical values, or text in the array or reference are ignored. If the arguments contain no numbers, MIN returns 0 (zero)
-- max (for numeric and date values) - finds the largest value in a set of values; the function ignores empty cells, the logical values TRUE and FALSE, and text values. If the arguments contain no numbers, MAX returns 0 (zero)
-- count (for numeric, text, and date values) - looks for all occurrences of the selected data and displays their number; generally used to count a range of cells containing numbers or dates excluding blanks; this is the default operation assigned to each newly added field
-- countunique (for numeric and text values) - сounts the number of unique values in a list of specified values and ranges
-- average (for numeric values only) - calculates the average (arithmetic mean) of a group of numbers; logical values, empty cells and cells that contain text in the array or reference are ignored; cells with the value zero are included
-- counta (for numeric, text, and date values) - returns the number of values in a dataset; counts numbers, dates, text or a range containing a mixture of these items, but does not count blank cells
-- median (for numeric values only) - calculates the median of the given numbers
-- product (for numeric values only) - calculates the product of all numbers in the given range
-- stdev (for numeric values only) - calculates the standard deviation of the values, treating it as a sample of a bigger set of values
-- stdevp (for numeric values only) - calculates the standard deviation of the values, treating it as the entire set of values
-- var (for numeric values only) - calculates the variance of the values, treating it as a sample of a bigger set of values
-- varp (for numeric values only) - calculates the variance of the values, treating it as the entire set of values
+- `sum` (numeric values only) — sums all selected values; ignores empty cells, logical values like `TRUE`, and text
+- `min` (numeric and date values) — returns the minimum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
+- `max` (numeric and date values) — returns the maximum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
+- `count` (numeric, text, and date values) — counts non-blank cells; this is the default method assigned to every newly added field
+- `countunique` (numeric and text values) — counts the number of unique values in the input
+- `average` (numeric values only) — calculates the arithmetic mean of the input; ignores empty cells, logical values, and text. Includes cells with the value zero
+- `counta` (numeric, text, and date values) — counts all non-blank values, including numbers, dates, and text
+- `median` (numeric values only) — returns the median of the input
+- `product` (numeric values only) — returns the product of all numbers in the input
+- `stdev` (numeric values only) — standard deviation, treating the input as a sample of a larger set
+- `stdevp` (numeric values only) — standard deviation, treating the input as the entire population
+- `var` (numeric values only) — variance, treating the input as a sample of a larger set
+- `varp` (numeric values only) — variance, treating the input as the entire population
 
-Predefined methods:
+The following code snippet shows the built-in method definitions:
 
 ~~~jsx
 const defaultMethods = {
@@ -374,9 +383,9 @@ const defaultMethods = {
 };
 ~~~
 
-You can apply default methods using the `values` parameter of the [`config`](/api/config/config-property) property. See [Options for defining values](#options-for-defining-values) below.
+Apply a default method through the `values` parameter of the [`config`](/api/config/config-property) property. See [Define values](#options-for-defining-values) below.
 
-Example:
+The following code snippet assigns `count` to the `title` field and `max` to the `score` field:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -387,9 +396,9 @@ const table = new pivot.Pivot("#root", {
         columns: [],
         values: [
             {
-                //field id
+                // field id
                 field: "title",
-                //method
+                // method
                 method: "count"
             },
             {
@@ -401,13 +410,14 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-### Options for defining values
+### Define values {#options-for-defining-values}
 
-You can define `values`in either of the two equally valid ways: 
-- option one is a string representing a data field ID: `operation(fieldID)`
-- option two is an object containing the field ID and the method for data aggregation (both are required): `{ field: string, method: string }`
+Define each entry in `values` in one of two equivalent forms:
 
-Example:
+- a string of the form `"operation(fieldID)"`
+- an object `{ field: string, method: string }` (both fields required)
+
+The following code snippet uses both forms in the same `values` array:
 
 ~~~jsx
 values: [
@@ -416,11 +426,11 @@ values: [
 ]
 ~~~
 
-### Redefining the default method
+### Override the default method
 
-By default, the first available method for the data type is selected. You can redefine a method using the [`api.intercept()`](/api/internal/intercept-method) method.
+For each newly added field, Pivot assigns the first available method for the data type. To change this behavior, intercept the `add-field` event with the [`api.intercept`](/api/internal/intercept-method) method.
 
-In the example below, we check whether a new field is added, and set the **max** method in case a numeric field is added.
+The example below intercepts `add-field` and forces the `max` method whenever a numeric field is added:
 
 ~~~jsx {20-27}
 const table = new pivot.Pivot("#root", {
@@ -441,7 +451,7 @@ const table = new pivot.Pivot("#root", {
     ],
   },
 });
-//adding values with a predefined method
+// override the default method for newly added numeric fields
 table.api.intercept("add-field", (ev) => {
   const { fields } = table.api.getState();
   const type = fields.find((f) => f.id == ev.field).type;
@@ -452,11 +462,11 @@ table.api.intercept("add-field", (ev) => {
 });
 ~~~
 
-### Adding custom maths methods
+### Add custom math methods
 
-To add a custom method, use the [`methods`](/api/config/methods-property) property by setting the `key` parameter value to the method name and the `value` parameter should be a function that defines how a method should process data. The function should take an array of numerical values as an input and return a single numerical value. 
+To add a custom aggregation method, use the [`methods`](/api/config/methods-property) property. Each entry pairs a method name (the key) with a configuration object containing a `handler` function and metadata. The `handler` takes an array of values and returns a single aggregated value.
 
-The example below shows how to calculate the count of unique and average values for the date type. The **countUnique** function takes an array of numbers (values) as an input and calculates the exact count of unique values using the **reduce** method. The **countunique_date** sub-property has a handler with a function that gets the unique values from an array of the date values. The **average_date** sub-property has a handler that calculates the average values from an array of the date values.
+The example below adds two date-specific methods. `countunique_date` counts distinct dates by their numeric timestamps. `average_date` returns the average date by averaging timestamps:
 
 ~~~jsx
 function countUnique(values, converter) {
@@ -498,7 +508,7 @@ fields.forEach(f => {
         v && method.indexOf("count") < 0 ? parseFloat(v).toFixed(3) : v;
 });
 
-// date string to Date 
+// convert date strings to Date objects
 const dateFields = fields.filter(f => f.type == "date");
 if (dateFields.length) {
     dataset.forEach(item => {
@@ -542,10 +552,11 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Processing data with predicates
+## Process data with predicates {#processing-data-with-predicates}
 
-Predicates or data modifiers allow you to process data in the required way before this data is used as rows or columns. 
-For example, you can pre-process the date format before applying and displaying data. The following predicates are applied by default:
+Predicates are pre-processing functions that transform raw field data before Pivot uses the data in rows or columns. For example, a predicate can group dates by month before aggregation.
+
+The following code snippet shows the built-in date predicates that Pivot applies by default:
 
 ~~~jsx
 const defaultPredicates = {
@@ -559,17 +570,18 @@ const defaultPredicates = {
 };
 ~~~
 
-To add a custom predicate, you should specify the parameters of the [`predicates`](/api/config/predicates-property) property:
-- Add keys that are predicate IDs
-- Add values that are objects with the predicate configuration:
-    - specify the `type` to define fields types for which the predicate can be applied ("number", "date", "text")
-    - add a label that will be displayed in GUI in the drop-down among data modifiers options for a row/column
-    - for the custom predicate, add the `handler` function that defines how data should be processed; the function takes a single argument as the value to be processed and returns the processed value
-    - if you want data to be displayed in the way other than the `handler` function returns, add the `template` that defines how data should be displayed (optional)
-    - if necessary, add the `field` function to specify how data should be filtered for the field
-    - apply the `filter` parameter if you need the filter type other than the one in the `type` parameter or in case you need the data format different from the `template`
+To add a custom predicate, configure the [`predicates`](/api/config/predicates-property) property. Each entry pairs a predicate ID (the key) with a configuration object:
 
-You should also add the predicate id as the value of the `method` parameter for the row/column where this predicate should be applied. 
+- `type` — the field types this predicate accepts (`"number"`, `"date"`, `"text"`, or an array)
+- `label` — the predicate label shown in the GUI drop-down for a row/column
+- `handler` — function that transforms a value and returns the processed value
+- `template` — optional function that controls how the processed value is displayed
+- `field` — optional function that limits the predicate to specific fields
+- `filter` — optional filter configuration when the filter type should differ from `type`, or when the data format should differ from `template`
+
+To use a custom predicate, set its ID as the `method` of the row or column where the predicate should apply.
+
+The following code snippet registers two custom predicates (`monthYear` and `profitSign`) and applies them in the `columns` configuration:
 
 ~~~jsx
 const predicates = {
@@ -595,7 +607,7 @@ const predicates = {
     },
 };
 
-// date string to Date
+// convert date strings to Date objects
 const dateFields = fields.filter((f) => f.type == "date");
 if (dateFields.length) {
     dataset.forEach((item) => {
@@ -622,13 +634,11 @@ const table = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-## Adding columns and rows with total values
+## Add columns and rows with total values
 
-To enable generating the rightmost column with total values, apply the [`tableShape`](/api/config/tableshape-property) property and set the value of the `totalColumn` parameter to **true**.
+Use the [`tableShape`](/api/config/tableshape-property) property to render a total column on the right (`totalColumn: true`) or a total footer row (`totalRow: true`).
 
-To enable generating the footer with totals, apply the [`tableShape`](/api/config/tableshape-property)property and set the value of the `totalRow` parameter to **true**.
-
-**Example:**
+The following code snippet enables both the total column and the total row:
 
 ~~~jsx {2-5}
 const table = new pivot.Pivot("#root", {
@@ -665,7 +675,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Example
 
-In this snippet you can see how to apply custom maths operations:
+The snippet below demonstrates applying custom math operations:
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
