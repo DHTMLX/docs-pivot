@@ -7,79 +7,81 @@ description: You can learn about the integration with Angular in the documentati
 # Integration with Angular
 
 :::tip
-You should be familiar with basic concepts and patterns of **Angular** before reading this documentation. To refresh your knowledge, please refer to the [**Angular documentation**](https://v17.angular.io/docs).
+Familiarity with the basic concepts and patterns of **Angular** is assumed. To refresh, see the [**Angular documentation**](https://v17.angular.io/docs).
 :::
 
-DHTMLX Pivot is compatible with **Angular**. We have prepared code examples on how to use DHTMLX Pivot with **Angular**. For more information, refer to the corresponding [**Example on GitHub**](https://github.com/DHTMLX/angular-pivot-demo).
+DHTMLX Pivot integrates with **Angular** as a regular component. For a full working setup, see the [**Angular Pivot demo on GitHub**](https://github.com/DHTMLX/angular-pivot-demo).
 
-## Creating a project
+## Create a project
 
 :::info
-Before you start to create a new project, install [**Angular CLI**](https://v1.angular.io/cli) and [**Node.js**](https://nodejs.org/en/).
+Install [**Angular CLI**](https://v1.angular.io/cli) and [**Node.js**](https://nodejs.org/en/) before you start.
 :::
 
-Create a new **my-angular-pivot-app** project using Angular CLI. Run the following command for this purpose:
+The following command scaffolds a new Angular project named *my-angular-pivot-app*:
 
-~~~json
+~~~bash
 ng new my-angular-pivot-app
 ~~~
 
 :::note
-If you want to follow this guide, disable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering) when creating new Angular app!
+Disable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering) when prompted by the Angular CLI — this guide assumes a client-rendered app.
 :::
 
-The command above installs all the necessary tools, so you don't need to run any additional commands.
+The command installs all necessary tools. No additional commands are needed.
 
-### Installation of dependencies
+### Install dependencies
 
-Go to the new created app directory:
+Change into the new project directory:
 
-~~~json
+~~~bash
 cd my-angular-pivot-app
 ~~~
 
-Install dependencies and start the dev server. For this, use the [**yarn**](https://yarnpkg.com/) package manager:
+Install dependencies and start the dev server with the [**yarn**](https://yarnpkg.com/) package manager:
 
-~~~jsx
+~~~bash
 yarn
-yarn start // or yarn dev
+yarn start # or: yarn dev
 ~~~
 
-The app should run on a localhost (for instance `http://localhost:3000`).
+The app should run on a local port (for example, `http://localhost:3000`).
 
-## Creating Pivot
+## Create Pivot
 
-Now you should get the DHTMLX Pivot source code. First of all, stop the app and proceed with installing the Pivot package.
+Add the Pivot package to the project, then wrap Pivot in an Angular component.
 
-### Step 1. Package installation
+### Step 1. Install the package
 
-Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow steps mentioned in the README file. Note that trial Pivot is available 30 days only.
+Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow the steps in the README. The trial Pivot package is valid for 30 days.
   
-### Step 2. Component creation
+### Step 2. Create the component
 
-Now you need to create an Angular component, to add Pivot into the application. Create  the **pivot** folder in the ***src/app/*** directory, add a new file into it and name it ***pivot.component.ts***. Then complete the steps described below.
+Create an Angular component that mounts Pivot. Add a *pivot* folder under *src/app/* and create *src/app/pivot/pivot.component.ts*. Then follow the steps below.
 
 #### Import source files
 
-Open the file and import Pivot source files. Note that:
+Open *src/app/pivot/pivot.component.ts* and import the Pivot package. The import path depends on the package edition:
 
-- if you use PRO version and install the Pivot package from a local folder, the imported path looks like this:
+- **PRO version** (installed from a local folder):
 
 ~~~jsx
 import { Pivot } from 'dhx-pivot-package';
 ~~~
 
-- if you use the trial version of Pivot, specify the following path:
+- **Trial version**:
 
 ~~~jsx
 import { Pivot } from '@dhx/trial-pivot';
 ~~~
 
-In this tutorial you can see how to configure the **trial** version of Pivot.
+This tutorial uses the trial version of Pivot.
 
-#### Set the container and initialize Pivot
+#### Set up the container and mount Pivot
 
-To display Pivot on the page, you need to set the container to render the component inside and initialize Pivot using the corresponding constructor:
+To display Pivot on the page, define a container element in the component template, then initialize Pivot in the `ngOnInit` hook using the constructor. Destroy Pivot in the `ngOnDestroy` hook.
+
+The following code snippet defines a minimal Pivot Angular component:
 
 ~~~jsx {1,8,12-13,18-19} title="pivot.component.ts"
 import { Pivot } from '@dhx/trial-pivot';
@@ -87,13 +89,13 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation 
 
 @Component({
     encapsulation: ViewEncapsulation.None,
-    selector: "pivot", // a template name used in the "app.component.ts" file as <pivot />
-    styleUrls: ["./pivot.component.css"], // include a css file
+    selector: "pivot", // template name used in the "app.component.ts" file as <pivot />
+    styleUrls: ["./pivot.component.css"], // include a CSS file
     template: `<div #container class="widget"></div>`,
 })
 
 export class PivotComponent implements OnInit, OnDestroy {
-    // initialize container for Pivot
+    // container reference for Pivot
     @ViewChild('container', { static: true }) pivot_container!: ElementRef;
 
     private _table!: Pivot;
@@ -104,20 +106,20 @@ export class PivotComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this._table.destructor(); // destruct Pivot
+        this._table.destructor(); // destroy Pivot on unmount
     }
 }
 ~~~
 
-#### Adding styles
+#### Add styles
 
-To display Pivot correctly, you need to provide the corresponding styles. For this purpose, you can create the ***pivot.component.css*** file in the ***src/app/pivot/*** directory and specify important styles for Pivot and its container:
+To render Pivot correctly, create *src/app/pivot/pivot.component.css* with styles for the page and the Pivot container:
 
 ~~~css title="pivot.component.css"
 /* import Pivot styles */
 @import "@dhx/trial-pivot/dist/pivot.css";
 
-/* specify styles for initial page */
+/* styles for the initial page */
 html,
 body {
     margin: 0;
@@ -125,16 +127,16 @@ body {
     height: 100%;
 }
 
-/* specify styles for the Pivot container */
+/* styles for the Pivot container */
 .widget {
     width: 100%;
     height: 100%;
 }
 ~~~
 
-#### Loading data
+#### Load data
 
-To add data into Pivot, you need to provide a data set. You can create the ***data.ts*** file in the ***src/app/pivot/*** directory and add some data into it:
+To feed data into Pivot, prepare a dataset. Create *src/app/pivot/data.ts* and export the data and field metadata:
 
 ~~~jsx title="data.ts"
 export function getData() {
@@ -172,7 +174,7 @@ export function getData() {
             "state": "Colorado",
             "expenses": 45,
             "type": "Decaf"
-        }, // othe data items
+        }, // other data items
     ];
 
     const fields: any = [
@@ -192,7 +194,7 @@ export function getData() {
 };
 ~~~
 
-Then open the ***pivot.component.ts*** file. Import the file with data and specify the corresponding data properties to the configuration object of Pivot within the `ngOnInit()` method, as shown below.
+Open *src/app/pivot/pivot.component.ts*, import `getData`, and apply the dataset in `ngOnInit()`:
 
 ~~~jsx {2,18,20-21} title="pivot.component.ts"
 import { Pivot } from '@dhx/trial-pivot';
@@ -212,7 +214,7 @@ export class PivotComponent implements OnInit, OnDestroy {
     private _table!: Pivot;
 
     ngOnInit() {
-        const { dataset, fields } = getData(); // initialize data properties
+        const { dataset, fields } = getData(); // unpack data and field metadata
         this._table = new Pivot(this.pivot_container.nativeElement, {
             fields,
             data: dataset,
@@ -236,17 +238,18 @@ export class PivotComponent implements OnInit, OnDestroy {
 }
 ~~~
 
-Now the Pivot component is ready to use. When the element will be added to the page, it will initialize the Pivot with data. You can provide necessary configuration settings as well. Visit our [Pivot API docs](/api/overview/properties-overview/) to check the full list of available properties.
+Now the Pivot component is ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
 
-#### Handling events
+#### Handle events
 
-When a user makes some action in the Pivot, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events-overview/).
+User actions in Pivot fire events that you can subscribe to. For the full list of events, see [Events overview](/api/overview/events-overview/).
 
-Open the ***pivot.component.ts*** file and complete the `ngOnInit()` method as in:
+The following code snippet extends `ngOnInit` with an `open-filter` event listener that logs the field ID when a user opens a filter:
 
 ~~~jsx {18-20} title="pivot.component.ts"
 // ...
 ngOnInit() {
+    const { dataset, fields } = getData();
     this._table = new Pivot(this.pivot_container.nativeElement, {
         fields,
         data: dataset,
@@ -263,7 +266,7 @@ ngOnInit() {
     });
 
     this._table.api.on("open-filter", (ev) => {
-        console.log("The field id for which filter is activated:", ev.id);
+        console.log("The field id for which the filter is activated:", ev.id);
     });
 }
 
@@ -272,23 +275,23 @@ ngOnDestroy(): void {
 }
 ~~~
 
-### Step 3. Adding Pivot into the app
+### Step 3. Add Pivot to the app
 
-To add the ***PivotComponent*** into the app, open the ***src/app/app.component.ts*** file and replace the default code with the following one:
+To embed `PivotComponent` in the app, open *src/app/app.component.ts* and replace the default code with the following:
 
 ~~~jsx {5} title="app.component.ts"
 import { Component } from "@angular/core";
 
 @Component({
     selector: "app-root",
-    template: `<pivot/>` // a template created in the "pivot.component.ts" file 
+    template: `<pivot/>` // template created in the "pivot.component.ts" file 
 })
 export class AppComponent {
     name = "";
 }
 ~~~
 
-Then create the ***app.module.ts*** file in the ***src/app/*** directory and specify the *PivotComponent* as shown below:
+Then create *src/app/app.module.ts* and register `PivotComponent`:
 
 ~~~jsx {4-5,8} title="app.module.ts"
 import { NgModule } from "@angular/core";
@@ -305,7 +308,7 @@ import { PivotComponent } from "./pivot/pivot.component";
 export class AppModule {}
 ~~~
 
-The last step is to open the ***src/main.ts*** file and replace the existing code with the following one:
+Finally, open *src/main.ts* and replace its contents with the following bootstrap code:
 
 ~~~jsx title="main.ts"
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
@@ -315,8 +318,8 @@ platformBrowserDynamic()
     .catch((err) => console.error(err));
 ~~~
 
-After that, you can start the app to see Pivot loaded with data on a page.
+Start the app to see Pivot rendered with data on the page.
 
 ![Pivot initialization](../assets/trial_pivot.png)
 
-Now you know how to integrate DHTMLX Pivot with Angular. You can customize the code according to your specific requirements. The final example you can find on [**GitHub**](https://github.com/DHTMLX/angular-pivot-demo).
+Pivot is now integrated with Angular. Customize the configuration to suit the project requirements. For the final example, see [**angular-pivot-demo on GitHub**](https://github.com/DHTMLX/angular-pivot-demo).
