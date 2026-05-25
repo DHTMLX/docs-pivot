@@ -44,7 +44,7 @@ const fields = [
 ];
 ~~~
 
-By default, Pivot limits numeric fields to 3 fraction digits and applies group separation to the integer part. To disable formatting entirely, set `format` to `false`:
+The default formatting limits numeric fields to 3 fraction digits and applies group separation to the integer part. To disable formatting entirely, set `format` to `false`:
 
 ~~~js
 const fields = [
@@ -88,7 +88,7 @@ const fields = [
 ];
 ~~~
 
-The example below converts string dates to `Date` objects, then initializes Pivot with the format `"%d %M %Y %H:%i"` for the `date` field, producing labels such as `"24 April 2025 14:30"`. To disable formatting for a field, set `format` to `false`.
+The example below converts string dates to `Date` objects, then initializes Pivot with the format `"%d %M %Y %H:%i"` for the `date` field. Field values render as labels such as `"24 April 2025 14:30"`.
 
 ~~~jsx
 // convert date strings to Date objects
@@ -127,7 +127,7 @@ For the `xlsx` export format, Pivot exports date and number fields as raw values
 
 ## Define Pivot structure
 
-Use the [`config`](/api/config/config-property) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. By default, `config` has no predefined values — you must set it to render any data. See the [`config`](/api/config/config-property) reference for the full parameter list.
+Use the [`config`](/api/config/config-property) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. The `config` property has no predefined values — you must set it to render any data. See the [`config`](/api/config/config-property) reference for the full parameter list.
 
 The following code snippet places `continent` and `name` in rows, `year` in columns, three aggregations in values, and a filter on `name`:
 
@@ -263,7 +263,7 @@ The `includes` rule restricts a filter to a specific set of allowed values.
 
 To declare a filter, add the `filters` object to the [`config`](/api/config/config-property) property, keyed by field ID. Each value is an object of filter conditions.
 
-The following code snippet filters the `genre` field to values containing `"D"` and restricts to `"Drama"`, and filters the `title` field to values containing `"A"`:
+The following code snippet applies two filters — one on `genre` (values containing `"D"`, restricted to `"Drama"`) and one on `title` (values containing `"A"`):
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -335,7 +335,7 @@ const table = new pivot.Pivot("#root", {
 
 ### Default methods
 
-Pivot provides the following built-in aggregation methods:
+Pivot includes the following built-in aggregation methods:
 
 - `sum` (numeric values only) — sums all selected values; ignores empty cells, logical values like `TRUE`, and text
 - `min` (numeric and date values) — returns the minimum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
@@ -383,7 +383,7 @@ const defaultMethods = {
 };
 ~~~
 
-Apply a default method through the `values` parameter of the [`config`](/api/config/config-property) property. See [Define values](#options-for-defining-values) below.
+Apply a default method through the `values` parameter of the [`config`](/api/config/config-property) property. See [Define values](#options-for-defining-values).
 
 The following code snippet assigns `count` to the `title` field and `max` to the `score` field:
 
@@ -675,7 +675,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Example
 
-The snippet below demonstrates applying custom math operations:
+The snippet below applies custom math operations:
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
