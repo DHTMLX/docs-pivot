@@ -171,10 +171,10 @@ new pivot.Pivot("#root", {
 
 To apply a custom locale:
 
-- create a custom locale object (or modify a built-in one) and provide translations for all text labels (in any language)
+- create a locale object (or modify a built-in one) and provide translations for all text labels (in any language)
 - apply the locale to Pivot via the [`locale`](/api/config/locale-property) property or the [`setLocale`](/api/methods/setlocale-method) method
 
-The following code snippet creates Pivot and then applies a custom Korean locale at runtime with `setLocale`:
+The following code snippet creates Pivot, then applies a custom Korean locale at runtime with `setLocale`:
 
 ~~~jsx
 // create Pivot
@@ -193,7 +193,7 @@ Call [`setLocale`](/api/methods/setlocale-method) without arguments (or with `nu
 
 ## Format dates
 
-Pivot accepts dates as `Date` objects. Parse string values to `Date` before passing data to Pivot. By default, Pivot applies the `dateFormat` from the current locale, which is `"%d.%m.%Y"`.
+Pivot accepts dates as `Date` objects. Parse string values to `Date` before passing data to Pivot. The default `dateFormat` is `"%d.%m.%Y"`, taken from the current locale.
 
 To change the format for all date fields, set a new value for `dateFormat` in the `formats` object of the [`locale`](/api/config/locale-property) property.
 
@@ -274,7 +274,7 @@ To present September 20, 2024 at 16:47:08.128 as *2024-09-20 16:47:08.128*, use 
 
 ## Format numbers
 
-Pivot localizes all `number` fields according to the locale (the value in the `lang` field of the locale). The widget uses the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. By default, Pivot limits fraction digits to 3 and applies group separation to the integer part.
+Pivot localizes all `number` fields based on the `lang` value of the current locale. The widget uses the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. The default settings limit fraction digits to 3 and apply group separation to the integer part.
 
 To skip formatting for a specific numeric field or to set a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set `format` to `false` to disable formatting, or to an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
 
@@ -288,6 +288,6 @@ const fields = [
 
 ## Example
 
-The snippet below demonstrates switching between several locales:
+The snippet below switches between several locales:
 
 <iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
