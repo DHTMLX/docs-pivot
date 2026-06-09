@@ -26,13 +26,13 @@ The callback of the action takes an object with the following parameters:
   - `field` - (required) the field id to which filter will be applied
   - `filter` - (required) filter type: 
     - for text values: equal, notEqual, contains, notContains, beginsWith, notBeginsWith, endsWith, notEndsWith
-    - for numeric values: greater: less, greaterOrEqual, lessOrEqual, equal,	notEqual, contains, notContains
+    - for numeric values: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, contains, notContains
     - for date types: greater, less, greaterOrEqual, lessOrEqual, equal, notEqual, between, notBetween
-  - `value` - (required) the value to filter by
-  - `includes` - (required) an array of values to be displayed from those that are already filtered; available for text and date values
+  - `value` - (optional) the value to filter by
+  - `includes` - (optional) an array of values to be displayed from those that are already filtered; available for text and date values
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Example
@@ -62,4 +62,4 @@ table.api.on("apply-filter", (ev) => {
 });
 ~~~
 
-**Related articles**: [api.on()](/api/internal/on-method)
+**Related articles**: [api.on()](api/internal/on-method.md)

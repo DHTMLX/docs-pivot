@@ -6,11 +6,11 @@ description: You can explore how to work with Data in the documentation of the D
 
 # Working with data
 
-This page describes how to aggregate, format, sort, filter, and pre-process data in Pivot. For instructions on loading and exporting data, see [Loading data](/guides/loading-data) and [Exporting data](/guides/exporting-data).
+This page describes how to aggregate, format, sort, filter, and pre-process data in Pivot. For instructions on loading and exporting data, see [Loading data](guides/loading-data.md) and [Exporting data](guides/exporting-data.md).
 
 ## Define fields
 
-Use the [`fields`](/api/config/fields-property) property to declare the fields that Pivot can place in rows, columns, and values. Each item in the `fields` array describes one field — its ID, label, and data type.
+Use the [`fields`](api/config/fields-property.md) property to declare the fields that Pivot can place in rows, columns, and values. Each item in the `fields` array describes one field — its ID, label, and data type.
 
 The following code snippet initializes Pivot with five fields:
 
@@ -30,9 +30,9 @@ const table = new pivot.Pivot("#root", {
 
 ## Apply formats to fields {#applying-formats-to-fields}
 
-Pivot applies a default format to numeric and date fields based on the current locale. For details, see [Date formatting](/guides/localization/#date-formatting) and [Number formatting](/guides/localization/#number-formatting).
+Pivot applies a default format to numeric and date fields based on the current locale. For details, see [Date formatting](guides/localization.md#date-formatting) and [Number formatting](guides/localization.md#number-formatting).
 
-To override the default for a specific field, set the `format` parameter of the [`fields`](/api/config/fields-property) property.
+To override the default for a specific field, set the `format` parameter of the [`fields`](api/config/fields-property.md) property.
 
 ### Format numeric fields
 
@@ -78,7 +78,7 @@ new pivot.Pivot("#pivot", {
 
 ### Format date fields
 
-To override the locale-wide `dateFormat` for a single field, set the `format` parameter of [`fields`](/api/config/fields-property) to a date-format string.
+To override the locale-wide `dateFormat` for a single field, set the `format` parameter of [`fields`](api/config/fields-property.md) to a date-format string.
 
 The following code snippet sets `"%M %d, %Y"` as the format for the `date` field:
 
@@ -122,12 +122,12 @@ new pivot.Pivot("#pivot", {
 ~~~
 
 :::note
-For the `xlsx` export format, Pivot exports date and number fields as raw values with their default format (or the format defined via the [`fields`](/api/config/fields-property) property). If a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), Pivot exports the rendered value produced by that template. If both `template` and `format` are set, the template overrides the format.
+For the `xlsx` export format, Pivot exports date and number fields as raw values with their default format (or the format defined via the [`fields`](api/config/fields-property.md) property). If a template is defined for a field (see the [`tableShape`](api/config/tableshape-property.md) property), Pivot exports the rendered value produced by that template. If both `template` and `format` are set, the template overrides the format.
 :::
 
 ## Define Pivot structure
 
-Use the [`config`](/api/config/config-property) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. The `config` property has no predefined values — you must set it to render any data. See the [`config`](/api/config/config-property) reference for the full parameter list.
+Use the [`config`](api/config/config-property.md) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. The `config` property has no predefined values — you must set it to render any data. See the [`config`](api/config/config-property.md) reference for the full parameter list.
 
 The following code snippet places `continent` and `name` in rows, `year` in columns, three aggregations in values, and a filter on `name`:
 
@@ -157,7 +157,7 @@ const table = new pivot.Pivot("#root", {
 
 Pivot supports sorting in all three areas (values, columns, rows) during aggregation. In the UI, users click a column header to sort.
 
-To set a default sort, use the `sort` parameter of the [`fields`](/api/config/fields-property) property. The parameter accepts `"asc"`, `"desc"`, or a custom comparator function.
+To set a default sort, use the `sort` parameter of the [`fields`](api/config/fields-property.md) property. The parameter accepts `"asc"`, `"desc"`, or a custom comparator function.
 
 The example below renders clickable field labels above Pivot and toggles the sort direction on click:
 
@@ -215,7 +215,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-Sorting in the UI is enabled by default. To disable it, set the `sort` parameter of the [`columnShape`](/api/config/columnshape-property) property to `false`.
+Sorting in the UI is enabled by default. To disable it, set the `sort` parameter of the [`columnShape`](api/config/columnshape-property.md) property to `false`.
 
 The following code snippet disables UI sorting:
 
@@ -245,7 +245,7 @@ const table = new pivot.Pivot("#root", {
 
 ## Filter data {#filtering-data}
 
-Pivot supports filters tied to field data types. Set filters through the Pivot UI after initialization or declaratively through the `filters` object of the [`config`](/api/config/config-property) property.
+Pivot supports filters tied to field data types. Set filters through the Pivot UI after initialization or declaratively through the `filters` object of the [`config`](api/config/config-property.md) property.
 
 In the UI, filters appear as drop-down lists for each field.
 
@@ -261,7 +261,7 @@ The `includes` rule restricts a filter to a specific set of allowed values.
 
 #### Add a filter
 
-To declare a filter, add the `filters` object to the [`config`](/api/config/config-property) property, keyed by field ID. Each value is an object of filter conditions.
+To declare a filter, add the `filters` object to the [`config`](api/config/config-property.md) property, keyed by field ID. Each value is an object of filter conditions.
 
 The following code snippet applies two filters — one on `genre` (values containing `"D"`, restricted to `"Drama"`) and one on `title` (values containing `"A"`):
 
@@ -296,12 +296,12 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 :::info
-To filter data through the Table widget API instead, access the Table instance with the [`getTable`](/api/methods/gettable-method) method and use the [`filter-rows`](/api/table/filter-rows) event.
+To filter data through the Table widget API instead, access the Table instance with the [`getTable`](api/methods/gettable-method.md) method and use the [`filter-rows`](api/table/filter-rows.md) event.
 :::
 
 ## Limit loaded data {#limiting-loaded-data}
 
-To prevent the component from hanging on very large datasets, cap the number of rows and columns in the final dataset with the [`limits`](/api/config/limits-property) property. Pivot interrupts rendering once the limit is reached. The default cap is 10000 for rows and 5000 for columns.
+To prevent the component from hanging on very large datasets, cap the number of rows and columns in the final dataset with the [`limits`](api/config/limits-property.md) property. Pivot interrupts rendering once the limit is reached. The default cap is 10000 for rows and 5000 for columns.
 
 :::note
 Limits apply to large datasets. The numbers are approximate — Pivot does not guarantee an exact row/column count.
@@ -383,7 +383,7 @@ const defaultMethods = {
 };
 ~~~
 
-Apply a default method through the `values` parameter of the [`config`](/api/config/config-property) property. See [Define values](#options-for-defining-values).
+Apply a default method through the `values` parameter of the [`config`](api/config/config-property.md) property. See [Define values](#options-for-defining-values).
 
 The following code snippet assigns `count` to the `title` field and `max` to the `score` field:
 
@@ -428,7 +428,7 @@ values: [
 
 ### Override the default method
 
-For each newly added field, Pivot assigns the first available method for the data type. To change this behavior, intercept the `add-field` event with the [`api.intercept`](/api/internal/intercept-method) method.
+For each newly added field, Pivot assigns the first available method for the data type. To change this behavior, intercept the `add-field` event with the [`api.intercept`](api/internal/intercept-method.md) method.
 
 The example below intercepts `add-field` and forces the `max` method whenever a numeric field is added:
 
@@ -464,7 +464,7 @@ table.api.intercept("add-field", (ev) => {
 
 ### Add custom math methods
 
-To add a custom aggregation method, use the [`methods`](/api/config/methods-property) property. Each entry pairs a method name (the key) with a configuration object containing a `handler` function and metadata. The `handler` takes an array of values and returns a single aggregated value.
+To add a custom aggregation method, use the [`methods`](api/config/methods-property.md) property. Each entry pairs a method name (the key) with a configuration object containing a `handler` function and metadata. The `handler` takes an array of values and returns a single aggregated value.
 
 The example below adds two date-specific methods. `countunique_date` counts distinct dates by their numeric timestamps. `average_date` returns the average date by averaging timestamps:
 
@@ -570,7 +570,7 @@ const defaultPredicates = {
 };
 ~~~
 
-To add a custom predicate, configure the [`predicates`](/api/config/predicates-property) property. Each entry pairs a predicate ID (the key) with a configuration object:
+To add a custom predicate, configure the [`predicates`](api/config/predicates-property.md) property. Each entry pairs a predicate ID (the key) with a configuration object:
 
 - `type` — the field types this predicate accepts (`"number"`, `"date"`, `"text"`, or an array)
 - `label` — the predicate label shown in the GUI drop-down for a row/column
@@ -636,7 +636,7 @@ const table = new pivot.Pivot("#pivot", {
 
 ## Add columns and rows with total values
 
-Use the [`tableShape`](/api/config/tableshape-property) property to render a total column on the right (`totalColumn: true`) or a total footer row (`totalRow: true`).
+Use the [`tableShape`](api/config/tableshape-property.md) property to render a total column on the right (`totalColumn: true`) or a total footer row (`totalRow: true`).
 
 The following code snippet enables both the total column and the total row:
 

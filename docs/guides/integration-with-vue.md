@@ -60,7 +60,7 @@ Add the Pivot package to the project, then wrap Pivot in a Vue component.
 
 ### Step 1. Install the package
 
-Download the [**trial Pivot package**](/how-to-start/#installing-trial-pivot-via-npm-or-yarn) and follow the steps in the README. The trial Pivot package is valid for 30 days.
+Download the [**trial Pivot package**](how-to-start.md#installing-trial-pivot-via-npm-or-yarn) and follow the steps in the README. The trial Pivot package is valid for 30 days.
 
 ### Step 2. Create the component
 
@@ -264,11 +264,11 @@ export default {
 </template>
 ~~~
 
-The component is now ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](/api/overview/properties-overview/).
+The component is now ready to use. On mount, Pivot renders with the supplied data. For the full list of configuration properties, see the [Pivot API docs](api/overview/properties-overview.md).
 
 #### Handle events
 
-User actions in Pivot fire events that you can subscribe to. For the full list of events, see [Events overview](/api/overview/events-overview/).
+User actions in Pivot fire events that you can subscribe to. For the full list of events, see [Events overview](api/overview/events-overview.md).
 
 The following code snippet extends `mounted` with an `open-filter` event listener that logs the field ID when a user opens a filter:
 

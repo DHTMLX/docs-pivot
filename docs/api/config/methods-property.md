@@ -68,7 +68,7 @@ defaultMethods = {
 };
 ~~~
 
-The definition of each method you can see here: [Applying methods](/guides/working-with-data#default-methods)
+The definition of each method you can see here: [Applying methods](guides/working-with-data.md#default-methods)
 
 ## Example
 
@@ -160,4 +160,4 @@ const table = new pivot.Pivot("#root", {
 
 **Related sample:** [Pivot 2. Custom maths methods](https://snippet.dhtmlx.com/lv90d8q2) 
 
-**Related article**: [Applying maths methods](/guides/working-with-data#applying-maths-methods)
+**Related article**: [Applying maths methods](guides/working-with-data.md#applying-maths-methods)

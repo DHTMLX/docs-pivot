@@ -6,21 +6,21 @@ description: You can explore how to export data in the documentation of the DHTM
 
 # Exporting data
 
-Pivot exports table data in XLSX or CSV format through the underlying Table widget. Access the Table instance with the [`getTable`](/api/methods/gettable-method) method, then trigger the [`export`](/api/table/export) event with the Table's [`api.exec`](/api/internal/exec-method) method.
+Pivot exports table data in XLSX or CSV format through the underlying Table widget. Access the Table instance with the [`getTable`](api/methods/gettable-method.md) method, then trigger the [`export`](api/table/export.md) event with the Table's [`api.exec`](api/internal/exec-method.md) method.
 
 The example below accesses the Table instance and triggers the `export` event in CSV and XLSX formats:
 
 ~~~jsx
 const widget = new pivot.Pivot("#root", { /* settings */ });
 
-widget.getTable().api.exec("export", {
+widget.getTable().exec("export", {
     options: {
         format: "csv",
         cols: ";"
     }
 });
 
-widget.getTable().api.exec("export", {
+widget.getTable().exec("export", {
     options: {
         format: "xlsx",
         fileName: "My Report",
@@ -30,7 +30,7 @@ widget.getTable().api.exec("export", {
 ~~~
 
 :::tip
-The [`getTable`](/api/methods/gettable-method) method accepts an optional `wait` boolean parameter. Pass `true` to receive a promise that resolves once the Table API is available. Useful when the Table API must be ready during Pivot initialization.
+The [`getTable`](api/methods/gettable-method.md) method accepts an optional `wait` boolean parameter. Pass `true` to receive a promise that resolves once the Table API is available. Useful when the Table API must be ready during Pivot initialization.
 :::
 
 ## Example
@@ -41,5 +41,5 @@ The snippet below exports data:
 
 **Related articles**: 
 
-- [Date formatting](/guides/localization#date-formatting)
-- [`export`](/api/table/export)
+- [Date formatting](guides/localization.md#date-formatting)
+- [`export`](api/table/export.md)

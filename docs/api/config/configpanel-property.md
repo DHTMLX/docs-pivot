@@ -53,6 +53,6 @@ const table = new pivot.Pivot("#root", {
 **Related sample:** [Pivot 2.0: Toggle visibility of configuration panel](https://snippet.dhtmlx.com/1xq1x5bo)
 
 **Related articles:**
-- [`show-config-panel` event](/api/events/show-config-panel-event)
-- [`showConfigPanel()` method](/api/methods/showconfigpanel-method)
-- [Controlling visibility of Configuration panel](/guides/configuration#controlling-visibility-of-configuration-panel)
+- [`show-config-panel` event](api/events/show-config-panel-event.md)
+- [`showConfigPanel()` method](api/methods/showconfigpanel-method.md)
+- [Controlling visibility of Configuration panel](guides/configuration.md#controlling-visibility-of-configuration-panel)

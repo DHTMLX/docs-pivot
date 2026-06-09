@@ -10,7 +10,7 @@ description: You can learn about the export event in the documentation of the DH
 
 @short: Fires when exporting data
 
-To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](/api/methods/gettable-method) method.
+To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](api/methods/gettable-method.md) method.
 
 ### Usage
 
@@ -89,7 +89,7 @@ The `export` action of the Table widget has the next parameters that you can con
 	- `cellStyle` -  a function that allows customizing the style and format of individual cells during export. It takes the value, row, and column objects as parameters and should return an object with style properties (e.g., alignment or format)
 	- `headerCellStyle` - similar to cellStyle, but specifically for the header and footer cells. This function takes the text, header cell object, column object, and type ("header" or "footer") and returns style properties
     :::note
-    By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property. But if a template is defined for a field (see the [`tableShape`](/api/config/tableshape-property) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
+    By default, for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](api/config/fields-property.md) property. But if a template is defined for a field (see the [`tableShape`](api/config/tableshape-property.md) property), it exports the rendered value defined by that template. In case both the template and `format` are set, the template settings will override the format ones. 
     :::
 
     **Options specific for "csv" format:**
@@ -104,7 +104,7 @@ In this snippet you can see how to export data:
 <iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related articles**: 
-- [`getTable`](/api/methods/gettable-method)
-- [Exporting data](/guides/exporting-data)
-- [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)
+- [`getTable`](api/methods/gettable-method.md)
+- [Exporting data](guides/exporting-data.md)
+- [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields)
 

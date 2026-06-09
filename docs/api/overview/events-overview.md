@@ -8,12 +8,12 @@ description: You can have Events overview of JavaScript Pivot in the documentati
 
 | Name                                              | Description                                     |
 | ------------------------------------------------- | ----------------------------------------------- |
-| [](../events/add-field-event.md)                  | @getshort(../events/add-field-event.md)         |
-| [](../events/apply-filter-event.md)               | @getshort(../events/apply-filter-event.md)      |
-| [](../events/delete-field-event.md)               | @getshort(../events/delete-field-event.md)      |
-| [](../events/move-field-event.md)                 | @getshort(../events/move-field-event.md)        |
-| [](../events/open-filter-event.md)                | @getshort(../events/open-filter-event.md)       |
-| [](../events/render-table-event.md)               | @getshort(../events/render-table-event.md)      |
-| [](../events/show-config-panel-event.md)          | @getshort(../events/show-config-panel-event.md) |
-| [](../events/update-config-event.md)              | @getshort(../events/update-config-event.md)     |
-| [](../events/update-value-event.md)               | @getshort(../events/update-value-event.md)      |
+| [](api/events/add-field-event.md)                  | @getshort(../events/add-field-event.md)         |
+| [](api/events/apply-filter-event.md)               | @getshort(../events/apply-filter-event.md)      |
+| [](api/events/delete-field-event.md)               | @getshort(../events/delete-field-event.md)      |
+| [](api/events/move-field-event.md)                 | @getshort(../events/move-field-event.md)        |
+| [](api/events/open-filter-event.md)                | @getshort(../events/open-filter-event.md)       |
+| [](api/events/render-table-event.md)               | @getshort(../events/render-table-event.md)      |
+| [](api/events/show-config-panel-event.md)          | @getshort(../events/show-config-panel-event.md) |
+| [](api/events/update-config-event.md)              | @getshort(../events/update-config-event.md)     |
+| [](api/events/update-field-event.md)               | @getshort(../events/update-field-event.md)      |

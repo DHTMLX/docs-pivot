@@ -26,13 +26,13 @@ The callback of the action takes an object with the following parameters:
 
 - `id` - (required) the id of a field that is updated
 - `method` - (required) the method can be one of the following:
-  - for the **values** area, it's a string with one of the data operation types: [Default methods](/guides/working-with-data#default-methods)
+  - for the **values** area, it's a string with one of the data operation types: [Default methods](guides/working-with-data.md#default-methods)
   - for the **rows** and **columns** areas it can be data predicate value with one of the next values: "year", "quarter", "month", "week", "day", "hour", "minute". By default, a raw value is set.
-  If a custom predicate or method is set, the id should be specified for the [predicate](/api/config/predicates-property) or [methods](/api/config/methods-property) property.
+  If a custom predicate or method is set, the id should be specified for the [predicate](api/config/predicates-property.md) or [methods](api/config/methods-property.md) property.
 - `area` - (required) the name of the area where a field is updated, which can be "rows", "columns" or "values" area
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Example
@@ -63,5 +63,5 @@ table.api.on("update-field", (ev) => {
 ~~~
 
 **Related articles**:
-- [api.on()](/api/internal/on-method)
-- [methods](/api/config/methods-property)
+- [api.on()](api/internal/on-method.md)
+- [methods](api/config/methods-property.md)

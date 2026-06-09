@@ -96,7 +96,7 @@ Data in the table is displayed as configured in the Configuration panel. The **s
 
 ## What's next
 
-Now you can get down to incorporating Pivot into your application. Follow the directions of the [How to start](./how-to-start) tutorial for guidance.
+Now you can get down to incorporating Pivot into your application. Follow the directions of the [How to start](how-to-start.md) tutorial for guidance.
 
 If you apply the functionality provided by the widget API you can get a good-looking Pivot table with more features as the one in the sample below:
 

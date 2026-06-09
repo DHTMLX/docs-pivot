@@ -107,7 +107,7 @@ The following code snippet enables the styled scroll bar on the widget container
 
 ## Cell style
 
-To style body or footer cells, use the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) property. To style header cells, use the `cellStyle` parameter of the [`headerShape`](/api/config/headershape-property) property. In both cases, the `cellStyle` function returns a CSS class name that Pivot applies to the cell.
+To style body or footer cells, use the `cellStyle` parameter of the [`tableShape`](api/config/tableshape-property.md) property. To style header cells, use the `cellStyle` parameter of the [`headerShape`](api/config/headershape-property.md) property. In both cases, the `cellStyle` function returns a CSS class name that Pivot applies to the cell.
 
 The example below applies styles to body and header cells:
 
@@ -165,7 +165,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## Mark values in cells
 
-Use the `marks` parameter of the [`tableShape`](/api/config/tableshape-property) property to apply a CSS class to cells that meet a condition. Each entry in `marks` pairs a CSS class name (the key) with a rule (the value).
+Use the `marks` parameter of the [`tableShape`](api/config/tableshape-property.md) property to apply a CSS class to cells that meet a condition. Each entry in `marks` pairs a CSS class name (the key) with a rule (the value).
 
 The rule is either a predefined string (`"max"` or `"min"`) or a custom function `(value, columnData, rowData) => boolean`. When the function returns `true`, Pivot adds the CSS class to the cell.
 
@@ -228,7 +228,7 @@ The following code snippet defines the CSS classes referenced by the `marks` obj
 
 Pivot includes several utility CSS classes that you can override for fine-grained control over table elements.
 
-Pivot aligns numbers in body cells to the right via the built-in `.wx-number` CSS class. The exception is the hierarchical column in tree mode (when `tree: true` is set in [`tableShape`](/api/config/tableshape-property)). To reset the default number alignment, override the class.
+Pivot aligns numbers in body cells to the right via the built-in `.wx-number` CSS class. The exception is the hierarchical column in tree mode (when `tree: true` is set in [`tableShape`](api/config/tableshape-property.md)). To reset the default number alignment, override the class.
 
 The following code snippet left-aligns numbers in body cells:
 

@@ -14,7 +14,7 @@ This guide explains how to create Pivot on a page and enrich your application wi
 
 ## Include source files
 
-A Pivot app requires two source files on the page. For instructions on downloading the package, see [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
+A Pivot app requires two source files on the page. For instructions on downloading the package, see [Downloading packages](how-to-start.md#step-1-downloading-and-installing-packages).
 
 Include the following files:
 

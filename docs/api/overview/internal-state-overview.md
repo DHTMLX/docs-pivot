@@ -8,6 +8,6 @@ description: You can have Internal State methods overview of JavaScript Pivot in
 
 | Name                                           | Description                                        |
 | ---------------------------------------------- | -------------------------------------------------- |
-| [](../internal/getreactivestate-method.md)     | @getshort(../internal/getreactivestate-method.md)  |
-| [](../internal/getstate-method.md)             | @getshort(../internal/getstate-method.md)          |
-| [](../internal/getstores-method.md)            | @getshort(../internal/getstores-method.md)         |
+| [](api/internal/getreactivestate-method.md)     | @getshort(../internal/getreactivestate-method.md)  |
+| [](api/internal/getstate-method.md)             | @getshort(../internal/getstate-method.md)          |
+| [](api/internal/getstores-method.md)            | @getshort(../internal/getstores-method.md)         |

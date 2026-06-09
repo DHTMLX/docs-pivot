@@ -6,11 +6,11 @@ description: You can explore how to load data in the documentation of the DHTMLX
 
 # Loading data
 
-Pivot accepts data in JSON format via the [`data`](/api/config/data-property) property. Pivot also accepts CSV data after conversion to JSON.
+Pivot accepts data in JSON format via the [`data`](api/config/data-property.md) property. Pivot also accepts CSV data after conversion to JSON.
 
 ## Prepare data for loading
 
-The [`data`](/api/config/data-property) property accepts an array of objects, where each object represents one data row. The keys of each object define the dimensions and values used in the Pivot table.
+The [`data`](api/config/data-property.md) property accepts an array of objects, where each object represents one data row. The keys of each object define the dimensions and values used in the Pivot table.
 
 The following code snippet defines a sample `data` array:
 
@@ -71,7 +71,7 @@ const data = [
 ~~~
 
 :::info
-For information on defining fields and Pivot structure, see [Working with data](/guides/working-with-data).
+For information on defining fields and Pivot structure, see [Working with data](guides/working-with-data.md).
 :::
 
 ## Load data from a file
@@ -143,7 +143,7 @@ const table = new pivot.Pivot("#root", { data, config, fields });
 
 ## Load data from a server
 
-To load data from a server endpoint, send a request with the native `fetch` method (or any equivalent), then pass the response to [`setConfig`](/api/methods/setconfig-method), which updates the Pivot configuration and preserves previously set options.
+To load data from a server endpoint, send a request with the native `fetch` method (or any equivalent), then pass the response to [`setConfig`](api/methods/setconfig-method.md), which updates the Pivot configuration and preserves previously set options.
 
 The following code snippet initializes Pivot with empty data, fetches data and fields from a server, then applies them with `setConfig`:
 
@@ -169,7 +169,7 @@ The example below uses the external [PapaParse](https://cdnjs.cloudflare.com/aja
 - `headers` — an array of CSV field names
 - `meta` — an object mapping field names to data types
 
-The following code snippet creates Pivot, defines the `convert()` helper, and applies parsed CSV data through [`setConfig`](/api/methods/setconfig-method) on a button click:
+The following code snippet creates Pivot, defines the `convert()` helper, and applies parsed CSV data through [`setConfig`](api/methods/setconfig-method.md) on a button click:
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -274,4 +274,4 @@ The snippet below loads JSON and CSV data:
 - [Pivot 2. Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)
 
-**Related articles**: [Date formatting](/guides/localization#date-formatting)
+**Related articles**: [Date formatting](guides/localization.md#date-formatting)

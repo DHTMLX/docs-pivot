@@ -14,26 +14,26 @@ Released on May 6, 2025
 
 ### New functionality
 
-- [Ability to freeze columns on the right](/guides/configuration/#freezing-columns-on-the-right)
-- [Default aligning](/guides/stylization/#specific-css-classes) and [locale-based formatting](/guides/localization/#number-formatting) for numeric values
-- [Ability to define custom number formats](/guides/working-with-data/#applying-formats-to-fields) (for date and numeric fields) via `format` added to the [`fields`](/api/config/fields-property) property
-- [Ability to style header and table cells](/guides/stylization/#cell-style) via the `cellStyle` parameter of the [`tableShape`](/api/config/tableshape-property) and [`headerShape`](/api/config/headershape-property) properties
-- Ability to insert HTML content to header and table cells via the [`pivot.template`](/api/helpers/template) helper by defining a template as a `cell` property of the header and column objects (table customization by intercepting the [render-table](/api/events/render-table-event) event)
-- [Excel and CSV export settings enhanced](/guides/exporting-data):
-  - for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](/api/config/fields-property) property
+- [Ability to freeze columns on the right](guides/configuration.md#freezing-columns-on-the-right)
+- [Default aligning](guides/stylization.md#specific-css-classes) and [locale-based formatting](guides/localization.md#number-formatting) for numeric values
+- [Ability to define custom number formats](guides/working-with-data.md#applying-formats-to-fields) (for date and numeric fields) via `format` added to the [`fields`](api/config/fields-property.md) property
+- [Ability to style header and table cells](guides/stylization.md#cell-style) via the `cellStyle` parameter of the [`tableShape`](api/config/tableshape-property.md) and [`headerShape`](api/config/headershape-property.md) properties
+- Ability to insert HTML content to header and table cells via the [`pivot.template`](api/helpers/template.md) helper by defining a template as a `cell` property of the header and column objects (table customization by intercepting the [render-table](api/events/render-table-event.md) event)
+- [Excel and CSV export settings enhanced](guides/exporting-data.md):
+  - for the "xlsx" format, date and number fields are exported as raw values with default format or the format defined via the [`fields`](api/config/fields-property.md) property
   - ability to define file and sheet names and exclude header/footer from an exported file
   - ability to add styles and templates for exported cells
-- [Ability to filter data via an external input](/api/table/filter-rows)
+- [Ability to filter data via an external input](api/table/filter-rows.md)
 - Visual frame for cell navigation
 - [Integration with frameworks](/category/integration-with-frameworks)
 
 ### New API 
 
-- `right` setting within the `split` object of the [`tableShape`](/api/config/tableshape-property) 
-- `cellStyle` setting within [`tableShape`](/api/config/tableshape-property) and [`headerShape`](/api/config/headershape-property) properties
-- `format` setting within the [`fields`](/api/config/fields-property) array 
-- [`filter-rows`](/api/table/filter-rows) event of the internal Table
-- [`pivot.template`](/api/helpers/template) to define HTML content for table cells
+- `right` setting within the `split` object of the [`tableShape`](api/config/tableshape-property.md) 
+- `cellStyle` setting within [`tableShape`](api/config/tableshape-property.md) and [`headerShape`](api/config/headershape-property.md) properties
+- `format` setting within the [`fields`](api/config/fields-property.md) array 
+- [`filter-rows`](api/table/filter-rows.md) event of the internal Table
+- [`pivot.template`](api/helpers/template.md) to define HTML content for table cells
 
 ### Fixes
 
@@ -79,28 +79,28 @@ Please, see the review of the release on [the blog page](https://dhtmlx.com/blog
 API of version 1.5 is not compatible with API v.2.0. 
 :::
 
-For tips about migration to the new version, check the [Migration](/news/migration) page. 
+For tips about migration to the new version, check the [Migration](news/migration.md) page. 
 
 ### New functionality
 
 - Pivot 2.0 is quick at rendering and generating large datasets ([sample](https://snippet.dhtmlx.com/e6qwqrys))
-- Next new features for configuring the look and behavior of columns are available via the [`columnShape`](/api/config/columnshape-property) property:
+- Next new features for configuring the look and behavior of columns are available via the [`columnShape`](api/config/columnshape-property.md) property:
   - setting **autowidth** with the ability to set maxRows to be processed for the **autoWidth** calculation ([sample](https://snippet.dhtmlx.com/tn1yw14m))
   - the **firstOnly** feature when each field of the same data is analyzed only once to calculate the column width (by default) 
-- Now you can configure the look and behavior of headers using the [`headerShape`](/api/config/headershape-property) property that allows:  
+- Now you can configure the look and behavior of headers using the [`headerShape`](api/config/headershape-property.md) property that allows:  
   - applying a template to the text in headers ([sample](https://snippet.dhtmlx.com/g89r9ryw))
   - changing text orientation ([sample](https://snippet.dhtmlx.com/4qroi8ka))
   - making columns collapsible ([sample](https://snippet.dhtmlx.com/pt2ljmcm))
-- The shape and sizes of the table can be configured via the [`tableShape`](/api/config/tableshape-property) property that makes possible:
-  - configuring the height of rows, headers, footer: rowHeight, headerHeight, footerHeight ([Resizing the table](/guides/configuration#resizing-the-table))
+- The shape and sizes of the table can be configured via the [`tableShape`](api/config/tableshape-property.md) property that makes possible:
+  - configuring the height of rows, headers, footer: rowHeight, headerHeight, footerHeight ([Resizing the table](guides/configuration.md#resizing-the-table))
   - generating total values not only for columns but also for rows, which is made possible via the **totalColumn** parameter of the `tableShape` property ([sample](https://snippet.dhtmlx.com/f0ag0t9t))
-  - hiding the duplicate values in the table view (the **cleanRows** parameter of the [`tableShape`](/api/config/tableshape-property) property)
+  - hiding the duplicate values in the table view (the **cleanRows** parameter of the [`tableShape`](api/config/tableshape-property.md) property)
   - fixing columns from the left making them static while scrolling ([sample](https://snippet.dhtmlx.com/lahf729o))
   - making all rows expand or collapse ([sample](https://snippet.dhtmlx.com/i4mi6ejn))
 - More features are added to aggregate data:
-  - [limiting loaded data](/guides/working-with-data#limiting-loaded-data)
-  - more [operations with data](/guides/working-with-data#applying-maths-methods) are available 
-  - [processing data with predicates](/guides/working-with-data#processing-data-with-predicates) - applying custom pre-processing functions for data
-  - [setting date format via locale](/guides/localization#date-formatting)
-- New methods are added: [`getTable()`](/api/methods/gettable-method), [`setConfig()`](/api/methods/setconfig-method), [`setLocale()`](/api/methods/setlocale-method), [`showConfigPanel()`](/api/methods/showconfigpanel-method)  
-- New events are added: [`add-field`](/api/events/add-field-event), [`delete-field`](/api/events/delete-field-event), [`open-filter`](/api/events/open-filter-event), [`render-table`](/api/events/render-table-event), [`move-field`](/api/events/move-field-event), [`show-config-panel`](/api/events/show-config-panel-event), [`show-config-panel`](/api/events/show-config-panel-event), [`update-config`](/api/events/update-config-event), [`update-value`](/api/events/update-value-event).
+  - [limiting loaded data](guides/working-with-data.md#limiting-loaded-data)
+  - more [operations with data](guides/working-with-data.md#applying-maths-methods) are available 
+  - [processing data with predicates](guides/working-with-data.md#processing-data-with-predicates) - applying custom pre-processing functions for data
+  - [setting date format via locale](guides/localization.md#date-formatting)
+- New methods are added: [`getTable()`](api/methods/gettable-method.md), [`setConfig()`](api/methods/setconfig-method.md), [`setLocale()`](api/methods/setlocale-method.md), [`showConfigPanel()`](api/methods/showconfigpanel-method.md)  
+- New events are added: [`add-field`](api/events/add-field-event.md), [`delete-field`](api/events/delete-field-event.md), [`open-filter`](api/events/open-filter-event.md), [`render-table`](api/events/render-table-event.md), [`move-field`](api/events/move-field-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`update-config`](api/events/update-config-event.md), [`update-value`](api/events/update-value-event.md).

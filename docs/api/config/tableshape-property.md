@@ -54,7 +54,7 @@ tableShape?: {
 - `templates` -  (optional) allows setting templates to a cell; it's an object where:
   - each key is a field id
   - the value is a function that returns a string and receives cell value and operation. All columns based on the specified field will have the related template applied. For example, it allows setting the units of measurement or returning the required number of digits after the decimal point for numeric values, etc. See the example below. 
-- `marks` - (optional) allows marking a cell with the required values. It's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value. If **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](/guides/stylization#cell-style).
+- `marks` - (optional) allows marking a cell with the required values. It's an object where keys are CSS class names and values are either a function or one of the predefined strings ("max", "min"). The function should return boolean for the checked value. If **true** is returned, the css class is assigned to the cell. More information with examples see here [Marking cells](guides/stylization.md#cell-style).
 - `sizes` - (optional) defines the following size parameters of the table: 
   - `rowHeight` - (optional) the row height in the Pivot table in pixels. The default value is 34
   - `headerHeight` - (optional) the header height in pixels; the default value is 30
@@ -67,12 +67,12 @@ tableShape?: {
     - `method` - (optional) a string that can represent the operation performed on a cell (e.g., "sum", "count", etc.)
     - `isTotal` - (optional) defines whether a cell belongs to a total row, total column, or both: "row"|"column"|"both   
     The `cellStyle` function returns a string, which can be used as a CSS class name to apply specific styles to a cell. 
-- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows, the default value is **false**. More information with examples see here [Switching to the tree mode](/guides/configuration/#enabling-the-tree-mode)
+- `tree` - (optional) if set to **true**, enables the tree mode when data can be presented with expandable rows, the default value is **false**. More information with examples see here [Switching to the tree mode](guides/configuration.md#enabling-the-tree-mode)
 - `totalColumn` - (optional) if **true**, enables generating the total column with total values for rows (**false** is set by default). If the value is set to "sumOnly", the column with the total sum value will be generated (available only for sum operations) 
 - `totalRow` - (optional) if **true**, enables generating the footer with total values (**false** is set by default). If the value is set to "sumOnly", the row with the total row value will be generated (available only for sum operations) 
 - `cleanRows` - (optional) if set to **true**, the duplicate values in scale columns are hidden in the table view. The default value is **false**
-- `split` - (optional) allows freezing columns on the right or left depending on the parameter specified (refer to [Freezing columns](/guides/configuration/#freezing-columns)):
-    - `left` (boolean) - if set to **true** (**false** is set by default), fixes the columns from the left, which makes columns static and visible while scrolling. The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](/api/config/config-property) property
+- `split` - (optional) allows freezing columns on the right or left depending on the parameter specified (refer to [Freezing columns](guides/configuration.md#freezing-columns)):
+    - `left` (boolean) - if set to **true** (**false** is set by default), fixes the columns from the left, which makes columns static and visible while scrolling. The number of columns that are split is equal to the number of the rows fields that are defined in the [`config`](api/config/config-property.md) property
     - `right` (boolean) - fixes total columns on the right; default value is **false**
 
 By default, `tableShape` is undefined, implying that no total row, no total column is present, no templates and marks are applied, the data is shown as a table and not a tree, and columns are not fixed during scroll.
@@ -124,8 +124,8 @@ const table = new pivot.Pivot("#root", {
 - [Pivot 2. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)
 - [Pivot 2. Set row, header, footer height and all columns width](https://snippet.dhtmlx.com/x46uyfy9)
 - [Pivot 2. Clean rows](https://snippet.dhtmlx.com/rwwhgv2w?tag=pivot)
-- [Pivot 2. Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
+- [Pivot 2. Adding custom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
 
 **Related articles**: 
-- [Configuration](/guides/configuration)
-- [Cell style](/guides/stylization/#cell-style)
+- [Configuration](guides/configuration.md)
+- [Cell style](guides/stylization.md#cell-style)

@@ -19,10 +19,10 @@ columnShape?: {
         [field: string]: number
     },
     autoWidth?: {
-        columns?: {
+        columns: {
             [field: string]: boolean
         },
-        auto: boolean | "header" | "data",
+        auto?: boolean | "header" | "data",
         maxRows?: number,
         firstOnly?: boolean
     }
@@ -34,9 +34,9 @@ columnShape?: {
 - `sort` - (optional) if **true** (default), the sorting is enabled in UI by clicking the column header; if **false**, the sorting is disabled
 - `width` - (optional) defines the width of a column; it's an object where each key is a field id and the value is the width of the column in pixels
 - `autoWidth` - (optional) an object that defines how column width should be calculated automatically. The default configuration uses 20 rows, and the width is calculated based on the header and data, with each field analyzed only once. The object parameters are the following: 
-    - `columns` - (optional) an object where each key is a field id and the boolean value defines whether column width should be calculated automatically
-    - `auto` - (required) if set to **header**, adjusts the width to the header text; if set to **data**, adjusts the width to the cell with the widest content; if set to **true**, the width is adjusted to the content of both headers and cell.
-    If autowidth is set  to **false**, the `width` value is set or the value of the `columnWidth` from the [`tableShape`](/api/config/tableshape-property) property is applied.
+    - `columns` - (required) an object where each key is a field id and the boolean value defines whether column width should be calculated automatically
+    - `auto` - (optional) if set to **header**, adjusts the width to the header text; if set to **data**, adjusts the width to the cell with the widest content; if set to **true**, the width is adjusted to the content of both headers and cell.
+    If autowidth is set  to **false**, the `width` value is set or the value of the `columnWidth` from the [`tableShape`](api/config/tableshape-property.md) property is applied.
     - `maxRows` - (optional) the number of rows to be processed for the autoWidth calculation
     - `firstOnly` - (optional) if set to **true** (default), each field of the same data is analyzed only once to calculate the column width; in case of multiple columns based on the same data (e.g., the *oil* field with the *count* operation and the *oil* field with the *sum* operation), only data in the first one will be analyzed and the others will inherit this width
 

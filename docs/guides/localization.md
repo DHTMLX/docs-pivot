@@ -6,7 +6,7 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
-Pivot lets you localize every label in the interface. Create a new locale or modify a built-in one, then apply the locale to Pivot via the [`locale`](/api/config/locale-property) property or the [`setLocale`](/api/methods/setlocale-method) method.
+Pivot lets you localize every label in the interface. Create a new locale or modify a built-in one, then apply the locale to Pivot via the [`locale`](api/config/locale-property.md) property or the [`setLocale`](api/methods/setlocale-method.md) method.
 
 ## Default locale
 
@@ -158,7 +158,7 @@ const en = {
 
 ## Apply a locale
 
-Pivot exposes three built-in locales through the `pivot.locales` object: `en`, `de`, and `cn`. Pass a built-in locale to the [`locale`](/api/config/locale-property) property during initialization.
+Pivot exposes three built-in locales through the `pivot.locales` object: `en`, `de`, and `cn`. Pass a built-in locale to the [`locale`](api/config/locale-property.md) property during initialization.
 
 The following code snippet initializes Pivot with the German locale:
 
@@ -172,7 +172,7 @@ new pivot.Pivot("#root", {
 To apply a custom locale:
 
 - create a locale object (or modify a built-in one) and provide translations for all text labels (in any language)
-- apply the locale to Pivot via the [`locale`](/api/config/locale-property) property or the [`setLocale`](/api/methods/setlocale-method) method
+- apply the locale to Pivot via the [`locale`](api/config/locale-property.md) property or the [`setLocale`](api/methods/setlocale-method.md) method
 
 The following code snippet creates Pivot, then applies a custom Korean locale at runtime with `setLocale`:
 
@@ -188,14 +188,14 @@ widget.setLocale(ko);
 ~~~
 
 :::tip
-Call [`setLocale`](/api/methods/setlocale-method) without arguments (or with `null`) to reset Pivot to the default English locale.
+Call [`setLocale`](api/methods/setlocale-method.md) without arguments (or with `null`) to reset Pivot to the default English locale.
 :::
 
-## Format dates
+## Format dates {#date-formatting}
 
 Pivot accepts dates as `Date` objects. Parse string values to `Date` before passing data to Pivot. The default `dateFormat` is `"%d.%m.%Y"`, taken from the current locale.
 
-To change the format for all date fields, set a new value for `dateFormat` in the `formats` object of the [`locale`](/api/config/locale-property) property.
+To change the format for all date fields, set a new value for `dateFormat` in the `formats` object of the [`locale`](api/config/locale-property.md) property.
 
 The following code snippet parses string dates into `Date` objects, then initializes Pivot with a custom `dateFormat` and updates the format at runtime via `setConfig`:
 
@@ -240,7 +240,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-To set a custom format for a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. See [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
+To set a custom format for a specific field, use the `format` parameter of the [`fields`](api/config/fields-property.md) property. See [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields).
 
 ## Date and time format characters
 
@@ -272,11 +272,11 @@ Pivot uses the following characters to define the date and time format:
 
 To present September 20, 2024 at 16:47:08.128 as *2024-09-20 16:47:08.128*, use the format `"%Y-%m-%d %H:%i:%s.%S"`.
 
-## Format numbers
+## Format numbers {#number-formatting}
 
 Pivot localizes all `number` fields based on the `lang` value of the current locale. The widget uses the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. The default settings limit fraction digits to 3 and apply group separation to the integer part.
 
-To skip formatting for a specific numeric field or to set a custom format, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Set `format` to `false` to disable formatting, or to an object with format settings (see [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)).
+To skip formatting for a specific numeric field or to set a custom format, use the `format` parameter of the [`fields`](api/config/fields-property.md) property. Set `format` to `false` to disable formatting, or to an object with format settings (see [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields)).
 
 The following code snippet disables number formatting for the `year` field:
 

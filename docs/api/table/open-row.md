@@ -10,7 +10,7 @@ description: You can learn about the close-row event in the documentation of the
 
 @short: Fires when opening (expanding) a row
 
-To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](/api/methods/gettable-method) method. The tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property.
+To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](api/methods/gettable-method.md) method. The tree mode should be enabled via the [`tableShape`](api/config/tableshape-property.md) property.
 
 ### Usage
 
@@ -39,5 +39,5 @@ The snippet below demonstrates how to open/close all rows with a button click:
 <iframe src="https://snippet.dhtmlx.com/i4mi6ejn?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related articles**: 
-- [`getTable`](/api/methods/gettable-method)
-- [Expanding/collapsing all rows](/guides/configuration/#expandingcollapsing-all-rows)
+- [`getTable`](api/methods/gettable-method.md)
+- [Expanding/collapsing all rows](guides/configuration.md#expandingcollapsing-all-rows)
