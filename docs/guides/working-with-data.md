@@ -679,7 +679,7 @@ The snippet below applies custom math operations:
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related samples:**
+**Related samples**:
 
 - [Pivot 2. Dataset with aliases](https://snippet.dhtmlx.com/7vc68rqd)
 - [Pivot 2. Defining fields formats](https://snippet.dhtmlx.com/77nc4j8v)

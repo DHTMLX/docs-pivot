@@ -82,7 +82,7 @@ The snippet demonstrates how you can add icons to:
 <iframe src="https://snippet.dhtmlx.com/4viq7cft?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
 
-**Related articles:**
+**Related articles**:
 
 - [`render-table`](api/events/render-table-event.md)
 - [Applying templates to cells](guides/configuration.md#applying-templates-to-cells)

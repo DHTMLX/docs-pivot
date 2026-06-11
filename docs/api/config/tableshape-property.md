@@ -118,7 +118,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**Related samples:**
+**Related samples**:
 
 - [Pivot 2. Tree mode](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2. Frozen (fixed) columns](https://snippet.dhtmlx.com/lahf729o)

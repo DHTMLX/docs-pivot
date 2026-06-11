@@ -1,0 +1,62 @@
+{
+  "link.title.Development center": {
+    "message": "개발 센터",
+    "description": "The title of the footer links column with title=Development center in the footer"
+  },
+  "link.title.Community": {
+    "message": "커뮤니티",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.Company": {
+    "message": "회사",
+    "description": "The title of the footer links column with title=Company in the footer"
+  },
+  "link.item.label.Download JS Pivot": {
+    "message": "JS Pivot 다운로드",
+    "description": "The label of footer link with label=Download JS Pivot linking to https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml"
+  },
+  "link.item.label.Examples": {
+    "message": "예제",
+    "description": "The label of footer link with label=Examples linking to https://snippet.dhtmlx.com/mhymus00?tag=pivot"
+  },
+  "link.item.label.Blog": {
+    "message": "블로그",
+    "description": "The label of footer link with label=Blog linking to https://dhtmlx.com/blog/tag/pivot/"
+  },
+  "link.item.label.Forum": {
+    "message": "포럼",
+    "description": "The label of footer link with label=Forum linking to https://forum.dhtmlx.com/c/pivot/16"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/DHTMLX"
+  },
+  "link.item.label.Youtube": {
+    "message": "유튜브",
+    "description": "The label of footer link with label=Youtube linking to https://www.youtube.com/user/dhtmlx"
+  },
+  "link.item.label.Facebook": {
+    "message": "페이스북",
+    "description": "The label of footer link with label=Facebook linking to https://www.facebook.com/dhtmlx"
+  },
+  "link.item.label.Twitter": {
+    "message": "트위터",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/dhtmlx"
+  },
+  "link.item.label.Linkedin": {
+    "message": "링크드인",
+    "description": "The label of footer link with label=Linkedin linking to https://www.linkedin.com/groups/3345009/"
+  },
+  "link.item.label.About us": {
+    "message": "회사 소개",
+    "description": "The label of footer link with label=About us linking to https://dhtmlx.com/docs/company.shtml"
+  },
+  "link.item.label.Contact us": {
+    "message": "문의하기",
+    "description": "The label of footer link with label=Contact us linking to https://dhtmlx.com/docs/contact.shtml"
+  },
+  "link.item.label.Licensing": {
+    "message": "라이선스",
+    "description": "The label of footer link with label=Licensing linking to https://dhtmlx.com/docs/products/dhtmlxPivot/#licensing"
+  }
+}

@@ -159,15 +159,9 @@ Promise.all([
 });
 ~~~
 
-<<<<<<< sp-next-add-backend-guide
-:::info
-See [Working with server](/guides/working-with-server) for a full round-trip: loading rows, saving the layout, and storing aggregated results.
-:::
+Refer to the following topic for additional information: [Working with server](/guides/working-with-server)
 
-## Loading CSV data
-=======
 ## Load CSV data
->>>>>>> next
 
 Pivot accepts CSV data after you convert it to JSON with an external JS parsing library. The converted data behaves the same as native JSON.
 
@@ -277,7 +271,7 @@ The snippet below loads JSON and CSV data:
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related samples:**
+**Related samples**:
 - [Pivot 2. Date format](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2. Different datasets](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. Large dataset](https://snippet.dhtmlx.com/e6qwqrys)

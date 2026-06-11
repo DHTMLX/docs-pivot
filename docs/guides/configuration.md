@@ -732,7 +732,7 @@ The Configuration panel supports the following field operations:
 - [`update-field`](api/events/update-field-event.md) — update a field's method or settings
 - [`move-field`](api/events/move-field-event.md) — reorder fields within an area
 
-**Related samples:**
+**Related samples**:
 - [Pivot 2. Adding text templates for table and header cells](https://snippet.dhtmlx.com/n9ylp6b2)
 - [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
 - [Pivot 2. Expand and collapse all rows](https://snippet.dhtmlx.com/i4mi6ejn)
