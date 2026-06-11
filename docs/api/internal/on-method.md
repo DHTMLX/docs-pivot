@@ -31,15 +31,15 @@ api.on(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](/api/overview/main-overview/#pivot-events).
-Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](/api/internal/intercept-method) method.
+The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md#pivot-events).
+Use the `api.on()` method if you want to listen to the actions without modifying them. To make changes to the actions, apply the [`api.intercept()`](api/internal/intercept-method.md) method.
 :::
 
 ### Example
 
 The example below shows how to output the label of a field for which the filter was activated: 
 
-~~~jsx {21-28}
+~~~jsx {21-29}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,
@@ -61,11 +61,12 @@ const table = new pivot.Pivot("#root", {
 });
 
 table.api.on("open-filter", (ev) => {
-    const fieldObj = ev.field;
-    const field = fieldObj.base || fieldObj.field;
-
-    if (field) {
-        console.log("The field for which filter was activated:", ev.field.label);
+    if (ev.id) {
+        const { config } = table.api.getState();
+        const fieldObj = config[ev.area].find((f) => f.id === ev.id);
+        if (fieldObj) {
+            console.log("The field for which filter was activated:", fieldObj.label);
+        }
     }
 }, {tag: "open-filter-tag"});
 ~~~

@@ -51,5 +51,5 @@ table.showConfigPanel ({
 ~~~
 
 **Related articles**:
-- [`show-config-panel` event](/api/events/show-config-panel-event)
-- [`configPanel` property](/api/config/configpanel-property)
+- [`show-config-panel` event](api/events/show-config-panel-event.md)
+- [`configPanel` property](api/config/configpanel-property.md)

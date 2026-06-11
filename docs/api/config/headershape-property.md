@@ -76,8 +76,8 @@ new pivot.Pivot("#pivot", {
 **Related samples**:
 - [Pivot 2. Vertical orientation of text in grid headers](https://snippet.dhtmlx.com/4qroi8ka)
 - [Pivot 2. Collapsible columns](https://snippet.dhtmlx.com/pt2ljmcm)
-- [Pivot 2. Adding сustom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
+- [Pivot 2. Adding custom CSS for table and header cells](https://snippet.dhtmlx.com/nfdcs4i2)
 
 **Related articles**: 
-- [Configuration](/guides/configuration)
-- [Cell style](/guides/stylization/#cell-style)
+- [Configuration](guides/configuration.md)
+- [Cell style](guides/stylization.md#cell-style)

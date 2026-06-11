@@ -119,4 +119,4 @@ const table = new pivot.Pivot("#root", {
 That's all. Just these simple steps and you have a handy tool for analyzing data. Now you can start working with your tasks or keep exploring the inner world of JavaScript Pivot:
 
 - [Guides](/category/guides) pages provide instructions about installation, loading data, styling, and other helpful tips to go smoothly with the Pivot configuration
-- [API reference](/api/overview/main-overview) gives description of the Pivot functionality
+- [API reference](api/overview/main-overview.md) gives description of the Pivot functionality

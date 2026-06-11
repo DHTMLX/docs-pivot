@@ -29,17 +29,17 @@ The callback of the action takes an object with the following parameters:
 - `area` - (required) the name of the area where a new field is added, which can be "rows", "columns" or "values" area
 - `field` - (required) the name of a field
 - `method` - (optional) defines a method for data aggregation (if not specified, the first method suitable for this data type is set); a method can be one of the following:
-  - it's required for the **values** area, it's a string with one of the data operation types: [Default methods](/guides/working-with-data#default-methods)
+  - it's required for the **values** area, it's a string with one of the data operation types: [Default methods](guides/working-with-data.md#default-methods)
   - it's optional for the **rows** and **columns** areas and if the value is set it's a predicate; it can be a custom predicate or one from default values: "year", "quarter", "month", "week", "day", "hour", "minute". By default, a raw value is set.
-  If a custom predicate or method is set, the id should be specified for the [predicates](/api/config/predicates-property) or [methods](/api/config/methods-property) property.
+  If a custom predicate or method is set, the id should be specified for the [predicates](api/config/predicates-property.md) or [methods](api/config/methods-property.md) property.
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Example
 
-In the example below we use the [`api.intercept()`](/api/internal/intercept-method) method to add a new method to the value field with the **number** data type: 
+In the example below we use the [`api.intercept()`](api/internal/intercept-method.md) method to add a new method to the value field with the **number** data type: 
 
 ~~~jsx {20-27}
 const table = new pivot.Pivot("#root", {
@@ -71,4 +71,4 @@ table.api.intercept("add-field", (ev) => {
 });
 ~~~
 
-**Related articles**: [api.intercept()](/api/internal/intercept-method)
+**Related articles**: [api.intercept()](api/internal/intercept-method.md)

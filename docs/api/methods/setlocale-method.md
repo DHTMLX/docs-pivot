@@ -52,5 +52,5 @@ table.setLocale(); // or setLocale(null);
 ~~~
 
 **Related articles**:
-- [Localization](/guides/localization)
-- [`locale`](/api/config/locale-property)
+- [Localization](guides/localization.md)
+- [`locale`](api/config/locale-property.md)

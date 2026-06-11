@@ -30,17 +30,18 @@ The method returns an object with the following parameters:
     filters: {}, // filtering rules
     headerShape: {}, // table header settings
     predicates: {}, // available predicates by fields
-    limits: {} // the maximum limit for the number of rows and columns in the dataset
+    limits: {}, // the maximum limit for the number of rows and columns in the dataset
     methods: {}, // methods for data aggregation
     tableShape: {}, // table settings (sizes, total row, templates)
     tableConfig: {}, // table configuration settings (columns, data, sizes, tree mode, footer)
-    configPanel: boolean, // the state of the configuration panel visibility 
+    configPanel: boolean, // the state of the configuration panel visibility
+    readonly: boolean, // whether the read-only mode is enabled
 }  
 ~~~
 
 ### Example
 
-~~~jsx {22-28}
+~~~jsx {21-26}
 // create Pivot
 const table = new pivot.Pivot("#root", {
     fields,
@@ -61,12 +62,10 @@ const table = new pivot.Pivot("#root", {
     }
 });
 
-// output the current config state to the console
-let config;
-let state = table.api.getReactiveState();
+// subscribe to the reactive config store and log it on every change
+const state = table.api.getReactiveState();
 
-if (config) {
-    console.log("There were some changes in Pivot config. Its current state:");
-    console.log(config);
-}
+state.config.subscribe((config) => {
+    console.log("Pivot config changed. Its current state:", config);
+});
 ~~~
