@@ -35,13 +35,13 @@ For body cells the function takes the next parameters:
     - `$level` (boolean)- (optional) branch index
 - `column` - (required) an object with column data:
     - `id` (number) - (required) the id of a column
-    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](/guides/configuration/#adding-a-template-via-the-template-helper))    
-    - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
+    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](guides/configuration.md#adding-a-template-via-the-template-helper))    
+    - `template` - (optional) the template that is defined via the [`tableShape`](api/config/tableshape-property.md) property
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
      - `field` - (optional) it's a string which is the id of a field
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
-    - `format` (string or object) - (required) date format or number format (please refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields))
+    - `format` (string or object) - (required) date format or number format (please refer to [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields))
     - `isNumeric` (boolean) - (optional) defines whether a column contains numeric values
     - `isTotal` (boolean) - (optional) defines whether it is a total column
     - `area` (string) - (optional) an area where the column is rendered: "rows", "columns", "values"
@@ -52,7 +52,7 @@ For body cells the function takes the next parameters:
         - `value` (any) - (required) raw value, if a cell belongs to "columns" area
         - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
         - `method` (string) - (required) the field predicate, if a cell belongs to "columns" area and predicate is defined
-        - `format` (string or object) - date format or number format (please refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields))
+        - `format` (string or object) - date format or number format (please refer to [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields))
 
 For header cells the function parameters are the following:
 
@@ -66,12 +66,12 @@ For header cells the function parameters are the following:
     - `value` (any) - (required) raw value, if a cell belongs to "columns" area
     - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
     - `method` (string) - (required) a field predicate, if a cell belongs to "columns" area and predicate is defined
-    - `format` (string or object) - (required) date format or number format (please refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields))
+    - `format` (string or object) - (required) date format or number format (please refer to [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields))
 - `column` - (required) an object with column data (the same as for the body cell)
 
 ### Example
 
-The snippet below shows how to define templates via the `pivot.template` helper. The helper is applied right before the table renders, which is done by intercepting the [render-table](/api/events/render-table-event) event using the [api.intercept()](/api/internal/intercept-method) method. 
+The snippet below shows how to define templates via the `pivot.template` helper. The helper is applied right before the table renders, which is done by intercepting the [render-table](api/events/render-table-event.md) event using the [api.intercept()](api/internal/intercept-method.md) method. 
 
 The snippet demonstrates how you can add icons to:
 
@@ -84,6 +84,6 @@ The snippet demonstrates how you can add icons to:
 
 **Related articles:**
 
-- [`render-table`](/api/events/render-table-event)
-- [Applying templates to cells](/guides/configuration/#applying-templates-to-cells)
-- [Applying templates to headers](/guides/configuration/#applying-templates-to-headers)
+- [`render-table`](api/events/render-table-event.md)
+- [Applying templates to cells](guides/configuration.md#applying-templates-to-cells)
+- [Applying templates to headers](guides/configuration.md#applying-templates-to-headers)

@@ -27,14 +27,14 @@ The `config` parameters are used to define which fields will be applied as rows 
 
 - `rows` - (optional) defines the rows of the Pivot table. The default value is an empty array. It can be a string which represents a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - (required) the ID of a field
-  - `method` - (optional) defines a method for data aggregation in the field; methods for the time-based data fields are available by default: year, month, day, hour, minute which group data by year/month/day/hour; here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
+  - `method` - (optional) defines a method for data aggregation in the field; methods for the time-based data fields are available by default: "year", "quarter", "month", "week", "day", "hour", "minute" which group data accordingly; here you can also add the name of a custom method ([see `predicates`](api/config/predicates-property.md)) for the field of any data type
 - `columns` - (optional) defines columns for the Pivot table. It's an empty array by default. It can be a single field ID or an object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - (required) the ID of a field
   - `method` - (optional) defines a method for data processing (for time-based data fields).
-  By default, methods are available for the time-based fields (the **date** type) with the next values: "year", "quarter", "month", "week", "day", "hour", "minute". Here you can also add the name of a custom method ([see `predicates`](/api/config/predicates-property)) for the field of any data type
+  By default, methods are available for the time-based fields (the **date** type) with the next values: "year", "quarter", "month", "week", "day", "hour", "minute". Here you can also add the name of a custom method ([see `predicates`](api/config/predicates-property.md)) for the field of any data type
 - `values` - (optional) defines the data aggregation for the cells of the Pivot table. It's an empty array by default. Each element can be a string representing a data field ID and aggregation method or an object containing the field ID and the method for data aggregation. The object parameters are the following:
   - `field` - (required) the ID of a field
-  - `method` - (required) defines a method for data extraction; for methods types and their description refer to [Applying methods](/guides/working-with-data#default-methods)
+  - `method` - (required) defines a method for data extraction; for methods types and their description refer to [Applying methods](guides/working-with-data.md#default-methods)
 
 <details>
 
@@ -49,7 +49,7 @@ You can define `values` in either of the two equally valid ways:
 ~~~jsx
 values: [
     "sum(sales)", // option one
-    { id: "sales", method: "sum" }, // option two
+    { field: "sales", method: "sum" }, // option two
 ]
 ~~~
 
@@ -78,7 +78,7 @@ values: [
     - `includes` - (optional) an array of values to be displayed from those that are already filtered; available for text and dates values
 
 :::info
-When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the [`api.getState()`](/api/internal/getstate-method) method, the full object will look like this:
+When config is processed by Pivot, its properties receive extra data and if you try to return the config state via the [`api.getState()`](api/internal/getstate-method.md) method, the full object will look like this:
 
 ~~~jsx
 interface IParsedField {

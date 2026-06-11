@@ -10,7 +10,7 @@ description: You can learn about the getTable method in the documentation of the
 
 @short: Gets access to the underlying Table widget instance in the Pivot table
 
-This method is used when there's a need to access the underlying Table widget instance in Pivot. It provides direct access to the Table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the [`open-row`](/api/table/open-row), [`close-row`](/api/table/close-row), [`export`](/api/table/export), and [`filter-rows`](/api/table/filter-rows) events. 
+This method is used when there's a need to access the underlying Table widget instance in Pivot. It provides direct access to the Table functionality allowing for operations such as data serialization and exporting in various formats. The Table API has its own `api.exec()` method that can call the [`open-row`](api/table/open-row.md), [`close-row`](api/table/close-row.md), [`export`](api/table/export.md), and [`filter-rows`](api/table/filter-rows.md) events. 
 
 ### Usage
 
@@ -24,7 +24,7 @@ getTable(wait:boolean): Table | Promise;
 
 ### Example
 
-In the example below we get access to the Table widget API and trigger the Table `export`event with the button click using the [`api.exec()`](/api/internal/exec-method) method.
+In the example below we get access to the Table widget API and trigger the Table `export`event with the button click using the [`api.exec()`](api/internal/exec-method.md) method.
 
 ~~~jsx
 // create Pivot
@@ -51,7 +51,7 @@ const table = new pivot.Pivot("#root", {
 let table_instance = table.getTable();
 
 function toCSV() {
-    table_instance.exeс("export", {
+    table_instance.exec("export", {
         options: {
             format: "csv",
             cols: ";"
@@ -69,7 +69,7 @@ document.body.appendChild(exportButton);
 
 **Related articles:**:
 
-- [`close-row`](/api/table/close-row)
-- [`export`](/api/table/export)
-- [`filter-rows`](/api/table/filter-rows)
-- [`open-row`](/api/table/open-row)
+- [`close-row`](api/table/close-row.md)
+- [`export`](api/table/export.md)
+- [`filter-rows`](api/table/filter-rows.md)
+- [`open-row`](api/table/open-row.md)

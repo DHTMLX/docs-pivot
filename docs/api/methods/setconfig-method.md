@@ -20,7 +20,7 @@ setConfig(config: { [key:any]: any }): void;
 
 ### Parameters
 
-- `config` - (required) an object of the Pivot configuration. See the full list of properties [here](/api/overview/properties-overview)
+- `config` - (required) an object of the Pivot configuration. See the full list of properties [here](api/overview/properties-overview.md)
 
 :::important
 The method changes only the parameters you passed. It destroys the current component and initializes a new one.

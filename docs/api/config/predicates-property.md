@@ -41,12 +41,14 @@ The property is an object where a key is the name of a custom function and value
     - `type` - (optional) defines which field type will be applied: "number"|"text"|"date"|"tuple". "tuple" is a combo filter applied for numeric values (data will be filtered by the numeric value but in filter the text value will be displayed)
     - `format` - (optional) the function that defines the format for displaying filter options; if no format is defined, the one from the template parameter will be applied; if the type here (for the `filter` object) is not specified, the format will be applied for the type set for the `type` parameter of the predicate
 - `handler` - (required for custom predicates) the function that defines how data should be processed; the function should take a single argument as the value to be processed and return the processed value
-- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](/api/config/locale-property).
+- `template` - (optional) the function that defines how data should be displayed; the function returns the processed value and it takes the value returned by `handler` and if necessary you can localize text values using [`locale`](api/config/locale-property.md).
  
 The following default predicates are applied in case no predicate is specified via the `predicates` property:
 
 ~~~jsx
 const defaultPredicates = {
+    // a service predicate that represents the raw (unprocessed) value
+    $empty: { label: (type) => `Raw ${type}`, type: ["number", "date", "text"] },
     year: { label: "Year", type: "date", filter: { type: "number" } },
     quarter: { label: "Quarter", type: "date", filter: { type: "tuple" } },
     month: { label: "Month", type: "date", filter: { type: "tuple" } },
@@ -110,6 +112,6 @@ const table = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-**Related article**: [Processing data with predicates](/guides/working-with-data#processing-data-with-predicates)
+**Related article**: [Processing data with predicates](guides/working-with-data.md#processing-data-with-predicates)
 
 **Related sample**: [Pivot 2. Custom predicates](https://snippet.dhtmlx.com/mhymus00)

@@ -25,7 +25,7 @@ The action is useful for saving a user's aggregation configuration so that it ca
 
 ### Parameters
 
-The callback of the action takes an object with the processed [`config`](/api/config/config-property) parameters: 
+The callback of the action takes an object with the processed [`config`](api/config/config-property.md) parameters: 
 
 - `rows` - rows of the Pivot table. An object with the field ID and a method for data extraction; the object parameters are the following:
   - `field` - the ID of a field
@@ -36,11 +36,11 @@ The callback of the action takes an object with the processed [`config`](/api/co
   By default, methods are available for the time-based fields (the **date** type) with the next values: "year", "quarter", "month", "week", "day", "hour", "minute"
 - `values` - defines the data aggregation for the cells of the Pivot table. It's an object containing the field ID and the method for data aggregation. The object parameters are the following:
   - `field` - the ID of a field
-  - `method` - defines a method for data extraction; about methods and possible options refer to [Applying methods](/guides/working-with-data#default-methods)
-- `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and data aggregation method. The description of the `filter` object you can see here: [`config`](/api/config/config-property)
+  - `method` - defines a method for data extraction; about methods and possible options refer to [Applying methods](guides/working-with-data.md#default-methods)
+- `filters` - (optional) defines how data is filtered in the table; it's an object with field IDs and data aggregation method. The description of the `filter` object you can see here: [`config`](api/config/config-property.md)
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Returns
@@ -59,11 +59,11 @@ const table = new pivot.Pivot("#root", {
         columns: [],
         values: [
             {
-                id: "title",
+                field: "title",
                 method: "count"
             },
             {
-                id: "score",
+                field: "score",
                 method: "max"
             }
         ]
@@ -75,4 +75,4 @@ table.api.on("update-config", (config) => {
 });
 ~~~
 
-**Related articles**: [api.intercept()](/api/internal/intercept-method)
+**Related articles**: [api.intercept()](api/internal/intercept-method.md)

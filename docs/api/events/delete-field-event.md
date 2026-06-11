@@ -27,12 +27,12 @@ The callback of the action takes an object with the following parameters:
 - `id` - (required) the id of a field that is removed
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Example
 
-In the example below, the `delete-field` action is triggered via the [`api.exec()`](/api/internal/exec-method) method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The action will be triggered with the button click.
+In the example below, the `delete-field` action is triggered via the [`api.exec()`](api/internal/exec-method.md) method. The last field is removed from the **values** area. The [`api.getState()`](api/internal/getstate-method.md) method here is used to get the current state of the Pivot [`config`](api/config/config-property.md). The action will be triggered with the button click.
 
 ~~~jsx {31-34}
 const table = new pivot.Pivot("#root", {

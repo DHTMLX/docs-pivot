@@ -16,7 +16,7 @@ description: You can learn about the exec method in the documentation of the DHT
 api.exec(
     event: string,
     config: object
-): void;
+): Promise<any>;
 ~~~
 
 ## Parameters
@@ -27,12 +27,12 @@ api.exec(
 ## Actions
 
 :::info
-The full list of Pivot events can be found [**here**](/api/overview/events-overview)
+The full list of Pivot events can be found [**here**](api/overview/events-overview.md)
 :::
 
 ## Example
 
-In the example below, the [`delete-field`](/api/events/delete-field-event) event is triggered via the `api.exec()`method. The last field is removed from the **values** area. The [`api.getState()`](/api/internal/getstate-method) method here is used to get the current state of the Pivot [`config`](/api/config/config-property). The event will be triggered with the button click.
+In the example below, the [`delete-field`](api/events/delete-field-event.md) event is triggered via the `api.exec()`method. The last field is removed from the **values** area. The [`api.getState()`](api/internal/getstate-method.md) method here is used to get the current state of the Pivot [`config`](api/config/config-property.md). The event will be triggered with the button click.
 
 ~~~jsx {32-35}
 // create Pivot

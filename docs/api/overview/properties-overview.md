@@ -6,19 +6,19 @@ description: You can have Properties overview of JavaScript Pivot in the documen
 
 # Properties overview
 
-To configure **Pivot**, refer to the [Configuration](../../../guides/configuration) section.
+To configure **Pivot**, refer to the [Configuration](guides/configuration.md) section.
 
 | Name                                               | Description                                      |
 | -------------------------------------------------- | ------------------------------------------------ |
-| [](../config/columnshape-property.md)              | @getshort(../config/columnshape-property.md)     |
-| [](../config/config-property.md)                   | @getshort(../config/config-property.md)          |
-| [](../config/configpanel-property.md)              | @getshort(../config/configpanel-property.md)     |
-| [](../config/data-property.md)                     | @getshort(../config/data-property.md)            |
-| [](../config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
-| [](../config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |
-| [](../config/limits-property.md)                   | @getshort(../config/limits-property.md)          |
-| [](../config/locale-property.md)                   | @getshort(../config/locale-property.md)          |
-| [](../config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
-| [](../config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
-| [](../config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |
-| [](../config/tableshape-property.md)               | @getshort(../config/tableshape-property.md)      |
+| [](api/config/columnshape-property.md)              | @getshort(../config/columnshape-property.md)     |
+| [](api/config/config-property.md)                   | @getshort(../config/config-property.md)          |
+| [](api/config/configpanel-property.md)              | @getshort(../config/configpanel-property.md)     |
+| [](api/config/data-property.md)                     | @getshort(../config/data-property.md)            |
+| [](api/config/fields-property.md)                   | @getshort(../config/fields-property.md)          |
+| [](api/config/headershape-property.md)              | @getshort(../config/headershape-property.md)     |
+| [](api/config/limits-property.md)                   | @getshort(../config/limits-property.md)          |
+| [](api/config/locale-property.md)                   | @getshort(../config/locale-property.md)          |
+| [](api/config/methods-property.md)                  | @getshort(../config/methods-property.md)         |
+| [](api/config/predicates-property.md)               | @getshort(../config/predicates-property.md)      |
+| [](api/config/readonly-property.md)                 | @getshort(../config/readonly-property.md)        |
+| [](api/config/tableshape-property.md)               | @getshort(../config/tableshape-property.md)      |

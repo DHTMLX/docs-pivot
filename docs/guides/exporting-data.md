@@ -6,34 +6,40 @@ description: You can explore how to export data in the documentation of the DHTM
 
 # Exporting data
 
-To export the table data to the XLSX or CSV format, it's necessary to get access to the underlying Table widget instance inside Pivot and apply its API to export data. To do this, you should use the [`getTable`](/api/methods/gettable-method) method and execute the [`export`](/api/table/export) event.
+Pivot exports table data in XLSX or CSV format through the underlying Table widget. Access the Table instance with the [`getTable`](api/methods/gettable-method.md) method, then trigger the [`export`](api/table/export.md) event with the Table's [`api.exec`](api/internal/exec-method.md) method.
 
-In the example below we get access to the Table instance and trigger the `export`action using the [`api.exec()`](/api/internal/exec-method) method.
+The example below accesses the Table instance and triggers the `export` event in CSV and XLSX formats:
 
 ~~~jsx
-const widget = new pivot.Pivot("#root", { /*setting*/});
-widget.api.getTable().exec("export", {
-        options: {
-            format: "csv",
-            cols: ";"
-        }
+const widget = new pivot.Pivot("#root", { /* settings */ });
+
+widget.getTable().exec("export", {
+    options: {
+        format: "csv",
+        cols: ";"
+    }
 });
-widget.api.getTable().exec("export", {
-        options: {
-            format: "xlsx",
-            fileName: "My Report",
-            sheetName: "Quarter 1",
-        }
+
+widget.getTable().exec("export", {
+    options: {
+        format: "xlsx",
+        fileName: "My Report",
+        sheetName: "Quarter 1"
+    }
 });
 ~~~
 
+:::tip
+The [`getTable`](api/methods/gettable-method.md) method accepts an optional `wait` boolean parameter. Pass `true` to receive a promise that resolves once the Table API is available. Useful when the Table API must be ready during Pivot initialization.
+:::
+
 ## Example
 
-In this snippet you can see how to export data:
+The snippet below exports data:
 
 <iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
 **Related articles**: 
 
-- [Date formatting](/guides/localization#date-formatting)
-- [`export`](/api/table/export)
+- [Date formatting](guides/localization.md#date-formatting)
+- [`export`](api/table/export.md)

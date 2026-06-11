@@ -42,4 +42,4 @@ Promise.all([
 });
 ~~~
 
-**Related articles**: [`setConfig`](/api/methods/setconfig-method)
+**Related articles**: [`setConfig`](api/methods/setconfig-method.md)

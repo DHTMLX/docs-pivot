@@ -16,8 +16,8 @@ description: You can learn about the move-field event in the documentation of th
 "move-field": ({
     area: string,
     id: string | number,
-    before?: id,
-    after?: id
+    before?: string,
+    after?: string
 }) => void | boolean;
 ~~~
 
@@ -31,7 +31,7 @@ The callback of the action takes an object with the following parameters:
 - `after` - (optional) the id of a field after which the moved field is placed
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Example
@@ -62,4 +62,4 @@ table.api.on("move-field", (ev) => {
 });
 ~~~
 
-**Related articles**: [api.on()](/api/internal/on-method)
+**Related articles**: [api.on()](api/internal/on-method.md)

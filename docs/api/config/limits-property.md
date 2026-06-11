@@ -10,7 +10,7 @@ description: You can learn about the limits config in the documentation of the D
 
 @short: Optional. Defines the maximum limit for the number of rows and columns in the final dataset
 
-Please, also refer to [Limiting data](/guides/working-with-data#limiting-loaded-data).
+Please, also refer to [Limiting data](guides/working-with-data.md#limiting-loaded-data).
 
 ### Usage
 
