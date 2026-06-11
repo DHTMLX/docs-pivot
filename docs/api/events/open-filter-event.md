@@ -27,7 +27,7 @@ The callback of the action takes the next parameters:
 - `id` - the id of a field; if there's a single id argument with null value, the filter will be closed.
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Returns

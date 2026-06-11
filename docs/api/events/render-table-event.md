@@ -42,13 +42,13 @@ The callback of the action takes the `config` object with the following paramete
 
 - `columns` - (optional) columns array with the next parameters for each object:
     - `id` (number) - (required) the id of a column
-    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](/guides/configuration/#adding-a-template-via-the-template-helper))    
-    - `template` - (optional) the template that is defined via the [`tableShape`](/api/config/tableshape-property) property
+    - `cell` (any) - (optional) a template with the cell content (please, refer to [Adding templates via the template helper](guides/configuration.md#adding-a-template-via-the-template-helper))    
+    - `template` - (optional) the template that is defined via the [`tableShape`](api/config/tableshape-property.md) property
     - `fields` (array) - (optional) defines fields in the hierarchical column in the tree mode. Reflects fields displayed in this column on different levels
      - `field` - (optional) it's a string which is the id of a field
     - `method` (string) - (optional) a method, if defined for a field in this column
     - `methods` (array) - (optional) defines methods applied to fields in the hierarchical column in the tree mode
-    - `format` (string or object) - (required) date format or number format (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields))
+    - `format` (string or object) - (required) date format or number format (refer to [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields))
     - `isNumeric` (boolean) - (optional) defines whether a column contains numeric values
     - `isTotal` (boolean) - (optional) defines whether it is a total column
     - `area` (string) - (optional) an area where the column is rendered: "rows", "columns", "values"
@@ -59,7 +59,7 @@ The callback of the action takes the `config` object with the following paramete
         - `value` (any) - (required) raw value, if a cell belongs to "columns" area
         - `field` (string) - (required) a field, which value is displayed, if a cell belongs to "columns" area
         - `method` (string) - (required) the field predicate, if a cell belongs to "columns" area and predicate is defined
-        - `format` (string or object) - date format or number format (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields))
+        - `format` (string or object) - date format or number format (refer to [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields))
   - `footer` - (optional) a header label or an object with footer settings which are the same as the header settings
  - `data` - (optional) an array of objects with data for the table; each object represents a row:
     - `id` (number) - (required) row id
@@ -72,10 +72,10 @@ The callback of the action takes the `config` object with the following paramete
     - `left` (number) - the number of fixed columns from the left
     - `right` (number) - the number of fixed columns from the right
 - `tree` - (optional) defines if the tree mode is enabled (**true** if enabled)
-- `cellStyle` - (optional) an object where each key is the field id and the value is a function that returns a string. All columns based on the specified field will have the related template applied.
+- `cellStyle` - (optional) a function that applies a custom style to a cell. It receives the row and column objects and returns a string with a CSS class name: `(row, col) => string`
 
 :::info
-For handling the inner events you can use the [Event Bus methods](/api/overview/internal-eventbus-overview)
+For handling the inner events you can use the [Event Bus methods](api/overview/internal-eventbus-overview.md)
 :::
 
 ### Returns
@@ -85,7 +85,7 @@ If the event handler returns **false**, it will block the operation in question.
 
 ### Example
 
-The next example shows how to output the [`config`](/api/config/config-property) object to console and add a footer.
+The next example shows how to output the [`config`](api/config/config-property.md) object to console and add a footer.
 
 ~~~jsx {20-28}
 const table = new pivot.Pivot("#root", {
@@ -118,7 +118,7 @@ table.api.intercept("render-table", (ev) => {
 });
 ~~~
 
-The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](/api/config/tableshape-property) property.
+The next example shows how to make all rows expand/collapse with the button click. The tree mode should be enabled via the [`tableShape`](api/config/tableshape-property.md) property.
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -152,7 +152,7 @@ const table = new pivot.Pivot("#root", {
 });
 
 const api = table.api;
-const table = api.getTable();
+const tableApi = api.getTable();
 
 //  setting all table branches closed on the table config update
 api.intercept("render-table", (ev) => {
@@ -163,16 +163,16 @@ api.intercept("render-table", (ev) => {
 });
 
 function openAll() {
-    table.exec("open-row", { id: 0, nested: true });
+    tableApi.exec("open-row", { id: 0, nested: true });
 }
 
 function closeAll() {
-    table.exec("close-row", { id: 0, nested: true });
+    tableApi.exec("close-row", { id: 0, nested: true });
 }
 ~~~
 
-See also how to configure the split feature using the `render-table` event: [Freezing columns](/guides/configuration#freezing-columns).
+See also how to configure the split feature using the `render-table` event: [Freezing columns](guides/configuration.md#freezing-columns).
 
-**Related article:** [pivot.template helper](/api/helpers/template)
+**Related article**: [pivot.template helper](api/helpers/template.md)
 
-**Related sample:** [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+**Related sample**: [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)

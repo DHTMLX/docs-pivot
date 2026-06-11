@@ -119,7 +119,7 @@ module.exports = {
                         "api/events/render-table-event",
                         "api/events/show-config-panel-event",
                         "api/events/update-config-event",
-                        "api/events/update-value-event"   
+                        "api/events/update-field-event"
                     ]
                 },
                 {
@@ -220,6 +220,7 @@ module.exports = {
                 "guides/stylization",
                 "guides/typescript-support",
                 "guides/working-with-data",
+                "guides/working-with-server",
                 
             ]
         }

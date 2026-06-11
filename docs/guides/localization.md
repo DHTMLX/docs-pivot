@@ -6,15 +6,15 @@ description: You can learn about the localization in the documentation of the DH
 
 # Localization
 
-You can localize all labels in the interface of JavaScript Pivot. For this purpose you need to create a new locale or modify a built-in one and apply it to Pivot.
+Pivot lets you localize every label in the interface. Create a new locale or modify a built-in one, then apply the locale to Pivot via the [`locale`](api/config/locale-property.md) property or the [`setLocale`](api/methods/setlocale-method.md) method.
 
 ## Default locale
 
-The **English** locale is applied by default:
+Pivot applies the English locale by default. The following code snippet shows the structure of the built-in `en` locale:
 
 ~~~jsx
 const en = {
-    //pivot
+    // pivot
     pivot: {
         sum: "Sum",
         min: "Min",
@@ -49,7 +49,7 @@ const en = {
         "Hide settings": "Hide settings"
     },
 
-    //query
+    // query
     query: {
         "Add filter": "Add filter",
         "Add Filter": "Add Filter",
@@ -84,7 +84,7 @@ const en = {
         "not between": "not between"
     },
 
-    //calendar
+    // calendar
     calendar: {
         monthFull: [
             "January",
@@ -138,65 +138,73 @@ const en = {
         clockFormat: 24,
     },
 
-    //core
+    // core
     core: {
-        ok:"OK",
-        cancel:"Cancel",
+        ok: "OK",
+        cancel: "Cancel",
         select: "Select",
         "No data": "No data"
     },
 
-    //formats
+    // formats
     formats: {
         dateFormat: "%d.%m.%Y",
         timeFormat: "%H:%i"
-    }
+    },
 
     lang: "en-US",
 };
 ~~~
 
-## Applying locales
+## Apply a locale
 
-You can access built-in locales via the pivot object. Pivot provides three built-in locales: en, de, cn. 
+Pivot exposes three built-in locales through the `pivot.locales` object: `en`, `de`, and `cn`. Pass a built-in locale to the [`locale`](api/config/locale-property.md) property during initialization.
 
-Example:
+The following code snippet initializes Pivot with the German locale:
 
 ~~~jsx
-new pivot.Pivot({
+new pivot.Pivot("#root", {
     // other properties
     locale: pivot.locales.de,
 });
 ~~~
 
-To apply a custom locale, you need to:
+To apply a custom locale:
 
-- create a custom locale object (or modify the default one) and provide translations for all text labels (it can be any language you need)
-- apply the new locale to Pivot via its [`locale`](/api/config/locale-property) property or use the [`setLocale()`](/api/methods/setlocale-method) method
+- create a locale object (or modify a built-in one) and provide translations for all text labels (in any language)
+- apply the locale to Pivot via the [`locale`](api/config/locale-property.md) property or the [`setLocale`](api/methods/setlocale-method.md) method
+
+The following code snippet creates Pivot, then applies a custom Korean locale at runtime with `setLocale`:
 
 ~~~jsx
 // create Pivot
 const widget = new pivot.Pivot("#root", {
-  data,
-//other configuration properties
+    data,
+    // other configuration properties
 });
 
-const ko = {...} //object with locale
+const ko = { /* object with locale */ };
 widget.setLocale(ko);
 ~~~
 
-## Date formatting
+:::tip
+Call [`setLocale`](api/methods/setlocale-method.md) without arguments (or with `null`) to reset Pivot to the default English locale.
+:::
 
-Pivot accepts a date as a Date object (make sure to parse a date to a Date object). By default, the `dateFormat` of the current locale is applied. To redefine the format for all date fields in Pivot, change the value of the `dateFormat` parameter in the `formats` object of the [`locale`](/api/config/locale-property). The default format is "%d.%m.%Y".
+## Format dates {#date-formatting}
 
-Example:
+Pivot accepts dates as `Date` objects. Parse string values to `Date` before passing data to Pivot. The default `dateFormat` is `"%d.%m.%Y"`, taken from the current locale.
+
+To change the format for all date fields, set a new value for `dateFormat` in the `formats` object of the [`locale`](api/config/locale-property.md) property.
+
+The following code snippet parses string dates into `Date` objects, then initializes Pivot with a custom `dateFormat` and updates the format at runtime via `setConfig`:
 
 ~~~jsx {17}
 function setFormat(value) {
     table.setConfig({ locale: { formats: { dateFormat: value } } });
 }
 
-// date string to Date
+// convert date strings to Date objects
 const dateFields = fields.filter((f) => f.type == "date");
 if (dateFields.length) {
     dataset.forEach((item) => {
@@ -232,11 +240,11 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-In case you need to set a custom format to a specific field, use the `format` parameter of the [`fields`](/api/config/fields-property) property. Refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields).
+To set a custom format for a specific field, use the `format` parameter of the [`fields`](api/config/fields-property.md) property. See [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields).
 
-## Date and time format specification
+## Date and time format characters
 
-Pivot uses the following characters for setting the date and time format:
+Pivot uses the following characters to define the date and time format:
 
 | Character | Definition                                        |Example                  |
 | :-------- | :------------------------------------------------ |:------------------------|
@@ -262,22 +270,24 @@ Pivot uses the following characters for setting the date and time format:
 | %A        | AM or PM                                          | AM (for time from midnight until noon) and PM (for time from noon until midnight)|
 | %c        | displays date and time in the ISO 8601 date format| 2024-10-04T05:04:09     |
 
+To present September 20, 2024 at 16:47:08.128 as *2024-09-20 16:47:08.128*, use the format `"%Y-%m-%d %H:%i:%s.%S"`.
 
-To present the 20th of June, 2024 with the exact time as *2024-09-20 16:47:08.128*, specify "%Y-%m-%d-%H:%i:%s.%u".
+## Format numbers {#number-formatting}
 
-## Number formatting
+Pivot localizes all `number` fields based on the `lang` value of the current locale. The widget uses the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. The default settings limit fraction digits to 3 and apply group separation to the integer part.
 
-By default, all fields with the number type are localized according to the locale (the value in the `lang` field of the locale). Pivot uses [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) specification. By default the fraction digits are limited to 3 and group separation is applied for the integer part. 
-In case you do not need to format specific fields with numeric values or need to set a custom format, use the the `format` parameter of the [`fields`](/api/config/fields-property) property. It can be either *false* to cancel formatting or an object with format settings (refer to [Applying formats to fields](/guides/working-with-data/#applying-formats-to-fields)). 
+To skip formatting for a specific numeric field or to set a custom format, use the `format` parameter of the [`fields`](api/config/fields-property.md) property. Set `format` to `false` to disable formatting, or to an object with format settings (see [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields)).
+
+The following code snippet disables number formatting for the `year` field:
 
 ~~~jsx
 const fields = [
-     { id: "year", label: "Year", type: "number", format: false},
+     { id: "year", label: "Year", type: "number", format: false },
 ];
 ~~~
 
 ## Example
 
-In this snippet you can see how to switch between several locales:
+The snippet below switches between several locales:
 
 <iframe src="https://snippet.dhtmlx.com/aj5zmxpv?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 

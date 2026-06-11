@@ -30,8 +30,8 @@ api.intercept(
 ### Events
 
 :::info
-The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md/#pivot-events).
-Use the [`api.on()`](/api/internal/on-method) method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
+The full list of the Pivot internal events can be found [**here**](api/overview/main-overview.md#pivot-events).
+Use the [`api.on()`](api/internal/on-method.md) method if you want to listen to the actions without modifying them. To make changes to the actions, apply the `api.intercept()` method.
 :::
 
 ### Example
@@ -65,4 +65,4 @@ table.api.intercept("render-table", (ev) => {
 }, {tag: "render-table-tag"});
 ~~~
 
-**Related articles**: [`render-table`](/api/events/render-table-event)
+**Related articles**: [`render-table`](api/events/render-table-event.md)

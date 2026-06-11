@@ -10,7 +10,7 @@ description: You can learn about the filter-rows event in the documentation of t
 
 @short: Fires when filtering data
 
-To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](/api/methods/gettable-method) method. 
+To trigger the Table event, it's necessary to get access to the Table instance inside Pivot via the [`getTable`](api/methods/gettable-method.md) method. 
 
 ### Usage
 
@@ -32,6 +32,4 @@ The snippet below demonstrates how to filter aggregated (visible) data in the ta
 
 <iframe src="https://snippet.dhtmlx.com/s7tc9g4z?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-
-**Related article**: [`getTable`](/api/methods/gettable-method)
-
+**Related article**: [`getTable`](api/methods/gettable-method.md)

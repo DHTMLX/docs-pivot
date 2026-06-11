@@ -6,47 +6,49 @@ description: You can learn about the initialization in the documentation of the 
 
 # Initialization
 
-This guide will give you detailed instructions on how to create Pivot on a page to enrich your application with features of the Pivot table. Take the following steps to get a ready-to-use component:
+This guide explains how to create Pivot on a page and enrich your application with Pivot table features. Take the following steps to get a ready-to-use component:
 
-1. [Include the Pivot source files on a page](#including-source-files).
-2. [Create a container for Pivot](#creating-container).
-3. [Initialize Pivot with a constructor](#initializing-pivot).
+1. [Include the Pivot source files on a page](#include-source-files).
+2. [Create a container for Pivot](#create-a-container).
+3. [Initialize Pivot with a constructor](#initialize-pivot).
 
-## Including source files
+## Include source files
 
-See also how to download packages: [Downloading packages](/how-to-start#step-1-downloading-and-installing-packages).
+A Pivot app requires two source files on the page. For instructions on downloading the package, see [Downloading packages](how-to-start.md#step-1-downloading-and-installing-packages).
 
-To create a Pivot app, you need to include 2 source files on your page:
+Include the following files:
 
 - *pivot.js*
 - *pivot.css*
 
-Make sure that you set correct relative paths to the source files:
+Set the correct relative paths to the source files:
 
 ~~~html title="index.html"
 <script type="text/javascript" src="./dist/pivot.js"></script>  
 <link rel="stylesheet" href="./dist/pivot.css">
 ~~~
 
-## Creating container
+## Create a container
 
-Add a container for Pivot and give it an ID, for example *"root"*:
+Pivot renders into an HTML container element. Add a container and assign an ID, for example *"root"*:
 
 ~~~html title="index.html"
 <div id="root"></div>
 ~~~
 
-## Initializing Pivot
+## Initialize Pivot
 
-Initialize Pivot with the **pivot.Pivot** constructor. It takes two parameters:
+The `pivot.Pivot` constructor takes two parameters:
 
-- an HTML container (the ID of the HTML container)
+- the ID of the HTML container
 - an object with configuration properties
+
+The following code snippet creates a Pivot instance in the *"root"* container with initial fields, data, and structure:
 
 ~~~jsx
 // create Pivot
 const table = new pivot.Pivot("#root", {
-    //configuration properties
+    // configuration properties
     fields,
     data,
     config: {
@@ -62,14 +64,23 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
+The constructor returns a Pivot instance. Call API methods on the returned instance:
+
+- [`getTable`](api/methods/gettable-method.md) — get access to the underlying Table widget instance
+- [`setConfig`](api/methods/setconfig-method.md) — update the current Pivot configuration
+- [`setLocale`](api/methods/setlocale-method.md) — apply a new locale to Pivot
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — show or hide the Configuration panel
+
 ## Configuration properties
 
+The Pivot constructor accepts an object with configuration properties that control data, layout, and behavior.
+
 :::info
-The full list of properties to configure **Pivot** can be found [**here**](api/overview/properties-overview.md).
+For the full list of properties to configure Pivot, see [Properties overview](api/overview/properties-overview.md).
 :::
 
 ## Example
 
-In this snippet you can see how to initialize **Pivot** with the initial data:
+The snippet below initializes Pivot with the initial data:
 
 <iframe src="https://snippet.dhtmlx.com/y2buoahe?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
