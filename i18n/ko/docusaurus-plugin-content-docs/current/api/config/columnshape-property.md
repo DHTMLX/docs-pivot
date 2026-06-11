@@ -77,6 +77,6 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플:**
+**관련 샘플**:
 - [Pivot 2. 자동 너비 - 콘텐츠에 맞게 열 크기 조정](https://snippet.dhtmlx.com/tn1yw14m)
 - [Pivot 2. 열 너비 설정](https://snippet.dhtmlx.com/ceu34kkn)

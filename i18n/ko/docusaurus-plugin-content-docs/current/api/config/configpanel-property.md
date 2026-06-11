@@ -50,9 +50,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플:** [Pivot 2.0: 구성 패널 표시 여부 전환](https://snippet.dhtmlx.com/1xq1x5bo)
+**관련 샘플**: [Pivot 2.0: 구성 패널 표시 여부 전환](https://snippet.dhtmlx.com/1xq1x5bo)
 
-**관련 문서:**
+**관련 문서**:
 - [`show-config-panel` 이벤트](api/events/show-config-panel-event.md)
 - [`showConfigPanel()` 메서드](api/methods/showconfigpanel-method.md)
 - [구성 패널 표시 여부 제어](guides/configuration.md#controlling-visibility-of-configuration-panel)

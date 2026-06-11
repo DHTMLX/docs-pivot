@@ -109,4 +109,4 @@ const table = new pivot.Pivot("#root", {
 - [Number formatting](guides/localization.md#number-formatting)
 - [Applying formats to fields](guides/working-with-data.md#applying-formats-to-fields)
 
-**Related sample:**  [Pivot 2. Defining fields formats](https://snippet.dhtmlx.com/77nc4j8v)
+**Related sample**:  [Pivot 2. Defining fields formats](https://snippet.dhtmlx.com/77nc4j8v)

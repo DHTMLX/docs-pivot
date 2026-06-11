@@ -173,6 +173,6 @@ function closeAll() {
 
 `render-table` 이벤트를 사용하여 열 고정 기능을 구성하는 방법도 참조하세요: [열 고정](guides/configuration.md#freezing-columns).
 
-**관련 글:** [pivot.template 헬퍼](api/helpers/template.md)
+**관련 글**: [pivot.template 헬퍼](api/helpers/template.md)
 
-**관련 샘플:** [Pivot 2. 커스텀 고정(고정) 열 (사용자 지정 수)](https://snippet.dhtmlx.com/53erlmgp)
+**관련 샘플**: [Pivot 2. 커스텀 고정(고정) 열 (사용자 지정 수)](https://snippet.dhtmlx.com/53erlmgp)

@@ -67,7 +67,7 @@ exportButton.textContent = "Export";
 document.body.appendChild(exportButton);
 ~~~
 
-**Related articles:**:
+**Related articles**:
 
 - [`close-row`](api/table/close-row.md)
 - [`export`](api/table/export.md)

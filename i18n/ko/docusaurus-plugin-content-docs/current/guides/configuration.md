@@ -732,7 +732,7 @@ table.api.intercept("show-config-panel", () => {
 - [`update-field`](api/events/update-field-event.md) — 필드의 메서드 또는 설정을 업데이트합니다
 - [`move-field`](api/events/move-field-event.md) — 영역 내 필드의 순서를 변경합니다
 
-**관련 샘플:**
+**관련 샘플**:
 - [Pivot 2. 테이블 및 헤더 셀에 텍스트 템플릿 추가](https://snippet.dhtmlx.com/n9ylp6b2)
 - [Pivot 2. 사용자 정의 고정(fixed) 열 (원하는 수)](https://snippet.dhtmlx.com/53erlmgp)
 - [Pivot 2. 모든 행 펼치기 및 축소하기](https://snippet.dhtmlx.com/i4mi6ejn)

@@ -173,6 +173,6 @@ function closeAll() {
 
 See also how to configure the split feature using the `render-table` event: [Freezing columns](guides/configuration.md#freezing-columns).
 
-**Related article:** [pivot.template helper](api/helpers/template.md)
+**Related article**: [pivot.template helper](api/helpers/template.md)
 
-**Related sample:** [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)
+**Related sample**: [Pivot 2. Custom frozen (fixed) columns (your number)](https://snippet.dhtmlx.com/53erlmgp)

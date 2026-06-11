@@ -679,7 +679,7 @@ const table = new pivot.Pivot("#root", {
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 샘플:**
+**관련 샘플**:
 
 - [Pivot 2. 별칭이 있는 데이터셋](https://snippet.dhtmlx.com/7vc68rqd)
 - [Pivot 2. 필드 포맷 정의](https://snippet.dhtmlx.com/77nc4j8v)

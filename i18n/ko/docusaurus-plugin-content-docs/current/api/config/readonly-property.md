@@ -49,4 +49,4 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플:** [Pivot 2. 읽기 전용 모드](https://snippet.dhtmlx.com/0k0mvycv)
+**관련 샘플**: [Pivot 2. 읽기 전용 모드](https://snippet.dhtmlx.com/0k0mvycv)

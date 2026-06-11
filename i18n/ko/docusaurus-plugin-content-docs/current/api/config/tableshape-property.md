@@ -118,7 +118,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플:**
+**관련 샘플**:
 
 - [Pivot 2. 트리 모드](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2. 고정 열](https://snippet.dhtmlx.com/lahf729o)

@@ -271,7 +271,7 @@ document.body.appendChild(importButton);
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 샘플:**
+**관련 샘플**:
 - [Pivot 2. 날짜 형식](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2. 다양한 데이터셋](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. 대용량 데이터셋](https://snippet.dhtmlx.com/e6qwqrys)

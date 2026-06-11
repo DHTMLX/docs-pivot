@@ -158,6 +158,6 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플:** [Pivot 2. 사용자 정의 수학 메서드](https://snippet.dhtmlx.com/lv90d8q2) 
+**관련 샘플**: [Pivot 2. 사용자 정의 수학 메서드](https://snippet.dhtmlx.com/lv90d8q2) 
 
 **관련 문서**: [수학 메서드 적용하기](guides/working-with-data.md#applying-maths-methods)

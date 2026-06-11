@@ -109,4 +109,4 @@ const table = new pivot.Pivot("#root", {
 - [숫자 형식 지정](guides/localization.md#number-formatting)
 - [필드에 형식 적용하기](guides/working-with-data.md#applying-formats-to-fields)
 
-**관련 샘플:**  [Pivot 2. 필드 형식 정의하기](https://snippet.dhtmlx.com/77nc4j8v)
+**관련 샘플**:  [Pivot 2. 필드 형식 정의하기](https://snippet.dhtmlx.com/77nc4j8v)
