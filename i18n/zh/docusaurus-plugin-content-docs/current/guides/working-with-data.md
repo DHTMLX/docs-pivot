@@ -679,7 +679,7 @@ const table = new pivot.Pivot("#root", {
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**相关示例：**
+**相关示例**：
 
 - [Pivot 2. 带别名的数据集](https://snippet.dhtmlx.com/7vc68rqd)
 - [Pivot 2. 定义字段格式](https://snippet.dhtmlx.com/77nc4j8v)

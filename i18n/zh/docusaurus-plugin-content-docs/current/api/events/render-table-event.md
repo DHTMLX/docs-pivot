@@ -173,6 +173,6 @@ function closeAll() {
 
 另请参阅如何使用 `render-table` 事件配置拆分功能：[冻结列](guides/configuration.md#freezing-columns)。
 
-**相关文章：** [pivot.template 辅助函数](api/helpers/template.md)
+**相关文章**： [pivot.template 辅助函数](api/helpers/template.md)
 
-**相关示例：** [Pivot 2. 自定义冻结（固定）列（自定义数量）](https://snippet.dhtmlx.com/53erlmgp)
+**相关示例**： [Pivot 2. 自定义冻结（固定）列（自定义数量）](https://snippet.dhtmlx.com/53erlmgp)

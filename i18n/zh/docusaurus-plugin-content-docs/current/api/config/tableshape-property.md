@@ -118,7 +118,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：**
+**相关示例**：
 
 - [Pivot 2. 树形模式](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2. 冻结（固定）列](https://snippet.dhtmlx.com/lahf729o)

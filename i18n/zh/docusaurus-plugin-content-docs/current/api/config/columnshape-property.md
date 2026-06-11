@@ -77,6 +77,6 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：**
+**相关示例**：
 - [Pivot 2. 自动宽度：根据内容调整列宽](https://snippet.dhtmlx.com/tn1yw14m)
 - [Pivot 2. 设置列宽](https://snippet.dhtmlx.com/ceu34kkn)

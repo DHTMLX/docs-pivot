@@ -109,4 +109,4 @@ const table = new pivot.Pivot("#root", {
 - [数字格式化](guides/localization.md#number-formatting)
 - [为字段应用格式](guides/working-with-data.md#applying-formats-to-fields)
 
-**相关示例：**  [Pivot 2. 定义字段格式](https://snippet.dhtmlx.com/77nc4j8v)
+**相关示例**：  [Pivot 2. 定义字段格式](https://snippet.dhtmlx.com/77nc4j8v)

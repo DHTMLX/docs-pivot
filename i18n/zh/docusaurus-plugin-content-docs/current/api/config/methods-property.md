@@ -158,6 +158,6 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：** [Pivot 2. 自定义数学方法](https://snippet.dhtmlx.com/lv90d8q2)
+**相关示例**： [Pivot 2. 自定义数学方法](https://snippet.dhtmlx.com/lv90d8q2)
 
 **相关文章**：[应用数学方法](guides/working-with-data.md#applying-maths-methods)

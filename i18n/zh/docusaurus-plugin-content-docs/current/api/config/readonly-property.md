@@ -49,4 +49,4 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：** [Pivot 2. 只读模式](https://snippet.dhtmlx.com/0k0mvycv)
+**相关示例**： [Pivot 2. 只读模式](https://snippet.dhtmlx.com/0k0mvycv)

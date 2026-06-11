@@ -58,4 +58,4 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：** [Pivot 2. 数据限制](https://snippet.dhtmlx.com/7ryns8oe)
+**相关示例**： [Pivot 2. 数据限制](https://snippet.dhtmlx.com/7ryns8oe)

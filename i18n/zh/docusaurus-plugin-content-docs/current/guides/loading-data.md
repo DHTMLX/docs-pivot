@@ -271,7 +271,7 @@ document.body.appendChild(importButton);
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**相关示例：**
+**相关示例**：
 - [Pivot 2. 日期格式](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2. 不同数据集](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. 大型数据集](https://snippet.dhtmlx.com/e6qwqrys)

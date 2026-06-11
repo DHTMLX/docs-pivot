@@ -732,7 +732,7 @@ table.api.intercept("show-config-panel", () => {
 - [`update-field`](api/events/update-field-event.md) — 更新字段的方法或设置
 - [`move-field`](api/events/move-field-event.md) — 在区域内对字段重新排序
 
-**相关示例：**
+**相关示例**：
 - [Pivot 2. 为表格和表头单元格添加文本模板](https://snippet.dhtmlx.com/n9ylp6b2)
 - [Pivot 2. 自定义冻结（固定）列（自定义数量）](https://snippet.dhtmlx.com/53erlmgp)
 - [Pivot 2. 展开和折叠所有行](https://snippet.dhtmlx.com/i4mi6ejn)

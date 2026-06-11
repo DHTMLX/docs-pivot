@@ -50,9 +50,9 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**相关示例：** [Pivot 2.0：切换配置面板的显示状态](https://snippet.dhtmlx.com/1xq1x5bo)
+**相关示例**： [Pivot 2.0：切换配置面板的显示状态](https://snippet.dhtmlx.com/1xq1x5bo)
 
-**相关文章：**
+**相关文章**：
 - [`show-config-panel` 事件](api/events/show-config-panel-event.md)
 - [`showConfigPanel()` 方法](api/methods/showconfigpanel-method.md)
 - [控制配置面板的显示状态](guides/configuration.md#controlling-visibility-of-configuration-panel)

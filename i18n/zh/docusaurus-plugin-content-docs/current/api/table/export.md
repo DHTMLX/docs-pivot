@@ -61,7 +61,7 @@ Table widget 的 `export` 动作具有以下可配置参数：
 - `options` - 包含导出选项的对象；选项因格式类型而异
 - `result` - 导出的 Excel 或 CSV 数据的结果（通常为 Blob 或文件，取决于 `download` 选项）
 
-    **两种格式（"csv" 和 "xlsx"）的通用选项：**
+    **两种格式（"csv" 和 "xlsx"）的通用选项**：
 
     - `format` (string) - （可选）导出格式，可以是 "csv" 或 "xlsx"
     - `fileName` (string) - （可选）文件名（默认为 "data"）
@@ -69,7 +69,7 @@ Table widget 的 `export` 动作具有以下可配置参数：
     - `footer` (boolean) - （可选）定义是否导出表尾（默认为 **true**）
     - `download` (boolean) - （可选）定义是否下载文件。默认设置为 **true**。若设置为 **false**，文件将不会被下载，Excel 或 CSV 数据（Blob）将通过 `ev.result` 获取
 
-     **"xlsx" 格式专有选项：**
+     **"xlsx" 格式专有选项**：
 
     - `sheetName` (string) - Excel 工作表的名称（默认为 "data"）
     - `styles` (boolean 或对象) - 若设置为 **false**，表格将不带任何样式导出；可通过样式属性的哈希对象进行配置：
@@ -92,7 +92,7 @@ Table widget 的 `export` 动作具有以下可配置参数：
     默认情况下，对于 "xlsx" 格式，日期和数字字段将以原始值导出，使用默认格式或通过 [`fields`](api/config/fields-property.md) 属性定义的格式。但如果为某个字段定义了模板（参见 [`tableShape`](api/config/tableshape-property.md) 属性），则会导出该模板定义的渲染值。若同时设置了模板和 `format`，模板设置将覆盖格式设置。
     :::
 
-    **"csv" 格式专有选项：**
+    **"csv" 格式专有选项**：
 
     - `rows` (string) - （可选）行分隔符，默认为 "\n"
     - `cols` (string) - （可选）列分隔符，默认为 "\t"

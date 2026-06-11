@@ -82,7 +82,7 @@ pivot.template({value, field, method, cell, column}) =>  string;
 <iframe src="https://snippet.dhtmlx.com/4viq7cft?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
 
-**相关文章：**
+**相关文章**：
 
 - [`render-table`](api/events/render-table-event.md)
 - [为单元格应用模板](guides/configuration.md#applying-templates-to-cells)
