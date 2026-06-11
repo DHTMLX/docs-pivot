@@ -141,6 +141,17 @@ const onAfterDataTransformation = (data) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'de', 'ru', 'zh', 'ko'],
+		localeConfigs: {
+			en: { label: 'English', htmlLang: 'en-US' },
+			de: { label: 'Deutsch', htmlLang: 'de' },
+			ru: { label: 'Русский', htmlLang: 'ru' },
+			zh: { label: '简体中文', htmlLang: 'zh-CN' },
+			ko: { label: '한국어', htmlLang: 'ko' },
+		},
+	},
 	noIndex: false,
 	title: 'DHTMLX JavaScript Pivot Docs',
 	tagline: 'DHTMLX JavaScript Pivot Docs',
@@ -207,7 +218,8 @@ const config = {
 				highlightSearchTermsOnTargetPage: true,
 				removeDefaultStemmer: true,
 				removeDefaultStopWordFilter: true,
-				explicitSearchResultPath: true
+				explicitSearchResultPath: true,
+          language: ["en", "de", "ru", "zh"]
 			}
 		]
 	],
@@ -250,7 +262,11 @@ const config = {
 					"label": "Download",
 					"href": "https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml", 
 					"position": "right"
-				}
+				},
+				{
+					type: 'localeDropdown',
+					position: 'right',
+				},
 			],
 		},
 	  	footer: {
