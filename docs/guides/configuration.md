@@ -729,7 +729,7 @@ The Configuration panel supports the following field operations:
 
 - [`add-field`](api/events/add-field-event.md) — add a field to an area
 - [`delete-field`](api/events/delete-field-event.md) — remove a field from an area
-- [`update-field`](api/events/update-value-event.md) — update a field's method or settings
+- [`update-field`](api/events/update-field-event.md) — update a field's method or settings
 - [`move-field`](api/events/move-field-event.md) — reorder fields within an area
 
 **Related samples:**

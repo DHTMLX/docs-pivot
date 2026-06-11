@@ -34,7 +34,7 @@ New properties do not fully duplicate the previous ones but provide more extende
 #### Events
 
 - [filterApply](https://docs.dhtmlx.com/pivot/1-5/api__pivot_filterapply_event.html) -> [apply-filter](api/events/apply-filter-event.md)
-- [fieldClick](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldclick_event.html) -> there's no an identical event but you can refer to [update-field](api/events/update-value-event.md)
+- [fieldClick](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldclick_event.html) -> there's no an identical event but you can refer to [update-field](api/events/update-field-event.md)
 
 ### Removed API
 
