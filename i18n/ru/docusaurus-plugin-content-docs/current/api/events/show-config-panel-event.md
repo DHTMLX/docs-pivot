@@ -1,7 +1,7 @@
 ---
 sidebar_label: show-config-panel
 title: Событие show-config-panel
-description: Вы можете узнать о событии show-config-panel в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник АПИ, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: Вы можете узнать о событии show-config-panel в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник API, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # show-config-panel

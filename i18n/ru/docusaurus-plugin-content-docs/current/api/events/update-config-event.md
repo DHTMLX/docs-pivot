@@ -1,7 +1,7 @@
 ---
 sidebar_label: update-config
 title: update-config Event
-description: Вы можете узнать о событии update-config в документации библиотеки DHTMLX JavaScript Pivot. Изучите руководства разработчика и справочник АПИ, ознакомьтесь с примерами кода и живыми демо, загрузите бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: Вы можете узнать о событии update-config в документации библиотеки DHTMLX JavaScript Pivot. Изучите руководства разработчика и справочник API, ознакомьтесь с примерами кода и живыми демо, загрузите бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # update-config

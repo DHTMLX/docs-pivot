@@ -1,7 +1,7 @@
 ---
 sidebar_label: apply-filter
 title: apply-filter Event
-description: Вы можете узнать о событии apply-filter в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник АПИ, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную пробную версию DHTMLX Pivot.
+description: Вы можете узнать о событии apply-filter в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник API, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную пробную версию DHTMLX Pivot.
 ---
 
 # apply-filter

@@ -1,7 +1,7 @@
 ---
 sidebar_label: move-field
 title: move-field Event
-description: Документация по событию move-field в библиотеке DHTMLX JavaScript Pivot. Руководства разработчика и справочник по АПИ, примеры кода и живые демо, а также бесплатная 30-дневная ознакомительная версия DHTMLX Pivot.
+description: Документация по событию move-field в библиотеке DHTMLX JavaScript Pivot. Руководства разработчика и справочник по API, примеры кода и живые демо, а также бесплатная 30-дневная ознакомительная версия DHTMLX Pivot.
 ---
 
 # move-field

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Миграция на новые версии
 title: Миграция на новые версии
-description: В документации библиотеки DHTMLX JavaScript Pivot вы можете узнать о миграции на новые версии. Ознакомьтесь с руководствами разработчика и справочником по АПИ, изучите примеры кода и живые демо, а также загрузите бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: В документации библиотеки DHTMLX JavaScript Pivot вы можете узнать о миграции на новые версии. Ознакомьтесь с руководствами разработчика и справочником по API, изучите примеры кода и живые демо, а также загрузите бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # Миграция на новые версии {#migration-to-newer-versions}
@@ -18,7 +18,7 @@ description: В документации библиотеки DHTMLX JavaScript 
 Воспользуйтесь нашим [конвертером для миграции данных из версии 1.5](https://snippet.dhtmlx.com/s4sfdhq4)
 :::
 
-### Изменённое АПИ {#changed-api}
+### Изменённое API {#changed-api}
 
 #### Свойства {#properties}
 
@@ -36,7 +36,7 @@ description: В документации библиотеки DHTMLX JavaScript 
 - [filterApply](https://docs.dhtmlx.com/pivot/1-5/api__pivot_filterapply_event.html) -> [apply-filter](api/events/apply-filter-event.md)
 - [fieldClick](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldclick_event.html) -> идентичного события нет, но вы можете обратиться к [update-field](api/events/update-field-event.md)
 
-### Удалённое АПИ {#removed-api}
+### Удалённое API {#removed-api}
 
 - [Методы версии 1.5](https://docs.dhtmlx.com/pivot/1-5/api__refs__pivot_methods.html) являются устаревшими, все новые методы доступны здесь: [Методы](api/overview/main-overview.md#pivot-methods)
 - [События Pivot 1.5](https://docs.dhtmlx.com/pivot/1-5/api__refs__pivot_events.html) (`change`, `fieldClick`, `applyButtonClick`) более не доступны в Pivot 2.0, однако в новой версии вы найдёте расширенную функциональность (см. [события Pivot](api/overview/events-overview.md))

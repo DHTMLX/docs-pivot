@@ -1,7 +1,7 @@
 ---
 sidebar_label: delete-field
 title: delete-field Event
-description: В документации библиотеки DHTMLX JavaScript Pivot вы можете узнать о событии delete-field. Изучайте руководства разработчика и справочник АПИ, пробуйте примеры кода и живые демо, загружайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: В документации библиотеки DHTMLX JavaScript Pivot вы можете узнать о событии delete-field. Изучайте руководства разработчика и справочник API, пробуйте примеры кода и живые демо, загружайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # delete-field
@@ -54,7 +54,7 @@ const table = new pivot.Pivot("#root", {
     }
 });
 
-//вызов методов АПИ: удаление определённого значения из values в config
+//вызов методов API: удаление определённого значения из values в config
 function removeLastField() {
     if (table.api) {
         const state = table.api.getState();

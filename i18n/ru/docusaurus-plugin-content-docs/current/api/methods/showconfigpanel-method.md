@@ -1,7 +1,7 @@
 ---
 sidebar_label: showConfigPanel()
 title: showConfigPanel()
-description: Вы можете узнать о методе showConfigPanel() в документации библиотеки DHTMLX JavaScript Pivot. Просматривайте руководства разработчика и справочник АПИ, изучайте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: Вы можете узнать о методе showConfigPanel() в документации библиотеки DHTMLX JavaScript Pivot. Просматривайте руководства разработчика и справочник API, изучайте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # showConfigPanel()

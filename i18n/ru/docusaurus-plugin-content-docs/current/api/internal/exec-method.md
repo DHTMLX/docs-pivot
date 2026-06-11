@@ -1,7 +1,7 @@
 ---
 sidebar_label: api.exec()
 title: Метод exec
-description: Вы можете узнать о методе exec в документации библиотеки DHTMLX JavaScript Pivot. Просматривайте руководства разработчика и справочник АПИ, изучайте примеры кода и демонстрации, а также загружайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+description: Вы можете узнать о методе exec в документации библиотеки DHTMLX JavaScript Pivot. Просматривайте руководства разработчика и справочник API, изучайте примеры кода и демонстрации, а также загружайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
 # api.exec()
@@ -55,7 +55,7 @@ const table = new pivot.Pivot("#root", {
     }
 });
 
-//вызов методов АПИ: удаление конкретного значения из values в config
+//вызов методов API: удаление конкретного значения из values в config
 function removeLastField() {
     if (table.api) {
         const state = table.api.getState();

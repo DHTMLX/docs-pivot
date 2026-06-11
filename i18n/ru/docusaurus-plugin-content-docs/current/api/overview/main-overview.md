@@ -1,10 +1,10 @@
 ---
-sidebar_label: Обзор АПИ
-title: Обзор АПИ
-description: Вы можете ознакомиться с обзором АПИ JavaScript Pivot в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник АПИ, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
+sidebar_label: Обзор API
+title: Обзор API
+description: Вы можете ознакомиться с обзором API JavaScript Pivot в документации библиотеки DHTMLX JavaScript Pivot. Изучайте руководства разработчика и справочник API, пробуйте примеры кода и живые демо, а также скачайте бесплатную 30-дневную ознакомительную версию DHTMLX Pivot.
 ---
 
-# Обзор АПИ {#api-overview}
+# Обзор API {#api-overview}
 
 ## Конструктор Pivot {#pivot-constructor}
 
@@ -28,7 +28,7 @@ new pivot.Pivot("#root", {
 | [](api/methods/setlocale-method.md)          | @getshort(../methods/setlocale-method.md)       |
 | [](api/methods/showconfigpanel-method.md)    | @getshort(../methods/showconfigpanel-method.md) |
 
-## Внутреннее АПИ Pivot {#pivot-internal-api}
+## Внутреннее API Pivot {#pivot-internal-api}
 
 ### Методы Event Bus {#event-bus-methods}
 
