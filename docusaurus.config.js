@@ -175,7 +175,7 @@ const config = {
 			({
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/DHTMLX/docs-pivot/edit/master/',
+					// editUrl: 'https://github.com/DHTMLX/docs-pivot/edit/master/',
 					routeBasePath: '/',
 				},
 				theme: {
@@ -219,7 +219,7 @@ const config = {
 				removeDefaultStemmer: true,
 				removeDefaultStopWordFilter: true,
 				explicitSearchResultPath: true,
-          language: ["en", "de", "ru", "zh"]
+          		language: ["en", "de", "ru", "zh"]
 			}
 		]
 	],
