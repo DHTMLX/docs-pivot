@@ -8,9 +8,9 @@ Pivot runs entirely in the browser. The widget takes an array of raw rows plus a
 
 A typical integration includes three parts:
 
-1. **Load** raw, non-aggregated data from the server on init.
-2. **Save the config** when the user changes the layout, so the session resumes later.
-3. **Save the aggregated table** when the server needs a snapshot of the rolled-up result.
+1. **Load** raw, non-aggregated data from the server on init
+2. **Save the config** when the user changes the layout, so the session resumes later
+3. **Save the aggregated table** when the server needs a snapshot of the rolled-up result
 
 ## Load raw data from the server
 
@@ -47,7 +47,9 @@ data.forEach(row => {
 ~~~
 
 :::info
-See also: [Loading data](/guides/loading-data), [Date formatting](/guides/localization#date-formatting).
+**See also**:
+- [Loading data](/guides/loading-data)
+- [Date formatting](/guides/localization#date-formatting)
 :::
 
 ## Save the user's layout to resume the session
@@ -154,16 +156,17 @@ Return `false` from the handler to prevent rendering. Use this when the server r
 
 Pivot produces aggregated tables and does not display pre-aggregated ones. The [`data`](/api/config/data-property) property always takes raw rows. A snapshot saved from `render-table` therefore fits these cases:
 
-- a downstream export pipeline (CSV, XLSX) on the server,
-- a read-only view rendered by a plain data table from the saved `columns` and `data`,
-- a cached report served to other users without re-running the aggregation.
-
----
+- a downstream export pipeline (CSV, XLSX) on the server
+- a read-only view rendered by a plain data table from the saved `columns` and `data`
+- a cached report served to other users without re-running the aggregation
 
 **Related articles**:
 
 - [Loading data](/guides/loading-data)
 - [Exporting data](/guides/exporting-data)
+
+**Related API**:
+
 - [`api.on()`](/api/internal/on-method)
-- [`update-config` event](/api/events/update-config-event)
-- [`render-table` event](/api/events/render-table-event)
+- [`update-config`](/api/events/update-config-event)
+- [`render-table`](/api/events/render-table-event)
