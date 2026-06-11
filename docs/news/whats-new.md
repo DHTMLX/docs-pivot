@@ -8,6 +8,14 @@ description: You can explore what's new in DHTMLX Pivot and its release history 
 
 If you are updating Pivot from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+# Version 2.1.1
+
+Released on June 10, 2026
+
+### Fixes
+
+- The "getMonth" error is occurred when row filters are applied to datasets with missing or empty values
+
 ## Version 2.1
 
 Released on May 6, 2025
