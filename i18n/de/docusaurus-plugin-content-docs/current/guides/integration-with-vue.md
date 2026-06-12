@@ -307,6 +307,6 @@ export default {
 
 Starten Sie die App, um zu sehen, wie Pivot die Daten auf der Seite rendert.
 
-![Pivot-Initialisierung](../assets/trial_pivot.png)
+![In einer Vue-Anwendung gerendertes DHTMLX Pivot mit Beispieldaten](../assets/trial_pivot.png)
 
 Pivot ist nun in Vue integriert. Passen Sie die Konfiguration an die Anforderungen Ihres Projekts an. Das vollständige Beispiel finden Sie in der [**vue-pivot-Demo auf GitHub**](https://github.com/DHTMLX/vue-pivot-demo).

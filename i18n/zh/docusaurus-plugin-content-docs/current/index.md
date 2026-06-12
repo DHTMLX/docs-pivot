@@ -13,7 +13,7 @@ JavaScript Pivot 库是一个现成的组件，用于从大型数据集创建透
 
 Pivot 界面由两个主要组件组成：配置面板和数据表格。
 
-![Main](assets/pivot-main.png)
+![显示配置面板和数据表格的 DHTMLX Pivot 界面](assets/pivot-main.png)
 
 ## 配置面板 {#configuration-panel}
 
@@ -25,7 +25,7 @@ Pivot 界面由两个主要组件组成：配置面板和数据表格。
 
 要隐藏配置面板，请点击**隐藏设置**按钮：
 
-![config_panel](assets/config_panel.png)
+![带有值、列和行区域的 DHTMLX Pivot 配置面板](assets/config_panel.png)
 
 ### 值区域 {#values-area}
 
@@ -66,15 +66,15 @@ Pivot 界面由两个主要组件组成：配置面板和数据表格。
 
 要移除某项，请点击删除按钮（"x"）。
 
-![add_remove](assets/add_remove.png)
+![在 DHTMLX Pivot 配置面板中添加和删除字段](assets/add_remove.png)
 
 要更改表格中值/行/列的顺序，请将某项拖动到所需位置。在区域工具栏列表中，某项越靠左，其在表格中的优先级和位置越高。
 
-![priority](assets/priority.png)
+![更改 DHTMLX Pivot 区域中字段的顺序和优先级](assets/priority.png)
 
 要设置将应用于表格列所有数据的操作，请在**值**区域中，点击所需字段的值操作下拉列表，然后从列表中选择所需选项。
 
-![operations](assets/operations.png)
+![在 DHTMLX Pivot 中为值字段选择数据聚合操作](assets/operations.png)
 
 ### 筛选器 {#filters}
 
@@ -86,13 +86,13 @@ Pivot 界面由两个主要组件组成：配置面板和数据表格。
 
 要筛选表格中的数据，请点击所需区域中某项的筛选标志，然后选择运算符并设置筛选值，最后点击**应用**。已应用筛选的字段将带有特殊的筛选标志。
 
-![filters](assets/filter.png)
+![在 DHTMLX Pivot 中筛选字段数据](assets/filter.png)
 
 ## 表格 {#table}
 
 表格中的数据按照配置面板中的设置显示。点击列标题可启用列的**排序**功能：
 
-![table](assets/table.png)
+![在 DHTMLX Pivot 表格中按列标题排序数据](assets/table.png)
 
 ## 下一步 {#whats-next}
 

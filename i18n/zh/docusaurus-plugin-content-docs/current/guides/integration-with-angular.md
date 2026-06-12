@@ -320,6 +320,6 @@ platformBrowserDynamic()
 
 启动应用，查看 Pivot 在页面上渲染数据的效果。
 
-![Pivot 初始化](../assets/trial_pivot.png)
+![在 Angular 应用程序中渲染的 DHTMLX Pivot（含示例数据）](../assets/trial_pivot.png)
 
 Pivot 现已与 Angular 集成完毕。您可以根据项目需求自定义配置。完整示例请参见 [**GitHub 上的 angular-pivot-demo**](https://github.com/DHTMLX/angular-pivot-demo)。
