@@ -8,7 +8,7 @@ description: Erfahren Sie, wie Sie mit DHTMLX Pivot arbeiten – in der Dokument
 
 Dieses klare und umfassende Tutorial führt Sie durch die Schritte, die erforderlich sind, um ein voll funktionsfähiges Pivot auf einer Seite einzurichten.
 
-![pivot-main](/assets/pivot_main.png)
+![DHTMLX Pivot-Oberfläche mit Konfigurationsbereich und Datentabelle](/assets/pivot_main.png)
 
 ## Schritt 1. Pakete herunterladen und installieren {#step-1-downloading-and-installing-packages}
 

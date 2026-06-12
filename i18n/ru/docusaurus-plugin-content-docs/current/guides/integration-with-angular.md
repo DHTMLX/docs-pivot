@@ -320,6 +320,6 @@ platformBrowserDynamic()
 
 Запустите приложение, чтобы увидеть отрисовку данных в Pivot на странице.
 
-![Инициализация Pivot](../assets/trial_pivot.png)
+![DHTMLX Pivot, отрендеренный в приложении Angular с демонстрационными данными](../assets/trial_pivot.png)
 
 Pivot теперь интегрирован с Angular. Настройте конфигурацию в соответствии с требованиями проекта. Итоговый пример см. в [**angular-pivot-demo на GitHub**](https://github.com/DHTMLX/angular-pivot-demo).

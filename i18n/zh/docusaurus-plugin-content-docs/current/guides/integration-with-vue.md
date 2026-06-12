@@ -307,6 +307,6 @@ export default {
 
 启动应用，即可看到 Pivot 在页面上渲染数据。
 
-![Pivot 初始化](../assets/trial_pivot.png)
+![在 Vue 应用程序中渲染的 DHTMLX Pivot（含示例数据）](../assets/trial_pivot.png)
 
 Pivot 现已与 Vue 完成集成。您可以根据项目需求自定义配置。完整示例请参见 [**GitHub 上的 vue-pivot-demo**](https://github.com/DHTMLX/vue-pivot-demo)。

@@ -8,7 +8,7 @@ description: 您可以在 DHTMLX JavaScript Pivot 库的文档中了解如何开
 
 本清晰全面的教程将引导您完成在页面上构建完整功能 Pivot 所需的步骤。
 
-![pivot-main](/assets/pivot_main.png)
+![显示配置面板和数据表格的 DHTMLX Pivot 界面](/assets/pivot_main.png)
 
 ## 步骤 1：下载并安装软件包 {#step-1-downloading-and-installing-packages}
 
