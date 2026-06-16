@@ -284,6 +284,6 @@ useEffect(() => {
 
 Start the app to see Pivot render the data on the page.
 
-![DHTMLX Pivot rendered in a React application with sample data](../assets/trial_pivot.png)
+![DHTMLX Pivot rendered in a React application with sample data](/img/trial_pivot.png)
 
 Pivot is now integrated with React. Customize the configuration to suit the project requirements. For the final example, see [**react-pivot-demo on GitHub**](https://github.com/DHTMLX/react-pivot-demo).
