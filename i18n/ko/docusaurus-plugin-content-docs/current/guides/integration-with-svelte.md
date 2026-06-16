@@ -297,6 +297,6 @@ onDestroy(() => {
 
 앱을 시작하면 Pivot이 페이지에 데이터를 렌더링하는 것을 확인할 수 있습니다.
 
-![샘플 데이터와 함께 Svelte 애플리케이션에 렌더링된 DHTMLX Pivot](../assets/trial_pivot.png)
+![샘플 데이터와 함께 Svelte 애플리케이션에 렌더링된 DHTMLX Pivot](/img/trial_pivot.png)
 
 이제 Pivot이 Svelte와 통합되었습니다. 프로젝트 요구사항에 맞게 설정을 커스터마이즈하세요. 최종 예제는 [**GitHub의 svelte-pivot-demo**](https://github.com/DHTMLX/svelte-pivot-demo)를 참조하세요.
