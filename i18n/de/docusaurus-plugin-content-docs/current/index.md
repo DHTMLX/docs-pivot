@@ -13,7 +13,7 @@ Die JavaScript Pivot-Bibliothek ist eine fertige Komponente zur Erstellung von P
 
 Die Pivot-Oberfläche besteht aus zwei Hauptkomponenten: dem Konfigurationsbereich und der Datentabelle.
 
-![DHTMLX Pivot-Oberfläche mit Konfigurationsbereich und Datentabelle](assets/pivot-main.png)
+![DHTMLX Pivot-Oberfläche mit Konfigurationsbereich und Datentabelle](/img/pivot-main.png)
 
 ## Konfigurationsbereich {#configuration-panel}
 
@@ -25,7 +25,7 @@ Im Konfigurationsbereich können Sie der Tabelle Spalten und Zeilen sowie Wertef
 
 Um den Konfigurationsbereich auszublenden, klicken Sie auf die Schaltfläche **Einstellungen ausblenden**:
 
-![DHTMLX Pivot-Konfigurationsbereich mit den Bereichen Werte, Spalten und Zeilen](assets/config_panel.png)
+![DHTMLX Pivot-Konfigurationsbereich mit den Bereichen Werte, Spalten und Zeilen](/img/config_panel.png)
 
 ### Wertebereich {#values-area}
 
@@ -66,15 +66,15 @@ Um ein neues Feld hinzuzufügen, klicken Sie im gewünschten Bereich auf die Sch
 
 Um ein Element zu entfernen, klicken Sie auf die Löschen-Schaltfläche („x").
 
-![Felder im DHTMLX Pivot-Konfigurationsbereich hinzufügen und entfernen](assets/add_remove.png)
+![Felder im DHTMLX Pivot-Konfigurationsbereich hinzufügen und entfernen](/img/add_remove.png)
 
 Um die Reihenfolge von Werten, Zeilen oder Spalten in der Tabelle zu ändern, ziehen Sie ein Element an die gewünschte Position. Je weiter links sich ein Element in der Symbolleistenliste des Bereichs befindet, desto höher ist seine Priorität und Position in der Tabelle.
 
-![Reihenfolge und Priorität von Feldern in einem DHTMLX Pivot-Bereich ändern](assets/priority.png)
+![Reihenfolge und Priorität von Feldern in einem DHTMLX Pivot-Bereich ändern](/img/priority.png)
 
 Um Operationen festzulegen, die auf alle Daten einer Tabellenspalte angewendet werden, klicken Sie im **Wertebereich** auf die Wertoperation des gewünschten Felds in der Dropdown-Liste und wählen Sie die gewünschte Option aus der Liste aus.
 
-![Auswahl einer Datenaggregationsoperation für ein Wertefeld in DHTMLX Pivot](assets/operations.png)
+![Auswahl einer Datenaggregationsoperation für ein Wertefeld in DHTMLX Pivot](/img/operations.png)
 
 ### Filter {#filters}
 
@@ -86,13 +86,13 @@ Filter werden als Dropdown-Listen für jedes Feld in allen Bereichen angezeigt. 
 
 Um Daten in der Tabelle zu filtern, klicken Sie auf das Filtersymbol eines der Elemente im gewünschten Bereich, wählen Sie dann den Operator aus, legen Sie den Filterwert fest und klicken Sie auf **Anwenden**. Felder, auf die eine Filterung angewendet wird, werden mit einem speziellen Filtersymbol markiert.
 
-![Filtern von Felddaten in DHTMLX Pivot](assets/filter.png)
+![Filtern von Felddaten in DHTMLX Pivot](/img/filter.png)
 
 ## Tabelle {#table}
 
 Die Daten in der Tabelle werden so angezeigt, wie sie im Konfigurationsbereich eingestellt wurden. Die **Sortierung** in Spalten wird durch Klicken auf den Spaltenheader aktiviert:
 
-![Sortieren von Daten nach Spaltenüberschrift in der DHTMLX Pivot-Tabelle](assets/table.png)
+![Sortieren von Daten nach Spaltenüberschrift in der DHTMLX Pivot-Tabelle](/img/table.png)
 
 ## Nächste Schritte {#whats-next}
 

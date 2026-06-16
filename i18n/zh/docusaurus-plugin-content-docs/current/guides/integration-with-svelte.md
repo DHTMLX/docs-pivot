@@ -297,6 +297,6 @@ onDestroy(() => {
 
 启动应用，即可看到 Pivot 在页面上渲染数据。
 
-![在 Svelte 应用程序中渲染的 DHTMLX Pivot（含示例数据）](../assets/trial_pivot.png)
+![在 Svelte 应用程序中渲染的 DHTMLX Pivot（含示例数据）](/img/trial_pivot.png)
 
 Pivot 现已与 Svelte 集成完成。您可以根据项目需求自定义配置。完整示例请参见 [**GitHub 上的 svelte-pivot-demo**](https://github.com/DHTMLX/svelte-pivot-demo)。

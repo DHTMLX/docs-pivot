@@ -297,6 +297,6 @@ onDestroy(() => {
 
 Starten Sie die App, um zu sehen, wie Pivot die Daten auf der Seite rendert.
 
-![In einer Svelte-Anwendung gerendertes DHTMLX Pivot mit Beispieldaten](../assets/trial_pivot.png)
+![In einer Svelte-Anwendung gerendertes DHTMLX Pivot mit Beispieldaten](/img/trial_pivot.png)
 
 Pivot ist nun in Svelte integriert. Passen Sie die Konfiguration an die Anforderungen Ihres Projekts an. Das vollständige Beispiel finden Sie in der [**svelte-pivot-demo auf GitHub**](https://github.com/DHTMLX/svelte-pivot-demo).

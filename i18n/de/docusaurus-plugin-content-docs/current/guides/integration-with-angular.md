@@ -320,6 +320,6 @@ platformBrowserDynamic()
 
 Starten Sie die App, um zu sehen, wie Pivot die Daten auf der Seite rendert.
 
-![In einer Angular-Anwendung gerendertes DHTMLX Pivot mit Beispieldaten](../assets/trial_pivot.png)
+![In einer Angular-Anwendung gerendertes DHTMLX Pivot mit Beispieldaten](/img/trial_pivot.png)
 
 Pivot ist nun in Angular integriert. Passen Sie die Konfiguration an die Anforderungen Ihres Projekts an. Das vollständige Beispiel finden Sie in der [**angular-pivot-demo auf GitHub**](https://github.com/DHTMLX/angular-pivot-demo).
