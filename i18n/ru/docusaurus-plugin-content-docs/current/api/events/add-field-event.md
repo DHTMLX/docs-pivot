@@ -71,4 +71,4 @@ table.api.intercept("add-field", (ev) => {
 });
 ~~~
 
-**Связанные статьи**: [api.intercept()](api/internal/intercept-method.md)
+**Полезные статьи**: [api.intercept()](api/internal/intercept-method.md)

@@ -151,7 +151,7 @@
     "description": "The default label used for the Danger admonition (:::danger)"
   },
   "theme.admonition.info": {
-    "message": "Информация",
+    "message": "К сведению",
     "description": "The default label used for the Info admonition (:::info)"
   },
   "theme.admonition.note": {
@@ -159,7 +159,7 @@
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "Совет",
+    "message": "Подсказка",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {

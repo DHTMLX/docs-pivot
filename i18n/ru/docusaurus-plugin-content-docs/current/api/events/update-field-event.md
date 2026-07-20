@@ -62,6 +62,6 @@ table.api.on("update-field", (ev) => {
 });
 ~~~
 
-**Связанные статьи**:
+**Полезные статьи**:
 - [api.on()](api/internal/on-method.md)
 - [methods](api/config/methods-property.md)

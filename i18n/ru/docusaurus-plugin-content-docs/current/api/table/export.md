@@ -103,7 +103,7 @@ description: Вы можете узнать о событии export в доку
 
 <iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Связанные статьи**: 
+**Полезные статьи**: 
 - [`getTable`](api/methods/gettable-method.md)
 - [Экспорт данных](guides/exporting-data.md)
 - [Применение форматов к полям](guides/working-with-data.md#applying-formats-to-fields)

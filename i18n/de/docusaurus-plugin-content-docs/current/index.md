@@ -94,7 +94,7 @@ Die Daten in der Tabelle werden so angezeigt, wie sie im Konfigurationsbereich e
 
 ![Sortieren von Daten nach Spaltenüberschrift in der DHTMLX Pivot-Tabelle](/img/table.png)
 
-## Wie geht es weiter? {#whats-next}
+## Wie geht es weiter {#whats-next}
 
 Jetzt können Sie mit der Integration von Pivot in Ihre Anwendung beginnen. Folgen Sie den Anweisungen im Tutorial [Erste Schritte](how-to-start.md).
 

@@ -32,7 +32,7 @@ const table = new pivot.Pivot("#root", {
 
 Pivot은 현재 로케일을 기준으로 숫자 및 날짜 필드에 기본 포맷을 적용합니다. 자세한 내용은 [날짜 포맷](guides/localization.md#date-formatting) 및 [숫자 포맷](guides/localization.md#number-formatting)을 참조하십시오.
 
-특정 필드의 기본값을 재정의하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 파라미터를 설정합니다.
+특정 필드의 기본값을 재정의하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 매개변수를 설정합니다.
 
 ### 숫자 필드 포맷 {#format-numeric-fields}
 
@@ -78,7 +78,7 @@ new pivot.Pivot("#pivot", {
 
 ### 날짜 필드 포맷 {#format-date-fields}
 
-단일 필드에 대해 로케일 전체의 `dateFormat`을 재정의하려면 [`fields`](api/config/fields-property.md)의 `format` 파라미터를 날짜 포맷 문자열로 설정합니다.
+단일 필드에 대해 로케일 전체의 `dateFormat`을 재정의하려면 [`fields`](api/config/fields-property.md)의 `format` 매개변수를 날짜 포맷 문자열로 설정합니다.
 
 다음 코드 예제는 `date` 필드의 포맷을 `"%M %d, %Y"`로 설정합니다:
 
@@ -127,7 +127,7 @@ new pivot.Pivot("#pivot", {
 
 ## Pivot 구조 정의 {#define-pivot-structure}
 
-[`config`](api/config/config-property.md) 속성을 사용하여 행, 열, 집계 값으로 표시할 필드와 데이터 필터링 방식을 선언합니다. `config` 속성에는 사전 정의된 값이 없으므로 데이터를 렌더링하려면 반드시 설정해야 합니다. 전체 파라미터 목록은 [`config`](api/config/config-property.md) 참조를 확인하십시오.
+[`config`](api/config/config-property.md) 속성을 사용하여 행, 열, 집계 값으로 표시할 필드와 데이터 필터링 방식을 선언합니다. `config` 속성에는 사전 정의된 값이 없으므로 데이터를 렌더링하려면 반드시 설정해야 합니다. 전체 매개변수 목록은 [`config`](api/config/config-property.md) 참조를 확인하십시오.
 
 다음 코드 예제는 `continent`와 `name`을 행에, `year`를 열에, 세 개의 집계를 값에, `name`에 대한 필터를 배치합니다:
 
@@ -157,7 +157,7 @@ const table = new pivot.Pivot("#root", {
 
 Pivot은 집계 중에 세 영역(값, 열, 행) 모두에서 정렬을 지원합니다. UI에서 사용자는 열 헤더를 클릭하여 정렬합니다.
 
-기본 정렬을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `sort` 파라미터를 사용합니다. 이 파라미터는 `"asc"`, `"desc"`, 또는 커스텀 비교 함수를 받습니다.
+기본 정렬을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `sort` 매개변수를 사용합니다. 이 매개변수는 `"asc"`, `"desc"`, 또는 커스텀 비교 함수를 받습니다.
 
 아래 예제는 Pivot 위에 클릭 가능한 필드 레이블을 렌더링하고 클릭 시 정렬 방향을 전환합니다:
 
@@ -215,7 +215,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-UI에서의 정렬은 기본적으로 활성화되어 있습니다. 비활성화하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `sort` 파라미터를 `false`로 설정합니다.
+UI에서의 정렬은 기본적으로 활성화되어 있습니다. 비활성화하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `sort` 매개변수를 `false`로 설정합니다.
 
 다음 코드 예제는 UI 정렬을 비활성화합니다:
 
@@ -383,7 +383,7 @@ const defaultMethods = {
 };
 ~~~
 
-[`config`](api/config/config-property.md) 속성의 `values` 파라미터를 통해 기본 메서드를 적용합니다. [값 정의](#options-for-defining-values)를 참조하십시오.
+[`config`](api/config/config-property.md) 속성의 `values` 매개변수를 통해 기본 메서드를 적용합니다. [값 정의](#options-for-defining-values)를 참조하십시오.
 
 다음 코드 예제는 `title` 필드에 `count`를, `score` 필드에 `max`를 할당합니다:
 
@@ -679,7 +679,7 @@ const table = new pivot.Pivot("#root", {
 
 <iframe src="https://snippet.dhtmlx.com/lv90d8q2?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 샘플**:
+**관련 예제**:
 
 - [Pivot 2. 별칭이 있는 데이터셋](https://snippet.dhtmlx.com/7vc68rqd)
 - [Pivot 2. 필드 포맷 정의](https://snippet.dhtmlx.com/77nc4j8v)

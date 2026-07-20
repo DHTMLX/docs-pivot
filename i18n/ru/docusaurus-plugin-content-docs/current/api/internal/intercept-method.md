@@ -65,4 +65,4 @@ table.api.intercept("render-table", (ev) => {
 }, {tag: "render-table-tag"});
 ~~~
 
-**Связанные статьи**: [`render-table`](api/events/render-table-event.md)
+**Полезные статьи**: [`render-table`](api/events/render-table-event.md)

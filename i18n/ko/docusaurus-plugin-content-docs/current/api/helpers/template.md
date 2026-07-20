@@ -22,9 +22,9 @@ pivot.template({value, method, row, column}) => string;
 pivot.template({value, field, method, cell, column}) =>  string;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
-본문 셀의 경우 함수는 다음 파라미터를 받습니다:
+본문 셀의 경우 함수는 다음 매개변수를 받습니다:
 
 - `value` (any) - (필수) 셀의 원시 값
 - `method` (string) - (필수) 열에 사용되는 메서드 또는 predicate
@@ -54,7 +54,7 @@ pivot.template({value, field, method, cell, column}) =>  string;
         - `method` (string) - (필수) 셀이 "columns" 영역에 속하고 predicate가 정의된 경우의 필드 predicate
         - `format` (string or object) - 날짜 형식 또는 숫자 형식 ([필드에 형식 적용](guides/working-with-data.md#applying-formats-to-fields) 참조)
 
-헤더 셀의 경우 함수 파라미터는 다음과 같습니다:
+헤더 셀의 경우 함수 매개변수는 다음과 같습니다:
 
 - `value` (any) - (필수) 셀의 원시 값
 - `method` (string) - (선택) 열에 사용되는 predicate

@@ -49,7 +49,7 @@ tableShape?: {
 };
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 - `templates` - (선택 사항) 셀에 템플릿을 설정할 수 있습니다. 다음과 같은 구조의 객체입니다:
   - 각 키는 필드 id입니다
@@ -118,7 +118,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플**:
+**관련 예제**:
 
 - [Pivot 2. 트리 모드](https://snippet.dhtmlx.com/6ylkoukn)
 - [Pivot 2. 고정 열](https://snippet.dhtmlx.com/lahf729o)

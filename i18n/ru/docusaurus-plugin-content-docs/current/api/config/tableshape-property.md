@@ -126,6 +126,6 @@ const table = new pivot.Pivot("#root", {
 - [Pivot 2. Чистые строки](https://snippet.dhtmlx.com/rwwhgv2w?tag=pivot)
 - [Pivot 2. Добавление пользовательского CSS для ячеек таблицы и заголовка](https://snippet.dhtmlx.com/nfdcs4i2)
 
-**Связанные статьи**: 
+**Полезные статьи**: 
 - [Конфигурация](guides/configuration.md)
 - [Стиль ячеек](guides/stylization.md#cell-style)

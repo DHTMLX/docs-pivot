@@ -78,7 +78,7 @@ description: Вы можете узнать о событии render-table в д
 Для обработки внутренних событий можно использовать [методы Event Bus](api/overview/internal-eventbus-overview.md)
 :::
 
-### Возвращает {#returns}
+### Возвращаемое значение {#returns}
 
 Калбэк может возвращать boolean или void.  
 Если обработчик события возвращает **false**, операция будет заблокирована. В данном случае это предотвратит рендеринг таблицы.
@@ -173,6 +173,6 @@ function closeAll() {
 
 Смотрите также, как настроить функцию разделения с помощью события `render-table`: [Фиксация столбцов](guides/configuration.md#freezing-columns).
 
-**Связанная статья**: [Хелпер pivot.template](api/helpers/template.md)
+**Полезная статья**: [Хелпер pivot.template](api/helpers/template.md)
 
 **Связанный пример**: [Pivot 2. Пользовательские фиксированные столбцы (ваше число)](https://snippet.dhtmlx.com/53erlmgp)

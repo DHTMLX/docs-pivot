@@ -29,7 +29,7 @@ columnShape?: {
 };
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 - `sort` - (선택 사항) **true**(기본값)이면 열 헤더 클릭 시 UI에서 정렬이 활성화됩니다. **false**이면 정렬이 비활성화됩니다
 - `width` - (선택 사항) 열의 너비를 정의합니다. 각 키가 필드 id이고 값이 픽셀 단위의 열 너비인 객체입니다
@@ -77,6 +77,6 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**관련 샘플**:
+**관련 예제**:
 - [Pivot 2. 자동 너비 - 콘텐츠에 맞게 열 크기 조정](https://snippet.dhtmlx.com/tn1yw14m)
 - [Pivot 2. 열 너비 설정](https://snippet.dhtmlx.com/ceu34kkn)

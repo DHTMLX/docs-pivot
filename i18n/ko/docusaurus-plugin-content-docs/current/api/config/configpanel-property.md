@@ -18,7 +18,7 @@ UI에서 **Hide Settings** 버튼을 클릭하면 패널이 숨겨지거나 표�
 configPanel?: boolean;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 이 속성은 **true** 또는 **false**로 설정할 수 있습니다:
 

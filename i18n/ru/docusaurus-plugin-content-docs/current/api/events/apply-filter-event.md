@@ -62,4 +62,4 @@ table.api.on("apply-filter", (ev) => {
 });
 ~~~
 
-**Связанные статьи**: [api.on()](api/internal/on-method.md)
+**Полезные статьи**: [api.on()](api/internal/on-method.md)

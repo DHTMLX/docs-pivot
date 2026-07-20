@@ -23,7 +23,7 @@ description: DHTMLX JavaScript Pivot 라이브러리의 update-config 이벤트�
 }) => boolean | void;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 이 액션의 콜백은 처리된 [`config`](api/config/config-property.md) 매개변수를 포함하는 객체를 받습니다:
 

@@ -18,7 +18,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 setConfig() �
 setConfig(config: { [key:any]: any }): void;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 - `config` - (필수) Pivot 구성 객체입니다. 전체 속성 목록은 [여기](api/overview/properties-overview.md)를 참조하세요
 

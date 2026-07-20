@@ -21,7 +21,7 @@ Table 이벤트를 트리거하려면 [`getTable`](api/methods/gettable-method.m
 }) => boolean|void;
 ```
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 액션의 callback은 다음 매개변수를 포함하는 객체를 받습니다:
 

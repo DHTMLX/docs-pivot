@@ -36,7 +36,7 @@ description: DHTMLX JavaScript Pivot 라이브러리의 문서에서 render-tabl
 }) => boolean | void;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 액션의 callback은 다음 매개변수를 가진 `config` 객체를 받습니다:
 

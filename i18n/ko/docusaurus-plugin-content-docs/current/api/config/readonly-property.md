@@ -18,7 +18,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 readonly 설�
  readonly?: boolean;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 이 속성은 **true** 또는 **false**로 설정할 수 있습니다:
 

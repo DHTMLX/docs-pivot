@@ -165,7 +165,7 @@ Promise.all([
 
 Pivot은 외부 JS 파싱 라이브러리로 CSV 데이터를 JSON으로 변환한 후 사용할 수 있습니다. 변환된 데이터는 네이티브 JSON과 동일하게 동작합니다.
 
-아래 예제는 외부 [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) 라이브러리를 사용하여 버튼 클릭 시 데이터를 로드하고 변환합니다. `convert()` 헬퍼는 다음 파라미터를 받습니다:
+아래 예제는 외부 [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) 라이브러리를 사용하여 버튼 클릭 시 데이터를 로드하고 변환합니다. `convert()` 헬퍼는 다음 매개변수를 받습니다:
 
 - `data` — CSV 데이터 문자열
 - `headers` — CSV 필드 이름 배열
@@ -271,7 +271,7 @@ document.body.appendChild(importButton);
 
 <iframe src="https://snippet.dhtmlx.com/wo6w9hf9?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 샘플**:
+**관련 예제**:
 - [Pivot 2. 날짜 형식](https://snippet.dhtmlx.com/shn1l794)
 - [Pivot 2. 다양한 데이터셋](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. 대용량 데이터셋](https://snippet.dhtmlx.com/e6qwqrys)

@@ -20,7 +20,7 @@ description: Вы можете ознакомиться с новыми возм
 
 Выпущена 6 мая 2025 г.
 
-### Новая функциональность {#new-functionality}
+### Новый функционал {#new-functionality}
 
 - [Возможность фиксировать столбцы справа](guides/configuration.md#freezing-columns-on-the-right)
 - [Выравнивание по умолчанию](guides/stylization.md#specific-css-classes) и [форматирование на основе локали](guides/localization.md#number-formatting) для числовых значений
@@ -89,7 +89,7 @@ API версии 1.5 несовместим с API версии 2.0.
 
 Советы по миграции на новую версию смотрите на странице [Миграция](news/migration.md).
 
-### Новая функциональность {#new-functionality-20}
+### Новый функционал {#new-functionality-20}
 
 - Pivot 2.0 быстро выполняет рендеринг и генерацию больших наборов данных ([пример](https://snippet.dhtmlx.com/e6qwqrys))
 - Новые возможности настройки внешнего вида и поведения столбцов доступны через свойство [`columnShape`](api/config/columnshape-property.md):
