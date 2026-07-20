@@ -49,7 +49,7 @@ tableShape?: {
 };
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 - `templates` - (선택 사항) 셀에 템플릿을 설정할 수 있습니다. 다음과 같은 구조의 객체입니다:
   - 각 키는 필드 id입니다

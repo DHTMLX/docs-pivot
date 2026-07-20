@@ -16,7 +16,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 data config에
 data?: [];
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 `data` 배열의 각 객체는 하나의 행을 나타냅니다. 기본값은 빈 배열입니다.
 `data` 속성의 직접적인 하위 속성은 없습니다. 그러나 배열의 각 객체는 Pivot 테이블의 차원과 값을 나타내는 임의 개수의 속성을 가질 수 있습니다.

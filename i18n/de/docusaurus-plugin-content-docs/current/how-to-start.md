@@ -114,7 +114,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-## Wie geht es weiter {#whats-next}
+## Wie geht es weiter? {#whats-next}
 
 Das war's. Mit diesen einfachen Schritten verfügen Sie über ein praktisches Werkzeug zur Datenanalyse. Jetzt können Sie mit Ihren Aufgaben beginnen oder die Welt von JavaScript Pivot weiter erkunden:
 

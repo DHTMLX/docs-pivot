@@ -27,7 +27,7 @@ headerShape?: {
 };
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 - `collapsible` - (선택 사항) **true**로 설정하면 테이블의 차원 그룹을 접을 수 있습니다. 기본값은 **false**입니다
 - `vertical` - (선택 사항) **true**로 설정하면 모든 헤더의 텍스트 방향이 가로에서 세로로 변경됩니다. 기본값은 **false**입니다

@@ -18,7 +18,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 showConfigPane
 showConfigPanel({mode: boolean}): void;
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 - `mode` (boolean) - (필수) 값이 **true**(기본값)로 설정되면 구성 패널이 표시되고, **false**로 설정되면 구성 패널이 숨겨집니다.
 

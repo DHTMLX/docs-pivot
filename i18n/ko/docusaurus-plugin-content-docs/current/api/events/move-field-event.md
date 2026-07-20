@@ -21,7 +21,7 @@ description: DHTMLX JavaScript Pivot 라이브러리의 move-field 이벤트에 
 }) => void | boolean;
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 action의 callback은 다음 매개변수를 포함하는 객체를 받습니다:
 

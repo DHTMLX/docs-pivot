@@ -18,7 +18,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 getTable 메�
 getTable(wait:boolean): Table | Promise;
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 `wait` - Table API가 Pivot에서 사용 가능해질 때까지 기다릴지 여부를 정의합니다(Pivot 초기화 중에 Table API를 사용할 때 필요합니다). 값이 **true**로 설정되면, 메서드는 Table API와 함께 promise를 반환합니다.
 

@@ -31,7 +31,7 @@ description: 您可以在 DHTMLX JavaScript Pivot 库的文档中了解迁移至
 - [layout](https://docs.dhtmlx.com/pivot/1-5/api__pivot_layout_config.html) -> [columnShape](api/config/columnshape-property.md)、[headerShape](api/config/headershape-property.md)、[readonly](api/config/readonly-property.md)
 - [customFormat](https://docs.dhtmlx.com/pivot/1-5/api__pivot_customformat_config.html) -> [predicates](api/config/predicates-property.md) - 用于数据的自定义预处理函数
 
-#### Events {#events}
+#### 事件 {#events}
 
 - [filterApply](https://docs.dhtmlx.com/pivot/1-5/api__pivot_filterapply_event.html) -> [apply-filter](api/events/apply-filter-event.md)
 - [fieldClick](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldclick_event.html) -> 没有完全对应的 event，但您可以参考 [update-field](api/events/update-field-event.md)

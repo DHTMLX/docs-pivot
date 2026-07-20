@@ -18,7 +18,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 show-config-pa
 }) 
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 이 액션의 콜백은 다음 매개변수를 포함하는 객체를 받습니다:
 

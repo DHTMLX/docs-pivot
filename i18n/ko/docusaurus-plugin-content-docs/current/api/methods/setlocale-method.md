@@ -16,7 +16,7 @@ description: DHTMLX JavaScript Pivot 라이브러리의 공식 문서에서 setL
 setLocale(null | locale?: object): void;
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 - `null` - (선택 사항) 기본 로케일(영어)로 초기화합니다
 - `locale` - (선택 사항) 적용할 새 로케일의 데이터 객체

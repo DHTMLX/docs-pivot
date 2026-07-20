@@ -16,7 +16,7 @@ description: DHTMLX JavaScript Pivot 라이브러리의 setNext 메서드에 대
 api.setNext(next: any): void;
 ~~~
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 - `next` - (필수) **Event Bus** 순서에 포함할 액션
 

@@ -20,7 +20,7 @@ Table 이벤트를 발생시키려면 [`getTable`](api/methods/gettable-method.m
 }) => boolean|void;
 ```
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 액션의 callback은 다음 매개변수를 가진 객체를 받습니다:
 
@@ -32,4 +32,4 @@ Table 이벤트를 발생시키려면 [`getTable`](api/methods/gettable-method.m
 
 <iframe src="https://snippet.dhtmlx.com/s7tc9g4z?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 글**: [`getTable`](api/methods/gettable-method.md)
+**관련 문서**: [`getTable`](api/methods/gettable-method.md)

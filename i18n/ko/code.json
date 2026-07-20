@@ -151,7 +151,7 @@
     "description": "The default label used for the Info admonition (:::info)"
   },
   "theme.admonition.note": {
-    "message": "노트",
+    "message": "참고",
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {

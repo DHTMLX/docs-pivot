@@ -21,7 +21,7 @@ Table 이벤트를 트리거하려면 [`getTable`](api/methods/gettable-method.m
 }) => boolean|void;
 ```
 
-### 매개변수 {#parameters}
+### 파라미터 {#parameters}
 
 액션의 callback은 다음 매개변수를 포함하는 객체를 받습니다:
 
@@ -38,6 +38,6 @@ Table 이벤트를 트리거하려면 [`getTable`](api/methods/gettable-method.m
 
 <iframe src="https://snippet.dhtmlx.com/i4mi6ejn?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 아티클**: 
+**관련 문서**: 
 - [`getTable`](api/methods/gettable-method.md)
 - [모든 행 펼치기/접기](guides/configuration.md#expandingcollapsing-all-rows)
