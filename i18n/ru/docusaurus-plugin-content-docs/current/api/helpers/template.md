@@ -82,7 +82,7 @@ pivot.template({value, field, method, cell, column}) =>  string;
 <iframe src="https://snippet.dhtmlx.com/4viq7cft?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe>
 
 
-**Связанные статьи**:
+**Полезные статьи**:
 
 - [`render-table`](api/events/render-table-event.md)
 - [Применение шаблонов к ячейкам](guides/configuration.md#applying-templates-to-cells)

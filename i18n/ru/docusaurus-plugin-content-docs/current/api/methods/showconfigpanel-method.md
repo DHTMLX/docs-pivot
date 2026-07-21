@@ -50,6 +50,6 @@ table.showConfigPanel ({
 })
 ~~~
 
-**Связанные статьи**:
+**Полезные статьи**:
 - [событие `show-config-panel`](api/events/show-config-panel-event.md)
 - [свойство `configPanel`](api/config/configpanel-property.md)

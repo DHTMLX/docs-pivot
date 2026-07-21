@@ -240,7 +240,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-특정 필드에 커스텀 형식을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 파라미터를 사용하십시오. [필드에 형식 적용](guides/working-with-data.md#applying-formats-to-fields)을 참조하십시오.
+특정 필드에 커스텀 형식을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 매개변수를 사용하십시오. [필드에 형식 적용](guides/working-with-data.md#applying-formats-to-fields)을 참조하십시오.
 
 ## 날짜 및 시간 형식 문자 {#date-and-time-format-characters}
 
@@ -276,7 +276,7 @@ Pivot는 날짜 및 시간 형식을 정의하기 위해 다음 문자들을 사
 
 Pivot는 현재 로케일의 `lang` 값을 기반으로 모든 `number` 필드를 로컬라이즈합니다. 위젯은 [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) 사양을 사용합니다. 기본 설정은 소수 자릿수를 3자리로 제한하고 정수 부분에 그룹 구분자를 적용합니다.
 
-특정 숫자 필드의 형식 지정을 건너뛰거나 커스텀 형식을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 파라미터를 사용하십시오. `format`을 `false`로 설정하면 형식 지정이 비활성화되고, 형식 설정이 담긴 객체로 설정할 수도 있습니다([필드에 형식 적용](guides/working-with-data.md#applying-formats-to-fields) 참조).
+특정 숫자 필드의 형식 지정을 건너뛰거나 커스텀 형식을 설정하려면 [`fields`](api/config/fields-property.md) 속성의 `format` 매개변수를 사용하십시오. `format`을 `false`로 설정하면 형식 지정이 비활성화되고, 형식 설정이 담긴 객체로 설정할 수도 있습니다([필드에 형식 적용](guides/working-with-data.md#applying-formats-to-fields) 참조).
 
 다음 코드 스니펫은 `year` 필드의 숫자 형식 지정을 비활성화합니다:
 

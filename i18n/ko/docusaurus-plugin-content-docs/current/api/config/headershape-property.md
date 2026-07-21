@@ -73,7 +73,7 @@ new pivot.Pivot("#pivot", {
 });
 ~~~
 
-**관련 샘플**:
+**관련 예제**:
 - [Pivot 2. 그리드 헤더의 세로 텍스트 방향](https://snippet.dhtmlx.com/4qroi8ka)
 - [Pivot 2. 접을 수 있는 열](https://snippet.dhtmlx.com/pt2ljmcm)
 - [Pivot 2. 테이블 및 헤더 셀에 사용자 정의 CSS 추가](https://snippet.dhtmlx.com/nfdcs4i2)

@@ -78,6 +78,6 @@ new pivot.Pivot("#pivot", {
 - [Pivot 2. Сворачиваемые столбцы](https://snippet.dhtmlx.com/pt2ljmcm)
 - [Pivot 2. Добавление пользовательского CSS для ячеек таблицы и заголовков](https://snippet.dhtmlx.com/nfdcs4i2)
 
-**Связанные статьи**: 
+**Полезные статьи**: 
 - [Конфигурация](guides/configuration.md)
 - [Стиль ячеек](guides/stylization.md#cell-style)

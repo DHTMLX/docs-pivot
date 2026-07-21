@@ -55,6 +55,6 @@ table.api.exec("show-config-panel", {
 });
 ~~~
 
-**Связанные статьи**:
+**Полезные статьи**:
 - [метод `showConfigPanel()`](api/methods/showconfigpanel-method.md)
 - [свойство `configPanel`](api/config/configpanel-property.md)

@@ -8,7 +8,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 최신 버전�
 
 ## 2.0 -> 2.1
 
-- `tableShape` 속성의 `sizes` 객체에 있는 `colWidth` 파라미터가 `columnWidth`로 이름이 변경되었습니다.
+- `tableShape` 속성의 `sizes` 객체에 있는 `colWidth` 매개변수가 `columnWidth`로 이름이 변경되었습니다.
 
 ## 1.5 -> 2.0
 
@@ -26,7 +26,7 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 최신 버전�
 
 - [fieldList](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldlist_config.html) -> [fields](api/config/fields-property.md)
 - [fields](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fields_config.html) ->  [config](api/config/config-property.md)
-- [mark](https://docs.dhtmlx.com/pivot/1-5/api__pivot_mark_config.html) -> [tableShape](api/config/tableshape-property.md) 속성의 `marks` 파라미터
+- [mark](https://docs.dhtmlx.com/pivot/1-5/api__pivot_mark_config.html) -> [tableShape](api/config/tableshape-property.md) 속성의 `marks` 매개변수
 - [types](https://docs.dhtmlx.com/pivot/1-5/api__pivot_types_config.html) -> [methods](api/config/methods-property.md)
 - [layout](https://docs.dhtmlx.com/pivot/1-5/api__pivot_layout_config.html) -> [columnShape](api/config/columnshape-property.md), [headerShape](api/config/headershape-property.md), [readonly](api/config/readonly-property.md)
 - [customFormat](https://docs.dhtmlx.com/pivot/1-5/api__pivot_customformat_config.html) -> [predicates](api/config/predicates-property.md) - 데이터를 위한 사용자 정의 전처리 함수

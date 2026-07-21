@@ -65,4 +65,4 @@ table.api.intercept("render-table", (ev) => {
 }, {tag: "render-table-tag"});
 ~~~
 
-**관련 아티클**: [`render-table`](api/events/render-table-event.md)
+**관련 문서**: [`render-table`](api/events/render-table-event.md)

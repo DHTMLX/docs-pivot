@@ -28,7 +28,7 @@
     "description": "The generated-index page title for category 'Pivot internal API' in sidebar 'docs'"
   },
   "sidebar.docs.category.Event Bus methods": {
-    "message": "事件总线方法",
+    "message": "Event Bus 方法",
     "description": "The label for category 'Event Bus methods' in sidebar 'docs'"
   },
   "sidebar.docs.category.State methods": {

@@ -30,7 +30,7 @@ widget.getTable().exec("export", {
 ~~~
 
 :::tip
-[`getTable`](api/methods/gettable-method.md) 메서드는 선택적 `wait` boolean 파라미터를 받습니다. `true`를 전달하면 Table API가 사용 가능해질 때 resolve되는 promise를 반환합니다. Pivot 초기화 중에 Table API가 준비되어야 할 때 유용합니다.
+[`getTable`](api/methods/gettable-method.md) 메서드는 선택적 `wait` boolean 매개변수를 받습니다. `true`를 전달하면 Table API가 사용 가능해질 때 resolve되는 promise를 반환합니다. Pivot 초기화 중에 Table API가 준비되어야 할 때 유용합니다.
 :::
 
 ## 예제 {#example}

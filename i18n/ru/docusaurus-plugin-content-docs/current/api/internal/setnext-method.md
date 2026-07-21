@@ -42,4 +42,4 @@ Promise.all([
 });
 ~~~
 
-**Связанные статьи**: [`setConfig`](api/methods/setconfig-method.md)
+**Полезные статьи**: [`setConfig`](api/methods/setconfig-method.md)

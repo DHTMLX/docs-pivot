@@ -31,7 +31,7 @@ Neue Eigenschaften sind keine vollständige Duplikate der vorherigen, sondern bi
 - [layout](https://docs.dhtmlx.com/pivot/1-5/api__pivot_layout_config.html) -> [columnShape](api/config/columnshape-property.md), [headerShape](api/config/headershape-property.md), [readonly](api/config/readonly-property.md)
 - [customFormat](https://docs.dhtmlx.com/pivot/1-5/api__pivot_customformat_config.html) -> [predicates](api/config/predicates-property.md) - benutzerdefinierte Vorverarbeitungsfunktionen für Daten
 
-#### Events {#events}
+#### Ereignisse {#events}
 
 - [filterApply](https://docs.dhtmlx.com/pivot/1-5/api__pivot_filterapply_event.html) -> [apply-filter](api/events/apply-filter-event.md)
 - [fieldClick](https://docs.dhtmlx.com/pivot/1-5/api__pivot_fieldclick_event.html) -> es gibt kein identisches Event, aber Sie können [update-field](api/events/update-field-event.md) verwenden

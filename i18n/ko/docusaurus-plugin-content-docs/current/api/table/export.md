@@ -56,7 +56,7 @@ Table 이벤트를 트리거하려면 [`getTable`](api/methods/gettable-method.m
 }) => boolean|void;
 ```
 
-Table 위젯의 `export` 액션에는 필요에 따라 구성할 수 있는 다음과 같은 파라미터가 있습니다:
+Table 위젯의 `export` 액션에는 필요에 따라 구성할 수 있는 다음과 같은 매개변수가 있습니다:
 
 - `options` - 내보내기 옵션이 담긴 객체입니다. 옵션은 형식 유형에 따라 다릅니다
 - `result` - 내보낸 Excel 또는 CSV 데이터의 결과값입니다 (일반적으로 `download` 옵션에 따라 Blob 또는 파일 형태입니다)
@@ -84,9 +84,9 @@ Table 위젯의 `export` 액션에는 필요에 따라 구성할 수 있는 다�
         - `cell` - 본문 셀에 대한 스타일 속성입니다. *header*와 동일한 속성을 사용합니다
         - `firstFooterCell` - 푸터 셀의 첫 번째 행에 대한 스타일 속성입니다. *header*와 동일한 속성을 사용합니다
         - `footer` - 푸터 셀에 대한 스타일 속성입니다. *header*와 동일한 속성을 사용합니다
-    - `cellTemplate` - 각 셀의 내보내기 값을 커스터마이즈하는 함수입니다. value, row, column 객체를 파라미터로 받아 내보낼 커스텀 값을 반환합니다
+    - `cellTemplate` - 각 셀의 내보내기 값을 커스터마이즈하는 함수입니다. value, row, column 객체를 매개변수로 받아 내보낼 커스텀 값을 반환합니다
 	- `headerCellTemplate` - 내보내기 시 헤더 또는 푸터 셀의 값을 커스터마이즈하는 함수입니다. text, 헤더 셀 객체, column 객체, 셀 유형("header" 또는 "footer")을 인수로 받아 내보낼 헤더/푸터 값을 수정할 수 있습니다
-	- `cellStyle` - 내보내기 시 개별 셀의 스타일과 형식을 커스터마이즈할 수 있는 함수입니다. value, row, column 객체를 파라미터로 받아 스타일 속성(예: 정렬 또는 형식)이 담긴 객체를 반환해야 합니다
+	- `cellStyle` - 내보내기 시 개별 셀의 스타일과 형식을 커스터마이즈할 수 있는 함수입니다. value, row, column 객체를 매개변수로 받아 스타일 속성(예: 정렬 또는 형식)이 담긴 객체를 반환해야 합니다
 	- `headerCellStyle` - `cellStyle`과 유사하지만 헤더 및 푸터 셀에 특화된 함수입니다. text, 헤더 셀 객체, column 객체, 유형("header" 또는 "footer")을 받아 스타일 속성을 반환합니다
     :::note
     기본적으로 "xlsx" 형식의 경우 날짜 및 숫자 필드는 기본 형식 또는 [`fields`](api/config/fields-property.md) 속성을 통해 정의된 형식의 원시 값으로 내보내집니다. 단, 필드에 템플릿이 정의된 경우([`tableShape`](api/config/tableshape-property.md) 속성 참고) 해당 템플릿에서 정의된 렌더링 값으로 내보냅니다. 템플릿과 `format`이 모두 설정된 경우, 템플릿 설정이 형식 설정보다 우선 적용됩니다.

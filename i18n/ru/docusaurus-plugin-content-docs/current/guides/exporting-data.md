@@ -39,7 +39,7 @@ widget.getTable().exec("export", {
 
 <iframe src="https://snippet.dhtmlx.com/zjuloqxd?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Related articles**: 
+**Полезные статьи**: 
 
 - [Форматирование дат](guides/localization.md#date-formatting)
 - [`export`](api/table/export.md)

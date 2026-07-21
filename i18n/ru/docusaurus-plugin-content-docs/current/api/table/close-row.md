@@ -38,6 +38,6 @@ description: Вы можете узнать о событии close-row в до�
 
 <iframe src="https://snippet.dhtmlx.com/i4mi6ejn?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**Связанные статьи**: 
+**Полезные статьи**: 
 - [`getTable`](api/methods/gettable-method.md)
 - [Разворачивание/сворачивание всех строк](guides/configuration.md#expandingcollapsing-all-rows)

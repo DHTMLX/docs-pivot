@@ -112,6 +112,6 @@ const table = new pivot.Pivot("#pivot", {
 });
 ~~~
 
-**Связанная статья**: [Обработка данных с помощью предикатов](guides/working-with-data.md#processing-data-with-predicates)
+**Полезная статья**: [Обработка данных с помощью предикатов](guides/working-with-data.md#processing-data-with-predicates)
 
 **Связанный пример**: [Pivot 2. Пользовательские предикаты](https://snippet.dhtmlx.com/mhymus00)

@@ -76,14 +76,14 @@ const table = new pivot.Pivot("#root", {
 ~~~
 
 :::info
-특정 열의 너비를 설정하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `width` 파라미터를 사용하세요.
+특정 열의 너비를 설정하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `width` 매개변수를 사용하세요.
 :::
 
 ## 열 너비를 콘텐츠에 자동 맞춤 {#autosize-columns-to-content}
 
-[`columnShape`](api/config/columnshape-property.md) 속성의 `autoWidth` 파라미터를 사용하면 열 너비를 자동으로 계산합니다. `autoWidth`의 모든 하위 파라미터는 선택 사항이며, 전체 설명은 [`columnShape`](api/config/columnshape-property.md) 레퍼런스를 참조하세요.
+[`columnShape`](api/config/columnshape-property.md) 속성의 `autoWidth` 매개변수를 사용하면 열 너비를 자동으로 계산합니다. `autoWidth`의 모든 하위 매개변수는 선택 사항이며, 전체 설명은 [`columnShape`](api/config/columnshape-property.md) 레퍼런스를 참조하세요.
 
-`autoWidth` 객체는 다음 파라미터를 받습니다:
+`autoWidth` 객체는 다음 매개변수를 받습니다:
 
 - `columns` — 자동 계산 너비를 적용할 필드를 선택하는 객체
 - `auto` — 너비를 헤더, 셀 콘텐츠, 또는 둘 다에 맞춥니다
@@ -130,7 +130,7 @@ const table = new pivot.Pivot("#root", {
 
 ### tableShape를 통해 템플릿 추가 {#add-templates-via-tableshape}
 
-[`tableShape`](api/config/tableshape-property.md) 속성의 `templates` 파라미터를 사용하여 함수를 통해 셀 값을 렌더링합니다. 각 키는 필드 ID이고 각 값은 문자열을 반환하는 함수입니다. 지정된 필드를 기반으로 하는 모든 열에 템플릿이 적용됩니다.
+[`tableShape`](api/config/tableshape-property.md) 속성의 `templates` 매개변수를 사용하여 함수를 통해 셀 값을 렌더링합니다. 각 키는 필드 ID이고 각 값은 문자열을 반환하는 함수입니다. 지정된 필드를 기반으로 하는 모든 열에 템플릿이 적용됩니다.
 
 아래 예제는 `state` 셀에 템플릿을 적용하여 주의 전체 이름과 약자를 함께 표시합니다:
 
@@ -216,7 +216,7 @@ widget.api.intercept("render-table", ({ config: tableConfig }) => {
 
 ### headerShape를 통해 템플릿 추가 {#add-templates-via-headershape}
 
-헤더의 텍스트 형식을 제어하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `template` 파라미터를 사용합니다. 이 파라미터는 다음 역할을 하는 함수입니다:
+헤더의 텍스트 형식을 제어하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `template` 매개변수를 사용합니다. 이 매개변수는 다음 역할을 하는 함수입니다:
 
 - 필드 레이블, ID, 서브레이블(메서드 이름, 있는 경우)을 받습니다
 - 처리된 값을 반환합니다
@@ -301,7 +301,7 @@ widget.api.intercept("render-table", ({ config: tableConfig }) => {
 
 ## 열 축소 활성화 {#make-columns-collapsible}
 
-공유 헤더 아래의 열을 사용자가 축소하고 펼칠 수 있도록 하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `collapsible` 파라미터를 `true`로 설정합니다.
+공유 헤더 아래의 열을 사용자가 축소하고 펼칠 수 있도록 하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `collapsible` 매개변수를 `true`로 설정합니다.
 
 다음 코드 스니펫은 헤더 열을 축소 가능하도록 활성화합니다:
 
@@ -331,7 +331,7 @@ const table = new pivot.Pivot("#root", {
 
 ## 열 고정 {#freezing-columns}
 
-나머지 테이블이 스크롤될 때 왼쪽 또는 오른쪽 열이 표시되도록 고정합니다. [`tableShape`](api/config/tableshape-property.md) 속성의 `split` 파라미터를 사용하여 `left` 또는 `right`를 `true`로 설정합니다.
+나머지 테이블이 스크롤될 때 왼쪽 또는 오른쪽 열이 표시되도록 고정합니다. [`tableShape`](api/config/tableshape-property.md) 속성의 `split` 매개변수를 사용하여 `left` 또는 `right`를 `true`로 설정합니다.
 
 ### 왼쪽에 열 고정 {#freeze-columns-on-the-left}
 
@@ -460,7 +460,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## 열 정렬 {#sort-in-columns}
 
-UI에서의 정렬은 기본적으로 활성화되어 있으며, 사용자가 열 헤더를 클릭하면 정렬됩니다. 비활성화하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `sort` 파라미터를 `false`로 설정합니다.
+UI에서의 정렬은 기본적으로 활성화되어 있으며, 사용자가 열 헤더를 클릭하면 정렬됩니다. 비활성화하려면 [`columnShape`](api/config/columnshape-property.md) 속성의 `sort` 매개변수를 `false`로 설정합니다.
 
 다음 코드 스니펫은 UI 정렬을 비활성화합니다:
 
@@ -492,7 +492,7 @@ const table = new pivot.Pivot("#root", {
 
 ## 트리 모드 활성화 {#enabling-the-tree-mode}
 
-트리 모드는 확장 가능한 행으로 데이터를 계층적으로 표시합니다. [`tableShape`](api/config/tableshape-property.md) 속성의 `tree` 파라미터를 `true`(기본값 `false`)로 설정합니다. [`config`](api/config/config-property.md)의 `rows` 배열에서 첫 번째 필드가 상위 행이 됩니다.
+트리 모드는 확장 가능한 행으로 데이터를 계층적으로 표시합니다. [`tableShape`](api/config/tableshape-property.md) 속성의 `tree` 매개변수를 `true`(기본값 `false`)로 설정합니다. [`config`](api/config/config-property.md)의 `rows` 배열에서 첫 번째 필드가 상위 행이 됩니다.
 
 다음 코드 스니펫은 `studio`를 상위로, `genre`를 중첩 행으로 하는 트리 모드를 활성화합니다:
 
@@ -600,7 +600,7 @@ document.body.appendChild(closeAllButton);
 
 ## 헤더 텍스트 방향 변경 {#change-header-text-orientation}
 
-헤더 텍스트를 가로에서 세로로 회전하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `vertical` 파라미터를 `true`로 설정합니다.
+헤더 텍스트를 가로에서 세로로 회전하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `vertical` 매개변수를 `true`로 설정합니다.
 
 다음 코드 스니펫은 헤더 텍스트를 세로로 렌더링합니다:
 
@@ -661,7 +661,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-런타임에 패널을 토글하려면 [`api.exec`](api/internal/exec-method.md) 메서드로 [`show-config-panel`](api/events/show-config-panel-event.md) 이벤트를 트리거하고 `mode` 파라미터를 `false`로 설정합니다.
+런타임에 패널을 토글하려면 [`api.exec`](api/internal/exec-method.md) 메서드로 [`show-config-panel`](api/events/show-config-panel-event.md) 이벤트를 트리거하고 `mode` 매개변수를 `false`로 설정합니다.
 
 다음 코드 스니펫은 초기화 후 패널을 숨깁니다:
 
@@ -732,7 +732,7 @@ table.api.intercept("show-config-panel", () => {
 - [`update-field`](api/events/update-field-event.md) — 필드의 메서드 또는 설정을 업데이트합니다
 - [`move-field`](api/events/move-field-event.md) — 영역 내 필드의 순서를 변경합니다
 
-**관련 샘플**:
+**관련 예제**:
 - [Pivot 2. 테이블 및 헤더 셀에 텍스트 템플릿 추가](https://snippet.dhtmlx.com/n9ylp6b2)
 - [Pivot 2. 사용자 정의 고정(fixed) 열 (원하는 수)](https://snippet.dhtmlx.com/53erlmgp)
 - [Pivot 2. 모든 행 펼치기 및 축소하기](https://snippet.dhtmlx.com/i4mi6ejn)

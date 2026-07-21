@@ -19,9 +19,9 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 delete-field �
 }) => boolean | void;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
-액션의 콜백은 다음 파라미터를 포함하는 객체를 받습니다:
+액션의 콜백은 다음 매개변수를 포함하는 객체를 받습니다:
 
 - `area` - (필수) 필드가 제거되는 영역의 이름으로, "rows", "columns" 또는 "values" 영역이 될 수 있습니다
 - `id` - (필수) 제거되는 필드의 id

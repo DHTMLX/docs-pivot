@@ -104,7 +104,7 @@ const table = new pivot.Pivot("#root", {
 });
 ~~~
 
-**Связанные статьи**: 
+**Полезные статьи**: 
 
 - [Форматирование чисел](guides/localization.md#number-formatting)
 - [Применение форматов к полям](guides/working-with-data.md#applying-formats-to-fields)
