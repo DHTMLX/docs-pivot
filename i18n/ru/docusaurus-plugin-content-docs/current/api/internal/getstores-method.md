@@ -16,7 +16,7 @@ description: Вы можете узнать о методе getStores в док�
 api.getStores(): object;
 ~~~
 
-### Возвращает {#returns}
+### Возвращаемое значение {#returns}
 
 Метод возвращает объект с параметрами **DataStore**:
 

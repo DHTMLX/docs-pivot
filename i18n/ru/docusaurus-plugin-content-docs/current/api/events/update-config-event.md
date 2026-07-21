@@ -43,7 +43,7 @@ description: Вы можете узнать о событии update-config в �
 Для обработки внутренних событий можно использовать [методы Event Bus](api/overview/internal-eventbus-overview.md)
 :::
 
-### Возвращает {#returns}
+### Возвращаемое значение {#returns}
 
 Колбэк может возвращать boolean или void.  
 Если функция-обработчик события возвращает *false*, операция, вызвавшая событие, блокируется и выполнение `update-config` прерывается.
@@ -75,4 +75,4 @@ table.api.on("update-config", (config) => {
 });
 ~~~
 
-**Связанные статьи**: [api.intercept()](api/internal/intercept-method.md)
+**Полезные статьи**: [api.intercept()](api/internal/intercept-method.md)

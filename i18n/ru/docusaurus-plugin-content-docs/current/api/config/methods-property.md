@@ -160,4 +160,4 @@ const table = new pivot.Pivot("#root", {
 
 **Связанный пример**: [Pivot 2. Пользовательские математические методы](https://snippet.dhtmlx.com/lv90d8q2) 
 
-**Связанная статья**: [Применение математических методов](guides/working-with-data.md#applying-maths-methods)
+**Полезная статья**: [Применение математических методов](guides/working-with-data.md#applying-maths-methods)

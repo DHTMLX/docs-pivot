@@ -107,7 +107,7 @@ Pivot은 하나의 내장 테마인 **Material**을 제공합니다. 위젯 컨�
 
 ## 셀 스타일 {#cell-style}
 
-본문 또는 푸터 셀에 스타일을 적용하려면 [`tableShape`](api/config/tableshape-property.md) 속성의 `cellStyle` 파라미터를 사용하십시오. 헤더 셀에 스타일을 적용하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `cellStyle` 파라미터를 사용하십시오. 두 경우 모두 `cellStyle` 함수는 Pivot이 셀에 적용할 CSS 클래스 이름을 반환합니다.
+본문 또는 푸터 셀에 스타일을 적용하려면 [`tableShape`](api/config/tableshape-property.md) 속성의 `cellStyle` 매개변수를 사용하십시오. 헤더 셀에 스타일을 적용하려면 [`headerShape`](api/config/headershape-property.md) 속성의 `cellStyle` 매개변수를 사용하십시오. 두 경우 모두 `cellStyle` 함수는 Pivot이 셀에 적용할 CSS 클래스 이름을 반환합니다.
 
 아래 예제는 본문 셀과 헤더 셀에 스타일을 적용합니다:
 
@@ -165,7 +165,7 @@ const widget = new pivot.Pivot("#pivot", {
 
 ## 셀의 값 표시 {#mark-values-in-cells}
 
-[`tableShape`](api/config/tableshape-property.md) 속성의 `marks` 파라미터를 사용하여 조건을 충족하는 셀에 CSS 클래스를 적용하십시오. `marks`의 각 항목은 CSS 클래스 이름(키)과 규칙(값)을 쌍으로 연결합니다.
+[`tableShape`](api/config/tableshape-property.md) 속성의 `marks` 매개변수를 사용하여 조건을 충족하는 셀에 CSS 클래스를 적용하십시오. `marks`의 각 항목은 CSS 클래스 이름(키)과 규칙(값)을 쌍으로 연결합니다.
 
 규칙은 사전 정의된 문자열(`"max"` 또는 `"min"`)이거나 사용자 정의 함수 `(value, columnData, rowData) => boolean`입니다. 함수가 `true`를 반환하면 Pivot은 해당 셀에 CSS 클래스를 추가합니다.
 
@@ -259,7 +259,7 @@ Pivot은 내장 `.wx-number` CSS 클래스를 통해 본문 셀의 숫자를 오
 
 <iframe src="https://snippet.dhtmlx.com/p8imq6hx?mode=result" frameborder="0" class="snippet_iframe" width="100%" height="600"></iframe> 
 
-**관련 샘플**: 
+**관련 예제**: 
 
 - [Pivot 2. 합계 열에 대한 스타일링 (사용자 정의 CSS)](https://snippet.dhtmlx.com/9lkdbzmm)
 - [Pivot 2. 셀에 대한 최솟값/최댓값 및 사용자 정의 marks (조건부 형식)](https://snippet.dhtmlx.com/4cm4asbd)

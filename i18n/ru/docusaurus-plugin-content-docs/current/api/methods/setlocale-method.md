@@ -51,6 +51,6 @@ table.setLocale(pivot.locales.de);
 table.setLocale(); // или setLocale(null);
 ~~~
 
-**Связанные статьи**:
+**Полезные статьи**:
 - [Локализация](guides/localization.md)
 - [`locale`](api/config/locale-property.md)

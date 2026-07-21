@@ -20,11 +20,11 @@ api.on(
 ): void;
 ~~~
 
-### 파라미터 {#parameters}
+### 매개변수 {#parameters}
 
 - `event` - (필수) 발생시킬 이벤트
 - `handler` - (필수) 연결할 핸들러 (핸들러 인수는 발생하는 이벤트에 따라 달라집니다)
-- `config` - (선택) 다음 파라미터를 저장하는 객체:
+- `config` - (선택) 다음 매개변수를 저장하는 객체:
     - `intercept` - (선택) 이벤트 리스너 생성 시 `intercept: true`를 설정하면, 해당 이벤트 리스너가 다른 모든 리스너보다 먼저 실행됩니다
     - `tag` - (선택) 액션 태그. 태그 이름을 사용하여 [`detach`](api/internal/detach-method.md) 메서드로 액션 핸들러를 제거할 수 있습니다
 

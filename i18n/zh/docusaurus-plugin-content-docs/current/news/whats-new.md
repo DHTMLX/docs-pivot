@@ -50,7 +50,7 @@ description: 您可以在 DHTMLX JavaScript UI 库的文档中查阅 DHTMLX Pivo
 - 谓词模板未应用于行/列
 - 特定情况下出现 Resize observer 错误
 
-### 破坏性变更 {#breaking-changes}
+### 重大变更 {#breaking-changes}
 
 - `tableShape` 属性中 `sizes` 对象的 `colWidth` 参数已重命名为 `columnWidth`
 
@@ -81,7 +81,7 @@ description: 您可以在 DHTMLX JavaScript UI 库的文档中查阅 DHTMLX Pivo
 
 请查阅[博客页面](https://dhtmlx.com/blog/)了解本次版本发布的详细介绍。
 
-### 破坏性变更 {#breaking-change}
+### 重大变更 {#breaking-change}
 
 :::note
 版本 1.5 的 API 与 API v.2.0 不兼容。

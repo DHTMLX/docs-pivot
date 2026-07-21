@@ -10,14 +10,14 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 JavaScript Piv
 
 ~~~jsx
 new pivot.Pivot("#root", {
-    // 구성 파라미터
+    // 구성 매개변수
 });
 ~~~
 
-**파라미터**:
+**매개변수**:
 
 - HTML 컨테이너 (HTML 컨테이너의 ID)
-- 구성 파라미터 객체 ([여기서 확인](#pivot-properties))
+- 구성 매개변수 객체 ([여기서 확인](#pivot-properties))
 
 ## Pivot 메서드 {#pivot-methods}
 

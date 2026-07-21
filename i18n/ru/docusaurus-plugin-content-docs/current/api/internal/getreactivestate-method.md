@@ -16,7 +16,7 @@ description: В документации библиотеки DHTMLX JavaScript 
 api.getReactiveState(): object;
 ~~~
 
-### Возвращает {#returns}
+### Возвращаемое значение {#returns}
 
 Метод возвращает объект со следующими параметрами:
 

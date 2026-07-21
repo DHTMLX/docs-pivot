@@ -52,7 +52,7 @@ const table = new pivot.Pivot("#root", {
 
 **Связанный пример**: [Pivot 2.0: Переключение видимости панели конфигурации](https://snippet.dhtmlx.com/1xq1x5bo)
 
-**Связанные статьи**:
+**Полезные статьи**:
 - [Событие `show-config-panel`](api/events/show-config-panel-event.md)
 - [Метод `showConfigPanel()`](api/methods/showconfigpanel-method.md)
 - [Управление видимостью панели конфигурации](guides/configuration.md#controlling-visibility-of-configuration-panel)

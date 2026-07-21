@@ -276,4 +276,4 @@ document.body.appendChild(importButton);
 - [Pivot 2. Разные наборы данных](https://snippet.dhtmlx.com/6xtqge4i)
 - [Pivot 2. Большой набор данных](https://snippet.dhtmlx.com/e6qwqrys)
 
-**Связанные статьи**: [Форматирование дат](guides/localization.md#date-formatting)
+**Полезные статьи**: [Форматирование дат](guides/localization.md#date-formatting)
