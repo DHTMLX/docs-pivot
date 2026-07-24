@@ -1,0 +1,242 @@
+---
+sidebar_label: DHTMLX MCP server
+title: DHTMLX Pivot MCP server clarifies config and export APIs
+description: DHTMLX Pivot's config, aggregation methods, predicates, and export API reach AI assistants as current docs, not a training guess, through the MCP server.
+---
+
+# DHTMLX Pivot MCP server: code that matches how Pivot actually works
+
+DHTMLX Pivot turns one [`config`](api/config/config-property.md) object into a fully aggregated table, and opens onto a whole second API, the underlying Table widget through [`getTable()`](api/methods/gettable-method.md), for exporting data or expanding tree rows. Layout changes and full table redraws, each get their own event: [`update-config`](api/events/update-config-event.md) fires the moment a user reshapes the table, while [`render-table`](api/events/render-table-event.md) fires on every redraw underneath. An AI assistant makes the most of all that range when it works from the current documentation rather than a stale guess.
+
+Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant builds against Pivot as it actually behaves, not as it's remembered.
+
+**MCP endpoint**
+
+~~~jsx
+https://docs.dhtmlx.com/mcp
+~~~
+
+:::note
+The DHTMLX MCP server covers all major DHTMLX products, not only DHTMLX Pivot. The same endpoint and configuration instructions work regardless of which DHTMLX component you are building with.
+:::
+
+## What Pivot developers ask the MCP server
+
+What can the MCP server tell you about DHTMLX Pivot? Nearly everything in the documentation, starting with:
+
+- Looking up the current API for [methods](api/overview/methods-overview.md), [events](api/overview/events-overview.md), and [properties](api/overview/properties-overview.md), including the [Event Bus](api/overview/internal-eventbus-overview.md) and [state](api/overview/internal-state-overview.md) methods.
+- Generating ready-to-run [initialization](guides/initialization.md) code with the `fields`, `data`, and [`config`](api/config/config-property.md) shape a specific table needs.
+- Defining [rows, columns, and values](guides/working-with-data.md#define-pivot-structure) in the `config` property, including both accepted forms of a `values` entry.
+- Choosing or writing [aggregation methods](guides/working-with-data.md#applying-maths-methods), from the built-in `sum`/`count`/`average` set to a custom one added through the [`methods`](api/config/methods-property.md) property.
+- Pre-processing data with [predicates](guides/working-with-data.md#processing-data-with-predicates) before aggregation, such as grouping dates by month.
+- Sizing, freezing, and templating table cells through [`tableShape`](api/config/tableshape-property.md) and [`headerShape`](api/config/headershape-property.md), including [tree mode](guides/configuration.md#enabling-the-tree-mode) and [frozen columns](guides/configuration.md#freezing-columns).
+- [Localizing](guides/localization.md) labels and date/number formats, and [styling](guides/stylization.md) the table with `--wx-pivot-*` CSS variables.
+- [Exporting](guides/exporting-data.md) a table to CSV or XLSX through the Table instance that [`getTable()`](api/methods/gettable-method.md) returns.
+- Deciding between [`update-config`](api/events/update-config-event.md) and [`render-table`](api/events/render-table-event.md) when [persisting state to a server](/guides/working-with-server), or integrating Pivot with [React](guides/integration-with-react.md), [Vue](guides/integration-with-vue.md), [Angular](guides/integration-with-angular.md), and [Svelte](guides/integration-with-svelte.md).
+
+## Picking a workflow for a Pivot question
+
+*"Write a handler that saves the Pivot config to the server on every layout change."* A prompt like that needs generated code, so the MCP server routes it to *Search*, one of its two workflows; a prompt with a single factual answer instead goes to *Inference*, the other one. A single Model Context Protocol (MCP) endpoint carries both workflows, and a Retrieval-Augmented Generation (RAG) index of the Pivot documentation feeds whichever one runs.
+
+For the handler prompt above, *Search* matches it against the [working-with-server](/guides/working-with-server) documentation, returns the reference pages, and the assistant writes the [`update-config`](api/events/update-config-event.md) listener from them, correctly skipping `render-table`'s more frequent firing. Ask instead *"Does render-table fire more often than update-config?"* and the assistant sends that one to *Inference*, which reads the same reference pages and answers yes directly, without handing back a listener to write.
+
+## Linking your AI tool to the MCP server
+
+Whichever AI development tool you use alongside Pivot, wiring it to the MCP server comes down to one step: pointing it at the endpoint URL below, either through a CLI command or a JSON configuration file.
+
+~~~jsx
+https://docs.dhtmlx.com/mcp
+~~~
+
+Below are setup instructions for commonly used tools.
+
+### Claude Code
+
+:::info
+Claude Code's [official documentation](https://code.claude.com/docs/en/mcp) walks through every MCP setup path.
+:::
+
+To register the server from the command line, run:
+
+~~~jsx
+claude mcp add --transport http dhtmlx-mcp https://docs.dhtmlx.com/mcp
+~~~
+
+For manual setup, add the following to your `mcp.json`:
+
+~~~jsx
+{
+  "mcpServers": {
+    "dhtmlx-mcp": {
+      "type": "http",
+      "url": "https://docs.dhtmlx.com/mcp"
+    }
+  }
+}
+~~~
+
+### Cursor
+
+:::info
+See Cursor's [official documentation](https://cursor.com/en-US/docs/mcp) for the full set of MCP configuration options.
+:::
+
+Steps to add the server:
+
+1. Open Settings (`Cmd+Shift+J` on Mac, `Ctrl+Shift+J` on Windows/Linux)
+2. Go to **Tools & MCP**
+3. Click **Add Custom MCP**
+4. Paste the following config:
+
+~~~jsx
+{
+  "mcpServers": {
+    "dhtmlx-mcp": {
+      "url": "https://docs.dhtmlx.com/mcp"
+    }
+  }
+}
+~~~
+
+### Google Antigravity
+
+#### Antigravity 2.0
+
+:::info
+The [official documentation](https://antigravity.google/docs/mcp) has the full picture on MCP server integration in Antigravity.
+:::
+
+These are the steps to complete for connecting DHTMLX MCP server with Google Antigravity:
+
+1. Open the command palette
+2. Type "mcp add"
+3. Select "HTTP"
+4. Provide the following values:
+- Name:
+~~~jsx
+dhtmlx-mcp
+~~~
+- URL:
+~~~jsx
+https://docs.dhtmlx.com/mcp
+~~~
+
+#### Antigravity CLI
+
+:::info
+The [related guide](https://antigravity.google/docs/gcli-migration#mcp-config-formatting-changes) explains what changes when migrating from Gemini CLI to Antigravity CLI.
+:::
+
+To connect the DHTMLX MCP server to Antigravity CLI, create `mcp_config.json` in one of these locations:
+
+- Global: `~/.gemini/config/mcp_config.json`
+- Workspace: `.agents/mcp_config.json`
+
+Add the following configuration:
+
+~~~jsx
+{
+  "mcpServers": {
+    "dhtmlx-mcp": {
+      "serverUrl": "https://docs.dhtmlx.com/mcp"
+    }
+  }
+}
+~~~
+
+Then run `agy` in the terminal.
+
+### ChatGPT
+
+:::info
+See the [official documentation](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt) for every step of setting up an MCP connector in ChatGPT.
+:::
+
+Steps to configure the connector:
+
+1. Go to **Settings** → **Apps & Connectors**
+2. Click **Advanced settings**
+3. Enable **Developer mode**
+4. Return to **Apps & Connectors** and click "Create"
+5. Fill in the connector details:
+- Name:
+~~~jsx
+dhtmlx-mcp
+~~~
+- URL:
+~~~jsx
+https://docs.dhtmlx.com/mcp
+~~~
+- Authentication: `No authentication`
+6. Click **Create**
+
+After you create the connector, ChatGPT pulls documentation from the MCP server during conversations.
+
+:::info
+For intensive coding workflows, other MCP-aware tools may be a better fit.
+:::
+
+### Other tools
+
+Settings panels in other AI coding tools tend to call this "Model Context Protocol" or "Context Sources." Add `https://docs.dhtmlx.com/mcp` there as a custom source.
+
+## Where your queries go
+
+The MCP server is a hosted service: nothing runs on your machine, no files from your environment are read, and no personal user data is stored.
+
+Queries may be logged for debugging and service improvement purposes.
+
+Teams that require stricter privacy guarantees can request a commercial deployment with query logging disabled. Contact us at `info@dhtmlx.com` for details.
+
+## Prompts that get Pivot right
+
+Config, aggregation, layout, or server sync: which one is a prompt actually about? Naming it up front is what the groups below do for you.
+
+**Config and aggregation**
+
+~~~
+How do I add a custom aggregation method using the methods property in DHTMLX Pivot? Use the docs.
+~~~
+~~~
+How do I set a default sort order for a field using the sort parameter of the fields property?
+~~~
+~~~
+What's the difference between the two accepted forms of a values entry in the config property?
+~~~
+
+**Predicates and fields**
+
+~~~
+How do I group date values by month using a custom predicate in DHTMLX Pivot?
+~~~
+~~~
+How do I apply a currency format with a dollar-sign prefix to a numeric field?
+~~~
+
+**Layout and styling**
+
+~~~
+How do I freeze the first two row fields on the left using tableShape in DHTMLX Pivot?
+~~~
+~~~
+How do I enable tree mode in DHTMLX Pivot and choose which field becomes the parent row?
+~~~
+~~~
+How do I override the --wx-pivot-primary-hover CSS variable for the Material theme?
+~~~
+
+**Server sync and export**
+
+~~~
+How do I save the user's layout to a server whenever the update-config event fires?
+~~~
+~~~
+How do I export the Pivot table to XLSX using getTable() and the export event?
+~~~
+
+## Small tips for Pivot prompts
+
+- **Say which API you mean.** `export`, tree-row expand/collapse, and filtering by row all run through the Table instance `getTable()` returns, not the Pivot instance directly. Naming that layer keeps the assistant from calling a Table-only method on the wrong object.
+- **Distinguish a method from a predicate.** Aggregation methods (`sum`, `count`, a custom entry in `methods`) summarize values already in a row or column. Predicates transform a raw value before that grouping happens. State which stage your prompt targets.
+- **Spell out the `values` entry form you want.** A `values` item can be a `"method(field)"` string or a `{ field, method }` object. Naming the form you're using stops the assistant from inventing a third shape.
+- **Add "Use the docs"** when asking about `update-config` versus `render-table`. The two fire at different rates, and that distinction is exactly the kind of detail stale training data glosses over.
