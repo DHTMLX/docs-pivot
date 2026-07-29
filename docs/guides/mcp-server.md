@@ -48,7 +48,7 @@ Whichever AI development tool you use alongside Pivot, wiring it to the MCP serv
 https://docs.dhtmlx.com/mcp
 ~~~
 
-Below are setup instructions for commonly used tools.
+Setup details for widely used tools come next.
 
 ### Claude Code
 
@@ -182,11 +182,11 @@ Settings panels in other AI coding tools tend to call this "Model Context Protoc
 
 ## Where your queries go
 
-The MCP server is a hosted service: nothing runs on your machine, no files from your environment are read, and no personal user data is stored.
+As a hosted service, the MCP server never runs on your hardware, never opens a local file, and never stores anything that identifies you.
 
-Queries may be logged for debugging and service improvement purposes.
+The server logs queries only to debug problems and improve the service.
 
-Teams that require stricter privacy guarantees can request a commercial deployment with query logging disabled. Contact us at `info@dhtmlx.com` for details.
+Request a commercial deployment to turn query logging off entirely. Reach `info@dhtmlx.com` to arrange it.
 
 ## Prompts that get Pivot right
 
