@@ -198,7 +198,7 @@ Config, aggregation, layout, or server sync: which one is a prompt actually abou
 How do I add a custom aggregation method using the methods property in DHTMLX Pivot? Use the docs.
 ~~~
 ~~~
-How do I set a default sort order for a field using the sort parameter of the fields property?
+How do I set a default sort order for a field in DHTMLX Pivot?
 ~~~
 ~~~
 What's the difference between the two accepted forms of a values entry in the config property?
@@ -222,16 +222,16 @@ How do I freeze the first two row fields on the left using tableShape in DHTMLX 
 How do I enable tree mode in DHTMLX Pivot and choose which field becomes the parent row?
 ~~~
 ~~~
-How do I override the --wx-pivot-primary-hover CSS variable for the Material theme?
+How do I change the hover color for primary buttons in the Material theme?
 ~~~
 
 **Server sync and export**
 
 ~~~
-How do I save the user's layout to a server whenever the update-config event fires?
+How do I save the user's layout to a server whenever they change it?
 ~~~
 ~~~
-How do I export the Pivot table to XLSX using getTable() and the export event?
+How do I export the Pivot table to XLSX?
 ~~~
 
 ## Small tips for Pivot prompts
