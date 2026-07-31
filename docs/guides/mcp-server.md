@@ -6,9 +6,9 @@ description: DHTMLX Pivot's config, aggregation methods, predicates, and export 
 
 # DHTMLX Pivot MCP server: code that matches how Pivot actually works
 
-DHTMLX Pivot turns [one configuration object](api/config/config-property.md) into a fully aggregated table, and opens onto a whole second API, [the underlying Table widget](api/methods/gettable-method.md), for exporting data or expanding tree rows. Layout changes and full table redraws each trigger their own event: [a layout edit](api/events/update-config-event.md) fires one, while [every redraw underneath](api/events/render-table-event.md) fires the other. An AI assistant makes the most of all that range when it works from the current documentation rather than a stale guess.
+DHTMLX Pivot turns [one configuration object](api/config/config-property.md) into a fully aggregated table, and opens onto a whole second API, [the underlying Table widget](api/methods/gettable-method.md), for exporting data or expanding tree rows. Layout changes and full table redraws each trigger their own event: [a layout edit](api/events/update-config-event.md) fires one, while [every redraw underneath](api/events/render-table-event.md) fires the other. Getting all of that right depends on current documentation, not a stale guess.
 
-Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant builds against Pivot as it actually behaves, not as it's remembered.
+Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant builds against Pivot as it actually behaves.
 
 **MCP endpoint**
 
@@ -62,7 +62,7 @@ To register the server from the command line, run:
 claude mcp add --transport http dhtmlx-mcp https://docs.dhtmlx.com/mcp
 ~~~
 
-For manual setup, add the following to your `mcp.json`:
+No CLI on hand? Add the following configuration to your `mcp.json` manually:
 
 ~~~jsx
 {
