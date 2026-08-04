@@ -1,16 +1,16 @@
 ---
 sidebar_label: DHTMLX MCP server
-title: DHTMLX Pivot MCP server clarifies config and export APIs
+title: DHTMLX Pivot MCP server for config, aggregation, and export
 description: DHTMLX Pivot's config, aggregation methods, predicates, and export API reach AI assistants as current docs, not a training guess, through the MCP server.
 ---
 
-# DHTMLX Pivot MCP server: code that matches how Pivot actually works
+# DHTMLX Pivot MCP server: configuration, aggregation, and export
 
 DHTMLX Pivot turns [one configuration object](api/config/config-property.md) into a fully aggregated table, and opens onto a whole second API, [the underlying Table widget](api/methods/gettable-method.md), for exporting data or expanding tree rows. Layout changes and full table redraws each trigger their own event: [a layout edit](api/events/update-config-event.md) fires one, while [every redraw underneath](api/events/render-table-event.md) fires the other. Getting all of that right depends on current documentation, not a stale guess.
 
 Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant builds against Pivot as it actually behaves.
 
-**MCP endpoint**
+### MCP endpoint
 
 ~~~jsx
 https://docs.dhtmlx.com/mcp
@@ -36,9 +36,16 @@ What can the MCP server tell you about DHTMLX Pivot? Nearly everything in the do
 
 ## Picking a workflow for a Pivot question
 
-*"Write a handler that saves the Pivot config to the server on every layout change."* A prompt like that needs generated code, so the MCP server routes it to *Search*, one of its two workflows; a prompt with a single factual answer instead goes to *Inference*, the other one. A single Model Context Protocol (MCP) endpoint carries both workflows, and a Retrieval-Augmented Generation (RAG) index of the Pivot documentation feeds whichever one runs.
+A Pivot question sent to the DHTMLX MCP server runs through a Retrieval-Augmented Generation (RAG) pipeline built on the Model Context Protocol (MCP), and lands in one of two workflows: *Search*, which returns matching reference pages for the assistant to write from, or *Inference*, which reads those pages and answers the question itself. Consider the prompt *"Write a handler that saves the Pivot config to the server on every layout change."*:
 
-For the handler prompt above, *Search* matches it against the [working-with-server](/guides/working-with-server) documentation, returns the reference pages, and the assistant writes the [`update-config`](api/events/update-config-event.md) listener from them, correctly skipping `render-table`'s more frequent firing. Ask instead *"Does render-table fire more often than update-config?"* and the assistant sends that one to *Inference*, which reads the same reference pages and answers yes directly, without handing back a listener to write.
+1. The assistant routes the query through MCP.
+2. The server locates the [working-with-server](/guides/working-with-server) documentation it maps to.
+3. Because the ask is for generated code, *Search* takes it (a narrower question, like whether `render-table` fires more often than `update-config`, would go to *Inference* instead).
+4. *Search* fetches the matching pages from a vector index of the current Pivot documentation.
+5. The assistant gets those pages back as context.
+6. From that context, the assistant writes the [`update-config`](api/events/update-config-event.md) listener, correctly skipping `render-table`'s more frequent firing.
+
+Pivot's aggregation and export code stays matched to the current API this way, instead of a training-time guess.
 
 ## Linking your AI tool to the MCP server
 
