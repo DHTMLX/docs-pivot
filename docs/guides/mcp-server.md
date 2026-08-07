@@ -22,7 +22,7 @@ The DHTMLX MCP server covers all major DHTMLX products, not only DHTMLX Pivot. T
 
 ## What Pivot developers ask the MCP server
 
-What can the MCP server tell you about DHTMLX Pivot? Nearly everything in the documentation, starting with:
+The MCP server can tell you nearly everything about DHTMLX Pivot's documentation, starting with:
 
 - Looking up the current API for [methods](api/overview/methods-overview.md), [events](api/overview/events-overview.md), and [properties](api/overview/properties-overview.md), including the [Event Bus](api/overview/internal-eventbus-overview.md) and [state](api/overview/internal-state-overview.md) methods.
 - Generating ready-to-run [initialization](guides/initialization.md) code with the `fields`, `data`, and [`config`](api/config/config-property.md) shape a specific table needs.
