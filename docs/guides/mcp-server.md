@@ -34,18 +34,20 @@ What can the MCP server tell you about DHTMLX Pivot? Nearly everything in the do
 - [Exporting](guides/exporting-data.md) a table to CSV or XLSX through the Table instance that [`getTable()`](api/methods/gettable-method.md) returns.
 - Deciding between [`update-config`](api/events/update-config-event.md) and [`render-table`](api/events/render-table-event.md) when [persisting state to a server](/guides/working-with-server), or integrating Pivot with [React](guides/integration-with-react.md), [Vue](guides/integration-with-vue.md), [Angular](guides/integration-with-angular.md), and [Svelte](guides/integration-with-svelte.md).
 
-## Picking a workflow for a Pivot question
+## A Pivot question's path through the MCP server
 
-A Pivot question sent to the DHTMLX MCP server runs through a Retrieval-Augmented Generation (RAG) pipeline built on the Model Context Protocol (MCP), and lands in one of two workflows: *Search*, which returns matching reference pages for the assistant to write from, or *Inference*, which reads those pages and answers the question itself. Consider the prompt *"Write a handler that saves the Pivot config to the server on every layout change."*:
+A Pivot question sent to the DHTMLX MCP server runs through a Retrieval-Augmented Generation (RAG) pipeline built on the Model Context Protocol (MCP), and lands in one of two workflows: *Search*, which returns matching reference pages for the assistant to write from, or *Inference*, which reads those pages and answers the question itself. Only half of this request needs a documentation lookup. The assistant pinpoints that half and writes the rest, the server-specific save logic, from what it already knows.
 
-1. The assistant routes the query through MCP.
+Consider the prompt *"Write a handler that saves the Pivot config to the server on every layout change."*:
+
+1. The assistant marks out the half that needs documentation: which event to listen for and how to read the current config.
 2. The server locates the [working-with-server](/guides/working-with-server) documentation it maps to.
 3. Because the ask is for generated code, *Search* takes it (a narrower question, like whether `render-table` fires more often than `update-config`, would go to *Inference* instead).
 4. *Search* fetches the matching pages from a vector index of the current Pivot documentation.
 5. The assistant gets those pages back as context.
-6. From that context, the assistant writes the [`update-config`](api/events/update-config-event.md) listener, correctly skipping `render-table`'s more frequent firing.
+6. From that context, the assistant writes the [`update-config`](api/events/update-config-event.md) listener, correctly skipping `render-table`'s more frequent firing, then adds the actual save request for the target server from its own knowledge.
 
-Pivot's aggregation and export code stays matched to the current API this way, instead of a training-time guess.
+Pivot's aggregation and export code stays matched to the current API this way.
 
 ## Linking your AI tool to the MCP server
 
