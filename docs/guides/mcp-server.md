@@ -8,7 +8,7 @@ description: DHTMLX Pivot's config, aggregation methods, predicates, and export 
 
 DHTMLX Pivot turns [one configuration object](api/config/config-property.md) into a fully aggregated table, and opens onto a whole second API, [the underlying Table widget](api/methods/gettable-method.md), for exporting data or expanding tree rows. Layout changes and full table redraws each trigger their own event: [a layout edit](api/events/update-config-event.md) fires one, while [every redraw underneath](api/events/render-table-event.md) fires the other. Getting all of that right depends on current documentation, not a stale guess.
 
-Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant builds against Pivot as it actually behaves.
+Query the DHTMLX MCP server instead: it returns the current [`config` shape](api/config/config-property.md), the [export path through getTable()](guides/exporting-data.md), and the [right event to use for persistence](/guides/working-with-server#save-the-users-layout-to-resume-the-session), so the assistant generates code that matches how Pivot actually behaves today.
 
 ### MCP endpoint
 
