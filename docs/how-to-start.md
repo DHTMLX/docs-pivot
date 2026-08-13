@@ -120,3 +120,4 @@ That's all. Just these simple steps and you have a handy tool for analyzing data
 
 - [Guides](/category/guides) pages provide instructions about installation, loading data, styling, and other helpful tips to go smoothly with the Pivot configuration
 - [API reference](api/overview/main-overview.md) gives description of the Pivot functionality
+- [DHTMLX MCP server](guides/mcp-server.md) connects an AI coding assistant to this documentation, so it can look up current Pivot APIs while you build
