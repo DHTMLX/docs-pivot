@@ -221,7 +221,8 @@ module.exports = {
                 "guides/typescript-support",
                 "guides/working-with-data",
                 "guides/working-with-server",
-                
+                "guides/mcp-server",
+
             ]
         }
     ]
