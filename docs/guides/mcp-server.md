@@ -34,7 +34,7 @@ The MCP server can tell you nearly everything about DHTMLX Pivot's documentation
 - [Exporting](guides/exporting-data.md) a table to CSV or XLSX through the Table instance that [`getTable()`](api/methods/gettable-method.md) returns.
 - Deciding between [`update-config`](api/events/update-config-event.md) and [`render-table`](api/events/render-table-event.md) when [persisting state to a server](/guides/working-with-server), or integrating Pivot with [React](guides/integration-with-react.md), [Vue](guides/integration-with-vue.md), [Angular](guides/integration-with-angular.md), and [Svelte](guides/integration-with-svelte.md).
 
-## A Pivot question's path through the MCP server
+## Where a Pivot question lands in MCP
 
 A Pivot question sent to the DHTMLX MCP server runs through a Retrieval-Augmented Generation (RAG) pipeline built on the Model Context Protocol (MCP), and lands in one of two workflows: *Search*, which returns matching reference pages for the assistant to write from, or *Inference*, which reads those pages and answers the question itself. Only half of this request needs a documentation lookup. The assistant pinpoints that half and writes the rest, the server-specific save logic, from what it already knows.
 
@@ -191,7 +191,7 @@ Settings panels in other AI coding tools tend to call this "Model Context Protoc
 
 ## Where your queries go
 
-As a hosted service, the MCP server never runs on your hardware, never opens a local file, and never stores anything that identifies you.
+As a hosted service, the MCP server never runs on your hardware, never opens a local file, and never stores personal information.
 
 The server logs queries only to debug problems and improve the service.
 
@@ -199,12 +199,12 @@ Request a commercial deployment to turn query logging off entirely. Reach `info@
 
 ## Prompts that get Pivot right
 
-Config, aggregation, layout, or server sync: which one is a prompt actually about? Naming it up front is what the groups below do for you.
+A prompt is usually about one of four things: config, aggregation, layout, or server sync. Naming it up front is what the groups below do for you.
 
 **Config and aggregation**
 
 ~~~
-How do I add a custom aggregation method using the methods property in DHTMLX Pivot? Use the docs.
+How do I add a custom aggregation method in DHTMLX Pivot? Use the docs.
 ~~~
 ~~~
 How do I set a default sort order for a field in DHTMLX Pivot?
@@ -225,7 +225,7 @@ How do I apply a currency format with a dollar-sign prefix to a numeric field?
 **Layout and styling**
 
 ~~~
-How do I freeze the first two row fields on the left using tableShape in DHTMLX Pivot?
+How do I freeze the first two row fields on the left in DHTMLX Pivot?
 ~~~
 ~~~
 How do I enable tree mode in DHTMLX Pivot and choose which field becomes the parent row?
