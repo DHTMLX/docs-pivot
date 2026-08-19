@@ -120,3 +120,4 @@ Das war's. Mit diesen einfachen Schritten verfügen Sie über ein praktisches We
 
 - Die Seiten [Leitfäden](/category/guides) enthalten Anleitungen zur Installation, zum Laden von Daten, zur Gestaltung und weitere hilfreiche Tipps für eine reibungslose Pivot-Konfiguration
 - Die [API-Referenz](api/overview/main-overview.md) beschreibt die Funktionalität von Pivot
+- Der [DHTMLX MCP-Server](guides/mcp-server.md) verbindet einen KI-Coding-Assistenten mit dieser Dokumentation, sodass er beim Entwickeln aktuelle Pivot-APIs nachschlagen kann

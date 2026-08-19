@@ -120,3 +120,4 @@ const table = new pivot.Pivot("#root", {
 
 - [指南](/category/guides)页面提供有关安装、加载数据、样式设置及其他有用技巧的说明，帮助您顺畅地完成 Pivot 配置
 - [API 参考](api/overview/main-overview.md)提供 Pivot 功能的详细说明
+- [DHTMLX MCP 服务器](guides/mcp-server.md)将 AI 编码助手连接到本文档，使其能够在您开发时查阅当前的 Pivot API
