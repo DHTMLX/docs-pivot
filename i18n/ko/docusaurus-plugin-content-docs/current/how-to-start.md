@@ -120,3 +120,4 @@ const table = new pivot.Pivot("#root", {
 
 - [가이드](/category/guides) 페이지는 설치, 데이터 로딩, 스타일링 및 Pivot 구성을 원활하게 진행하는 데 도움이 되는 기타 유용한 팁에 대한 지침을 제공합니다
 - [API 레퍼런스](api/overview/main-overview.md)는 Pivot 기능에 대한 설명을 제공합니다
+- [DHTMLX MCP 서버](guides/mcp-server.md)는 AI 코딩 어시스턴트를 이 문서와 연결하여, 개발하는 동안 최신 Pivot API를 조회할 수 있게 해줍니다
