@@ -105,3 +105,30 @@ Keep these terms in English across all locales (verified: identical counts in ru
 > Not in this list — these UI concepts **are** localized (keep English only for a literal UI label):
 > `Toolbar` (→ ru "панель инструментов"), `Menu` (→ "меню"), `Fill Handle` (→ "маркер заполнения"),
 > `context menu`.
+
+## 6. Punctuation
+
+**The em dash (`—`) is never a separator in documentation body text.** It is the single loudest
+marker of machine-generated prose, and the English source does not use it. The house style for a
+term/description list item is a plain hyphen, matching the API reference pages
+(``- `width` - (optional) defines the column width``).
+
+| Pattern | en | ru | de | ko | zh |
+|---|---|---|---|---|---|
+| list item, term in backticks / link | `` `param` - description `` | `` `param` - описание `` | `` `param` - Beschreibung `` | `` `param` - 설명 `` | `` `param`：说明 `` |
+| list item, plain-text lead | ``- text fields: `equal`, …`` | ``- текстовые поля: `equal`, …`` | ``- Textfelder: `equal`, …`` | ``- 텍스트 필드: `equal`, …`` | ``- 文本字段：`equal`, …`` |
+| appositive inside a sentence | `a second API, the Table widget, for …` | `второму API, виджету Table, для …` | `eine zweite API, das Table-Widget, für …` | 문장을 나누거나 `:` 사용 | 用逗号或括号，勿用 `——` |
+
+Rules per locale:
+
+- **all** — do not copy an em dash from the source, and do not introduce one that the source does
+  not have. Recast an appositive as a comma pair, parentheses, a colon, or a separate sentence.
+- **ru** — the copula dash **stays**: it is required Russian punctuation, not an English carry-over.
+  Keep it in `Значение по умолчанию — пустой массив`, `каждый ключ — это идентификатор поля`,
+  `Предикаты — это функции…`, ``а `nested` — **true**``, and before a generalizing word after a
+  list of homogeneous members (``` `export`, фильтрация по строкам — всё это работает через… ```).
+- **zh** — use the full-width colon `：` as the list separator. `——` is valid Chinese punctuation,
+  but use it only where the English source has a deliberate dash of its own; never as a
+  translation of an appositive.
+- **de** — the same applies to the en dash `–` (Gedankenstrich): it does not belong in headings
+  or `title:` / `description:` front matter that the English source writes without one.

@@ -167,9 +167,9 @@ Pivot accepts CSV data after you convert it to JSON with an external JS parsing 
 
 The example below uses the external [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) library to load and convert data on a button click. The `convert()` helper takes the following parameters:
 
-- `data` — a string with CSV data
-- `headers` — an array of CSV field names
-- `meta` — an object mapping field names to data types
+- `data` - a string with CSV data
+- `headers` - an array of CSV field names
+- `meta` - an object mapping field names to data types
 
 The following code snippet creates Pivot, defines the `convert()` helper, and applies parsed CSV data through [`setConfig`](api/methods/setconfig-method.md) on a button click:
 

@@ -66,10 +66,10 @@ const table = new pivot.Pivot("#root", {
 
 Der Konstruktor gibt eine Pivot-Instanz zurück. Rufen Sie API-Methoden auf der zurückgegebenen Instanz auf:
 
-- [`getTable`](api/methods/gettable-method.md) — Zugriff auf die zugrunde liegende Table-Widget-Instanz erhalten
-- [`setConfig`](api/methods/setconfig-method.md) — die aktuelle Pivot-Konfiguration aktualisieren
-- [`setLocale`](api/methods/setlocale-method.md) — eine neue Locale auf Pivot anwenden
-- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — das Konfigurationspanel ein- oder ausblenden
+- [`getTable`](api/methods/gettable-method.md) - Zugriff auf die zugrunde liegende Table-Widget-Instanz erhalten
+- [`setConfig`](api/methods/setconfig-method.md) - die aktuelle Pivot-Konfiguration aktualisieren
+- [`setLocale`](api/methods/setlocale-method.md) - eine neue Locale auf Pivot anwenden
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md) - das Konfigurationspanel ein- oder ausblenden
 
 ## Konfigurationseigenschaften {#configuration-properties}
 

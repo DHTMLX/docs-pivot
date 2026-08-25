@@ -10,7 +10,7 @@ description: 您可以在 DHTMLX JavaScript Pivot 库的文档中了解如何处
 
 ## 定义字段 {#define-fields}
 
-使用 [`fields`](api/config/fields-property.md) 属性声明 Pivot 可放置在行、列和值中的字段。`fields` 数组中的每个条目描述一个字段——其 ID、标签和数据类型。
+使用 [`fields`](api/config/fields-property.md) 属性声明 Pivot 可放置在行、列和值中的字段。`fields` 数组中的每个条目描述一个字段：其 ID、标签和数据类型。
 
 以下代码片段使用五个字段初始化 Pivot：
 
@@ -127,7 +127,7 @@ new pivot.Pivot("#pivot", {
 
 ## 定义 Pivot 结构 {#define-pivot-structure}
 
-使用 [`config`](api/config/config-property.md) 属性声明哪些字段作为行、列和聚合值显示，以及如何筛选数据。`config` 属性没有预定义值——您必须设置它才能渲染任何数据。完整参数列表请参阅 [`config`](api/config/config-property.md) 参考。
+使用 [`config`](api/config/config-property.md) 属性声明哪些字段作为行、列和聚合值显示，以及如何筛选数据。`config` 属性没有预定义值，您必须设置它才能渲染任何数据。完整参数列表请参阅 [`config`](api/config/config-property.md) 参考。
 
 以下代码片段将 `continent` 和 `name` 放在行中，`year` 放在列中，三个聚合放在值中，并对 `name` 添加筛选器：
 
@@ -253,9 +253,9 @@ Pivot 支持与字段数据类型绑定的筛选器。可以在初始化后通�
 
 Pivot 支持按数据类型划分的以下筛选条件：
 
-- 文本字段 — `equal`、`notEqual`、`contains`、`notContains`、`beginsWith`、`notBeginsWith`、`endsWith`、`notEndsWith`、`includes`
-- 数字字段 — `equal`、`notEqual`、`greater`、`greaterOrEqual`、`less`、`lessOrEqual`、`contains`、`notContains`、`beginsWith`、`notBeginsWith`、`endsWith`、`notEndsWith`
-- 日期字段 — `equal`、`notEqual`、`greater`、`greaterOrEqual`、`less`、`lessOrEqual`、`between`、`notBetween`、`includes`
+- 文本字段：`equal`、`notEqual`、`contains`、`notContains`、`beginsWith`、`notBeginsWith`、`endsWith`、`notEndsWith`、`includes`
+- 数字字段：`equal`、`notEqual`、`greater`、`greaterOrEqual`、`less`、`lessOrEqual`、`contains`、`notContains`、`beginsWith`、`notBeginsWith`、`endsWith`、`notEndsWith`
+- 日期字段：`equal`、`notEqual`、`greater`、`greaterOrEqual`、`less`、`lessOrEqual`、`between`、`notBetween`、`includes`
 
 `includes` 规则将筛选器限制为一组特定的允许值。
 
@@ -263,7 +263,7 @@ Pivot 支持按数据类型划分的以下筛选条件：
 
 要声明筛选器，请将 `filters` 对象添加到 [`config`](api/config/config-property.md) 属性中，以字段 ID 为键。每个值是一个筛选条件对象。
 
-以下代码片段应用两个筛选器——一个针对 `genre`（包含 `"D"` 的值，限制为 `"Drama"`），一个针对 `title`（包含 `"A"` 的值）：
+以下代码片段应用两个筛选器：一个针对 `genre`（包含 `"D"` 的值，限制为 `"Drama"`），一个针对 `title`（包含 `"A"` 的值）：
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -304,7 +304,7 @@ const table = new pivot.Pivot("#root", {
 为防止组件在非常大的数据集上挂起，请使用 [`limits`](api/config/limits-property.md) 属性限制最终数据集中的行数和列数。Pivot 在达到限制后中断渲染。默认上限为行 10000、列 5000。
 
 :::note
-限制适用于大型数据集。这些数值是近似值——Pivot 不保证精确的行/列数量。
+限制适用于大型数据集。这些数值是近似值，Pivot 不保证精确的行/列数量。
 :::
 
 以下代码片段将数据集限制为 10 行和 3 列：
@@ -337,19 +337,19 @@ const table = new pivot.Pivot("#root", {
 
 Pivot 包含以下内置聚合方法：
 
-- `sum`（仅限数值）— 对所有选定值求和；忽略空单元格、`TRUE` 等逻辑值和文本
-- `min`（数值和日期值）— 返回最小值；忽略空单元格、逻辑值和文本。如果输入不包含数字，则返回 `0`
-- `max`（数值和日期值）— 返回最大值；忽略空单元格、逻辑值和文本。如果输入不包含数字，则返回 `0`
-- `count`（数值、文本和日期值）— 计算非空白单元格数量；这是分配给每个新添加字段的默认方法
-- `countunique`（数值和文本值）— 计算输入中唯一值的数量
-- `average`（仅限数值）— 计算输入的算术平均值；忽略空单元格、逻辑值和文本。包含值为零的单元格
-- `counta`（数值、文本和日期值）— 计算所有非空白值，包括数字、日期和文本
-- `median`（仅限数值）— 返回输入的中位数
-- `product`（仅限数值）— 返回输入中所有数字的乘积
-- `stdev`（仅限数值）— 标准差，将输入视为较大集合的样本
-- `stdevp`（仅限数值）— 标准差，将输入视为整体总体
-- `var`（仅限数值）— 方差，将输入视为较大集合的样本
-- `varp`（仅限数值）— 方差，将输入视为整体总体
+- `sum`（仅限数值）：对所有选定值求和；忽略空单元格、`TRUE` 等逻辑值和文本
+- `min`（数值和日期值）：返回最小值；忽略空单元格、逻辑值和文本。如果输入不包含数字，则返回 `0`
+- `max`（数值和日期值）：返回最大值；忽略空单元格、逻辑值和文本。如果输入不包含数字，则返回 `0`
+- `count`（数值、文本和日期值）：计算非空白单元格数量；这是分配给每个新添加字段的默认方法
+- `countunique`（数值和文本值）：计算输入中唯一值的数量
+- `average`（仅限数值）：计算输入的算术平均值；忽略空单元格、逻辑值和文本。包含值为零的单元格
+- `counta`（数值、文本和日期值）：计算所有非空白值，包括数字、日期和文本
+- `median`（仅限数值）：返回输入的中位数
+- `product`（仅限数值）：返回输入中所有数字的乘积
+- `stdev`（仅限数值）：标准差，将输入视为较大集合的样本
+- `stdevp`（仅限数值）：标准差，将输入视为整体总体
+- `var`（仅限数值）：方差，将输入视为较大集合的样本
+- `varp`（仅限数值）：方差，将输入视为整体总体
 
 以下代码片段显示内置方法定义：
 
@@ -572,12 +572,12 @@ const defaultPredicates = {
 
 要添加自定义谓词，请配置 [`predicates`](api/config/predicates-property.md) 属性。每个条目将谓词 ID（键）与配置对象配对：
 
-- `type` — 此谓词接受的字段类型（`"number"`、`"date"`、`"text"` 或数组）
-- `label` — 在行/列的 GUI 下拉列表中显示的谓词标签
-- `handler` — 转换值并返回处理结果的函数
-- `template` — 可选函数，控制处理后值的显示方式
-- `field` — 可选函数，将谓词限制为特定字段
-- `filter` — 可选筛选器配置，当筛选器类型应与 `type` 不同，或数据格式应与 `template` 不同时使用
+- `type`：此谓词接受的字段类型（`"number"`、`"date"`、`"text"` 或数组）
+- `label`：在行/列的 GUI 下拉列表中显示的谓词标签
+- `handler`：转换值并返回处理结果的函数
+- `template`：可选函数，控制处理后值的显示方式
+- `field`：可选函数，将谓词限制为特定字段
+- `filter`：可选筛选器配置，当筛选器类型应与 `type` 不同，或数据格式应与 `template` 不同时使用
 
 要使用自定义谓词，请将其 ID 设置为应应用谓词的行或列的 `method`。
 

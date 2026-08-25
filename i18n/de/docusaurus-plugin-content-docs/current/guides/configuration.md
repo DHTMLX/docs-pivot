@@ -8,17 +8,17 @@ description: Sie können mehr über die Konfiguration in der Dokumentation der D
 
 Konfigurieren Sie die Pivot-Tabelle und das Konfigurationspanel über die folgende API:
 
-- [`config`](api/config/config-property.md) — definiert die Struktur der Pivot-Tabelle und wie Daten aggregiert werden
-- [`render-table`](api/events/render-table-event.md) — ändert die Tabellenkonfiguration zur Laufzeit
-- [`tableShape`](api/config/tableshape-property.md) — konfiguriert das Erscheinungsbild der Pivot-Tabelle
-- [`columnShape`](api/config/columnshape-property.md) — konfiguriert das Erscheinungsbild und Verhalten von Spalten
-- [`headerShape`](api/config/headershape-property.md) — konfiguriert das Erscheinungsbild und Verhalten von Kopfzeilen
-- [`configPanel`](api/config/configpanel-property.md) — steuert die Sichtbarkeit des Konfigurationspanels
-- [`setLocale`](api/methods/setlocale-method.md) — wendet ein Locale an (siehe [Lokalisierung](guides/localization.md))
-- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) — lädt Daten und Feld-Metadaten
-- [`predicates`](api/config/predicates-property.md) — verarbeitet Daten vor der Aggregation
-- [`methods`](api/config/methods-property.md) — definiert benutzerdefinierte Aggregationsmethoden
-- [`limits`](api/config/limits-property.md) — begrenzt die Anzahl der Zeilen und Spalten im finalen Datensatz
+- [`config`](api/config/config-property.md) - definiert die Struktur der Pivot-Tabelle und wie Daten aggregiert werden
+- [`render-table`](api/events/render-table-event.md) - ändert die Tabellenkonfiguration zur Laufzeit
+- [`tableShape`](api/config/tableshape-property.md) - konfiguriert das Erscheinungsbild der Pivot-Tabelle
+- [`columnShape`](api/config/columnshape-property.md) - konfiguriert das Erscheinungsbild und Verhalten von Spalten
+- [`headerShape`](api/config/headershape-property.md) - konfiguriert das Erscheinungsbild und Verhalten von Kopfzeilen
+- [`configPanel`](api/config/configpanel-property.md) - steuert die Sichtbarkeit des Konfigurationspanels
+- [`setLocale`](api/methods/setlocale-method.md) - wendet ein Locale an (siehe [Lokalisierung](guides/localization.md))
+- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) - lädt Daten und Feld-Metadaten
+- [`predicates`](api/config/predicates-property.md) - verarbeitet Daten vor der Aggregation
+- [`methods`](api/config/methods-property.md) - definiert benutzerdefinierte Aggregationsmethoden
+- [`limits`](api/config/limits-property.md) - begrenzt die Anzahl der Zeilen und Spalten im finalen Datensatz
 
 Anweisungen zur Arbeit mit Daten finden Sie unter [Mit Daten arbeiten](guides/working-with-data.md).
 
@@ -81,14 +81,14 @@ Um die Breite bestimmter Spalten festzulegen, verwenden Sie den Parameter `width
 
 ## Spalten automatisch an den Inhalt anpassen {#autosize-columns-to-content}
 
-Verwenden Sie den Parameter `autoWidth` der Eigenschaft [`columnShape`](api/config/columnshape-property.md), um Spaltenbreiten automatisch zu berechnen. Alle `autoWidth`-Unterparameter sind optional — vollständige Beschreibungen finden Sie in der Referenz zu [`columnShape`](api/config/columnshape-property.md).
+Verwenden Sie den Parameter `autoWidth` der Eigenschaft [`columnShape`](api/config/columnshape-property.md), um Spaltenbreiten automatisch zu berechnen. Alle `autoWidth`-Unterparameter sind optional. Vollständige Beschreibungen finden Sie in der Referenz zu [`columnShape`](api/config/columnshape-property.md).
 
 Das `autoWidth`-Objekt akzeptiert die folgenden Parameter:
 
-- `columns` — Objekt, das festlegt, welche Felder eine automatisch berechnete Breite erhalten
-- `auto` — passt die Breite an die Kopfzeile, den Zelleninhalt oder beides an
-- `maxRows` — Anzahl der analysierten Datenzeilen zur Ermittlung der Spaltengröße (Standard: 20)
-- `firstOnly` — wenn `true` (Standard), wird jedes Feld nur einmal analysiert. Wenn mehrere Spalten auf demselben Feld basieren (z. B. `oil` mit `count` und `oil` mit `sum`), wird nur die erste Spalte analysiert und die anderen übernehmen deren Breite
+- `columns` - Objekt, das festlegt, welche Felder eine automatisch berechnete Breite erhalten
+- `auto` - passt die Breite an die Kopfzeile, den Zelleninhalt oder beides an
+- `maxRows` - Anzahl der analysierten Datenzeilen zur Ermittlung der Spaltengröße (Standard: 20)
+- `firstOnly` - wenn `true` (Standard), wird jedes Feld nur einmal analysiert. Wenn mehrere Spalten auf demselben Feld basieren (z. B. `oil` mit `count` und `oil` mit `sum`), wird nur die erste Spalte analysiert und die anderen übernehmen deren Breite
 
 Das folgende Code-Snippet aktiviert `autoWidth` für vier Felder und deaktiviert `firstOnly`, sodass jede Spalte eine eigene Messung erhält:
 
@@ -460,7 +460,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## In Spalten sortieren {#sort-in-columns}
 
-Die Sortierung in der Benutzeroberfläche ist standardmäßig aktiviert — Benutzer klicken auf eine Spaltenüberschrift, um zu sortieren. Um sie zu deaktivieren, setzen Sie den Parameter `sort` der Eigenschaft [`columnShape`](api/config/columnshape-property.md) auf `false`.
+Die Sortierung in der Benutzeroberfläche ist standardmäßig aktiviert: Benutzer klicken auf eine Spaltenüberschrift, um zu sortieren. Um sie zu deaktivieren, setzen Sie den Parameter `sort` der Eigenschaft [`columnShape`](api/config/columnshape-property.md) auf `false`.
 
 Das folgende Code-Snippet deaktiviert die UI-Sortierung:
 
@@ -727,10 +727,10 @@ Als alternative API verwenden Sie die Methode [`showConfigPanel`](api/methods/sh
 
 Das Konfigurationspanel unterstützt die folgenden Feldoperationen:
 
-- [`add-field`](api/events/add-field-event.md) — ein Feld zu einem Bereich hinzufügen
-- [`delete-field`](api/events/delete-field-event.md) — ein Feld aus einem Bereich entfernen
-- [`update-field`](api/events/update-field-event.md) — die Methode oder Einstellungen eines Feldes aktualisieren
-- [`move-field`](api/events/move-field-event.md) — Felder innerhalb eines Bereichs neu anordnen
+- [`add-field`](api/events/add-field-event.md) - ein Feld zu einem Bereich hinzufügen
+- [`delete-field`](api/events/delete-field-event.md) - ein Feld aus einem Bereich entfernen
+- [`update-field`](api/events/update-field-event.md) - die Methode oder Einstellungen eines Feldes aktualisieren
+- [`move-field`](api/events/move-field-event.md) - Felder innerhalb eines Bereichs neu anordnen
 
 **Verwandte Beispiele**:
 - [Pivot 2. Texttemplates für Tabellen- und Kopfzeilenzellen hinzufügen](https://snippet.dhtmlx.com/n9ylp6b2)

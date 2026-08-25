@@ -167,9 +167,9 @@ Pivot은 외부 JS 파싱 라이브러리로 CSV 데이터를 JSON으로 변환�
 
 아래 예제는 외부 [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) 라이브러리를 사용하여 버튼 클릭 시 데이터를 로드하고 변환합니다. `convert()` 헬퍼는 다음 매개변수를 받습니다:
 
-- `data` — CSV 데이터 문자열
-- `headers` — CSV 필드 이름 배열
-- `meta` — 필드 이름을 데이터 타입에 매핑하는 객체
+- `data` - CSV 데이터 문자열
+- `headers` - CSV 필드 이름 배열
+- `meta` - 필드 이름을 데이터 타입에 매핑하는 객체
 
 다음 코드 스니펫은 Pivot을 생성하고, `convert()` 헬퍼를 정의하며, 버튼 클릭 시 [`setConfig`](api/methods/setconfig-method.md)를 통해 파싱된 CSV 데이터를 적용합니다:
 

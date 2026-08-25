@@ -112,7 +112,7 @@ Pivot 提供一个内置主题：**Material**。可通过向 widget 容器添加
 以下示例为正文和表头单元格应用样式：
 
 - 正文单元格根据单元格值（例如 `status` 字段中的 `"Down"`、`"Up"`、`"Idle"`）以及汇总值（大于 40 或小于 5）接收相应类名
-- 表头单元格根据 `streaming` 字段的值接收类名——值为 `"no"` 时使用 `status-down`，其他值使用 `status-up`
+- 表头单元格根据 `streaming` 字段的值接收类名：值为 `"no"` 时使用 `status-down`，其他值使用 `status-up`
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {

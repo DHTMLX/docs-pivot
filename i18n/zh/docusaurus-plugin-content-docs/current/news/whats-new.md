@@ -108,7 +108,7 @@ description: 您可以在 DHTMLX JavaScript UI 库的文档中查阅 DHTMLX Pivo
 - 数据聚合新增更多功能：
   - [限制加载的数据量](guides/working-with-data.md#limiting-loaded-data)
   - 支持更多[数据操作](guides/working-with-data.md#applying-maths-methods)
-  - [使用谓词处理数据](guides/working-with-data.md#processing-data-with-predicates) — 为数据应用自定义预处理函数
+  - [使用谓词处理数据](guides/working-with-data.md#processing-data-with-predicates)：为数据应用自定义预处理函数
   - [通过语言环境设置日期格式](guides/localization.md#date-formatting)
 - 新增方法：[`getTable()`](api/methods/gettable-method.md)、[`setConfig()`](api/methods/setconfig-method.md)、[`setLocale()`](api/methods/setlocale-method.md)、[`showConfigPanel()`](api/methods/showconfigpanel-method.md)
 - 新增事件：[`add-field`](api/events/add-field-event.md)、[`delete-field`](api/events/delete-field-event.md)、[`open-filter`](api/events/open-filter-event.md)、[`render-table`](api/events/render-table-event.md)、[`move-field`](api/events/move-field-event.md)、[`show-config-panel`](api/events/show-config-panel-event.md)、[`show-config-panel`](api/events/show-config-panel-event.md)、[`update-config`](api/events/update-config-event.md)、[`update-field`](api/events/update-field-event.md)。

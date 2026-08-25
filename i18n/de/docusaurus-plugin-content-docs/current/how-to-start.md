@@ -1,7 +1,7 @@
 ---
 sidebar_label: Erste Schritte
 title: Erste Schritte
-description: Erfahren Sie, wie Sie mit DHTMLX Pivot arbeiten – in der Dokumentation der DHTMLX JavaScript Pivot-Bibliothek. Durchsuchen Sie Entwicklerleitfäden und API-Referenzen, probieren Sie Codebeispiele und Live-Demos aus und laden Sie eine kostenlose 30-Tage-Evaluierungsversion von DHTMLX Pivot herunter.
+description: Erfahren Sie in der Dokumentation der DHTMLX JavaScript Pivot-Bibliothek, wie Sie mit DHTMLX Pivot arbeiten. Durchsuchen Sie Entwicklerleitfäden und API-Referenzen, probieren Sie Codebeispiele und Live-Demos aus und laden Sie eine kostenlose 30-Tage-Evaluierungsversion von DHTMLX Pivot herunter.
 ---
 
 # Erste Schritte {#how-to-start}

@@ -1,11 +1,11 @@
 ---
 sidebar_label: Pivot-Übersicht
-title: JavaScript Pivot – Übersicht
+title: Übersicht über JavaScript Pivot
 slug: /
 description: In dieser Dokumentation erhalten Sie einen Überblick über die DHTMLX JavaScript Pivot-Bibliothek. Durchsuchen Sie Entwicklerhandbücher und die API-Referenz, probieren Sie Code-Beispiele und Live-Demos aus und laden Sie eine kostenlose 30-Tage-Evaluierungsversion von DHTMLX Pivot herunter.
 ---
 
-# DHTMLX Pivot – Übersicht {#dhtmlx-pivot-overview}
+# Übersicht über DHTMLX Pivot {#dhtmlx-pivot-overview}
 
 Die JavaScript Pivot-Bibliothek ist eine fertige Komponente zur Erstellung von Pivot-Tabellen aus großen Datensätzen. Die Widget-API lässt sich problemlos an die Anforderungen Ihrer Webanwendung anpassen. Sie bietet dem Endbenutzer Funktionen zum Vergleichen und Analysieren komplexer Daten innerhalb einer einzigen Tabelle.
 

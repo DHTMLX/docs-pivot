@@ -6,7 +6,7 @@ description: Конфигурация, методы агрегации, пред
 
 # MCP-сервер DHTMLX Pivot: конфигурация, агрегация и экспорт {#dhtmlx-pivot-mcp-server-configuration-aggregation-and-export}
 
-DHTMLX Pivot превращает [единый объект конфигурации](api/config/config-property.md) в полностью агрегированную таблицу и открывает доступ к целому второму API — [базовому виджету Table](api/methods/gettable-method.md) — для экспорта данных или раскрытия строк дерева. Изменения макета и полные перерисовки таблицы запускают собственные события: [редактирование макета](api/events/update-config-event.md) вызывает одно событие, а [каждая перерисовка внутри](api/events/render-table-event.md) — другое. Чтобы не ошибиться во всём этом, нужна актуальная документация, а не устаревшая догадка.
+DHTMLX Pivot превращает [единый объект конфигурации](api/config/config-property.md) в полностью агрегированную таблицу и открывает доступ к целому второму API, [базовому виджету Table](api/methods/gettable-method.md), для экспорта данных или раскрытия строк дерева. Изменения макета и полные перерисовки таблицы запускают собственные события: [редактирование макета](api/events/update-config-event.md) вызывает одно событие, а [каждая перерисовка внутри](api/events/render-table-event.md) — другое. Чтобы не ошибиться во всём этом, нужна актуальная документация, а не устаревшая догадка.
 
 Вместо этого обратитесь к MCP-серверу DHTMLX: он возвращает [актуальную структуру `config`](api/config/config-property.md), [путь экспорта через getTable()](guides/exporting-data.md) и [нужное событие для сохранения состояния](/guides/working-with-server#save-the-users-layout-to-resume-the-session), поэтому ассистент генерирует код, который соответствует тому, как Pivot на самом деле ведёт себя сегодня.
 
@@ -27,7 +27,7 @@ MCP-сервер может рассказать почти всё о докум
 - Поиска актуального API для [методов](api/overview/methods-overview.md), [событий](api/overview/events-overview.md) и [свойств](api/overview/properties-overview.md), включая методы [Event Bus](api/overview/internal-eventbus-overview.md) и [состояния](api/overview/internal-state-overview.md).
 - Генерации готового к запуску кода [инициализации](guides/initialization.md) с нужными для конкретной таблицы `fields`, `data` и структурой [`config`](api/config/config-property.md).
 - Определения [строк, столбцов и значений](guides/working-with-data.md#define-pivot-structure) в свойстве `config`, включая обе допустимые формы записи `values`.
-- Выбора или написания [методов агрегации](guides/working-with-data.md#applying-maths-methods) — от встроенного набора `sum`/`count`/`average` до пользовательского метода, добавленного через свойство [`methods`](api/config/methods-property.md).
+- Выбора или написания [методов агрегации](guides/working-with-data.md#applying-maths-methods), от встроенного набора `sum`/`count`/`average` до пользовательского метода, добавленного через свойство [`methods`](api/config/methods-property.md).
 - Предварительной обработки данных с помощью [предикатов](guides/working-with-data.md#processing-data-with-predicates) перед агрегацией, например группировки дат по месяцам.
 - Изменения размера, закрепления и шаблонизации ячеек таблицы через [`tableShape`](api/config/tableshape-property.md) и [`headerShape`](api/config/headershape-property.md), включая [режим дерева](guides/configuration.md#enabling-the-tree-mode) и [закреплённые столбцы](guides/configuration.md#freezing-columns).
 - [Локализации](guides/localization.md) подписей и форматов дат/чисел, а также [стилизации](guides/stylization.md) таблицы с помощью CSS-переменных `--wx-pivot-*`.
@@ -36,7 +36,7 @@ MCP-сервер может рассказать почти всё о докум
 
 ## Куда попадает вопрос о Pivot в MCP {#where-a-pivot-question-lands-in-mcp}
 
-Вопрос о Pivot, отправленный на MCP-сервер DHTMLX, проходит через конвейер Retrieval-Augmented Generation (RAG), построенный на Model Context Protocol (MCP), и попадает в один из двух сценариев: *Search*, который возвращает подходящие страницы документации, из которых ассистент пишет ответ, или *Inference*, который читает эти страницы и сам отвечает на вопрос. Обращения к документации требует только половина этого запроса. Ассистент выделяет эту половину и дописывает остальное — логику сохранения, специфичную для конкретного сервера, — из того, что уже знает.
+Вопрос о Pivot, отправленный на MCP-сервер DHTMLX, проходит через конвейер Retrieval-Augmented Generation (RAG), построенный на Model Context Protocol (MCP), и попадает в один из двух сценариев: *Search*, который возвращает подходящие страницы документации, из которых ассистент пишет ответ, или *Inference*, который читает эти страницы и сам отвечает на вопрос. Обращения к документации требует только половина этого запроса. Ассистент выделяет эту половину и дописывает остальное (логику сохранения, специфичную для конкретного сервера) из того, что уже знает.
 
 Рассмотрим промпт *«Напиши обработчик, который сохраняет config Pivot на сервер при каждом изменении макета»*:
 
@@ -51,13 +51,13 @@ MCP-сервер может рассказать почти всё о докум
 
 ## Подключение ИИ-инструмента к MCP-серверу {#linking-your-ai-tool-to-the-mcp-server}
 
-Какой бы инструмент разработки с ИИ вы ни использовали вместе с Pivot, подключение к MCP-серверу сводится к одному шагу: указать в нём URL конечной точки ниже — через команду CLI или JSON-файл конфигурации.
+Какой бы инструмент разработки с ИИ вы ни использовали вместе с Pivot, подключение к MCP-серверу сводится к одному шагу: указать в нём URL конечной точки ниже, используя команду CLI или JSON-файл конфигурации.
 
 ~~~jsx
 https://docs.dhtmlx.com/mcp
 ~~~
 
-Далее — инструкции по настройке для популярных инструментов.
+Далее следуют инструкции по настройке для популярных инструментов.
 
 ### Claude Code {#claude-code}
 
@@ -87,7 +87,7 @@ claude mcp add --transport http dhtmlx-mcp https://docs.dhtmlx.com/mcp
 ### Cursor {#cursor}
 
 :::info
-Полный набор параметров настройки MCP — в [официальной документации](https://cursor.com/en-US/docs/mcp) Cursor.
+Полный набор параметров настройки MCP приведён в [официальной документации](https://cursor.com/en-US/docs/mcp) Cursor.
 :::
 
 Шаги для добавления сервера:
@@ -112,7 +112,7 @@ claude mcp add --transport http dhtmlx-mcp https://docs.dhtmlx.com/mcp
 #### Antigravity 2.0 {#antigravity-20}
 
 :::info
-Полная картина по интеграции MCP-сервера в Antigravity — в [официальной документации](https://antigravity.google/docs/mcp).
+Полная картина по интеграции MCP-сервера в Antigravity описана в [официальной документации](https://antigravity.google/docs/mcp).
 :::
 
 Чтобы подключить MCP-сервер DHTMLX к Google Antigravity, выполните следующие шаги:
@@ -158,7 +158,7 @@ https://docs.dhtmlx.com/mcp
 ### ChatGPT {#chatgpt}
 
 :::info
-Все шаги настройки MCP-коннектора в ChatGPT — в [официальной документации](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt).
+Все шаги настройки MCP-коннектора в ChatGPT описаны в [официальной документации](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt).
 :::
 
 Шаги настройки коннектора:

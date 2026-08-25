@@ -8,17 +8,17 @@ description: You can learn about the configuration in the documentation of the D
 
 Configure the Pivot table and the Configuration panel through the following API:
 
-- [`config`](api/config/config-property.md) — define the structure of the Pivot table and how data is aggregated
-- [`render-table`](api/events/render-table-event.md) — change the table configuration on the fly
-- [`tableShape`](api/config/tableshape-property.md) — configure the look of the Pivot table
-- [`columnShape`](api/config/columnshape-property.md) — configure the look and behavior of columns
-- [`headerShape`](api/config/headershape-property.md) — configure the look and behavior of headers
-- [`configPanel`](api/config/configpanel-property.md) — control the visibility of the Configuration panel
-- [`setLocale`](api/methods/setlocale-method.md) — apply a locale (see [Localization](guides/localization.md))
-- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) — load data and field metadata
-- [`predicates`](api/config/predicates-property.md) — pre-process data before aggregation
-- [`methods`](api/config/methods-property.md) — define custom aggregation methods
-- [`limits`](api/config/limits-property.md) — cap the number of rows and columns in the final dataset
+- [`config`](api/config/config-property.md) - define the structure of the Pivot table and how data is aggregated
+- [`render-table`](api/events/render-table-event.md) - change the table configuration on the fly
+- [`tableShape`](api/config/tableshape-property.md) - configure the look of the Pivot table
+- [`columnShape`](api/config/columnshape-property.md) - configure the look and behavior of columns
+- [`headerShape`](api/config/headershape-property.md) - configure the look and behavior of headers
+- [`configPanel`](api/config/configpanel-property.md) - control the visibility of the Configuration panel
+- [`setLocale`](api/methods/setlocale-method.md) - apply a locale (see [Localization](guides/localization.md))
+- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) - load data and field metadata
+- [`predicates`](api/config/predicates-property.md) - pre-process data before aggregation
+- [`methods`](api/config/methods-property.md) - define custom aggregation methods
+- [`limits`](api/config/limits-property.md) - cap the number of rows and columns in the final dataset
 
 For instructions on working with data, see [Working with data](guides/working-with-data.md).
 
@@ -81,14 +81,14 @@ To set the width of specific columns, use the `width` parameter of the [`columnS
 
 ## Autosize columns to content
 
-Use the `autoWidth` parameter of the [`columnShape`](api/config/columnshape-property.md) property to calculate column widths automatically. All `autoWidth` sub-parameters are optional — for full descriptions see the [`columnShape`](api/config/columnshape-property.md) reference.
+Use the `autoWidth` parameter of the [`columnShape`](api/config/columnshape-property.md) property to calculate column widths automatically. All `autoWidth` sub-parameters are optional. For full descriptions, see the [`columnShape`](api/config/columnshape-property.md) reference.
 
 The `autoWidth` object accepts the following parameters:
 
-- `columns` — object that selects which fields receive auto-calculated width
-- `auto` — adjusts the width to the header, the cell content, or both
-- `maxRows` — number of data rows analyzed to detect column size (default: 20)
-- `firstOnly` — if `true` (default), analyzes each field only once. When multiple columns are based on the same field (e.g., `oil` with `count` and `oil` with `sum`), only the first column is analyzed and the others inherit its width
+- `columns` - object that selects which fields receive auto-calculated width
+- `auto` - adjusts the width to the header, the cell content, or both
+- `maxRows` - number of data rows analyzed to detect column size (default: 20)
+- `firstOnly` - if `true` (default), analyzes each field only once. When multiple columns are based on the same field (e.g., `oil` with `count` and `oil` with `sum`), only the first column is analyzed and the others inherit its width
 
 The following code snippet enables `autoWidth` for four fields and disables `firstOnly` so every column gets its own measurement:
 
@@ -460,7 +460,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## Sort in columns
 
-Sorting in the UI is enabled by default — users click a column header to sort. To disable it, set the `sort` parameter of the [`columnShape`](api/config/columnshape-property.md) property to `false`.
+Sorting in the UI is enabled by default: users click a column header to sort. To disable it, set the `sort` parameter of the [`columnShape`](api/config/columnshape-property.md) property to `false`.
 
 The following code snippet disables UI sorting:
 
@@ -727,10 +727,10 @@ For an alternative API, use the [`showConfigPanel`](api/methods/showconfigpanel-
 
 The Configuration panel supports the following field operations:
 
-- [`add-field`](api/events/add-field-event.md) — add a field to an area
-- [`delete-field`](api/events/delete-field-event.md) — remove a field from an area
-- [`update-field`](api/events/update-field-event.md) — update a field's method or settings
-- [`move-field`](api/events/move-field-event.md) — reorder fields within an area
+- [`add-field`](api/events/add-field-event.md) - add a field to an area
+- [`delete-field`](api/events/delete-field-event.md) - remove a field from an area
+- [`update-field`](api/events/update-field-event.md) - update a field's method or settings
+- [`move-field`](api/events/move-field-event.md) - reorder fields within an area
 
 **Related samples**:
 - [Pivot 2. Adding text templates for table and header cells](https://snippet.dhtmlx.com/n9ylp6b2)

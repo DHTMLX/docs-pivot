@@ -6,7 +6,7 @@ description: Sie können in der Dokumentation erfahren, wie TypeScript mit der D
 
 # TypeScript-Unterstützung {#typescript-support}
 
-DHTMLX Pivot wird ab v2.0 mit TypeScript-Definitionen geliefert. Die Definitionen sind sofort einsatzbereit – keine zusätzliche Konfiguration erforderlich.
+DHTMLX Pivot wird ab v2.0 mit TypeScript-Definitionen geliefert. Die Definitionen sind sofort einsatzbereit, eine zusätzliche Konfiguration ist nicht erforderlich.
 
 :::info
 Testen Sie Pivot live im [Snippet-Tool](https://snippet.dhtmlx.com/y2buoahe).

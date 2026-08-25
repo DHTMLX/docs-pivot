@@ -66,10 +66,10 @@ const table = new pivot.Pivot("#root", {
 
 构造函数返回一个 Pivot 实例。可在返回的实例上调用以下 API 方法：
 
-- [`getTable`](api/methods/gettable-method.md) — 获取底层 Table 组件实例
-- [`setConfig`](api/methods/setconfig-method.md) — 更新当前 Pivot 配置
-- [`setLocale`](api/methods/setlocale-method.md) — 为 Pivot 应用新的语言环境
-- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — 显示或隐藏配置面板
+- [`getTable`](api/methods/gettable-method.md)：获取底层 Table 组件实例
+- [`setConfig`](api/methods/setconfig-method.md)：更新当前 Pivot 配置
+- [`setLocale`](api/methods/setlocale-method.md)：为 Pivot 应用新的语言环境
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md)：显示或隐藏配置面板
 
 ## 配置属性 {#configuration-properties}
 

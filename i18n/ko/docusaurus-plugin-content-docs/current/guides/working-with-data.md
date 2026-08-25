@@ -253,9 +253,9 @@ UI에서 필터는 각 필드의 드롭다운 목록으로 표시됩니다.
 
 Pivot은 데이터 타입별로 다음과 같은 필터 조건을 지원합니다:
 
-- 텍스트 필드 — `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
-- 숫자 필드 — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
-- 날짜 필드 — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
+- 텍스트 필드: `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
+- 숫자 필드: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
+- 날짜 필드: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
 
 `includes` 규칙은 필터를 특정 허용 값 집합으로 제한합니다.
 
@@ -263,7 +263,7 @@ Pivot은 데이터 타입별로 다음과 같은 필터 조건을 지원합니�
 
 필터를 선언하려면 [`config`](api/config/config-property.md) 속성에 `filters` 객체를 추가하고 필드 ID를 키로 사용합니다. 각 값은 필터 조건 객체입니다.
 
-다음 코드 예제는 두 개의 필터를 적용합니다 — `genre`에 하나(`"D"`를 포함하는 값, `"Drama"`로 제한)와 `title`에 하나(`"A"`를 포함하는 값):
+다음 코드 예제는 두 개의 필터를 적용합니다: `genre`에 하나(`"D"`를 포함하는 값, `"Drama"`로 제한)와 `title`에 하나(`"A"`를 포함하는 값):
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -337,19 +337,19 @@ const table = new pivot.Pivot("#root", {
 
 Pivot에는 다음과 같은 기본 집계 메서드가 포함되어 있습니다:
 
-- `sum` (숫자 값만) — 선택된 모든 값을 합산하며, 빈 셀, `TRUE`와 같은 논리 값, 텍스트는 무시합니다
-- `min` (숫자 및 날짜 값) — 최솟값을 반환하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 입력에 숫자가 없으면 `0`을 반환합니다
-- `max` (숫자 및 날짜 값) — 최댓값을 반환하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 입력에 숫자가 없으면 `0`을 반환합니다
-- `count` (숫자, 텍스트, 날짜 값) — 비어 있지 않은 셀을 계산하며, 새로 추가된 모든 필드에 기본으로 할당되는 메서드입니다
-- `countunique` (숫자 및 텍스트 값) — 입력에서 고유한 값의 수를 계산합니다
-- `average` (숫자 값만) — 입력의 산술 평균을 계산하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 값이 0인 셀은 포함합니다
-- `counta` (숫자, 텍스트, 날짜 값) — 숫자, 날짜, 텍스트를 포함한 모든 비어 있지 않은 값을 계산합니다
-- `median` (숫자 값만) — 입력의 중앙값을 반환합니다
-- `product` (숫자 값만) — 입력의 모든 숫자의 곱을 반환합니다
-- `stdev` (숫자 값만) — 표준 편차이며, 입력을 더 큰 집합의 표본으로 처리합니다
-- `stdevp` (숫자 값만) — 표준 편차이며, 입력을 전체 모집단으로 처리합니다
-- `var` (숫자 값만) — 분산이며, 입력을 더 큰 집합의 표본으로 처리합니다
-- `varp` (숫자 값만) — 분산이며, 입력을 전체 모집단으로 처리합니다
+- `sum` (숫자 값만) - 선택된 모든 값을 합산하며, 빈 셀, `TRUE`와 같은 논리 값, 텍스트는 무시합니다
+- `min` (숫자 및 날짜 값) - 최솟값을 반환하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 입력에 숫자가 없으면 `0`을 반환합니다
+- `max` (숫자 및 날짜 값) - 최댓값을 반환하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 입력에 숫자가 없으면 `0`을 반환합니다
+- `count` (숫자, 텍스트, 날짜 값) - 비어 있지 않은 셀을 계산하며, 새로 추가된 모든 필드에 기본으로 할당되는 메서드입니다
+- `countunique` (숫자 및 텍스트 값) - 입력에서 고유한 값의 수를 계산합니다
+- `average` (숫자 값만) - 입력의 산술 평균을 계산하며, 빈 셀, 논리 값, 텍스트는 무시합니다. 값이 0인 셀은 포함합니다
+- `counta` (숫자, 텍스트, 날짜 값) - 숫자, 날짜, 텍스트를 포함한 모든 비어 있지 않은 값을 계산합니다
+- `median` (숫자 값만) - 입력의 중앙값을 반환합니다
+- `product` (숫자 값만) - 입력의 모든 숫자의 곱을 반환합니다
+- `stdev` (숫자 값만) - 표준 편차이며, 입력을 더 큰 집합의 표본으로 처리합니다
+- `stdevp` (숫자 값만) - 표준 편차이며, 입력을 전체 모집단으로 처리합니다
+- `var` (숫자 값만) - 분산이며, 입력을 더 큰 집합의 표본으로 처리합니다
+- `varp` (숫자 값만) - 분산이며, 입력을 전체 모집단으로 처리합니다
 
 다음 코드 예제는 내장 메서드 정의를 보여줍니다:
 
@@ -572,12 +572,12 @@ const defaultPredicates = {
 
 커스텀 프레디케이트를 추가하려면 [`predicates`](api/config/predicates-property.md) 속성을 구성합니다. 각 항목은 프레디케이트 ID(키)와 구성 객체를 쌍으로 구성합니다:
 
-- `type` — 이 프레디케이트가 받는 필드 타입 (`"number"`, `"date"`, `"text"` 또는 배열)
-- `label` — 행/열의 GUI 드롭다운에 표시되는 프레디케이트 레이블
-- `handler` — 값을 변환하고 처리된 값을 반환하는 함수
-- `template` — 처리된 값의 표시 방식을 제어하는 선택적 함수
-- `field` — 프레디케이트를 특정 필드로 제한하는 선택적 함수
-- `filter` — 필터 타입이 `type`과 달라야 하거나, 데이터 포맷이 `template`과 달라야 할 때 사용하는 선택적 필터 구성
+- `type` - 이 프레디케이트가 받는 필드 타입 (`"number"`, `"date"`, `"text"` 또는 배열)
+- `label` - 행/열의 GUI 드롭다운에 표시되는 프레디케이트 레이블
+- `handler` - 값을 변환하고 처리된 값을 반환하는 함수
+- `template` - 처리된 값의 표시 방식을 제어하는 선택적 함수
+- `field` - 프레디케이트를 특정 필드로 제한하는 선택적 함수
+- `filter` - 필터 타입이 `type`과 달라야 하거나, 데이터 포맷이 `template`과 달라야 할 때 사용하는 선택적 필터 구성
 
 커스텀 프레디케이트를 사용하려면 해당 ID를 프레디케이트가 적용될 행 또는 열의 `method`로 설정합니다.
 

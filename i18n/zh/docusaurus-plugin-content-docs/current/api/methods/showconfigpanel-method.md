@@ -20,7 +20,7 @@ showConfigPanel({mode: boolean}): void;
 
 ### 参数 {#parameters}
 
-- `mode`（boolean）—（必填）若值设置为 **true**（默认值），则显示配置面板；若值设置为 **false**，则隐藏配置面板
+- `mode`（boolean）：（必填）若值设置为 **true**（默认值），则显示配置面板；若值设置为 **false**，则隐藏配置面板
 
 ### 示例 {#example}
 

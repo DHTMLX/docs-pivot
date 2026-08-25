@@ -112,7 +112,7 @@ Pivot은 하나의 내장 테마인 **Material**을 제공합니다. 위젯 컨�
 아래 예제는 본문 셀과 헤더 셀에 스타일을 적용합니다:
 
 - 본문 셀은 셀 값(예: `status` 필드의 `"Down"`, `"Up"`, `"Idle"`)과 합계 값(40보다 크거나 5보다 작은 경우)에 따라 클래스를 받습니다.
-- 헤더 셀은 `streaming` 필드의 값에 따라 클래스를 받습니다 — `"no"`이면 `status-down`, 다른 값이면 `status-up`
+- 헤더 셀은 `streaming` 필드의 값에 따라 클래스를 받습니다: `"no"`이면 `status-down`, 다른 값이면 `status-up`
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {
