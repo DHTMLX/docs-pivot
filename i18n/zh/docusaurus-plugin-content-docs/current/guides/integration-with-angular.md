@@ -25,7 +25,7 @@ ng new my-angular-pivot-app
 ~~~
 
 :::note
-当 Angular CLI 询问时，请禁用服务器端渲染（SSR）和静态站点生成（SSG/Prerendering）——本指南假设使用客户端渲染应用。
+当 Angular CLI 询问时，请禁用服务器端渲染（SSR）和静态站点生成（SSG/Prerendering）。本指南假设使用客户端渲染应用。
 :::
 
 该命令会安装所有必要的工具，无需执行其他命令。

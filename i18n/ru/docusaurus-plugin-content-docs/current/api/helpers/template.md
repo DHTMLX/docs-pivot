@@ -71,7 +71,7 @@ pivot.template({value, field, method, cell, column}) =>  string;
 
 ### Пример {#example}
 
-Фрагмент ниже показывает, как определять шаблоны с помощью хелпера `pivot.template`. Хелпер применяется непосредственно перед отрисовкой таблицы — путём перехвата события [render-table](api/events/render-table-event.md) с помощью метода [api.intercept()](api/internal/intercept-method.md).
+Фрагмент ниже показывает, как определять шаблоны с помощью хелпера `pivot.template`. Хелпер применяется непосредственно перед отрисовкой таблицы, путём перехвата события [render-table](api/events/render-table-event.md) с помощью метода [api.intercept()](api/internal/intercept-method.md).
 
 Фрагмент демонстрирует, как добавлять иконки к:
 

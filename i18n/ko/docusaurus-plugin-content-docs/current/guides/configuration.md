@@ -8,17 +8,17 @@ description: DHTMLX JavaScript Pivot 라이브러리 문서에서 구성에 대�
 
 다음 API를 통해 Pivot 테이블과 구성 패널을 설정합니다:
 
-- [`config`](api/config/config-property.md) — Pivot 테이블의 구조와 데이터 집계 방식을 정의합니다
-- [`render-table`](api/events/render-table-event.md) — 테이블 구성을 런타임에 변경합니다
-- [`tableShape`](api/config/tableshape-property.md) — Pivot 테이블의 외관을 설정합니다
-- [`columnShape`](api/config/columnshape-property.md) — 열의 외관과 동작을 설정합니다
-- [`headerShape`](api/config/headershape-property.md) — 헤더의 외관과 동작을 설정합니다
-- [`configPanel`](api/config/configpanel-property.md) — 구성 패널의 표시 여부를 제어합니다
-- [`setLocale`](api/methods/setlocale-method.md) — 로케일을 적용합니다([지역화](guides/localization.md) 참조)
-- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) — 데이터와 필드 메타데이터를 불러옵니다
-- [`predicates`](api/config/predicates-property.md) — 집계 전에 데이터를 전처리합니다
-- [`methods`](api/config/methods-property.md) — 사용자 정의 집계 메서드를 정의합니다
-- [`limits`](api/config/limits-property.md) — 최종 데이터셋의 행과 열 수를 제한합니다
+- [`config`](api/config/config-property.md) - Pivot 테이블의 구조와 데이터 집계 방식을 정의합니다
+- [`render-table`](api/events/render-table-event.md) - 테이블 구성을 런타임에 변경합니다
+- [`tableShape`](api/config/tableshape-property.md) - Pivot 테이블의 외관을 설정합니다
+- [`columnShape`](api/config/columnshape-property.md) - 열의 외관과 동작을 설정합니다
+- [`headerShape`](api/config/headershape-property.md) - 헤더의 외관과 동작을 설정합니다
+- [`configPanel`](api/config/configpanel-property.md) - 구성 패널의 표시 여부를 제어합니다
+- [`setLocale`](api/methods/setlocale-method.md) - 로케일을 적용합니다([지역화](guides/localization.md) 참조)
+- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) - 데이터와 필드 메타데이터를 불러옵니다
+- [`predicates`](api/config/predicates-property.md) - 집계 전에 데이터를 전처리합니다
+- [`methods`](api/config/methods-property.md) - 사용자 정의 집계 메서드를 정의합니다
+- [`limits`](api/config/limits-property.md) - 최종 데이터셋의 행과 열 수를 제한합니다
 
 데이터 작업에 대한 자세한 내용은 [데이터 작업](guides/working-with-data.md)을 참조하세요.
 
@@ -85,10 +85,10 @@ const table = new pivot.Pivot("#root", {
 
 `autoWidth` 객체는 다음 매개변수를 받습니다:
 
-- `columns` — 자동 계산 너비를 적용할 필드를 선택하는 객체
-- `auto` — 너비를 헤더, 셀 콘텐츠, 또는 둘 다에 맞춥니다
-- `maxRows` — 열 크기를 감지하기 위해 분석할 데이터 행 수(기본값: 20)
-- `firstOnly` — `true`(기본값)이면 각 필드를 한 번만 분석합니다. 동일한 필드 기반의 여러 열(예: `count`와 `sum`을 사용하는 `oil`)이 있을 경우, 첫 번째 열만 분석하고 나머지 열은 해당 너비를 상속합니다
+- `columns` - 자동 계산 너비를 적용할 필드를 선택하는 객체
+- `auto` - 너비를 헤더, 셀 콘텐츠, 또는 둘 다에 맞춥니다
+- `maxRows` - 열 크기를 감지하기 위해 분석할 데이터 행 수(기본값: 20)
+- `firstOnly` - `true`(기본값)이면 각 필드를 한 번만 분석합니다. 동일한 필드 기반의 여러 열(예: `count`와 `sum`을 사용하는 `oil`)이 있을 경우, 첫 번째 열만 분석하고 나머지 열은 해당 너비를 상속합니다
 
 다음 코드 스니펫은 네 개의 필드에 `autoWidth`를 활성화하고, `firstOnly`를 비활성화하여 각 열이 개별적으로 측정되도록 합니다:
 
@@ -727,10 +727,10 @@ table.api.intercept("show-config-panel", () => {
 
 구성 패널은 다음 필드 작업을 지원합니다:
 
-- [`add-field`](api/events/add-field-event.md) — 영역에 필드를 추가합니다
-- [`delete-field`](api/events/delete-field-event.md) — 영역에서 필드를 제거합니다
-- [`update-field`](api/events/update-field-event.md) — 필드의 메서드 또는 설정을 업데이트합니다
-- [`move-field`](api/events/move-field-event.md) — 영역 내 필드의 순서를 변경합니다
+- [`add-field`](api/events/add-field-event.md) - 영역에 필드를 추가합니다
+- [`delete-field`](api/events/delete-field-event.md) - 영역에서 필드를 제거합니다
+- [`update-field`](api/events/update-field-event.md) - 필드의 메서드 또는 설정을 업데이트합니다
+- [`move-field`](api/events/move-field-event.md) - 영역 내 필드의 순서를 변경합니다
 
 **관련 예제**:
 - [Pivot 2. 테이블 및 헤더 셀에 텍스트 템플릿 추가](https://snippet.dhtmlx.com/n9ylp6b2)

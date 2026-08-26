@@ -10,7 +10,7 @@ Diese Seite beschreibt, wie Sie Daten in Pivot aggregieren, formatieren, sortier
 
 ## Felder definieren {#define-fields}
 
-Verwenden Sie die Eigenschaft [`fields`](api/config/fields-property.md), um die Felder zu deklarieren, die Pivot in Zeilen, Spalten und Werten platzieren kann. Jedes Element im `fields`-Array beschreibt ein Feld — seine ID, sein Label und seinen Datentyp.
+Verwenden Sie die Eigenschaft [`fields`](api/config/fields-property.md), um die Felder zu deklarieren, die Pivot in Zeilen, Spalten und Werten platzieren kann. Jedes Element im `fields`-Array beschreibt ein Feld: seine ID, sein Label und seinen Datentyp.
 
 Der folgende Code-Ausschnitt initialisiert Pivot mit fünf Feldern:
 
@@ -127,7 +127,7 @@ Für das `xlsx`-Exportformat exportiert Pivot Datums- und Zahlenfelder als Rohwe
 
 ## Pivot-Struktur definieren {#define-pivot-structure}
 
-Verwenden Sie die Eigenschaft [`config`](api/config/config-property.md), um zu deklarieren, welche Felder als Zeilen, Spalten und aggregierte Werte erscheinen und wie die Daten gefiltert werden. Die Eigenschaft `config` hat keine vordefinierten Werte — Sie müssen sie setzen, um Daten zu rendern. Die vollständige Parameterliste finden Sie in der Referenz zu [`config`](api/config/config-property.md).
+Verwenden Sie die Eigenschaft [`config`](api/config/config-property.md), um zu deklarieren, welche Felder als Zeilen, Spalten und aggregierte Werte erscheinen und wie die Daten gefiltert werden. Die Eigenschaft `config` hat keine vordefinierten Werte, daher müssen Sie sie setzen, um Daten zu rendern. Die vollständige Parameterliste finden Sie in der Referenz zu [`config`](api/config/config-property.md).
 
 Der folgende Code-Ausschnitt platziert `continent` und `name` in Zeilen, `year` in Spalten, drei Aggregationen in Werten und einen Filter auf `name`:
 
@@ -253,9 +253,9 @@ In der Benutzeroberfläche erscheinen Filter als Dropdown-Listen für jedes Feld
 
 Pivot unterstützt die folgenden Filterbedingungen je Datentyp:
 
-- Textfelder — `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
-- Numerische Felder — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
-- Datumsfelder — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
+- Textfelder: `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
+- Numerische Felder: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
+- Datumsfelder: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
 
 Die Regel `includes` schränkt einen Filter auf eine bestimmte Menge zulässiger Werte ein.
 
@@ -263,7 +263,7 @@ Die Regel `includes` schränkt einen Filter auf eine bestimmte Menge zulässiger
 
 Um einen Filter zu deklarieren, fügen Sie das `filters`-Objekt zur Eigenschaft [`config`](api/config/config-property.md) hinzu, mit der Feld-ID als Schlüssel. Jeder Wert ist ein Objekt mit Filterbedingungen.
 
-Der folgende Code-Ausschnitt wendet zwei Filter an — einen auf `genre` (Werte, die `"D"` enthalten, eingeschränkt auf `"Drama"`) und einen auf `title` (Werte, die `"A"` enthalten):
+Der folgende Code-Ausschnitt wendet zwei Filter an: einen auf `genre` (Werte, die `"D"` enthalten, eingeschränkt auf `"Drama"`) und einen auf `title` (Werte, die `"A"` enthalten):
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -304,7 +304,7 @@ Um Daten stattdessen über die Table-Widget-API zu filtern, greifen Sie mit der 
 Um zu verhindern, dass die Komponente bei sehr großen Datensätzen hängt, begrenzen Sie die Anzahl der Zeilen und Spalten im finalen Datensatz mit der Eigenschaft [`limits`](api/config/limits-property.md). Pivot unterbricht das Rendering, sobald das Limit erreicht ist. Die Standardobergrenze liegt bei 10000 für Zeilen und 5000 für Spalten.
 
 :::note
-Limits gelten für große Datensätze. Die Zahlen sind ungefähr — Pivot garantiert keine exakte Zeilen-/Spaltenanzahl.
+Limits gelten für große Datensätze. Die Zahlen sind Näherungswerte. Pivot garantiert keine exakte Zeilen-/Spaltenanzahl.
 :::
 
 Der folgende Code-Ausschnitt begrenzt den Datensatz auf 10 Zeilen und 3 Spalten:
@@ -337,19 +337,19 @@ const table = new pivot.Pivot("#root", {
 
 Pivot enthält die folgenden integrierten Aggregationsmethoden:
 
-- `sum` (nur numerische Werte) — summiert alle ausgewählten Werte; ignoriert leere Zellen, logische Werte wie `TRUE` und Text
-- `min` (numerische Werte und Datumswerte) — gibt den Minimalwert zurück; ignoriert leere Zellen, logische Werte und Text. Gibt `0` zurück, wenn die Eingabe keine Zahlen enthält
-- `max` (numerische Werte und Datumswerte) — gibt den Maximalwert zurück; ignoriert leere Zellen, logische Werte und Text. Gibt `0` zurück, wenn die Eingabe keine Zahlen enthält
-- `count` (numerische, Text- und Datumswerte) — zählt nicht leere Zellen; dies ist die Standardmethode, die jedem neu hinzugefügten Feld zugewiesen wird
-- `countunique` (numerische Werte und Textwerte) — zählt die Anzahl eindeutiger Werte in der Eingabe
-- `average` (nur numerische Werte) — berechnet das arithmetische Mittel der Eingabe; ignoriert leere Zellen, logische Werte und Text. Berücksichtigt Zellen mit dem Wert null
-- `counta` (numerische, Text- und Datumswerte) — zählt alle nicht leeren Werte, einschließlich Zahlen, Datumsangaben und Text
-- `median` (nur numerische Werte) — gibt den Median der Eingabe zurück
-- `product` (nur numerische Werte) — gibt das Produkt aller Zahlen in der Eingabe zurück
-- `stdev` (nur numerische Werte) — Standardabweichung, wobei die Eingabe als Stichprobe einer größeren Menge behandelt wird
-- `stdevp` (nur numerische Werte) — Standardabweichung, wobei die Eingabe als die gesamte Population behandelt wird
-- `var` (nur numerische Werte) — Varianz, wobei die Eingabe als Stichprobe einer größeren Menge behandelt wird
-- `varp` (nur numerische Werte) — Varianz, wobei die Eingabe als die gesamte Population behandelt wird
+- `sum` (nur numerische Werte) - summiert alle ausgewählten Werte; ignoriert leere Zellen, logische Werte wie `TRUE` und Text
+- `min` (numerische Werte und Datumswerte) - gibt den Minimalwert zurück; ignoriert leere Zellen, logische Werte und Text. Gibt `0` zurück, wenn die Eingabe keine Zahlen enthält
+- `max` (numerische Werte und Datumswerte) - gibt den Maximalwert zurück; ignoriert leere Zellen, logische Werte und Text. Gibt `0` zurück, wenn die Eingabe keine Zahlen enthält
+- `count` (numerische, Text- und Datumswerte) - zählt nicht leere Zellen; dies ist die Standardmethode, die jedem neu hinzugefügten Feld zugewiesen wird
+- `countunique` (numerische Werte und Textwerte) - zählt die Anzahl eindeutiger Werte in der Eingabe
+- `average` (nur numerische Werte) - berechnet das arithmetische Mittel der Eingabe; ignoriert leere Zellen, logische Werte und Text. Berücksichtigt Zellen mit dem Wert null
+- `counta` (numerische, Text- und Datumswerte) - zählt alle nicht leeren Werte, einschließlich Zahlen, Datumsangaben und Text
+- `median` (nur numerische Werte) - gibt den Median der Eingabe zurück
+- `product` (nur numerische Werte) - gibt das Produkt aller Zahlen in der Eingabe zurück
+- `stdev` (nur numerische Werte) - Standardabweichung, wobei die Eingabe als Stichprobe einer größeren Menge behandelt wird
+- `stdevp` (nur numerische Werte) - Standardabweichung, wobei die Eingabe als die gesamte Population behandelt wird
+- `var` (nur numerische Werte) - Varianz, wobei die Eingabe als Stichprobe einer größeren Menge behandelt wird
+- `varp` (nur numerische Werte) - Varianz, wobei die Eingabe als die gesamte Population behandelt wird
 
 Der folgende Code-Ausschnitt zeigt die integrierten Methodendefinitionen:
 
@@ -556,7 +556,7 @@ const table = new pivot.Pivot("#root", {
 
 Prädikate sind Vorverarbeitungsfunktionen, die Rohfelddaten transformieren, bevor Pivot die Daten in Zeilen oder Spalten verwendet. Ein Prädikat kann beispielsweise Datumsangaben vor der Aggregation nach Monat gruppieren.
 
-Der folgende Code-Ausschnitt zeigt die integrierten Datumspr­ädikate, die Pivot standardmäßig anwendet:
+Der folgende Code-Ausschnitt zeigt die integrierten Datumsprädikate, die Pivot standardmäßig anwendet:
 
 ~~~jsx
 const defaultPredicates = {
@@ -572,12 +572,12 @@ const defaultPredicates = {
 
 Um ein benutzerdefiniertes Prädikat hinzuzufügen, konfigurieren Sie die Eigenschaft [`predicates`](api/config/predicates-property.md). Jeder Eintrag verknüpft eine Prädikat-ID (den Schlüssel) mit einem Konfigurationsobjekt:
 
-- `type` — die Feldtypen, die dieses Prädikat akzeptiert (`"number"`, `"date"`, `"text"` oder ein Array)
-- `label` — das Prädikat-Label, das im GUI-Dropdown für eine Zeile/Spalte angezeigt wird
-- `handler` — Funktion, die einen Wert transformiert und den verarbeiteten Wert zurückgibt
-- `template` — optionale Funktion, die steuert, wie der verarbeitete Wert angezeigt wird
-- `field` — optionale Funktion, die das Prädikat auf bestimmte Felder beschränkt
-- `filter` — optionale Filter-Konfiguration, wenn der Filtertyp vom `type` abweichen soll oder wenn das Datenformat vom `template` abweichen soll
+- `type` - die Feldtypen, die dieses Prädikat akzeptiert (`"number"`, `"date"`, `"text"` oder ein Array)
+- `label` - das Prädikat-Label, das im GUI-Dropdown für eine Zeile/Spalte angezeigt wird
+- `handler` - Funktion, die einen Wert transformiert und den verarbeiteten Wert zurückgibt
+- `template` - optionale Funktion, die steuert, wie der verarbeitete Wert angezeigt wird
+- `field` - optionale Funktion, die das Prädikat auf bestimmte Felder beschränkt
+- `filter` - optionale Filter-Konfiguration, wenn der Filtertyp vom `type` abweichen soll oder wenn das Datenformat vom `template` abweichen soll
 
 Um ein benutzerdefiniertes Prädikat zu verwenden, setzen Sie seine ID als `method` der Zeile oder Spalte, auf die das Prädikat angewendet werden soll.
 

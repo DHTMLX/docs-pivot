@@ -112,7 +112,7 @@ Um Body- oder Footer-Zellen zu gestalten, verwenden Sie den Parameter `cellStyle
 Das folgende Beispiel wendet Styles auf Body- und Header-Zellen an:
 
 - Body-Zellen erhalten eine Klasse basierend auf Zellwerten (z. B. `"Down"`, `"Up"`, `"Idle"` im Feld `status`) und auf Gesamtwerten (größer als 40 oder kleiner als 5)
-- Header-Zellen erhalten eine Klasse basierend auf dem Wert des Feldes `streaming` — `status-down` für `"no"` und `status-up` für jeden anderen Wert
+- Header-Zellen erhalten eine Klasse basierend auf dem Wert des Feldes `streaming`: `status-down` für `"no"` und `status-up` für jeden anderen Wert
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {

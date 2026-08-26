@@ -8,17 +8,17 @@ description: Вы можете узнать о конфигурации в до�
 
 Настройте таблицу Pivot и панель конфигурации с помощью следующего API:
 
-- [`config`](api/config/config-property.md) — определяет структуру таблицы Pivot и способ агрегации данных
-- [`render-table`](api/events/render-table-event.md) — изменяет конфигурацию таблицы на лету
-- [`tableShape`](api/config/tableshape-property.md) — настраивает внешний вид таблицы Pivot
-- [`columnShape`](api/config/columnshape-property.md) — настраивает внешний вид и поведение столбцов
-- [`headerShape`](api/config/headershape-property.md) — настраивает внешний вид и поведение заголовков
-- [`configPanel`](api/config/configpanel-property.md) — управляет видимостью панели конфигурации
-- [`setLocale`](api/methods/setlocale-method.md) — применяет локаль (см. [Локализация](guides/localization.md))
-- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) — загружают данные и метаданные полей
-- [`predicates`](api/config/predicates-property.md) — предварительно обрабатывают данные перед агрегацией
-- [`methods`](api/config/methods-property.md) — определяют пользовательские методы агрегации
-- [`limits`](api/config/limits-property.md) — ограничивают количество строк и столбцов в итоговом наборе данных
+- [`config`](api/config/config-property.md) - определяет структуру таблицы Pivot и способ агрегации данных
+- [`render-table`](api/events/render-table-event.md) - изменяет конфигурацию таблицы на лету
+- [`tableShape`](api/config/tableshape-property.md) - настраивает внешний вид таблицы Pivot
+- [`columnShape`](api/config/columnshape-property.md) - настраивает внешний вид и поведение столбцов
+- [`headerShape`](api/config/headershape-property.md) - настраивает внешний вид и поведение заголовков
+- [`configPanel`](api/config/configpanel-property.md) - управляет видимостью панели конфигурации
+- [`setLocale`](api/methods/setlocale-method.md) - применяет локаль (см. [Локализация](guides/localization.md))
+- [`data`](api/config/data-property.md), [`fields`](api/config/fields-property.md) - загружают данные и метаданные полей
+- [`predicates`](api/config/predicates-property.md) - предварительно обрабатывают данные перед агрегацией
+- [`methods`](api/config/methods-property.md) - определяют пользовательские методы агрегации
+- [`limits`](api/config/limits-property.md) - ограничивают количество строк и столбцов в итоговом наборе данных
 
 Инструкции по работе с данными см. в разделе [Работа с данными](guides/working-with-data.md).
 
@@ -81,14 +81,14 @@ const table = new pivot.Pivot("#root", {
 
 ## Автоматическое изменение ширины столбцов по содержимому
 
-Используйте параметр `autoWidth` свойства [`columnShape`](api/config/columnshape-property.md), чтобы вычислять ширину столбцов автоматически. Все подпараметры `autoWidth` являются необязательными — полные описания см. в справочнике [`columnShape`](api/config/columnshape-property.md).
+Используйте параметр `autoWidth` свойства [`columnShape`](api/config/columnshape-property.md), чтобы вычислять ширину столбцов автоматически. Все подпараметры `autoWidth` являются необязательными. Полные описания см. в справочнике [`columnShape`](api/config/columnshape-property.md).
 
 Объект `autoWidth` принимает следующие параметры:
 
-- `columns` — объект, определяющий, для каких полей вычисляется ширина автоматически
-- `auto` — подстраивает ширину под заголовок, содержимое ячейки или под оба варианта
-- `maxRows` — количество строк данных, анализируемых для определения размера столбца (по умолчанию: 20)
-- `firstOnly` — если `true` (по умолчанию), каждое поле анализируется только один раз. Когда несколько столбцов основаны на одном поле (например, `oil` с `count` и `oil` с `sum`), анализируется только первый столбец, а остальные наследуют его ширину
+- `columns` - объект, определяющий, для каких полей вычисляется ширина автоматически
+- `auto` - подстраивает ширину под заголовок, содержимое ячейки или под оба варианта
+- `maxRows` - количество строк данных, анализируемых для определения размера столбца (по умолчанию: 20)
+- `firstOnly` - если `true` (по умолчанию), каждое поле анализируется только один раз. Когда несколько столбцов основаны на одном поле (например, `oil` с `count` и `oil` с `sum`), анализируется только первый столбец, а остальные наследуют его ширину
 
 Следующий фрагмент кода включает `autoWidth` для четырёх полей и отключает `firstOnly`, чтобы каждый столбец получил собственное измерение:
 
@@ -460,7 +460,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## Сортировка в столбцах
 
-Сортировка в интерфейсе включена по умолчанию — пользователи нажимают на заголовок столбца для сортировки. Чтобы отключить её, установите параметр `sort` свойства [`columnShape`](api/config/columnshape-property.md) в `false`.
+Сортировка в интерфейсе включена по умолчанию: пользователи нажимают на заголовок столбца для сортировки. Чтобы отключить её, установите параметр `sort` свойства [`columnShape`](api/config/columnshape-property.md) в `false`.
 
 Следующий фрагмент кода отключает сортировку в интерфейсе:
 
@@ -727,10 +727,10 @@ table.api.intercept("show-config-panel", () => {
 
 Панель конфигурации поддерживает следующие операции с полями:
 
-- [`add-field`](api/events/add-field-event.md) — добавить поле в область
-- [`delete-field`](api/events/delete-field-event.md) — удалить поле из области
-- [`update-field`](api/events/update-field-event.md) — обновить метод или настройки поля
-- [`move-field`](api/events/move-field-event.md) — изменить порядок полей внутри области
+- [`add-field`](api/events/add-field-event.md) - добавить поле в область
+- [`delete-field`](api/events/delete-field-event.md) - удалить поле из области
+- [`update-field`](api/events/update-field-event.md) - обновить метод или настройки поля
+- [`move-field`](api/events/move-field-event.md) - изменить порядок полей внутри области
 
 **Связанные примеры**:
 - [Pivot 2. Добавление текстовых шаблонов для ячеек таблицы и заголовков](https://snippet.dhtmlx.com/n9ylp6b2)

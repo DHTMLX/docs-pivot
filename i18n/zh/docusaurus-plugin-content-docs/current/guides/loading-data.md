@@ -167,9 +167,9 @@ Pivot 支持通过外部 JS 解析库将 CSV 数据转换为 JSON 后再加载�
 
 以下示例使用外部 [PapaParse](https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js) 库在点击按钮时加载并转换数据。`convert()` 辅助函数接受以下参数：
 
-- `data` — 包含 CSV 数据的字符串
-- `headers` — CSV 字段名称的数组
-- `meta` — 将字段名称映射到数据类型的对象
+- `data`：包含 CSV 数据的字符串
+- `headers`：CSV 字段名称的数组
+- `meta`：将字段名称映射到数据类型的对象
 
 以下代码片段创建 Pivot，定义 `convert()` 辅助函数，并在点击按钮时通过 [`setConfig`](api/methods/setconfig-method.md) 应用解析后的 CSV 数据：
 

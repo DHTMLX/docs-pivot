@@ -6,7 +6,7 @@ description: You can explore how to start working with DHTMLX Pivot in the docum
 
 # How to start
 
-This clear and comprehensive tutorial will guide your through the steps you need to take in order to get a full-functional Pivot on a page.
+This tutorial walks you through the steps needed to get a fully functional Pivot on a page.
 
 ![DHTMLX Pivot interface showing the Configuration panel and data table](/img/pivot-main.png)
 

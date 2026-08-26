@@ -101,14 +101,14 @@ API версии 1.5 несовместим с API версии 2.0.
   - делать столбцы сворачиваемыми ([пример](https://snippet.dhtmlx.com/pt2ljmcm))
 - Форма и размеры таблицы настраиваются через свойство [`tableShape`](api/config/tableshape-property.md), которое позволяет:
   - настраивать высоту строк, заголовков, нижнего колонтитула: rowHeight, headerHeight, footerHeight ([Изменение размеров таблицы](guides/configuration.md#resizing-the-table))
-  - генерировать итоговые значения не только для столбцов, но и для строк — с помощью параметра **totalColumn** свойства `tableShape` ([пример](https://snippet.dhtmlx.com/f0ag0t9t))
+  - генерировать итоговые значения не только для столбцов, но и для строк с помощью параметра **totalColumn** свойства `tableShape` ([пример](https://snippet.dhtmlx.com/f0ag0t9t))
   - скрывать дублирующиеся значения в представлении таблицы (параметр **cleanRows** свойства [`tableShape`](api/config/tableshape-property.md))
   - фиксировать столбцы слева, делая их статичными при прокрутке ([пример](https://snippet.dhtmlx.com/lahf729o))
   - разворачивать или сворачивать все строки ([пример](https://snippet.dhtmlx.com/i4mi6ejn))
 - Добавлены дополнительные возможности для агрегирования данных:
   - [ограничение загружаемых данных](guides/working-with-data.md#limiting-loaded-data)
   - доступно больше [операций с данными](guides/working-with-data.md#applying-maths-methods)
-  - [обработка данных с помощью предикатов](guides/working-with-data.md#processing-data-with-predicates) — применение пользовательских функций предварительной обработки данных
+  - [обработка данных с помощью предикатов](guides/working-with-data.md#processing-data-with-predicates) - применение пользовательских функций предварительной обработки данных
   - [задание формата даты через локаль](guides/localization.md#date-formatting)
 - Добавлены новые методы: [`getTable()`](api/methods/gettable-method.md), [`setConfig()`](api/methods/setconfig-method.md), [`setLocale()`](api/methods/setlocale-method.md), [`showConfigPanel()`](api/methods/showconfigpanel-method.md)
 - Добавлены новые события: [`add-field`](api/events/add-field-event.md), [`delete-field`](api/events/delete-field-event.md), [`open-filter`](api/events/open-filter-event.md), [`render-table`](api/events/render-table-event.md), [`move-field`](api/events/move-field-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`update-config`](api/events/update-config-event.md), [`update-field`](api/events/update-field-event.md).

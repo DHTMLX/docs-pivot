@@ -66,10 +66,10 @@ const table = new pivot.Pivot("#root", {
 
 생성자는 Pivot 인스턴스를 반환합니다. 반환된 인스턴스에서 API 메서드를 호출하세요:
 
-- [`getTable`](api/methods/gettable-method.md) — 기반 Table 위젯 인스턴스에 접근합니다
-- [`setConfig`](api/methods/setconfig-method.md) — 현재 Pivot 구성을 업데이트합니다
-- [`setLocale`](api/methods/setlocale-method.md) — Pivot에 새 로케일을 적용합니다
-- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — 구성 패널을 표시하거나 숨깁니다
+- [`getTable`](api/methods/gettable-method.md) - 기반 Table 위젯 인스턴스에 접근합니다
+- [`setConfig`](api/methods/setconfig-method.md) - 현재 Pivot 구성을 업데이트합니다
+- [`setLocale`](api/methods/setlocale-method.md) - Pivot에 새 로케일을 적용합니다
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md) - 구성 패널을 표시하거나 숨깁니다
 
 ## 구성 속성 {#configuration-properties}
 

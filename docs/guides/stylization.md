@@ -112,7 +112,7 @@ To style body or footer cells, use the `cellStyle` parameter of the [`tableShape
 The example below applies styles to body and header cells:
 
 - body cells receive a class based on cell values (e.g., `"Down"`, `"Up"`, `"Idle"` in the `status` field) and on total values (greater than 40 or less than 5)
-- header cells receive a class based on the value of the `streaming` field — `status-down` for `"no"` and `status-up` for any other value
+- header cells receive a class based on the value of the `streaming` field: `status-down` for `"no"` and `status-up` for any other value
 
 ~~~jsx
 const widget = new pivot.Pivot("#pivot", {

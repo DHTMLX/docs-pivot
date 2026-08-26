@@ -25,7 +25,7 @@ ng new my-angular-pivot-app
 ~~~
 
 :::note
-Angular CLI의 안내에 따라 서버 사이드 렌더링(SSR)과 정적 사이트 생성(SSG/Prerendering)을 비활성화하세요 — 이 가이드는 클라이언트 렌더링 앱을 기준으로 합니다.
+Angular CLI의 안내에 따라 서버 사이드 렌더링(SSR)과 정적 사이트 생성(SSG/Prerendering)을 비활성화하세요. 이 가이드는 클라이언트 렌더링 앱을 기준으로 합니다.
 :::
 
 명령어를 실행하면 필요한 모든 도구가 설치됩니다. 추가 명령어는 필요하지 않습니다.

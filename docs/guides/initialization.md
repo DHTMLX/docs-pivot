@@ -66,10 +66,10 @@ const table = new pivot.Pivot("#root", {
 
 The constructor returns a Pivot instance. Call API methods on the returned instance:
 
-- [`getTable`](api/methods/gettable-method.md) — get access to the underlying Table widget instance
-- [`setConfig`](api/methods/setconfig-method.md) — update the current Pivot configuration
-- [`setLocale`](api/methods/setlocale-method.md) — apply a new locale to Pivot
-- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — show or hide the Configuration panel
+- [`getTable`](api/methods/gettable-method.md) - get access to the underlying Table widget instance
+- [`setConfig`](api/methods/setconfig-method.md) - update the current Pivot configuration
+- [`setLocale`](api/methods/setlocale-method.md) - apply a new locale to Pivot
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md) - show or hide the Configuration panel
 
 ## Configuration properties
 

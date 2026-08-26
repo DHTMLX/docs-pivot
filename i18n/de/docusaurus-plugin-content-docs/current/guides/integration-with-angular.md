@@ -25,7 +25,7 @@ ng new my-angular-pivot-app
 ~~~
 
 :::note
-Deaktivieren Sie Server-Side Rendering (SSR) und Static Site Generation (SSG/Prerendering), wenn die Angular CLI danach fragt — dieser Guide setzt eine client-seitig gerenderte App voraus.
+Deaktivieren Sie Server-Side Rendering (SSR) und Static Site Generation (SSG/Prerendering), wenn die Angular CLI danach fragt. Dieser Guide setzt eine client-seitig gerenderte App voraus.
 :::
 
 Der Befehl installiert alle erforderlichen Werkzeuge. Weitere Befehle sind nicht notwendig.
