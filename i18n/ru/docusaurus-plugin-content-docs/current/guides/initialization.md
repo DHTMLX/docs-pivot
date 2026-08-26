@@ -66,10 +66,10 @@ const table = new pivot.Pivot("#root", {
 
 Конструктор возвращает экземпляр Pivot. Вызывайте методы API на возвращённом экземпляре:
 
-- [`getTable`](api/methods/gettable-method.md) — получить доступ к экземпляру виджета Table
-- [`setConfig`](api/methods/setconfig-method.md) — обновить текущую конфигурацию Pivot
-- [`setLocale`](api/methods/setlocale-method.md) — применить новую локаль к Pivot
-- [`showConfigPanel`](api/methods/showconfigpanel-method.md) — показать или скрыть панель конфигурации
+- [`getTable`](api/methods/gettable-method.md) - получить доступ к экземпляру виджета Table
+- [`setConfig`](api/methods/setconfig-method.md) - обновить текущую конфигурацию Pivot
+- [`setLocale`](api/methods/setlocale-method.md) - применить новую локаль к Pivot
+- [`showConfigPanel`](api/methods/showconfigpanel-method.md) - показать или скрыть панель конфигурации
 
 ## Параметры конфигурации {#configuration-properties}
 

@@ -9,7 +9,7 @@ description: You can have an overview of DHTMLX JavaScript Pivot library in the 
 
 JavaScript Pivot library is a ready-made component for creating Pivot tables from large datasets. The widget API can be easily adjusted to the needs of your web application. It provides the end user with functionality for comparing and analyzing complex data within one table.
 
-## Pivot structure­
+## Pivot structure
 
 The Pivot UI consists of the two main components: the Configuration panel and the table with data.
 

@@ -25,7 +25,7 @@ ng new my-angular-pivot-app
 ~~~
 
 :::note
-При запросе Angular CLI отключите Server-Side Rendering (SSR) и Static Site Generation (SSG/Prerendering) — данное руководство предполагает клиентский рендеринг.
+При запросе Angular CLI отключите Server-Side Rendering (SSR) и Static Site Generation (SSG/Prerendering). Данное руководство предполагает клиентский рендеринг.
 :::
 
 Команда установит все необходимые инструменты. Дополнительные команды не требуются.

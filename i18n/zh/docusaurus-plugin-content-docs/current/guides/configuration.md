@@ -8,17 +8,17 @@ description: 您可以在 DHTMLX JavaScript Pivot 库的文档中了解配置相
 
 通过以下 API 配置 Pivot 表格和配置面板：
 
-- [`config`](api/config/config-property.md) — 定义 Pivot 表格的结构及数据聚合方式
-- [`render-table`](api/events/render-table-event.md) — 动态更改表格配置
-- [`tableShape`](api/config/tableshape-property.md) — 配置 Pivot 表格的外观
-- [`columnShape`](api/config/columnshape-property.md) — 配置列的外观和行为
-- [`headerShape`](api/config/headershape-property.md) — 配置表头的外观和行为
-- [`configPanel`](api/config/configpanel-property.md) — 控制配置面板的显示状态
-- [`setLocale`](api/methods/setlocale-method.md) — 应用语言环境（参见[本地化](guides/localization.md)）
-- [`data`](api/config/data-property.md)、[`fields`](api/config/fields-property.md) — 加载数据和字段元数据
-- [`predicates`](api/config/predicates-property.md) — 在聚合前对数据进行预处理
-- [`methods`](api/config/methods-property.md) — 定义自定义聚合方法
-- [`limits`](api/config/limits-property.md) — 限制最终数据集中的行数和列数
+- [`config`](api/config/config-property.md)：定义 Pivot 表格的结构及数据聚合方式
+- [`render-table`](api/events/render-table-event.md)：动态更改表格配置
+- [`tableShape`](api/config/tableshape-property.md)：配置 Pivot 表格的外观
+- [`columnShape`](api/config/columnshape-property.md)：配置列的外观和行为
+- [`headerShape`](api/config/headershape-property.md)：配置表头的外观和行为
+- [`configPanel`](api/config/configpanel-property.md)：控制配置面板的显示状态
+- [`setLocale`](api/methods/setlocale-method.md)：应用语言环境（参见[本地化](guides/localization.md)）
+- [`data`](api/config/data-property.md)、[`fields`](api/config/fields-property.md)：加载数据和字段元数据
+- [`predicates`](api/config/predicates-property.md)：在聚合前对数据进行预处理
+- [`methods`](api/config/methods-property.md)：定义自定义聚合方法
+- [`limits`](api/config/limits-property.md)：限制最终数据集中的行数和列数
 
 有关数据操作的说明，请参见[数据操作](guides/working-with-data.md)。
 
@@ -81,14 +81,14 @@ const table = new pivot.Pivot("#root", {
 
 ## 自动调整列宽以适应内容 {#autosize-columns-to-content}
 
-使用 [`columnShape`](api/config/columnshape-property.md) 属性的 `autoWidth` 参数自动计算列宽。所有 `autoWidth` 子参数均为可选项——完整说明请参见 [`columnShape`](api/config/columnshape-property.md) 参考文档。
+使用 [`columnShape`](api/config/columnshape-property.md) 属性的 `autoWidth` 参数自动计算列宽。所有 `autoWidth` 子参数均为可选项。完整说明请参见 [`columnShape`](api/config/columnshape-property.md) 参考文档。
 
 `autoWidth` 对象接受以下参数：
 
-- `columns` — 选择哪些字段启用自动计算宽度的对象
-- `auto` — 根据表头、单元格内容或两者来调整宽度
-- `maxRows` — 用于检测列尺寸所分析的数据行数（默认值：20）
-- `firstOnly` — 若为 `true`（默认值），则每个字段仅分析一次。当多列基于同一字段时（例如，`oil` 对应 `count` 和 `oil` 对应 `sum`），仅分析第一列，其余列继承其宽度
+- `columns`：选择哪些字段启用自动计算宽度的对象
+- `auto`：根据表头、单元格内容或两者来调整宽度
+- `maxRows`：用于检测列尺寸所分析的数据行数（默认值：20）
+- `firstOnly`：若为 `true`（默认值），则每个字段仅分析一次。当多列基于同一字段时（例如，`oil` 对应 `count` 和 `oil` 对应 `sum`），仅分析第一列，其余列继承其宽度
 
 以下代码片段为四个字段启用 `autoWidth` 并禁用 `firstOnly`，使每列独立进行宽度计算：
 
@@ -460,7 +460,7 @@ widget.api.on("render-table", ({ config: tableConfig }) => {
 
 ## 列排序 {#sort-in-columns}
 
-UI 中的排序功能默认启用——用户单击列表头即可排序。要禁用排序，请将 [`columnShape`](api/config/columnshape-property.md) 属性的 `sort` 参数设置为 `false`。
+UI 中的排序功能默认启用：用户单击列表头即可排序。要禁用排序，请将 [`columnShape`](api/config/columnshape-property.md) 属性的 `sort` 参数设置为 `false`。
 
 以下代码片段禁用 UI 排序：
 
@@ -727,10 +727,10 @@ table.api.intercept("show-config-panel", () => {
 
 配置面板支持以下字段操作：
 
-- [`add-field`](api/events/add-field-event.md) — 将字段添加到区域
-- [`delete-field`](api/events/delete-field-event.md) — 从区域移除字段
-- [`update-field`](api/events/update-field-event.md) — 更新字段的方法或设置
-- [`move-field`](api/events/move-field-event.md) — 在区域内对字段重新排序
+- [`add-field`](api/events/add-field-event.md)：将字段添加到区域
+- [`delete-field`](api/events/delete-field-event.md)：从区域移除字段
+- [`update-field`](api/events/update-field-event.md)：更新字段的方法或设置
+- [`move-field`](api/events/move-field-event.md)：在区域内对字段重新排序
 
 **相关示例**：
 - [Pivot 2. 为表格和表头单元格添加文本模板](https://snippet.dhtmlx.com/n9ylp6b2)

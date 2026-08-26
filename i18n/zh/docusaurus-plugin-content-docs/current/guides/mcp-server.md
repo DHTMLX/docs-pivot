@@ -6,7 +6,7 @@ description: 通过 MCP 服务器，DHTMLX Pivot 的 config、聚合方法、谓
 
 # DHTMLX Pivot MCP 服务器：配置、聚合和导出 {#dhtmlx-pivot-mcp-server-configuration-aggregation-and-export}
 
-DHTMLX Pivot 将[一个配置对象](api/config/config-property.md)转换为完全聚合的表格，并开放了整个第二套 API——[底层的 Table widget](api/methods/gettable-method.md)，用于导出数据或展开树形行。布局更改和完整表格重绘各自触发自己的事件：[布局编辑](api/events/update-config-event.md)触发其中一个，而[底层的每一次重绘](api/events/render-table-event.md)触发另一个。要做对这一切，靠的是最新文档，而不是过时的猜测。
+DHTMLX Pivot 将[一个配置对象](api/config/config-property.md)转换为完全聚合的表格，并开放了整个第二套 API，即[底层的 Table widget](api/methods/gettable-method.md)，用于导出数据或展开树形行。布局更改和完整表格重绘各自触发自己的事件：[布局编辑](api/events/update-config-event.md)触发其中一个，而[底层的每一次重绘](api/events/render-table-event.md)触发另一个。要做对这一切，靠的是最新文档，而不是过时的猜测。
 
 不妨改为查询 DHTMLX MCP 服务器：它会返回当前的 [`config` 结构](api/config/config-property.md)、[通过 getTable() 的导出路径](guides/exporting-data.md)，以及[用于持久化的正确事件](/guides/working-with-server#save-the-users-layout-to-resume-the-session)，从而让助手生成的代码与 Pivot 当前实际的行为方式相匹配。
 
@@ -36,7 +36,7 @@ MCP 服务器几乎可以告诉您关于 DHTMLX Pivot 文档的一切，从以�
 
 ## Pivot 问题在 MCP 中的去向 {#where-a-pivot-question-lands-in-mcp}
 
-发送到 DHTMLX MCP 服务器的 Pivot 问题会经过一条基于 Model Context Protocol（MCP）构建的检索增强生成（RAG）流水线，并落入两种工作流之一：*Search*，返回匹配的参考页面供助手据此编写代码；或 *Inference*，直接读取这些页面并自行回答问题。这类请求中只有一半需要查阅文档。助手会精确定位出这一半，其余部分——即特定于服务器的保存逻辑——则依靠自身已有的知识来编写。
+发送到 DHTMLX MCP 服务器的 Pivot 问题会经过一条基于 Model Context Protocol（MCP）构建的检索增强生成（RAG）流水线，并落入两种工作流之一：*Search*，返回匹配的参考页面供助手据此编写代码；或 *Inference*，直接读取这些页面并自行回答问题。这类请求中只有一半需要查阅文档。助手会精确定位出这一半，其余部分（即特定于服务器的保存逻辑）则依靠自身已有的知识来编写。
 
 以提示词 *"编写一个处理程序，在每次布局更改时将 Pivot 的 config 保存到服务器。"* 为例：
 

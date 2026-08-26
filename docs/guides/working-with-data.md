@@ -10,7 +10,7 @@ This page describes how to aggregate, format, sort, filter, and pre-process data
 
 ## Define fields
 
-Use the [`fields`](api/config/fields-property.md) property to declare the fields that Pivot can place in rows, columns, and values. Each item in the `fields` array describes one field — its ID, label, and data type.
+Use the [`fields`](api/config/fields-property.md) property to declare the fields that Pivot can place in rows, columns, and values. Each item in the `fields` array describes one field: its ID, label, and data type.
 
 The following code snippet initializes Pivot with five fields:
 
@@ -127,7 +127,7 @@ For the `xlsx` export format, Pivot exports date and number fields as raw values
 
 ## Define Pivot structure
 
-Use the [`config`](api/config/config-property.md) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. The `config` property has no predefined values — you must set it to render any data. See the [`config`](api/config/config-property.md) reference for the full parameter list.
+Use the [`config`](api/config/config-property.md) property to declare which fields appear as rows, columns, and aggregated values, and how the data is filtered. The `config` property has no predefined values, so you must set it to render any data. See the [`config`](api/config/config-property.md) reference for the full parameter list.
 
 The following code snippet places `continent` and `name` in rows, `year` in columns, three aggregations in values, and a filter on `name`:
 
@@ -253,9 +253,9 @@ In the UI, filters appear as drop-down lists for each field.
 
 Pivot supports the following filter conditions per data type:
 
-- text fields — `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
-- numeric fields — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
-- date fields — `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
+- text fields: `equal`, `notEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`, `includes`
+- numeric fields: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `contains`, `notContains`, `beginsWith`, `notBeginsWith`, `endsWith`, `notEndsWith`
+- date fields: `equal`, `notEqual`, `greater`, `greaterOrEqual`, `less`, `lessOrEqual`, `between`, `notBetween`, `includes`
 
 The `includes` rule restricts a filter to a specific set of allowed values.
 
@@ -263,7 +263,7 @@ The `includes` rule restricts a filter to a specific set of allowed values.
 
 To declare a filter, add the `filters` object to the [`config`](api/config/config-property.md) property, keyed by field ID. Each value is an object of filter conditions.
 
-The following code snippet applies two filters — one on `genre` (values containing `"D"`, restricted to `"Drama"`) and one on `title` (values containing `"A"`):
+The following code snippet applies two filters, one on `genre` (values containing `"D"`, restricted to `"Drama"`) and one on `title` (values containing `"A"`):
 
 ~~~jsx
 const table = new pivot.Pivot("#root", {
@@ -304,7 +304,7 @@ To filter data through the Table widget API instead, access the Table instance w
 To prevent the component from hanging on very large datasets, cap the number of rows and columns in the final dataset with the [`limits`](api/config/limits-property.md) property. Pivot interrupts rendering once the limit is reached. The default cap is 10000 for rows and 5000 for columns.
 
 :::note
-Limits apply to large datasets. The numbers are approximate — Pivot does not guarantee an exact row/column count.
+Limits apply to large datasets. The numbers are approximate; Pivot does not guarantee an exact row/column count.
 :::
 
 The following code snippet caps the dataset at 10 rows and 3 columns:
@@ -337,19 +337,19 @@ const table = new pivot.Pivot("#root", {
 
 Pivot includes the following built-in aggregation methods:
 
-- `sum` (numeric values only) — sums all selected values; ignores empty cells, logical values like `TRUE`, and text
-- `min` (numeric and date values) — returns the minimum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
-- `max` (numeric and date values) — returns the maximum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
-- `count` (numeric, text, and date values) — counts non-blank cells; this is the default method assigned to every newly added field
-- `countunique` (numeric and text values) — counts the number of unique values in the input
-- `average` (numeric values only) — calculates the arithmetic mean of the input; ignores empty cells, logical values, and text. Includes cells with the value zero
-- `counta` (numeric, text, and date values) — counts all non-blank values, including numbers, dates, and text
-- `median` (numeric values only) — returns the median of the input
-- `product` (numeric values only) — returns the product of all numbers in the input
-- `stdev` (numeric values only) — standard deviation, treating the input as a sample of a larger set
-- `stdevp` (numeric values only) — standard deviation, treating the input as the entire population
-- `var` (numeric values only) — variance, treating the input as a sample of a larger set
-- `varp` (numeric values only) — variance, treating the input as the entire population
+- `sum` (numeric values only) - sums all selected values; ignores empty cells, logical values like `TRUE`, and text
+- `min` (numeric and date values) - returns the minimum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
+- `max` (numeric and date values) - returns the maximum value; ignores empty cells, logical values, and text. Returns `0` if the input contains no numbers
+- `count` (numeric, text, and date values) - counts non-blank cells; this is the default method assigned to every newly added field
+- `countunique` (numeric and text values) - counts the number of unique values in the input
+- `average` (numeric values only) - calculates the arithmetic mean of the input; ignores empty cells, logical values, and text. Includes cells with the value zero
+- `counta` (numeric, text, and date values) - counts all non-blank values, including numbers, dates, and text
+- `median` (numeric values only) - returns the median of the input
+- `product` (numeric values only) - returns the product of all numbers in the input
+- `stdev` (numeric values only) - standard deviation, treating the input as a sample of a larger set
+- `stdevp` (numeric values only) - standard deviation, treating the input as the entire population
+- `var` (numeric values only) - variance, treating the input as a sample of a larger set
+- `varp` (numeric values only) - variance, treating the input as the entire population
 
 The following code snippet shows the built-in method definitions:
 
@@ -572,12 +572,12 @@ const defaultPredicates = {
 
 To add a custom predicate, configure the [`predicates`](api/config/predicates-property.md) property. Each entry pairs a predicate ID (the key) with a configuration object:
 
-- `type` — the field types this predicate accepts (`"number"`, `"date"`, `"text"`, or an array)
-- `label` — the predicate label shown in the GUI drop-down for a row/column
-- `handler` — function that transforms a value and returns the processed value
-- `template` — optional function that controls how the processed value is displayed
-- `field` — optional function that limits the predicate to specific fields
-- `filter` — optional filter configuration when the filter type should differ from `type`, or when the data format should differ from `template`
+- `type` - the field types this predicate accepts (`"number"`, `"date"`, `"text"`, or an array)
+- `label` - the predicate label shown in the GUI drop-down for a row/column
+- `handler` - function that transforms a value and returns the processed value
+- `template` - optional function that controls how the processed value is displayed
+- `field` - optional function that limits the predicate to specific fields
+- `filter` - optional filter configuration when the filter type should differ from `type`, or when the data format should differ from `template`
 
 To use a custom predicate, set its ID as the `method` of the row or column where the predicate should apply.
 

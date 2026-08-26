@@ -6,7 +6,7 @@ description: You can learn about using typescript with the DHTMLX JavaScript Piv
 
 # TypeScript support
 
-DHTMLX Pivot ships TypeScript definitions starting from v2.0. The definitions are ready to use — no extra configuration needed.
+DHTMLX Pivot ships TypeScript definitions starting from v2.0. The definitions are ready to use, with no extra configuration needed.
 
 :::info
 Try Pivot live in the [Snippet Tool](https://snippet.dhtmlx.com/y2buoahe).

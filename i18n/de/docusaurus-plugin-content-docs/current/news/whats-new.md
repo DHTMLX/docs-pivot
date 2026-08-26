@@ -108,7 +108,7 @@ Tipps zur Migration auf die neue Version finden Sie auf der Seite [Migration](ne
 - Weitere Funktionen zum Aggregieren von Daten wurden hinzugefügt:
   - [Begrenzen geladener Daten](guides/working-with-data.md#limiting-loaded-data)
   - Mehr [Operationen mit Daten](guides/working-with-data.md#applying-maths-methods) sind verfügbar
-  - [Daten mit Predicates verarbeiten](guides/working-with-data.md#processing-data-with-predicates) – Anwenden benutzerdefinierter Vorverarbeitungsfunktionen für Daten
+  - [Daten mit Predicates verarbeiten](guides/working-with-data.md#processing-data-with-predicates) - Anwenden benutzerdefinierter Vorverarbeitungsfunktionen für Daten
   - [Datumsformat über Gebietsschema festlegen](guides/localization.md#date-formatting)
 - Neue Methoden wurden hinzugefügt: [`getTable()`](api/methods/gettable-method.md), [`setConfig()`](api/methods/setconfig-method.md), [`setLocale()`](api/methods/setlocale-method.md), [`showConfigPanel()`](api/methods/showconfigpanel-method.md)
 - Neue Events wurden hinzugefügt: [`add-field`](api/events/add-field-event.md), [`delete-field`](api/events/delete-field-event.md), [`open-filter`](api/events/open-filter-event.md), [`render-table`](api/events/render-table-event.md), [`move-field`](api/events/move-field-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`show-config-panel`](api/events/show-config-panel-event.md), [`update-config`](api/events/update-config-event.md), [`update-field`](api/events/update-field-event.md).
